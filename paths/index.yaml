@@ -1,0 +1,19 @@
+#
+# This file groups path definitions for Onepanel API
+# defined in separate files for each path
+#
+
+/hosts:
+  $ref: ./hosts.yaml
+
+/hosts/{id}:
+  $ref: ./hosts-id.yaml
+
+/hosts/{id}/worker:
+  $ref: ./hosts-id-worker.yaml
+
+/hosts/{id}/database:
+  $ref: ./hosts-id-database.yaml
+
+/hosts/{id}/clustermanager:
+  $ref: ./hosts-id-clustermanager.yaml

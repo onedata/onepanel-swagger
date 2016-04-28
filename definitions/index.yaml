@@ -1,0 +1,18 @@
+#
+# This file groups the type definitions for Onepanel REST API
+#
+
+error:
+  $ref: ./error.yaml
+
+worker:
+  $ref: ./worker.yaml 
+
+host:
+  $ref: ./host.yaml 
+
+database:
+  $ref: ./database.yaml
+
+clustermanager:
+  $ref: ./clustermanager.yaml

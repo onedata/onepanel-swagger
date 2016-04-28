@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique ClusterManager ID
+  name:
+    type: string
+    description: The name of the ClusterManager - can be the same as the hostname.
+  running:
+    type: boolean
+    description: This flag determines whether the ClusterManager should be running or should be stopped. It does not necessarily reflect the actual state of the CM.
+  isPrimary:
+    type: boolean
+    description: Specifies whether this CM is the primary ClusterManager instance for that deployment. 

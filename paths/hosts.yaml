@@ -1,0 +1,57 @@
+get:
+  operationId: listHosts
+  description: Returns the list of hosts in the local network with Oneprovider installed.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: List of hosts
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/host'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: role
+    in: query
+    description: List only hosts with selected components installed, specified by comma separated list (e.g. worker,database)
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+
+
+post:
+  operationId: addHost
+  description: Adds new host to the local installation. Typically the hosts are discovered automatically through multicast, but this method can be used as a fallback mechanism.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Id of installed worker.
+      schema:
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: host
+    in: body
+    description: Description of the host to add.
+    schema: 
+      $ref: '#/definitions/host'
+    required: true
+

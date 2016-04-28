@@ -1,0 +1,3 @@
+version: 3.0.0
+title: Onepanel API
+description: This is the RESTful API definition of Onepanel component of Onedata data management system [http://www.onedata.org].

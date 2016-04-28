@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique database instance ID
+  name:
+    type: string
+    description: The name of the database - can be the same as the hostname.
+  running:
+    type: boolean
+    description: This flag determines whether the database should be running or should be stopped. It does not necessarily reflect the actual state of the database. 
