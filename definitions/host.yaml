@@ -1,4 +1,5 @@
 type: object
+description: Describes a the properties of a Host instance.
 properties:
   id: 
     type: string

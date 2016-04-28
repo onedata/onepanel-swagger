@@ -1,0 +1,22 @@
+-module(rest_model).
+
+%
+% Definitions of records for REST API
+%
+
+
+{{#models}}
+{{#model}}
+%
+% {{classname}}
+%
+% {{notes}}
+%
+-record({{classname}}, {
+{{#vars}}
+    {{name}} :: {{datatype}}(), % {{description}}
+{{/vars}} }).
+
+
+{{/model}}
+{{/models}}

@@ -1,0 +1,23 @@
+-module(rest_api).
+%
+% {{appName}}
+%
+% {{appDescription}}
+% Version: {{version}}
+
+{{#operations}}
+{{#operation}}
+%
+% '{{basePathWithoutHost}}{{path}}'
+% {{notes}}
+%
+% HTTP method: {{httpMethod}}
+%
+{{#allParams}}
+% @param {{paramName}} {{description}}
+{{/allParams}}
+%
+-spec {{operationId}}() -> .
+
+{{/operation}}
+{{/operations}}

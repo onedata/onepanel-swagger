@@ -1,43 +1,16 @@
 #!/bin/bash
 
 # Generate aggregate JSON file from YAML
-docker run --rm -v `pwd`:/swagger swagger-aggregator
+#docker run --rm -v `pwd`:/swagger docker.onedata.org/swagger-aggregator:1.2.0
+docker run --rm -v `pwd`:/swagger swagger-aggregator6
 
 
 # Validate the JSON
 docker run --rm -v `pwd`:/swagger swagger-cli validate /swagger/swagger.json
 
-# Run doc server
-#docker run --rm -v `pwd`:/swagger swagger-ui 
+# Generate the Cowboy server stub
+docker run --rm -v `pwd`:/swagger -t swagger-codegen2 generate -i ./swagger.json -l cowboy -o ./generated/cowboy
 
+# Generate the 
+docker run --rm -v `pwd`:/swagger -t swagger-codegen2 generate -i ./swagger.json -l html -o ./generated/html
 
-exit
-
-docker run --rm -v `pwd`:/INPUT -v `pwd`/../generated:/OUTPUT \
-   -t swagger-codegen java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar \
-   generate -i /INPUT/swagger.json \
-   -l python -o /OUTPUT/python
-
-
-docker run --rm -v `pwd`:/INPUT -v `pwd`/../generated:/OUTPUT \
-   -t swagger-codegen java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar \
-   generate -i /INPUT/swagger.json \
-   -l html -o /OUTPUT/html
-
-
-docker run --rm -v `pwd`:/INPUT -v `pwd`/../generated:/OUTPUT \
-   -t swagger-codegen java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar \
-   generate -i /INPUT/swagger.json \
-   -l dynamic-html -o /OUTPUT/node-html
-
-
-docker run --rm -v `pwd`:/INPUT -v `pwd`/../generated:/OUTPUT \
-   -t swagger-codegen java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar \
-   generate -i /INPUT/swagger.json \
-   -l java -o /OUTPUT/java
-
-
-docker run --rm -v `pwd`:/INPUT -v `pwd`/../generated:/OUTPUT \
-   -t swagger-codegen java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar \
-   generate -i /INPUT/swagger.json \
-   -l ruby -o /OUTPUT/ruby

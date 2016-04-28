@@ -1,4 +1,5 @@
 type: object
+description: Describes a the properties of ClusterManager instance.
 properties:
   id:
     type: string
