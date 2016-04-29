@@ -5,11 +5,46 @@
 % {{appDescription}}
 % Version: {{version}}
 
+%
+% @doc Returns a Cowboy-understandable PathList of routes supported by a module
+% implementing this behavior.
+% @see rest_module_behavior
+% @end
+%
+-spec routes() ->
+    [{PathMatch :: binary(), rest_handler, State :: rstate()}].
+routes() ->
+    S = #rstate{module = ?MODULE, root = spaces},
+    M = rest_handler,
+    [
+{{#operations}}
+{{#operation}}
+      { <<"{{basePathWithoutHost}}{{path}}">>, {{operationId}}, S#rstate{resource = hosts, method = "{{httpMethod}}" },
+{{/operation}}
+{{/operations}}
+	].
+{{!
+        {<<"/spaces">>, M, S#rstate{resource = spaces, methods = [post]} },
+        {<<"/spaces/:id">>, M, S#rstate{resource = space, methods = [get, patch, delete]} },
+        {<<"/spaces/:id/users">>, M, S#rstate{resource = users, methods = [get]} },
+        {<<"/spaces/:id/users/token">>, M, S#rstate{resource = uinvite, methods = [get]} },
+        {<<"/spaces/:id/users/:uid">>, M, S#rstate{resource = user, methods = [get, delete]} },
+        {<<"/spaces/:id/users/:uid/privileges">>, M, S#rstate{resource = upriv, methods = [get, put]} },
+        {<<"/spaces/:id/groups">>, M, S#rstate{resource = groups, methods = [get]} },
+        {<<"/spaces/:id/groups/token">>, M, S#rstate{resource = ginvite, methods = [get]} },
+        {<<"/spaces/:id/groups/:gid">>, M, S#rstate{resource = group, methods = [get, delete]} },
+        {<<"/spaces/:id/groups/:gid/privileges">>, M, S#rstate{resource = gpriv, methods = [get, put]} },
+        {<<"/spaces/:id/providers">>, M, S#rstate{resource = providers, methods = [get]} },
+        {<<"/spaces/:id/providers/token">>, M, S#rstate{resource = pinvite, methods = [get]} },
+        {<<"/spaces/:id/providers/:pid">>, M, S#rstate{resource = provider, methods = [get, delete]} }
+    ].
+}}
+
 {{#operations}}
 {{#operation}}
 %
 % '{{basePathWithoutHost}}{{path}}'
-% {{notes}}
+% @doc {{notes}}
 %
 % HTTP method: {{httpMethod}}
 %
