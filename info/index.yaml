@@ -1,3 +1,10 @@
 version: 3.0.0
 title: Onepanel API
 description: This is the RESTful API definition of Onepanel component of Onedata data management system [http://www.onedata.org].
+contact:
+  name: Onedata support
+  url: https://onedata.org/support
+  email: info@onedata.org
+license:
+  name: Apache 2.0
+  url: http://www.apache.org/licenses/LICENSE-2.0.html
