@@ -1,4 +1,8 @@
 -module(rest_api).
+
+-import(validator).
+-import(rest_model).
+
 %
 % {{appName}}
 %
@@ -37,7 +41,35 @@ routes() ->
 % @param {{paramName}} {{description}}
 {{/allParams}}
 %
--spec {{operationId}}() -> .
+-spec {{operationId}}({{#allParams}}{{dataType}} :: {{paramName}},{{/allParams}}) -> 
+	{{#hasPathParams}}
+	%%%
+	%%% Validate path params - in case of array parameters in path they need to be parsed
+	%%% by parsing a comma-separated list
+	%%%
+	{{#pathParams}}
+		{{#isContainer}}
+	validator:parse('csv', {{paramName}}),
+		{{/isContainer}}
+		{{^isContainer}}
+	validator:parse('string', {{paramName}}),
+		{{/isContainer}}	
+		{{/pathParams}}
+	{{/hasPathParams}}
+	{{#hasConsumes}}
+	%%%
+	%%% Validate the input body params
+	%%%
+		{{#bodyParams}}
+	validator:parse('{{consumes.0.mediaType}}', {{paramName}}, rest_model:{{dataType}}_schema()).
+		{{/bodyParams}}
+	{{/hasConsumes}}
+
+    %%%
+	%%% Call the appropriate function handler in specific module
+	%%%
+	{{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}}:{{#vendorExtensions}}{{x-onedata-function}}{{/vendorExtensions}}({{#allParams}}{{paramName}}, {{/allParams}}).
+	.
 
 {{/operation}}
 {{/operations}}

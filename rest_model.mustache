@@ -10,12 +10,21 @@
 %
 % {{classname}}
 %
-% {{notes}}
+% {{description}}
 %
 -record({{classname}}, {
 {{#vars}}
-    {{name}} :: {{datatype}}(), % {{description}}
+	% {{description}}
+    {{name}} :: {{datatype}}(), 
 {{/vars}} }).
+
+-{{classname}}_schema() ->
+	#{
+	{{#vars}}
+	<<"{{name}}">> => { {{datatypeWithEnum}}, {{#required}}true{{/required}}{{^required}}false{{/required}} },
+	{{/vars}}
+	}
+	.
 
 
 {{/model}}

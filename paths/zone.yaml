@@ -1,0 +1,66 @@
+get:
+  description: Returns the status of the Onezone service (started, stopped)
+  x-onedata-module: onezone
+  operationId: zone_get_status
+  produces:
+    - application/x-yaml
+  responses:
+    '200':
+      description: Onepanel returned the state of the Onezone service
+      schema:
+        type: boolean
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onepanel service is not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+
+
+patch:
+  operationId: zone_start_stop
+  x-onedata-module: onezone
+  description: >
+   Starts or stops entire Onezone deployment in the local site.
+  consumes:
+    - application/x-yaml
+  responses:
+    '200':
+      description: Configuration updated successfully
+      schema:
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone service configuration is not available. 
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: started
+    in: query
+    description: |
+      This flag changes the intended state of the service. 
+
+      If the state is changed, the service will be stopped or started in order to match the requested state. 
+    type: boolean
+    required: true

@@ -1,0 +1,31 @@
+get:
+  operationId: zone_get_database_nodes
+  x-onedata-service: onezone
+  x-onedata-module: installer_db
+  description: Returns the list of hostnames where Onezone databases instances are deployed (not necessarily currently running).
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the list of Onezone database nodes in this deployment.
+      schema:
+        type: array
+        items:
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone service configuration is not available. 
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+

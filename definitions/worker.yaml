@@ -1,12 +1,21 @@
 type: object
-description: Describes a the properties of a Worker instance.
+description: Describes a the properties of a Worker process instance.
 properties:
-  id:
+  clusterDomain:
     type: string
-    description: Unique worker ID
-  name:
+    description: TODO
+  onezoneDomain:
     type: string
-    description: The name of the worker - can be the same as the hostname.
-  running:
-    type: boolean
-    description: This flag determines whether the worker should be running or should be stopped. It does not necessarily reflect the actual state of the worker. 
+    description: TODO
+  cookie:
+    type: string
+    description: Authentication cookie.
+  openedFilesLimit:
+    type: integer
+    description: The limit of files that this worker process can have opened simultanously.
+  processLimit:
+    type: integer
+    description: The number of processes to which each worker can span on a single host.
+required:
+  - clusterDomain
+  - onezoneDomain

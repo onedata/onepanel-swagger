@@ -8,11 +8,11 @@ error:
 worker:
   $ref: ./worker.yaml 
 
-host:
-  $ref: ./host.yaml 
+# host:
+#   $ref: ./host.yaml 
 
-database:
-  $ref: ./database.yaml
+# database:
+#   $ref: ./database.yaml
 
-clustermanager:
-  $ref: ./clustermanager.yaml
+# clustermanager:
+#   $ref: ./clustermanager.yaml

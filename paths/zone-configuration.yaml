@@ -1,0 +1,74 @@
+get:
+  operationId: zone_get_configuration
+  x-onedata-module: onezone
+  description: Returns the current Onezone service configuration.
+  produces:
+    - application/x-yaml
+  responses:
+    '200':
+      description: Current Onezone configuration in YAML format.
+      schema:
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone service configuration is not available. 
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+
+post:
+  operationId: zone_configure
+  x-onedata-module: onezone
+  description: >
+   Updates the current Onezone service configuration.
+  consumes:
+    - application/x-yaml
+  responses:
+    '200':
+      description: Configuration updated successfully
+      schema:
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone service configuration is not available. 
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: configuration
+    in: body
+    description: New Onezone configuration in YAML format.
+    schema:
+      type: string
+      format: yaml
+      example:
+        testapi:
+          testapiContext:
+            messageId: kkkk8
+            messageDateTime: '2014-08-17T14:07:30+0530'
+          testapiBody:
+           cameraServiceRq:
+           osType: android
+           deviceType: samsung555
+    required: true
+

@@ -1,6 +1,16 @@
 version: 3.0.0
 title: Onepanel API
-description: This is the RESTful API definition of Onepanel component of Onedata data management system [http://www.onedata.org].
+description: |
+ This is the RESTful API definition of Onepanel component of Onedata data management system [http://www.onedata.org].
+
+ This API allows control and configuration of local Onedata deployment, in particular full control over the Onezone and Oneprovider services and their distribution on the local resources. 
+
+ Onezone and Oneprovider services is composed of 3 types of processes: managers, databases and workers. 
+
+ Each of these processes can be added on specified host in the local site using this API. 
+
+ The overall configuration can be controlled by updating 'onezone/configuration' and
+ 'oneprovider/configuration' resources.
 contact:
   name: Onedata support
   url: https://onedata.org/support

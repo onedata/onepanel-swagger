@@ -1,4 +1,5 @@
 swagger: '2.0'
+basePath: /api/v3/onepanel
 info:
   $ref: ./info/index.yaml
 paths:
