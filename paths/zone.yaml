@@ -29,11 +29,11 @@ get:
 
 patch:
   operationId: zone_start_stop
-  x-onedata-module: onezone
+  x-onedata-service: onezone
+  x-onedata-module: installer
+  x-onedata-method: start_stop
   description: >
    Starts or stops entire Onezone deployment in the local site.
-  consumes:
-    - application/x-yaml
   responses:
     '200':
       description: Configuration updated successfully

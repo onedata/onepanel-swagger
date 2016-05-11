@@ -1,15 +1,15 @@
 type: object
 description: Describes a the properties of ClusterManager instance.
 properties:
-  id:
+  cookie:
     type: string
-    description: Unique ClusterManager ID
-  name:
-    type: string
-    description: The name of the ClusterManager - can be the same as the hostname.
-  running:
-    type: boolean
-    description: This flag determines whether the ClusterManager should be running or should be stopped. It does not necessarily reflect the actual state of the CM.
+    description: Authentication cookie???
+  openedFilesLimit:
+    type: integer
+    description: The maximum number of opened files by the cluster manager instances.
+  processLimit:
+    type: integer
+    description: The maximum number of processes spawned by the cluster manager instance.
   isPrimary:
     type: boolean
     description: Specifies whether this CM is the primary ClusterManager instance for that deployment. 

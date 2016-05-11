@@ -1,16 +1,16 @@
 get:
-  operationId: zone_get_worker_status
-  x-onedata-service: onezone
-  x-onedata-module: installer_worker
-  x-onedata-method: get_worker_status
-  description: Returns the status of specific worker.
+  operationId: provider_get_database_status
+  x-onedata-service: oneprovider
+  x-onedata-module: installer_db
+  x-onedata-method: get_status
+  description: Returns the status of specific database instance.
   produces:
     - application/json
   responses:
     '200':
-      description: The status of a specific Onezone worker.
+      description: The status of a specific Oneprovider database node.
       schema:
-        $ref: '#/definitions/worker'
+        $ref: '#/definitions/database'
     '400':
       description: Invalid request.
       schema:
@@ -20,7 +20,7 @@ get:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: No such worker is available.
+      description: There is no Oneprovider database instance on this node.
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -29,7 +29,8 @@ get:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The host name from which the information about the specific Onezone worker should be returned.
+    description: |
+      The host name from which the information about the specific Oneprovider database instance should be returned.
     in: path
     type: string
     required: true
@@ -38,12 +39,12 @@ get:
 
 
 put:
-  operationId: zone_add_worker_nodes
-  x-onedata-service: onezone
-  x-onedata-module: installer_worker
+  operationId: provider_add_database_nodes
+  x-onedata-service: oneprovider
+  x-onedata-module: installer_db
   x-onedata-method: add_node
   description: >
-   Adds new worker to a specific node or list of nodes, specified as host names.
+   Adds new database node to a specific node or list of nodes, specified as host names.
   consumes:
     - application/json
   responses:
@@ -60,7 +61,7 @@ put:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -69,28 +70,28 @@ put:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The list of hosts where the Onezone workers should be enabled.
+    description: The list of hosts where the Oneprovider database instances should be enabled.
     in: path
     type: array
     items:
       type: string
     collectionFormat: csv
     required: true
-  - name: workerParams
+  - name: databaseParams
     in: body
-    description: New Onezone configuration in YAML format.
+    description: New Oneprovider configuration in YAML format.
     schema:
-      $ref: '#/definitions/worker'
-      format: json
+      $ref: '#/definitions/database'
     required: true
 
+
 patch:
-  operationId: zone_worker_start_stop
-  x-onedata-service: onezone
-  x-onedata-module: installer_worker
+  operationId: provider_database_start_stop
+  x-onedata-service: oneprovider
+  x-onedata-module: installer_db
   x-onedata-method: start_stop
   description: >
-   Starts or stops entire Onezone deployment in the local site.
+   Starts or stops entire Oneprovider deployment in the local site.
   consumes:
     - application/x-yaml
   responses:
@@ -107,7 +108,7 @@ patch:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -116,7 +117,7 @@ patch:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The list of hosts where the Onezone workers should be enabled.
+    description: The list of hosts where the Oneprovider database instances should be enabled.
     in: path
     type: array
     items:
@@ -126,7 +127,7 @@ patch:
   - name: started
     in: query
     description: |
-      This flag changes the intended state of the worker instance. 
+      This flag changes the intended state of the database instance. 
 
       If the state is changed, the service will be stopped or started in order to match the requested state. 
     type: boolean
@@ -134,22 +135,22 @@ patch:
 
 
 delete:
-  operationId: zone_remove_worker_node
-  x-onedata-service: onezone
-  x-onedata-module: installer_worker
+  operationId: provider_remove_database_node
+  x-onedata-service: oneprovider
+  x-onedata-module: installed_db
   x-onedata-method: remove_node
   description: Removes specific storage from Oneprovider deployment.
   responses:
     '200':
-      description: Worker node removed successfully.
+      description: Database instance removed from host successfully.
       schema:
-        $ref: '#/definitions/worker'
+        $ref: '#/definitions/database'
     '400':
       description: Invalid request.
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Worker is not installed on this host.
+      description: Database instance is not installed on this host.
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -159,6 +160,6 @@ delete:
   parameters:
   - name: hosts
     in: path
-    description: Host name from which the worker should be removed.
+    description: Host name from which the database instance should be removed.
     type: string
     required: true 

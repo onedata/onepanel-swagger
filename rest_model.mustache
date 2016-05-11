@@ -18,6 +18,9 @@
     {{name}} :: {{datatype}}(), 
 {{/vars}} }).
 
+%
+% Record schema for validation of JSON strings received via REST API. 
+%
 -{{classname}}_schema() ->
 	#{
 	{{#vars}}

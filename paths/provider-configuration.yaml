@@ -1,14 +1,14 @@
 get:
-  operationId: zone_get_configuration
-  x-onedata-service: onezone
+  operationId: provider_get_configuration
+  x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: get_configuration
-  description: Returns the current Onezone service configuration.
+  description: Returns the current Oneprovider service configuration.
   produces:
     - application/x-yaml
   responses:
     '200':
-      description: Current Onezone configuration in YAML format.
+      description: Current Oneprovider configuration in YAML format.
       schema:
         type: string
     '400':
@@ -20,7 +20,7 @@ get:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -29,12 +29,12 @@ get:
         $ref: '#/definitions/error'
 
 post:
-  operationId: zone_configure
-  x-onedata-service: onezone
+  operationId: provider_configure
+  x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: install
   description: >
-   Updates the current Onezone service configuration.
+   Updates the current Oneprovider service configuration.
   consumes:
     - application/x-yaml
   responses:
@@ -51,7 +51,7 @@ post:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -61,7 +61,7 @@ post:
   parameters:
   - name: configuration
     in: body
-    description: New Onezone configuration in YAML format.
+    description: New Oneprovider configuration in YAML format.
     schema:
       type: string
       format: yaml

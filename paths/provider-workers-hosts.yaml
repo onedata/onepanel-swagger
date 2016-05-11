@@ -1,6 +1,6 @@
 get:
-  operationId: zone_get_worker_status
-  x-onedata-service: onezone
+  operationId: provider_get_worker_status
+  x-onedata-service: oneprovider
   x-onedata-module: installer_worker
   x-onedata-method: get_worker_status
   description: Returns the status of specific worker.
@@ -8,7 +8,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The status of a specific Onezone worker.
+      description: The status of a specific Oneprovider worker.
       schema:
         $ref: '#/definitions/worker'
     '400':
@@ -29,7 +29,7 @@ get:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The host name from which the information about the specific Onezone worker should be returned.
+    description: The host name from which the information about the specific Oneprovider worker should be returned.
     in: path
     type: string
     required: true
@@ -38,8 +38,8 @@ get:
 
 
 put:
-  operationId: zone_add_worker_nodes
-  x-onedata-service: onezone
+  operationId: provider_add_worker_nodes
+  x-onedata-service: oneprovider
   x-onedata-module: installer_worker
   x-onedata-method: add_node
   description: >
@@ -60,7 +60,7 @@ put:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -69,7 +69,7 @@ put:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The list of hosts where the Onezone workers should be enabled.
+    description: The list of hosts where the Oneprovider workers should be enabled.
     in: path
     type: array
     items:
@@ -78,19 +78,19 @@ put:
     required: true
   - name: workerParams
     in: body
-    description: New Onezone configuration in YAML format.
+    description: New Oneprovider configuration in YAML format.
     schema:
       $ref: '#/definitions/worker'
       format: json
     required: true
 
 patch:
-  operationId: zone_worker_start_stop
-  x-onedata-service: onezone
+  operationId: provider_worker_start_stop
+  x-onedata-service: oneprovider
   x-onedata-module: installer_worker
   x-onedata-method: start_stop
   description: >
-   Starts or stops entire Onezone deployment in the local site.
+   Starts or stops entire Oneprovider deployment in the local site.
   consumes:
     - application/x-yaml
   responses:
@@ -107,7 +107,7 @@ patch:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -116,7 +116,7 @@ patch:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The list of hosts where the Onezone workers should be enabled.
+    description: The list of hosts where the Oneprovider workers should be enabled.
     in: path
     type: array
     items:
@@ -134,8 +134,8 @@ patch:
 
 
 delete:
-  operationId: zone_remove_worker_node
-  x-onedata-service: onezone
+  operationId: provider_remove_worker_node
+  x-onedata-service: oneprovider
   x-onedata-module: installer_worker
   x-onedata-method: remove_node
   description: Removes specific storage from Oneprovider deployment.

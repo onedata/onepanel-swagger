@@ -1,16 +1,16 @@
 get:
-  operationId: zone_get_worker_status
+  operationId: zone_get_manager_status
   x-onedata-service: onezone
-  x-onedata-module: installer_worker
-  x-onedata-method: get_worker_status
-  description: Returns the status of specific worker.
+  x-onedata-module: installer_cm
+  x-onedata-method: get_status
+  description: Returns the status of specific cluster manager instance.
   produces:
     - application/json
   responses:
     '200':
-      description: The status of a specific Onezone worker.
+      description: The status of a specific Onezone cluster manager node.
       schema:
-        $ref: '#/definitions/worker'
+        $ref: '#/definitions/clustermanager'
     '400':
       description: Invalid request.
       schema:
@@ -20,7 +20,7 @@ get:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: No such worker is available.
+      description: There is no Onezone cluster manager instance on this node.
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -29,7 +29,8 @@ get:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The host name from which the information about the specific Onezone worker should be returned.
+    description: |
+      The host name from which the information about the specific Onezone cluster manager instance should be returned.
     in: path
     type: string
     required: true
@@ -38,12 +39,12 @@ get:
 
 
 put:
-  operationId: zone_add_worker_nodes
+  operationId: zone_add_manager_nodes
   x-onedata-service: onezone
-  x-onedata-module: installer_worker
+  x-onedata-module: installer_cm
   x-onedata-method: add_node
   description: >
-   Adds new worker to a specific node or list of nodes, specified as host names.
+   Adds new cluster manager to a specific node or list of nodes, specified as host names.
   consumes:
     - application/json
   responses:
@@ -69,28 +70,28 @@ put:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The list of hosts where the Onezone workers should be enabled.
+    description: The list of hosts where the Onezone cluster managers should be enabled.
     in: path
     type: array
     items:
       type: string
     collectionFormat: csv
     required: true
-  - name: workerParams
+  - name: managerParams
     in: body
     description: New Onezone configuration in YAML format.
     schema:
-      $ref: '#/definitions/worker'
-      format: json
+      $ref: '#/definitions/clustermanager'
     required: true
 
+
 patch:
-  operationId: zone_worker_start_stop
+  operationId: zone_manager_start_stop
   x-onedata-service: onezone
-  x-onedata-module: installer_worker
+  x-onedata-module: installer_cm
   x-onedata-method: start_stop
   description: >
-   Starts or stops entire Onezone deployment in the local site.
+   Starts or stops cluster manager instance on a given site.
   consumes:
     - application/x-yaml
   responses:
@@ -116,7 +117,7 @@ patch:
         $ref: '#/definitions/error'
   parameters:
   - name: hosts
-    description: The list of hosts where the Onezone workers should be enabled.
+    description: The list of hosts where the Onezone managers should be enabled.
     in: path
     type: array
     items:
@@ -126,7 +127,7 @@ patch:
   - name: started
     in: query
     description: |
-      This flag changes the intended state of the worker instance. 
+      This flag changes the intended state of the cluster manager instance. 
 
       If the state is changed, the service will be stopped or started in order to match the requested state. 
     type: boolean
@@ -134,22 +135,22 @@ patch:
 
 
 delete:
-  operationId: zone_remove_worker_node
+  operationId: zone_remove_manager_node
   x-onedata-service: onezone
-  x-onedata-module: installer_worker
+  x-onedata-module: installed_cm
   x-onedata-method: remove_node
-  description: Removes specific storage from Oneprovider deployment.
+  description: Removes specific manager instance from Oneprovider deployment.
   responses:
     '200':
-      description: Worker node removed successfully.
+      description: Cluster manager node removed successfully.
       schema:
-        $ref: '#/definitions/worker'
+        $ref: '#/definitions/clustermanager'
     '400':
       description: Invalid request.
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Worker is not installed on this host.
+      description: Cluster manager is not installed on this host.
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -159,6 +160,6 @@ delete:
   parameters:
   - name: hosts
     in: path
-    description: Host name from which the worker should be removed.
+    description: Host name from which the cluster manager should be removed.
     type: string
     required: true 

@@ -8,11 +8,23 @@ error:
 worker:
   $ref: ./worker.yaml 
 
-# host:
-#   $ref: ./host.yaml 
+database:
+  $ref: ./database.yaml
 
-# database:
-#   $ref: ./database.yaml
+clustermanager:
+  $ref: ./clustermanager.yaml
 
-# clustermanager:
-#   $ref: ./clustermanager.yaml
+provider:
+  $ref: ./provider.yaml
+
+posix:
+  $ref: ./posix.yaml
+
+s3:
+  $ref: ./s3.yaml
+
+ceph:
+  $ref: ./ceph.yaml
+
+storage:
+  $ref: ./storage.yaml

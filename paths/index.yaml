@@ -3,21 +3,6 @@
 # defined in separate files for each path
 #
 
-# /hosts:
-#   $ref: ./hosts.yaml
-
-# /hosts/{id}:
-#   $ref: ./hosts-id.yaml
-
-# /hosts/{id}/worker:
-#   $ref: ./hosts-id-worker.yaml
-
-# /hosts/{id}/database:
-#   $ref: ./hosts-id-database.yaml
-
-# /hosts/{id}/clustermanager:
-#   $ref: ./hosts-id-clustermanager.yaml
-
 /zone:
   $ref: ./zone.yaml
   
@@ -36,5 +21,42 @@
 /zone/databases/{hosts}:
   $ref: ./zone-databases-hosts.yaml
 
+/zone/managers:
+  $ref: ./zone-managers.yaml
 
+/zone/managers/{hosts}:
+  $ref: ./zone-managers-hosts.yaml
 
+/zone/providers:
+  $ref: ./zone-providers.yaml
+  
+
+/provider:
+  $ref: ./provider.yaml
+  
+/provider/configuration:
+  $ref: ./provider-configuration.yaml
+
+/provider/storages:
+  $ref: ./provider-storages.yaml
+
+/provider/storages/{id}:
+  $ref: ./provider-storages-id.yaml
+ 
+/provider/workers:
+  $ref: ./provider-workers.yaml
+
+/provider/workers/{hosts}:
+  $ref: ./provider-workers-hosts.yaml
+
+/provider/databases:
+  $ref: ./provider-databases.yaml
+
+/provider/databases/{hosts}:
+  $ref: ./provider-databases-hosts.yaml
+
+/provider/managers:
+  $ref: ./provider-managers.yaml
+
+/provider/managers/{hosts}:
+  $ref: ./provider-managers-hosts.yaml

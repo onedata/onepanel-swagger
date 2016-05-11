@@ -1,16 +1,16 @@
 get:
-  operationId: zone_get_configuration
-  x-onedata-service: onezone
+  description: Returns the status of the Oneprovider service (started, stopped)
+  x-onedata-service: oneprovider
   x-onedata-module: installer
-  x-onedata-method: get_configuration
-  description: Returns the current Onezone service configuration.
+  x-onedata-method: get_status
+  operationId: provider_get_status
   produces:
     - application/x-yaml
   responses:
     '200':
-      description: Current Onezone configuration in YAML format.
+      description: Onepanel returned the state of the Oneprovider service
       schema:
-        type: string
+        type: boolean
     '400':
       description: Invalid request.
       schema:
@@ -20,7 +20,7 @@ get:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Onepanel service is not available.
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -28,15 +28,14 @@ get:
       schema:
         $ref: '#/definitions/error'
 
-post:
-  operationId: zone_configure
-  x-onedata-service: onezone
+
+patch:
+  operationId: provider_start_stop
+  x-onedata-service: oneprovider
   x-onedata-module: installer
-  x-onedata-method: install
+  x-onedata-method: start_stop
   description: >
-   Updates the current Onezone service configuration.
-  consumes:
-    - application/x-yaml
+   Starts or stops entire Oneprovider deployment in the local site.
   responses:
     '200':
       description: Configuration updated successfully
@@ -51,7 +50,7 @@ post:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -59,11 +58,11 @@ post:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: configuration
-    in: body
-    description: New Onezone configuration in YAML format.
-    schema:
-      type: string
-      format: yaml
-    required: true
+  - name: started
+    in: query
+    description: |
+      This flag changes the intended state of the service. 
 
+      If the state is changed, the service will be stopped or started in order to match the requested state. 
+    type: boolean
+    required: true

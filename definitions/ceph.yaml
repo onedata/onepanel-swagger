@@ -1,0 +1,24 @@
+type: object
+description: Describes a Ceph storage resource.
+properties:
+  name:
+    type: string
+    description: The user friendly name of storage resource.
+  username:
+    type: string
+    description: The username for authentication to Ceph.
+  key:
+    type: string
+    description: The key to access the Ceph resource.
+  monitorHostname:
+    type: string
+    description: ???
+  clusterName:
+    type: string
+    description: ???
+required:
+  - name
+  - username
+  - key
+  - monitorHostname
+  - clusterName

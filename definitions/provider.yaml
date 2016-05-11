@@ -1,0 +1,18 @@
+type: object
+description: Describes the properties of a Worker process instance.
+properties:
+  providerName:
+    type: string
+    description: The name under which the provider should be registered in the zone.
+  redirectionPoint:
+    type: string
+    description: TODO
+  geoLongitude:
+    type: number
+    description: Geographical longitude of the storage provider.
+  geoLatitude:
+    type: number
+    description: Geographical latitude of the storage provider.
+required:
+  - providerName
+  - redirectionPoint

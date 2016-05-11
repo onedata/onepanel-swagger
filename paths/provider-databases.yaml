@@ -1,14 +1,14 @@
 get:
-  operationId: zone_get_worker_nodes
-  x-onedata-service: onezone
-  x-onedata-module: installer_worker
+  operationId: provider_get_database_nodes
+  x-onedata-service: oneprovider
+  x-onedata-module: installer_db
   x-onedata-method: list_nodes
-  description: Returns the current Onezone service configuration.
+  description: Returns the list of hostnames where Oneprovider databases instances are deployed (not necessarily currently running).
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the list of Onezone workers IDs (host names) in this deployment.
+      description: Returns the list of Oneprovider database nodes in this deployment.
       schema:
         type: array
         items:
@@ -22,7 +22,7 @@ get:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone service configuration is not available. 
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/error'
     '500':

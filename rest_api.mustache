@@ -2,19 +2,23 @@
 
 -import(validator).
 -import(rest_model).
+-import(installer).
+-import(installer_db).
+-import(installer_worker).
+-import(installer_cm).
 
-%
-% {{appName}}
-%
-% {{appDescription}}
-% Version: {{version}}
+%%%
+%%% {{appName}}
+%%%
+%%% {{appDescription}}
+%%% Version: {{version}}
 
-%
-% @doc Returns a Cowboy-understandable PathList of routes supported by a module
-% implementing this behavior.
-% @see rest_module_behavior
-% @end
-%
+%%%
+%%% @doc Returns a Cowboy-understandable PathList of routes supported by a module
+%%% implementing this behavior.
+%%% @see rest_module_behavior
+%%% @end
+%%%
 -spec routes() ->
     [{PathMatch :: binary(), rest_handler, State :: rstate()}].
 routes() ->
@@ -23,7 +27,7 @@ routes() ->
     [
 {{#operations}}
 {{#operation}}
-      { <<"{{basePathWithoutHost}}{{path}}">>, {{operationId}}, S#rstate{resource = hosts, method = '{{httpMethod}}' },
+      { <<"{{basePathWithoutHost}}{{path}}">>, {{operationId}}, S#rstate{resource = hosts, method = '{{httpMethod}}' }{{#hasMore}},{{/hasMore}}
 {{/operation}}
 {{/operations}}
 	].
@@ -31,45 +35,53 @@ routes() ->
 
 {{#operations}}
 {{#operation}}
-%
-% '{{basePathWithoutHost}}{{path}}'
-% @doc {{notes}}
-%
-% HTTP method: {{httpMethod}}
-%
+%%%
+%%% '{{basePathWithoutHost}}{{path}}'
+%%% @doc {{notes}}
+%%%
+%%% HTTP method: {{httpMethod}}
+%%%
 {{#allParams}}
-% @param {{paramName}} {{description}}
+%%% @param {{paramName}} {{description}}
 {{/allParams}}
-%
--spec {{operationId}}({{#allParams}}{{dataType}} :: {{paramName}},{{/allParams}}) -> 
+%%%
+-{{operationId}}({{#allParams}}{{dataType}} :: {{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}}) -> 
 	{{#hasPathParams}}
-	%%%
-	%%% Validate path params - in case of array parameters in path they need to be parsed
-	%%% by parsing a comma-separated list
-	%%%
+	%
+	% Validate path params - in case of array parameters in path they need to be parsed
+	% by parsing a comma-separated list
+	%
 	{{#pathParams}}
 		{{#isContainer}}
-	validator:parse('csv', {{paramName}}),
+	Param_{{paramName}} = validator:parse('csv', {{paramName}}),
 		{{/isContainer}}
 		{{^isContainer}}
-	validator:parse('string', {{paramName}}),
+	Param_{{paramName}} = validator:parse('string', {{paramName}}),
 		{{/isContainer}}	
-		{{/pathParams}}
+	{{/pathParams}}
 	{{/hasPathParams}}
 	{{#hasConsumes}}
-	%%%
-	%%% Validate the input body params
-	%%%
-		{{#bodyParams}}
-	validator:parse('{{consumes.0.mediaType}}', {{paramName}}, rest_model:{{dataType}}_schema()).
-		{{/bodyParams}}
+	{{#hasBodyParams}}
+	%
+	% Validate the input body params
+	%
+	{{/hasBodyParams}}
+	{{#bodyParams}}
+	Param_{{paramName}} = validator:parse('{{consumes.0.mediaType}}', {{paramName}}, rest_model:{{dataType}}_schema()),
+	{{/bodyParams}}
 	{{/hasConsumes}}
-
-    %%%
-	%%% Call the appropriate function handler in specific module
-	%%%
-	{{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}}:{{#vendorExtensions}}{{x-onedata-function}}{{/vendorExtensions}}({{#allParams}}{{paramName}}, {{/allParams}}).
-	.
+	{{#hasQueryParams}}
+	%
+	% Validate query params
+	%
+	{{#queryParams}}
+	Param_{{paramName}} = validator:parse('{{dataType}}', {{paramName}}),
+	{{/queryParams}}
+	{{/hasQueryParams}}
+    %
+	% Call the appropriate function handler in specific module
+	%
+	{{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}}:{{#vendorExtensions}}{{x-onedata-method}}{{/vendorExtensions}}(#{ {{#allParams}}"{{paramName}}" => Param_{{paramName}} {{#hasMore}},{{/hasMore}}{{/allParams}} }).
 
 {{/operation}}
 {{/operations}}
