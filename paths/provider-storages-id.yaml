@@ -3,6 +3,9 @@ get:
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: get_storage_resource
+  tags:
+    - Provider
+  summary: Get storage status.
   description: Returns the information about a storage resource connected to the provider.
   produces:
     - application/json
@@ -40,6 +43,9 @@ delete:
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: remove_storage
+  tags:
+    - Provider
+  summary: Remove storage.
   description: Removes specific storage from Oneprovider deployment.
   responses:
     '200':

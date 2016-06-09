@@ -3,9 +3,12 @@ get:
   x-onedata-service: onezone
   x-onedata-module: installer_cm
   x-onedata-method: get_status
+  summary: Get Onezone manager status.
   description: Returns the status of specific cluster manager instance.
   produces:
     - application/json
+  tags:
+    - Zone
   responses:
     '200':
       description: The status of a specific Onezone cluster manager node.
@@ -43,8 +46,11 @@ put:
   x-onedata-service: onezone
   x-onedata-module: installer_cm
   x-onedata-method: add_node
+  summary: Add Onezone manager node.
   description: >
    Adds new cluster manager to a specific node or list of nodes, specified as host names.
+  tags:
+    - Zone
   consumes:
     - application/json
   responses:
@@ -90,8 +96,11 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: installer_cm
   x-onedata-method: start_stop
+  summary: Start/stop Onezone manager node.
   description: >
-   Starts or stops cluster manager instance on a given site.
+    Starts or stops cluster manager instance on a given site.
+  tags:
+    - Zone
   consumes:
     - application/x-yaml
   responses:
@@ -139,7 +148,10 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: installed_cm
   x-onedata-method: remove_node
+  summary: Remove Onezone manager node.
   description: Removes specific manager instance from Oneprovider deployment.
+  tags:
+    - Zone
   responses:
     '200':
       description: Cluster manager node removed successfully.

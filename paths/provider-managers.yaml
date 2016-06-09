@@ -3,6 +3,9 @@ get:
   x-onedata-service: oneprovider
   x-onedata-module: installer_cm
   x-onedata-method: list_nodes
+  tags:
+    - Provider
+  summary: Get cluster manager nodes.
   description: Returns the list of hostnames where Oneprovider cluster manager instances are deployed (not necessarily currently running).
   produces:
     - application/json

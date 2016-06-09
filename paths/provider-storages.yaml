@@ -3,7 +3,10 @@ get:
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: list_storage_resources
+  summary: Get storage list.
   description: Returns the storage resources connected to this Oneprovider instance.
+  tags:
+    - Provider
   produces:
     - application/json
   responses:
@@ -42,8 +45,11 @@ post:
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: add_storage
+  tags:
+    - Provider
+  summary: Add storage resource.
   description: >
-   Adds new database node to a specific node or list of nodes, specified as host names.
+   Adds new storage resource.
   consumes:
     - application/json
   responses:

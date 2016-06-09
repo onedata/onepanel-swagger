@@ -3,7 +3,12 @@ get:
   x-onedata-service: onezone
   x-onedata-module: installer_db
   x-onedata-method: list_nodes
-  description: Returns the list of hostnames where Onezone databases instances are deployed (not necessarily currently running).
+  summary: List Onezone database nodes.
+  description: >
+    Returns the list of hostnames where Onezone databases instances are deployed 
+    (not necessarily currently running).
+  tags:
+    - Zone
   produces:
     - application/json
   responses:

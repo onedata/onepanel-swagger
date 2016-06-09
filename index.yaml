@@ -6,3 +6,13 @@ paths:
   $ref: ./paths/index.yaml
 definitions:
   $ref: ./definitions/index.yaml
+tags:
+  - name: Provider
+    description: Provider related operations
+  - name: Zone
+    description: Zone related operations
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: macaroon
+    in: header

@@ -4,6 +4,9 @@ get:
   x-onedata-module: installer_worker
   x-onedata-method: get_worker_status
   description: Returns the status of specific worker.
+  summary: Get Oneprovider worker node status.
+  tags:
+    - Provider
   produces:
     - application/json
   responses:
@@ -42,6 +45,9 @@ put:
   x-onedata-service: oneprovider
   x-onedata-module: installer_worker
   x-onedata-method: add_node
+  summary: Add Oneprovider worker node.
+  tags:
+    - Provider
   description: >
    Adds new worker to a specific node or list of nodes, specified as host names.
   consumes:
@@ -89,6 +95,9 @@ patch:
   x-onedata-service: oneprovider
   x-onedata-module: installer_worker
   x-onedata-method: start_stop
+  tags:
+    - Provider
+  summary: Start/stop Oneprovider worker node.
   description: >
    Starts or stops entire Oneprovider deployment in the local site.
   consumes:
@@ -138,6 +147,9 @@ delete:
   x-onedata-service: oneprovider
   x-onedata-module: installer_worker
   x-onedata-method: remove_node
+  tags:
+    - Provider
+  summary: Remove Oneprovider worker node.
   description: Removes specific storage from Oneprovider deployment.
   responses:
     '200':

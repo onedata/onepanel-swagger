@@ -6,7 +6,7 @@ properties:
     description: The name under which the provider should be registered in the zone.
   redirectionPoint:
     type: string
-    description: TODO
+    description: Redirection point.
   geoLongitude:
     type: number
     description: Geographical longitude of the storage provider.

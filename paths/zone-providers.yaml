@@ -2,9 +2,12 @@ get:
   operationId: zone_get_providers
   x-onedata-service: onezone
   x-onedata-module: installer
+  summary: Get Onezone providers.
   description: Returns the list of providers registered in the current zone.
   produces:
     - application/json
+  tags:
+    - Zone
   responses:
     '200':
       description: Returns the list of Onezone registered Oneprovider instances.

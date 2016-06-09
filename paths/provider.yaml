@@ -1,9 +1,12 @@
 get:
+  summary: Get Oneprovider status.
   description: Returns the status of the Oneprovider service (started, stopped)
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: get_status
   operationId: provider_get_status
+  tags:
+    - Provider
   produces:
     - application/x-yaml
   responses:
@@ -34,6 +37,9 @@ patch:
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: start_stop
+  tags:
+    - Provider
+  summary: Start/stop Oneprovider service.
   description: >
    Starts or stops entire Oneprovider deployment in the local site.
   responses:

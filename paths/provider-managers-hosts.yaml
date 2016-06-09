@@ -3,6 +3,9 @@ get:
   x-onedata-service: oneprovider
   x-onedata-module: installer_cm
   x-onedata-method: get_status
+  tags:
+    - Provider
+  summary: Get cluster manager status.
   description: Returns the status of specific cluster manager instance.
   produces:
     - application/json
@@ -43,6 +46,9 @@ put:
   x-onedata-service: oneprovider
   x-onedata-module: installer_cm
   x-onedata-method: add_node
+  tags:
+    - Provider
+  summary: Add cluster manager node.
   description: >
    Adds new cluster manager to a specific node or list of nodes, specified as host names.
   consumes:
@@ -90,6 +96,9 @@ patch:
   x-onedata-service: oneprovider
   x-onedata-module: installer_cm
   x-onedata-method: start_stop
+  tags:
+    - Provider
+  summary: Start/stop cluster manager instance.
   description: >
    Starts or stops cluster manager instance on a given site.
   consumes:
@@ -139,6 +148,9 @@ delete:
   x-onedata-service: oneprovider
   x-onedata-module: installed_cm
   x-onedata-method: remove_node
+  tags:
+    - Provider
+  summary: Remove cluster manager node.
   description: Removes specific manager instance from Oneprovider deployment.
   responses:
     '200':

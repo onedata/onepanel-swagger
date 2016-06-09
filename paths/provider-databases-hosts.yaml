@@ -4,6 +4,9 @@ get:
   x-onedata-module: installer_db
   x-onedata-method: get_status
   description: Returns the status of specific database instance.
+  summary: Get database status.
+  tags:
+    - Provider
   produces:
     - application/json
   responses:
@@ -43,6 +46,9 @@ put:
   x-onedata-service: oneprovider
   x-onedata-module: installer_db
   x-onedata-method: add_node
+  summary: Add database node.
+  tags:
+    - Provider
   description: >
    Adds new database node to a specific node or list of nodes, specified as host names.
   consumes:
@@ -90,6 +96,9 @@ patch:
   x-onedata-service: oneprovider
   x-onedata-module: installer_db
   x-onedata-method: start_stop
+  summary: Start/stop database node.
+  tags:
+    - Provider
   description: >
    Starts or stops entire Oneprovider deployment in the local site.
   consumes:
@@ -139,6 +148,9 @@ delete:
   x-onedata-service: oneprovider
   x-onedata-module: installed_db
   x-onedata-method: remove_node
+  summary: Remove database node.
+  tags:
+    - Provider
   description: Removes specific storage from Oneprovider deployment.
   responses:
     '200':

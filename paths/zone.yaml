@@ -2,8 +2,11 @@ get:
   description: Returns the status of the Onezone service (started, stopped)
   x-onedata-module: onezone
   operationId: zone_get_status
+  summary: Get Onezone status.
   produces:
     - application/x-yaml
+  tags:
+    - Zone
   responses:
     '200':
       description: Onepanel returned the state of the Onezone service
@@ -32,6 +35,9 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: installer
   x-onedata-method: start_stop
+  summary: Start/stop Onezone service.
+  tags:
+    - Zone
   description: >
    Starts or stops entire Onezone deployment in the local site.
   responses:

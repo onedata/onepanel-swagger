@@ -3,7 +3,10 @@ get:
   x-onedata-service: onezone
   x-onedata-module: installer
   x-onedata-method: get_configuration
+  summary: Get Onezone configuration.
   description: Returns the current Onezone service configuration.
+  tags:
+    - Zone
   produces:
     - application/x-yaml
   responses:
@@ -33,6 +36,9 @@ post:
   x-onedata-service: onezone
   x-onedata-module: installer
   x-onedata-method: install
+  tags:
+    - Zone
+  summary: Modify Onezone configuration.
   description: >
    Updates the current Onezone service configuration.
   consumes:

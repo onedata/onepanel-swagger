@@ -3,7 +3,10 @@ get:
   x-onedata-service: oneprovider
   x-onedata-module: installer_worker
   x-onedata-method: list_nodes
+  summary: Get Oneprovider workers.
   description: Returns the current Oneprovider service configuration.
+  tags:
+    - Provider
   produces:
     - application/json
   responses:

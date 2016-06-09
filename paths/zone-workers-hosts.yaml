@@ -3,9 +3,12 @@ get:
   x-onedata-service: onezone
   x-onedata-module: installer_worker
   x-onedata-method: get_worker_status
+  summary: Get Onezone worker status.
   description: Returns the status of specific worker.
   produces:
     - application/json
+  tags:
+    - Zone
   responses:
     '200':
       description: The status of a specific Onezone worker.
@@ -42,6 +45,9 @@ put:
   x-onedata-service: onezone
   x-onedata-module: installer_worker
   x-onedata-method: add_node
+  tags:
+    - Zone
+  summary: Add Onezone worker node.
   description: >
    Adds new worker to a specific node or list of nodes, specified as host names.
   consumes:
@@ -89,6 +95,9 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: installer_worker
   x-onedata-method: start_stop
+  tags:
+    - Zone
+  summary: Start/stop Onezone worker node.
   description: >
    Starts or stops entire Onezone deployment in the local site.
   consumes:
@@ -138,6 +147,9 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: installer_worker
   x-onedata-method: remove_node
+  tags:
+    - Zone
+  summary: Remove Onezone worker node.
   description: Removes specific storage from Oneprovider deployment.
   responses:
     '200':

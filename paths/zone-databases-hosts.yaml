@@ -3,7 +3,10 @@ get:
   x-onedata-service: onezone
   x-onedata-module: installer_db
   x-onedata-method: get_status
+  summary: Get Onezone database status.
   description: Returns the status of specific database instance.
+  tags:
+    - Zone
   produces:
     - application/json
   responses:
@@ -43,6 +46,9 @@ put:
   x-onedata-service: onezone
   x-onedata-module: installer_db
   x-onedata-method: add_node
+  summary: Add Onezone database node.
+  tags:
+    - Zone
   description: >
    Adds new database node to a specific node or list of nodes, specified as host names.
   consumes:
@@ -90,6 +96,9 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: installer_db
   x-onedata-method: start_stop
+  summary: Remove Onezone database instance.
+  tags:
+    - Zone
   description: >
    Starts or stops entire Onezone deployment in the local site.
   consumes:
@@ -139,7 +148,10 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: installed_db
   x-onedata-method: remove_node
+  summary: Remove Onezone database instance.
   description: Removes specific storage from Oneprovider deployment.
+  tags:
+    - Zone
   responses:
     '200':
       description: Database instance removed from host successfully.

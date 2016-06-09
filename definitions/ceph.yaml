@@ -12,10 +12,10 @@ properties:
     description: The key to access the Ceph resource.
   monitorHostname:
     type: string
-    description: ???
+    description: Monitor host name.
   clusterName:
     type: string
-    description: ???
+    description: Cluster name.
 required:
   - name
   - username

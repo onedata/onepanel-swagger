@@ -3,9 +3,12 @@ get:
   x-onedata-service: onezone
   x-onedata-module: installer_worker
   x-onedata-method: list_nodes
+  summary: Get Onezone configuration.
   description: Returns the current Onezone service configuration.
   produces:
     - application/json
+  tags:
+    - Zone
   responses:
     '200':
       description: Returns the list of Onezone workers IDs (host names) in this deployment.

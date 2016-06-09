@@ -1,4 +1,4 @@
-version: 3.0.0
+version: 3.0.0-beta6
 title: Onepanel
 description: |
  This is the RESTful API definition of Onepanel component of Onedata data management system [http://www.onedata.org].
@@ -11,6 +11,27 @@ description: |
 
  The overall configuration can be controlled by updating 'onezone/configuration' and
  'oneprovider/configuration' resources.
+
+  ## Authentication
+  In order to be able to use this API the REST client must be able to authenticate with the Onezone service.
+
+  Currently this is supported through access token which can be generate using the Onedata user interface. 
+  The token must be added to the request header:
+  ```
+  macaroon: IAUYCGOUASGDJHASDJKVAHSDJHASDKJHABSDKJHBASKJHDBKJHASBDKJHBASDKJHBASD...
+  ```
+
+  ## API structure
+  This API allows the management of 2 Onedata components:
+
+  ### Onezone management
+  These operations allow getting current Onezone service status and adding and restarting
+  nodes in the particular Onezone deployment.
+
+  ### Oneprovider management
+  These operations allow getting current Oneprovider service status and adding and restarting
+  nodes in the particular Oneprovider deployment.
+
 contact:
   name: Onedata support
   url: https://onedata.org/support

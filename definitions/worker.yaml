@@ -3,10 +3,10 @@ description: Describes a the properties of a Worker process instance.
 properties:
   clusterDomain:
     type: string
-    description: ???
+    description: Name of cluster domain.
   onezoneDomain:
     type: string
-    description: ???
+    description: Name of Onezone domain.
   cookie:
     type: string
     description: Authentication cookie.

@@ -3,7 +3,10 @@ get:
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: get_configuration
+  summary: Get provider configuration.
   description: Returns the current Oneprovider service configuration.
+  tags:
+    - Provider
   produces:
     - application/x-yaml
   responses:
@@ -33,6 +36,9 @@ post:
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: install
+  tags:
+    - Provider
+  summary: Modify provider configuration.
   description: >
    Updates the current Oneprovider service configuration.
   consumes:
