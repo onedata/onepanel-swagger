@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-ARTEFACT=documentation.onedata.org.tar
-if [ -f docker-compose.yml ]; then
-    tar cvf $ARTEFACT --exclude .git  --exclude "$ARTEFACT" docker-compose.yml
+ARTEFACT=onepanel-swagger.documentation.onedata.org.tar
+FILE_TO_SHIP=dockerimage.sha
+if [ -f $FILE_TO_SHIP ]; then
+    tar cvf $ARTEFACT --exclude .git  --exclude "$ARTEFACT" $FILE_TO_SHIP
 else
-    echo "No docker-compose.yaml found in the current directory." 
+    echo "No $FILE_TO_SHIP found in the current directory." 
 fi 
