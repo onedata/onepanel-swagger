@@ -13,23 +13,23 @@ get:
     '200':
       description: Returns the list of IDs of Oneprovider storage resources.
       schema:
-        $ref: '#/definitions/storage'
+        $ref: '#/definitions/Storage'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Oneprovider service configuration is not available. 
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -51,19 +51,19 @@ delete:
     '200':
       description: Cluster manager node removed successfully.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Cluster manager is not installed on this host.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

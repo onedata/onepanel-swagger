@@ -13,23 +13,23 @@ get:
     '200':
       description: The status of a specific Oneprovider cluster manager node.
       schema:
-        $ref: '#/definitions/clustermanager'
+        $ref: '#/definitions/ClusterManager'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: There is no Oneprovider cluster manager instance on this node.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: |
@@ -61,19 +61,19 @@ put:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Oneprovider service configuration is not available. 
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: The list of hosts where the Oneprovider cluster managers should be enabled.
@@ -87,7 +87,7 @@ put:
     in: body
     description: New Oneprovider configuration in YAML format.
     schema:
-      $ref: '#/definitions/clustermanager'
+      $ref: '#/definitions/ClusterManager'
     required: true
 
 
@@ -111,19 +111,19 @@ patch:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Oneprovider service configuration is not available. 
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: The list of hosts where the Oneprovider managers should be enabled.
@@ -156,19 +156,19 @@ delete:
     '200':
       description: Cluster manager node removed successfully.
       schema:
-        $ref: '#/definitions/clustermanager'
+        $ref: '#/definitions/ClusterManager'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Cluster manager is not installed on this host.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     in: path

@@ -2,29 +2,29 @@
 # This file groups the type definitions for Onepanel REST API
 #
 
-error:
+Error:
   $ref: ./error.yaml
 
-worker:
+Worker:
   $ref: ./worker.yaml 
 
-database:
+Database:
   $ref: ./database.yaml
 
-clustermanager:
+ClusterManager:
   $ref: ./clustermanager.yaml
 
-provider:
+Provider:
   $ref: ./provider.yaml
 
-posix:
+Posix:
   $ref: ./posix.yaml
 
-s3:
+S3:
   $ref: ./s3.yaml
 
-ceph:
+Ceph:
   $ref: ./ceph.yaml
 
-storage:
+Storage:
   $ref: ./storage.yaml

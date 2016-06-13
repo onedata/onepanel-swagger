@@ -13,23 +13,23 @@ get:
     '200':
       description: The status of a specific Oneprovider worker.
       schema:
-        $ref: '#/definitions/worker'
+        $ref: '#/definitions/Worker'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: No such worker is available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: The host name from which the information about the specific Oneprovider worker should be returned.
@@ -60,19 +60,19 @@ put:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Oneprovider service configuration is not available. 
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: The list of hosts where the Oneprovider workers should be enabled.
@@ -86,7 +86,7 @@ put:
     in: body
     description: New Oneprovider configuration in YAML format.
     schema:
-      $ref: '#/definitions/worker'
+      $ref: '#/definitions/Worker'
       format: json
     required: true
 
@@ -110,19 +110,19 @@ patch:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Oneprovider service configuration is not available. 
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: The list of hosts where the Oneprovider workers should be enabled.
@@ -155,19 +155,19 @@ delete:
     '200':
       description: Worker node removed successfully.
       schema:
-        $ref: '#/definitions/worker'
+        $ref: '#/definitions/Worker'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Worker is not installed on this host.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     in: path

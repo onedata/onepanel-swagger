@@ -13,23 +13,23 @@ get:
     '200':
       description: The status of a specific Onezone database node.
       schema:
-        $ref: '#/definitions/database'
+        $ref: '#/definitions/Database'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: There is no Onezone database instance on this node.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: |
@@ -61,19 +61,19 @@ put:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone service configuration is not available. 
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: The list of hosts where the Onezone database instances should be enabled.
@@ -87,7 +87,7 @@ put:
     in: body
     description: New Onezone configuration in YAML format.
     schema:
-      $ref: '#/definitions/database'
+      $ref: '#/definitions/Database'
     required: true
 
 
@@ -111,19 +111,19 @@ patch:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone service configuration is not available. 
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     description: The list of hosts where the Onezone database instances should be enabled.
@@ -156,19 +156,19 @@ delete:
     '200':
       description: Database instance removed from host successfully.
       schema:
-        $ref: '#/definitions/database'
+        $ref: '#/definitions/Database'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Database instance is not installed on this host.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: hosts
     in: path

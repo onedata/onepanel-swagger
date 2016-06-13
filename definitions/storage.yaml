@@ -2,8 +2,8 @@ type: object
 description: Describes the properties of a storage resource.
 properties:
   posix:
-    $ref: '#/definitions/posix'
+    $ref: '#/definitions/Posix'
   s3:
-    $ref: '#/definitions/s3'  
+    $ref: '#/definitions/S3'  
   ceph:
-    $ref: '#/definitions/ceph'
+    $ref: '#/definitions/Ceph'
