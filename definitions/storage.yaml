@@ -1,9 +1,18 @@
 type: object
 description: Describes the properties of a storage resource.
+discriminator: storageType
 properties:
-  posix:
-    $ref: '#/definitions/Posix'
-  s3:
-    $ref: '#/definitions/S3'  
-  ceph:
-    $ref: '#/definitions/Ceph'
+  storageType:
+    type: string
+    description: Type of storage resource
+    enum:
+      - posix
+      - s3
+      - ceph
+example:
+  storageType: ceph
+  name: CephLocal
+  username: admin
+  key: LKHAKSJD0796ASDLKNAS98ASD
+  monitorHostname: example.com
+  clusterName: LocalCephCluster

@@ -1,12 +1,12 @@
-type: object
-description: Describes a POSIX storage resource.
-properties:
-  name:
-    type: string
-    description: The user friendly name of storage resource.
-  mountPoint:
-    type: string
-    description: The absolute path of the mountpoint where the storage is mounted on the Oneprovider nodes.
-required:
-  - name
-  - mountPoint
+allOf:
+  - $ref: '#/definitions/Storage'
+  - properties:
+      name:
+        type: string
+        description: The user friendly name of storage resource.
+      mountPoint:
+        type: string
+        description: The absolute path of the mountpoint where the storage is mounted on the Oneprovider nodes.
+    required:
+      - name
+      - mountPoint

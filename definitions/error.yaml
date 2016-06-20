@@ -1,15 +1,12 @@
 type: object
 description: Generic error model for REST requests.
 properties:
-  id:
-    description: Unique error Id for reference.
+  error:
+    description: Identifier representing internal error code.
     type: string
-  status:
-    description: HTTP error code.
-    type: integer
-  title:
-    description: Short error title.
-    type: string
-  message:
+  error_description:
     description: Detailed error message.
     type: string
+example:
+  error: invalid_token
+  error_description: Provided token could not be validated.

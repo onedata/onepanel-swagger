@@ -1,24 +1,24 @@
-type: object
-description: Describes a S3 storage resource.
-properties:
-  name:
-    type: string
-    description: The user friendly name of storage resource.
-  hostname:
-    type: string
-    description: The hostname where the S3 interface is available on.
-  bucketName:
-    type: string
-    description: The name of the bucket with the storage.
-  accessKey:
-    type: string
-    description: The access key to the S3 storage.
-  secretKey:
-    type: string
-    description: The secret key to the S3 storage.
-required:
-  - name
-  - hostname
-  - bucketName
-  - accessKey
-  - secretKey
+allOf:
+  - $ref: '#/definitions/Storage'
+  - properties:
+      name:
+        type: string
+        description: The user friendly name of storage resource.
+      hostname:
+        type: string
+        description: The hostname where the S3 interface is available on.
+      bucketName:
+        type: string
+        description: The name of the bucket with the storage.
+      accessKey:
+        type: string
+        description: The access key to the S3 storage.
+      secretKey:
+        type: string
+        description: The secret key to the S3 storage.
+    required:
+      - name
+      - hostname
+      - bucketName
+      - accessKey
+      - secretKey

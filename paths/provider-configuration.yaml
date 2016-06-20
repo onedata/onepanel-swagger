@@ -3,8 +3,8 @@ get:
   x-onedata-service: oneprovider
   x-onedata-module: installer
   x-onedata-method: get_configuration
-  summary: Get provider configuration.
-  description: Returns the current Oneprovider service configuration.
+  summary: Get provider configuration
+  description: Returns the current Oneprovider service configuration in YAML format.
   tags:
     - Provider
   produces:
