@@ -25,7 +25,7 @@
   $ref: ./cluster-workers-host.yaml
 
 /configuration:
-  $ref: ./configurationapi.yaml
+  $ref: ./configuration.yaml
 
 
 
