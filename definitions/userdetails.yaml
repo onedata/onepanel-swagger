@@ -1,0 +1,25 @@
+type: object
+description: Contains user details necessary when creating a new account.
+properties:
+  username:
+    type: string
+    description: User name.
+  password:
+    type: string
+    description: User password.
+  userRole:
+    type: string
+    x-onedata-datatype: atom
+    description: User role - currently only 'admin' and 'regular' are supported.
+    enum:
+      - admin
+      - regular
+    default: regular
+required:
+  - username
+  - password
+  - userRole
+example:
+  username: onedatauser
+  password: P@@$$W0RD
+  userRole: admin

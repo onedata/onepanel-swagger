@@ -1,8 +1,8 @@
 type: object
 description: Describes the properties of a storage resource.
-discriminator: storageType
+discriminator: type
 properties:
-  storageType:
+  type:
     type: string
     description: Type of storage resource
     enum:
@@ -10,7 +10,7 @@ properties:
       - s3
       - ceph
 example:
-  storageType: ceph
+  type: ceph
   name: CephLocal
   username: admin
   key: LKHAKSJD0796ASDLKNAS98ASD

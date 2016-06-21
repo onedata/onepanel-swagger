@@ -1,19 +1,21 @@
 get:
-  summary: Get Oneprovider status.
-  description: Returns the status of the Oneprovider service (started, stopped)
-  x-onedata-service: oneprovider
-  x-onedata-module: installer
-  x-onedata-method: get_status
-  operationId: provider_get_status
+  operationId: get_cluster_workers
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_worker
+  x-onedata-resource: op_worker
   tags:
-    - Provider
+    - Onepanel
+  summary: Get worker nodes
+  description: Returns the list of hostnames where Oneprovider worker instances are deployed (not necessarily currently running).
   produces:
-    - application/x-yaml
+    - application/json
   responses:
     '200':
-      description: Onepanel returned the state of the Oneprovider service
+      description: Returns the list of Oneprovider worker nodes in this deployment.
       schema:
-        type: boolean
+        type: array
+        items:
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -23,7 +25,7 @@ get:
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onepanel service is not available.
+      description: Oneprovider service configuration is not available. 
       schema:
         $ref: '#/definitions/Error'
     '500':
@@ -33,18 +35,18 @@ get:
 
 
 patch:
-  operationId: provider_start_stop
-  x-onedata-service: oneprovider
-  x-onedata-module: installer
-  x-onedata-method: start_stop
+  operationId: cluster_workers_start_stop
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_worker
+  x-onedata-resource: op_worker
+  summary: Start/stop worker nodes
   tags:
-    - Provider
-  summary: Start/stop Oneprovider service.
+    - Onepanel
   description: >
-   Starts or stops entire Oneprovider deployment in the local site.
+   Starts or stops all Oneprovider worker nodes in the local deployment.
   responses:
     '200':
-      description: Configuration updated successfully
+      description: Worker nodes state changed successfully.
       schema:
         type: string
     '400':
@@ -67,8 +69,9 @@ patch:
   - name: started
     in: query
     description: |
-      This flag changes the intended state of the service. 
+      This flag changes the intended state of the worker instances. 
 
       If the state is changed, the service will be stopped or started in order to match the requested state. 
     type: boolean
-    required: true
+    required: false
+    default: true

@@ -1,0 +1,88 @@
+get:
+  operationId: get_cluster_worker
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_worker
+  x-onedata-resource: worker
+  description: Returns the status of specific worker instance.
+  summary: Get worker status
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The status of a specific Oneprovider worker node.
+      schema:
+        $ref: '#/definitions/Database'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: There is no Oneprovider database instance on this node.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    description: |
+      The host name from which the information about the specific Oneprovider worker instance should be returned.
+    in: path
+    type: string
+    required: true
+    maxItems: 1
+    minItems: 1
+
+patch:
+  operationId: cluster_worker_start_stop
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_worker
+  x-onedata-resource: worker
+  summary: Start/stop worker node
+  tags:
+    - Onepanel
+  description: >
+     Starts or stops specific Oneprovider worker in the local site.
+  responses:
+    '204':
+      description: Worker state changed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Oneprovider service configuration is not available. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    description: |
+      The host name where the worker is running.
+    in: path
+    type: string
+    required: true
+    maxItems: 1
+    minItems: 1
+  - name: started
+    in: query
+    description: |
+      This flag changes the intended state of the worker instance. 
+
+      If the state is changed, the service will be stopped or started in order to match the requested state. 
+    type: boolean
+    required: false

@@ -1,17 +1,17 @@
 get:
-  operationId: provider_get_storage_resources
-  x-onedata-service: oneprovider
-  x-onedata-module: installer
-  x-onedata-method: list_storage_resources
-  summary: Get storage list.
-  description: Returns the storage resources connected to this Oneprovider instance.
+  operationId: get_cluster_managers
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_manager
+  x-onedata-resource: cluster_manager
   tags:
-    - Provider
+    - Onepanel
+  summary: Get manager nodes
+  description: Returns the list of hostnames where Oneprovider cluster manager instances are deployed (not necessarily currently running).
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the list of IDs of Oneprovider storage resources.
+      description: Returns the list of Oneprovider cluster manager nodes in this deployment.
       schema:
         type: array
         items:
@@ -32,29 +32,21 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: storageType
-    in: query
-    description: |
-      Filter by storage type (posix, s3, ceph) 
-    type: string
-    required: true
 
-post:
-  operationId: provider_add_storage_resource
-  x-onedata-service: oneprovider
-  x-onedata-module: installer
-  x-onedata-method: add_storage
+
+patch:
+  operationId: cluster_managers_start_stop
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_manager
+  x-onedata-resource: cluster_manager
+  summary: Start/stop manager nodes
   tags:
-    - Provider
-  summary: Add storage resource.
+    - Onepanel
   description: >
-   Adds new storage resource.
-  consumes:
-    - application/json
+   Starts or stops all Oneprovider cluster manager nodes in the local deployment.
   responses:
     '200':
-      description: Configuration updated successfully
+      description: Cluster manager nodes state changed successfully.
       schema:
         type: string
     '400':
@@ -74,9 +66,12 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: storageParams
-    in: body
-    description: New storage resource parameters in JSON
-    schema:
-      $ref: '#/definitions/Storage'
-    required: true
+  - name: started
+    in: query
+    description: |
+      This flag changes the intended state of the cluster manager instances. 
+
+      If the state is changed, the service will be stopped or started in order to match the requested state. 
+    type: boolean
+    required: false
+    default: true

@@ -1,0 +1,12 @@
+allOf:
+  - $ref: '#/definitions/Cluster'
+  - properties:
+      storages:
+        type: array
+        items:
+          type: object
+          properties:
+            nodeId:
+              type: string
+            storage:
+              $ref: '#/definitions/Storage'

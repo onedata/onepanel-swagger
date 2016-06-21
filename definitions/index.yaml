@@ -5,15 +5,36 @@
 Error:
   $ref: ./error.yaml
 
-Worker:
-  $ref: ./worker.yaml 
+UserDetails:
+  $ref: ./userdetails.yaml
+
+UserDetailsUpdate:
+  $ref: ./userdetailsupdate.yaml
+
+UserDetailsResponse:
+  $ref: ./userdetailsresponse.yaml
 
 Database:
   $ref: ./database.yaml
 
-ClusterManager:
-  $ref: ./clustermanager.yaml
+Configuration:
+  $ref: ./configuration.yaml
 
+OneproviderConfiguration:
+  $ref: ./oneproviderconfiguration.yaml
+
+OnezoneConfiguration:
+  $ref: ./onezoneconfiguration.yaml
+
+Cluster:
+  $ref: ./cluster.yaml
+
+OnezoneCluster:
+  $ref: ./onezonecluster.yaml
+
+OneproviderCluster:
+  $ref: ./oneprovidercluster.yaml
+  
 Provider:
   $ref: ./provider.yaml
 

@@ -1,0 +1,10 @@
+allOf:
+  - $ref: '#/definitions/Configuration'
+  - properties:
+      oneprovider:
+        $ref: '#/definitions/Provider'
+      onezone:
+        type: object
+        properties:
+          domain_name:
+            type: string

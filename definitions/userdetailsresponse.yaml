@@ -1,0 +1,21 @@
+type: object
+description: Contains existing user details.
+properties:
+  username:
+    type: string
+    description: User name.
+  userRole:
+    type: string
+    x-onedata-datatype: atom
+    description: User role - currently only 'admin' and 'regular' are supported.
+    enum:
+      - admin
+      - regular
+    default: regular
+required:
+  - username
+  - userRole
+example:
+  username: onedatauser
+  userRole: admin
+  

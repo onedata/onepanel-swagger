@@ -1,0 +1,88 @@
+get:
+  operationId: get_cluster_manager
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_manager
+  x-onedata-resource: cluster_manager
+  description: Returns the status of specific cluster manager instance.
+  summary: Get manager status
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The status of a specific Oneprovider cluster manager node.
+      schema:
+        $ref: '#/definitions/Database'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: There is no Oneprovider cluster manager instance on this node.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    description: |
+      The host name from which the information about the specific Oneprovider cluster manager instance should be returned.
+    in: path
+    type: string
+    required: true
+    maxItems: 1
+    minItems: 1
+
+patch:
+  operationId: cluster_manager_start_stop
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_manager
+  x-onedata-resource: cluster_manager
+  summary: Start/stop manager node.
+  tags:
+    - Onepanel
+  description: >
+     Starts or stops a specific Oneprovider cluster manager instance in the local site.
+  responses:
+    '204':
+      description: Cluster manager state changed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Oneprovider service configuration is not available. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    description: |
+      The host name where cluster manager is running.
+    in: path
+    type: string
+    required: true
+    maxItems: 1
+    minItems: 1
+  - name: started
+    in: query
+    description: |
+      This flag changes the intended state of the cluster manager instance. 
+
+      If the state is changed, the service will be stopped or started in order to match the requested state. 
+    type: boolean
+    required: false

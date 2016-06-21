@@ -1,34 +1,51 @@
--module(rest_model).
-
-%
-% Definitions of records for REST API
-%
+%%%--------------------------------------------------------------------
+%%% @author Krzysztof Trzepla
+%%% @copyright (C) 2016 ACK CYFRONET AGH
+%%% This software is released under the MIT license
+%%% cited in 'LICENSE.txt'.
+%%% @end
+%%%--------------------------------------------------------------------
+%%% @doc @todo write me!
+%%% @end
+%%%--------------------------------------------------------------------
+-module(rest_api_oneprovider).
+-author("Krzysztof Trzepla").
 
 
 {{#models}}
 {{#model}}
-%
-% {{classname}}
-%
-% {{description}}
-%
--record({{classname}}, {
-{{#vars}}
-	% {{description}}
-    {{name}} :: {{datatype}}(), 
-{{/vars}} }).
-
-%
-% Record schema for validation of JSON strings received via REST API. 
-%
--{{classname}}_schema() ->
-	#{
-	{{#vars}}
-	<<"{{name}}">> => { {{datatypeWithEnum}}, {{#required}}true{{/required}}{{^required}}false{{/required}} },
-	{{/vars}}
-	}
-	.
-
-
+%%
+%% {{#description}}{{description}}{{/description}}
+%%
+- {{classname}}_model() ->
+  #{ 
+{{#vars}}    {{name}} => {{datatype}}{{#hasMore}},{{/hasMore}} %% {{#description}}{{description}}{{/description}}
+	  {{/vars}} 
+   }. 
 {{/model}}
+
+
 {{/models}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

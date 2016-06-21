@@ -7,10 +7,8 @@ paths:
 definitions:
   $ref: ./definitions/index.yaml
 tags:
-  - name: Provider
-    description: Provider related operations
-  - name: Zone
-    description: Zone related operations
+  - name: Onepanel
+    description: Onepanel API methods
 securityDefinitions:
   api_key:
     type: apiKey

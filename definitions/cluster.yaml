@@ -1,0 +1,48 @@
+type: object
+description: Generic type for Onedata service cluster definition.
+discriminator: type
+properties:
+  type:
+    type: string
+    description: Type of Onedata service
+    enum:
+      - onezone
+      - oneprovider
+  domain_name:
+    type: string
+    description: Domain name of the service.
+  nodes:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Node id
+        hostname:
+          type: string
+          description: Node hostname
+  managers:
+    type: object
+    properties:
+      main_node:
+        type: string
+        description: The Id of the main cluster manager node.
+      items:
+        type: array
+        items:
+          type: string
+  workers:
+    type: object
+    properties:
+      nodes:
+        type: array
+        items:
+          type: string
+  databases:
+    type: object
+    properties:
+      nodes:
+        type: array
+        items:
+          type: string

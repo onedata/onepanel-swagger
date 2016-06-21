@@ -1,0 +1,7 @@
+type: object
+description: Describes a the properties of a Database instance.
+properties:
+  cluster:
+    $ref: '#/definitions/Cluster'
+
+    

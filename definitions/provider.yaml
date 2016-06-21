@@ -1,7 +1,10 @@
 type: object
 description: Describes the properties of a Worker process instance.
 properties:
-  providerName:
+  register:
+    type: boolean
+    description: Whether the provider should be automatically registered.
+  name:
     type: string
     description: The name under which the provider should be registered in the zone.
   redirectionPoint:
@@ -13,6 +16,3 @@ properties:
   geoLatitude:
     type: number
     description: Geographical latitude of the storage provider.
-required:
-  - providerName
-  - redirectionPoint

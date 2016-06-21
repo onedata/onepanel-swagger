@@ -1,87 +1,80 @@
--module(rest_api).
-
--import(validator).
--import(rest_model).
--import(installer).
--import(installer_db).
--import(installer_worker).
--import(installer_cm).
-
+%%%--------------------------------------------------------------------
+%%% This file has been automatically generated from Swagger
+%%% specification - DO NOT EDIT!
 %%%
-%%% {{appName}}
-%%%
-%%% {{appDescription}}
-%%% Version: {{version}}
-
-%%%
-%%% @doc Returns a Cowboy-understandable PathList of routes supported by a module
-%%% implementing this behavior.
-%%% @see rest_module_behavior
+%%% @copyright (C) 2016 ACK CYFRONET AGH
+%%% This software is released under the MIT license cited i
+%%% in 'LICENSE.txt'.
 %%% @end
-%%%
+%%%--------------------------------------------------------------------
+%%% @doc {{#description}}{{description}}{{/description}}
+%%% @end
+%%%--------------------------------------------------------------------
+-module(rest_api_oneprovider).
+-author("Krzysztof Trzepla").
+
+-include("http/rest.hrl").
+-include("rest_model.hrl").
+
+%% API
+-export([routes/0]).
+
+%%%===================================================================
+%%% API functions
+%%%===================================================================
+
+%%--------------------------------------------------------------------
+%% @doc
+%% @todo write me!
+%% @end
+%%--------------------------------------------------------------------
 -spec routes() ->
-    [{PathMatch :: binary(), rest_handler, State :: rstate()}].
+    [{Path :: binary(), Module :: module(), State :: rest_handler:state()}].
 routes() ->
-    S = #rstate{module = ?MODULE, root = spaces},
-    M = rest_handler,
-    [
+[
 {{#operations}}
 {{#operation}}
-      { <<"{{basePathWithoutHost}}{{path}}">>, {{operationId}}, S#rstate{resource = hosts, method = '{{httpMethod}}' }{{#hasMore}},{{/hasMore}}
-{{/operation}}
-{{/operations}}
-	].
-
-
-{{#operations}}
-{{#operation}}
-%%%
-%%% '{{basePathWithoutHost}}{{path}}'
-%%% @doc {{notes}}
-%%%
-%%% HTTP method: {{httpMethod}}
-%%%
-{{#allParams}}
-%%% @param {{paramName}} {{description}}
-{{/allParams}}
-%%%
--{{operationId}}({{#allParams}}{{dataType}} :: {{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}}) -> 
-	{{#hasPathParams}}
-	%
-	% Validate path params - in case of array parameters in path they need to be parsed
-	% by parsing a comma-separated list
-	%
-	{{#pathParams}}
-		{{#isContainer}}
-	Param_{{paramName}} = validator:parse('csv', {{paramName}}),
-		{{/isContainer}}
-		{{^isContainer}}
-	Param_{{paramName}} = validator:parse('string', {{paramName}}),
-		{{/isContainer}}	
-	{{/pathParams}}
-	{{/hasPathParams}}
-	{{#hasConsumes}}
-	{{#hasBodyParams}}
-	%
-	% Validate the input body params
-	%
-	{{/hasBodyParams}}
-	{{#bodyParams}}
-	Param_{{paramName}} = validator:parse('{{consumes.0.mediaType}}', {{paramName}}, rest_model:{{dataType}}_schema()),
-	{{/bodyParams}}
-	{{/hasConsumes}}
-	{{#hasQueryParams}}
-	%
-	% Validate query params
-	%
-	{{#queryParams}}
-	Param_{{paramName}} = validator:parse('{{dataType}}', {{paramName}}),
-	{{/queryParams}}
-	{{/hasQueryParams}}
-    %
-	% Call the appropriate function handler in specific module
-	%
-	{{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}}:{{#vendorExtensions}}{{x-onedata-method}}{{/vendorExtensions}}(#{ {{#allParams}}"{{paramName}}" => Param_{{paramName}} {{#hasMore}},{{/hasMore}}{{/allParams}} }).
+   %%
+   %% {{#summary}}{{{summary}}}{{/summary}}
+   %%
+   { <<"{{basePathWithoutHost}}{{path}}">>, rest_handler, S#rstate{
+  		version = {{#vendorExtensions}}{{x-onedata-version}}{{/vendorExtensions}},
+  		module = {{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}},
+  		resource = {{#vendorExtensions}}{{x-onedata-resource}}{{/vendorExtensions}},
+  		methods = [#rmethod{ type='{{httpMethod}}'{{#hasConsumes}}, 
+  			%% [Body parameter]
+  			%% {{#bodyParam}}{{description}}{{/bodyParam}}
+  			args_spec = {{#bodyParam}}{{dataType}}_model(){{/bodyParam}} {{/hasConsumes}} 
+			{{#hasQueryParams}}, 
+			%% [Query parameters]
+			params_spec = #{ {{#queryParams}}
+				%% {{description}}
+				{{paramName}} => { {{dataType}},{{#defaultValue}} { optional, {{defaultValue}} } {{/defaultValue}}{{^defaultValue}} {required}{{/defaultValue}} } {{#hasMore}},{{/hasMore}}{{/queryParams}}{{/hasQueryParams}} }]
+   }{{#hasMore}},{{/hasMore}}
 
 {{/operation}}
 {{/operations}}
+].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

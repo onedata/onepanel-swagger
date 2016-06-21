@@ -3,60 +3,93 @@
 # defined in separate files for each path
 #
 
-/zone:
-  $ref: ./zone.yaml
+/user:
+  $ref: ./user.yaml
+
+/cluster/databases:
+  $ref: ./cluster-databases.yaml
+
+/cluster/databases/{host}:
+  $ref: ./cluster-databases-host.yaml
+
+/cluster/managers:
+  $ref: ./cluster-managers.yaml
+
+/cluster/managers/{host}:
+  $ref: ./cluster-managers-host.yaml
+
+/cluster/workers:
+  $ref: ./cluster-workers.yaml
+
+/cluster/workers/{host}:
+  $ref: ./cluster-workers-host.yaml
+
+/configuration:
+  $ref: ./configurationapi.yaml
+
+
+
+
+
+
+
+
+
+
+# /zone:
+#   $ref: ./zone.yaml
   
-/zone/configuration:
-  $ref: ./zone-configuration.yaml
+# /zone/configuration:
+#   $ref: ./zone-configuration.yaml
 
-/zone/workers:
-  $ref: ./zone-workers.yaml
+# /zone/workers:
+#   $ref: ./zone-workers.yaml
 
-/zone/workers/{hosts}:
-  $ref: ./zone-workers-hosts.yaml
+# /zone/workers/{hosts}:
+#   $ref: ./zone-workers-hosts.yaml
 
-/zone/databases:
-  $ref: ./zone-databases.yaml
+# /zone/databases:
+#   $ref: ./zone-databases.yaml
 
-/zone/databases/{hosts}:
-  $ref: ./zone-databases-hosts.yaml
+# /zone/databases/{hosts}:
+#   $ref: ./zone-databases-hosts.yaml
 
-/zone/managers:
-  $ref: ./zone-managers.yaml
+# /zone/managers:
+#   $ref: ./zone-managers.yaml
 
-/zone/managers/{hosts}:
-  $ref: ./zone-managers-hosts.yaml
+# /zone/managers/{hosts}:
+#   $ref: ./zone-managers-hosts.yaml
 
-/zone/providers:
-  $ref: ./zone-providers.yaml
+# /zone/providers:
+#   $ref: ./zone-providers.yaml
   
 
-/provider:
-  $ref: ./provider.yaml
+# /provider:
+#   $ref: ./provider.yaml
   
-/provider/configuration:
-  $ref: ./provider-configuration.yaml
+# /provider/configuration:
+#   $ref: ./provider-configuration.yaml
 
-/provider/storages:
-  $ref: ./provider-storages.yaml
+# /provider/storages:
+#   $ref: ./provider-storages.yaml
 
-/provider/storages/{id}:
-  $ref: ./provider-storages-id.yaml
+# /provider/storages/{id}:
+#   $ref: ./provider-storages-id.yaml
  
-/provider/workers:
-  $ref: ./provider-workers.yaml
+# /provider/workers:
+#   $ref: ./provider-workers.yaml
 
-/provider/workers/{hosts}:
-  $ref: ./provider-workers-hosts.yaml
+# /provider/workers/{hosts}:
+#   $ref: ./provider-workers-hosts.yaml
 
-/provider/databases:
-  $ref: ./provider-databases.yaml
+# /provider/databases:
+#   $ref: ./provider-databases.yaml
 
-/provider/databases/{hosts}:
-  $ref: ./provider-databases-hosts.yaml
+# /provider/databases/{hosts}:
+#   $ref: ./provider-databases-hosts.yaml
 
-/provider/managers:
-  $ref: ./provider-managers.yaml
+# /provider/managers:
+#   $ref: ./provider-managers.yaml
 
-/provider/managers/{hosts}:
-  $ref: ./provider-managers-hosts.yaml
+# /provider/managers/{hosts}:
+#   $ref: ./provider-managers-hosts.yaml

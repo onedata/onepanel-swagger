@@ -1,0 +1,10 @@
+type: object
+description: Contains details necessary when modifying user account.
+properties:
+  password:
+    type: string
+    description: User password.
+required:
+  - password
+example:
+  password: P@@$$W0RD
