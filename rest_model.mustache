@@ -8,8 +8,13 @@
 %%% @doc @todo write me!
 %%% @end
 %%%--------------------------------------------------------------------
--module(rest_api_oneprovider).
+-module(rest_model).
 -author("Krzysztof Trzepla").
+
+-export([
+        {{#models}}
+    {{#model}}{{classname}}_model/0,{{/model}}
+    {{/models}}]).
 
 
 {{#models}}
@@ -17,7 +22,7 @@
 %%
 %% {{#description}}{{description}}{{/description}}
 %%
-- {{classname}}_model() ->
+{{classname}}_model() ->
   #{ 
 {{#vars}}    {{name}} => {{datatype}}{{#hasMore}},{{/hasMore}} %% {{#description}}{{description}}{{/description}}
 	  {{/vars}} 

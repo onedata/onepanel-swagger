@@ -1,12 +1,13 @@
 allOf:
   - $ref: '#/definitions/Storage'
+  - x-discriminator-value: "S3"
   - properties:
-      name:
-        type: string
-        description: The user friendly name of storage resource.
-      hostname:
+      S3Hostname:
         type: string
         description: The hostname where the S3 interface is available on.
+      IAMHostname:
+        type: string
+        description: The IAM hostname for the S3 storage.
       bucketName:
         type: string
         description: The name of the bucket with the storage.
@@ -16,9 +17,16 @@ allOf:
       secretKey:
         type: string
         description: The secret key to the S3 storage.
-    required:
-      - name
-      - hostname
-      - bucketName
-      - accessKey
-      - secretKey
+  - required:
+    - s3Hostname
+    - IAMHostname
+    - bucketName
+    - accessKey
+    - secretKey
+example:
+  type: S3
+  S3Hostname: s3.example.com
+  IAMHostname: iam.example.com
+  bucketName: bucket1.iam.example.com
+  accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
+  secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDKNJK

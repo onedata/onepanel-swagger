@@ -13,7 +13,7 @@ get:
     '200':
       description: The status of a specific Oneprovider database node.
       schema:
-        $ref: '#/definitions/Database'
+        $ref: '#/definitions/ServiceStatus'
     '400':
       description: Invalid request.
       schema:
@@ -39,6 +39,7 @@ get:
     required: true
     maxItems: 1
     minItems: 1
+
 
 patch:
   operationId: cluster_database_start_stop

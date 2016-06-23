@@ -4,5 +4,5 @@ allOf:
       onezone:
         type: object
         properties:
-          domain_name:
+          domainName:
             type: string

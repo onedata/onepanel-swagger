@@ -38,14 +38,21 @@ OneproviderCluster:
 Provider:
   $ref: ./provider.yaml
 
-Posix:
+Storage:
+  $ref: ./storage.yaml
+
+POSIX:
   $ref: ./posix.yaml
 
 S3:
   $ref: ./s3.yaml
 
-Ceph:
+CEPH:
   $ref: ./ceph.yaml
 
-Storage:
-  $ref: ./storage.yaml
+
+ServiceStatus:
+  $ref: ./servicestatus.yaml
+
+ServicesStatus:
+  $ref: ./servicesstatus.yaml

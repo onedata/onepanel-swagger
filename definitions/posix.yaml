@@ -1,12 +1,12 @@
 allOf:
   - $ref: '#/definitions/Storage'
+  - x-discriminator-value: "POSIX"
   - properties:
-      name:
-        type: string
-        description: The user friendly name of storage resource.
       mountPoint:
         type: string
         description: The absolute path of the mountpoint where the storage is mounted on the Oneprovider nodes.
-    required:
-      - name
-      - mountPoint
+  - required:
+    - mountPoint
+example:
+  type: POSIX
+  mountPoint: /mnt/nas/volume1

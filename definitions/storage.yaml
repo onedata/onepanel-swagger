@@ -6,13 +6,8 @@ properties:
     type: string
     description: Type of storage resource
     enum:
-      - posix
-      - s3
-      - ceph
-example:
-  type: ceph
-  name: CephLocal
-  username: admin
-  key: LKHAKSJD0796ASDLKNAS98ASD
-  monitorHostname: example.com
-  clusterName: LocalCephCluster
+      - POSIX
+      - S3
+      - CEPH
+required:
+  - type

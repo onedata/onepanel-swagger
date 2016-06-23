@@ -7,6 +7,9 @@ properties:
   error_description:
     description: Detailed error message.
     type: string
+required:
+  - error
+  - error_description
 example:
   error: invalid_token
   error_description: Provided token could not be validated.

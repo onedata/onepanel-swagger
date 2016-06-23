@@ -1,9 +1,6 @@
 allOf:
   - $ref: '#/definitions/Storage'
   - properties:
-      name:
-        type: string
-        description: The user friendly name of storage resource.
       username:
         type: string
         description: The username for authentication to Ceph.
@@ -16,9 +13,15 @@ allOf:
       clusterName:
         type: string
         description: Cluster name.
-    required:
-      - name
-      - username
-      - key
-      - monitorHostname
-      - clusterName
+  - required:
+    - name
+    - username
+    - key
+    - monitorHostname
+    - clusterName
+example:
+  type: CEPH
+  username: user1
+  key: LKJASHD6876ASDBJHV65765ASD
+  monitorHostname: test.example.com
+  clusterName: CephCluster1

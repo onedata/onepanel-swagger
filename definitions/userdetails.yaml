@@ -9,7 +9,7 @@ properties:
     description: User password.
   userRole:
     type: string
-    x-onedata-datatype: atom
+    x-erlang-datatype: atom
     description: User role - currently only 'admin' and 'regular' are supported.
     enum:
       - admin

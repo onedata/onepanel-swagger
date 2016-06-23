@@ -8,24 +8,21 @@ properties:
     enum:
       - onezone
       - oneprovider
-  domain_name:
+  domainName:
     type: string
     description: Domain name of the service.
   nodes:
-    type: array
-    items:
+    type: object
+    additionalProperties:
       type: object
       properties:
-        id:
-          type: string
-          description: Node id
         hostname:
           type: string
           description: Node hostname
   managers:
     type: object
     properties:
-      main_node:
+      mainNode:
         type: string
         description: The Id of the main cluster manager node.
       items:

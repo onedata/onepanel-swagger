@@ -13,9 +13,7 @@ get:
     '200':
       description: Returns the list of Oneprovider cluster manager nodes in this deployment.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/ServicesStatus'
     '400':
       description: Invalid request.
       schema:
@@ -45,10 +43,8 @@ patch:
   description: >
    Starts or stops all Oneprovider cluster manager nodes in the local deployment.
   responses:
-    '200':
+    '204':
       description: Cluster manager nodes state changed successfully.
-      schema:
-        type: string
     '400':
       description: Invalid request.
       schema:
