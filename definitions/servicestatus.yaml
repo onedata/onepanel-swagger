@@ -1,0 +1,25 @@
+type: object
+description: Provides status information on requested service.
+properties:
+  service:
+    type: string
+    description: |
+      The type of service.
+      * oz_worker - an instance of Onezone worker process
+      * op_worker - an instance of Oneprovider worker process
+      * cluster_manager - an instance of ClusterManager process
+      * couchbase - an instance of Couchbase metadata database
+    enum:
+      - op_worker
+      - oz_worker
+      - cluster_manager
+      - couchbase
+  result:
+    type: string
+    description: The service status.
+    enum:
+      - ok 
+      - error
+example:
+  service: op_worker
+  result: ok

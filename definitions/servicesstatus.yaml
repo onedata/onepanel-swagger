@@ -1,0 +1,39 @@
+type: object
+description: Provides status information about multiple services.
+properties:
+  service:
+    type: string
+    description: |
+      The type of service.
+      * oz_worker - an instance of Onezone worker process
+      * op_worker - an instance of Oneprovider worker process
+      * cluster_manager - an instance of ClusterManager process
+      * couchbase - an instance of Couchbase metadata database
+    enum:
+      - op_worker
+      - oz_worker
+      - cluster_manager
+      - couchbase
+  results:
+    type: array
+    items:
+      type: object
+      properties:
+        host:
+          type: string
+          description: The host where the service instance is deployed.
+        result:
+          type: string
+          description: The status of the service instance on this host.
+          enum:
+            - ok 
+            - error
+example:
+  service: op_worker
+  results:
+    - host: h1.example.com
+      result: ok
+    - host: h2.example.com
+      result: error    
+    - host: h3.example.com
+      result: ok
