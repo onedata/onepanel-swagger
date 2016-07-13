@@ -110,7 +110,7 @@ put:
 
 
 delete:
-  summary: Remove user
+  summary: Remove current user
   description: Removes current user account.
   x-onedata-version: 3
   x-onedata-module: rest_onedata_user

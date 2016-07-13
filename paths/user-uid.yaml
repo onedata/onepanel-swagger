@@ -4,7 +4,7 @@ delete:
   x-onedata-version: 3
   x-onedata-module: rest_onedata_user
   x-onedata-resource: user
-  operationId: remove_user
+  operationId: remove_other_user
   tags:
     - Onepanel
   consumes:
