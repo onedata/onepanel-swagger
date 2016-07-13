@@ -1,0 +1,36 @@
+delete:
+  summary: Remove user
+  description: Removes user account specified by user name `uid`.
+  x-onedata-version: 3
+  x-onedata-module: rest_onedata_user
+  x-onedata-resource: user
+  operationId: remove_user
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: User account removed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service is not available.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: uid
+    in: path
+    description: User account name.
+    type: string
+    required: true
