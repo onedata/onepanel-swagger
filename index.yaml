@@ -10,7 +10,5 @@ tags:
   - name: Onepanel
     description: Onepanel API methods
 securityDefinitions:
-  api_key:
-    type: apiKey
-    name: macaroon
-    in: header
+  basic: 
+    type: basic

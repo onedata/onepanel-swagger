@@ -1,5 +1,6 @@
 allOf:
   - $ref: '#/definitions/Cluster'
+  - description: Oneprovider cluster specific configuration.
   - properties:
       storages:
         type: object

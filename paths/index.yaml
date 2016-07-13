@@ -6,6 +6,9 @@
 /user:
   $ref: ./user.yaml
 
+/user/{uid}:
+  $ref: ./user-uid.yaml
+
 /cluster/databases:
   $ref: ./cluster-databases.yaml
 

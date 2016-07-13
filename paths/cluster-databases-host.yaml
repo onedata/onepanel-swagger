@@ -3,7 +3,7 @@ get:
   x-onedata-version: 3
   x-onedata-module: rest_couchbase
   x-onedata-resource: couchbase
-  description: Returns the status of specific database instance.
+  description: Returns the status of a specific database instance.
   summary: Get database status
   tags:
     - Onepanel

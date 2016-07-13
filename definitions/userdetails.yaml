@@ -20,6 +20,6 @@ required:
   - password
   - userRole
 example:
-  username: onedatauser
+  username: r
   password: P@@$$W0RD
   userRole: admin

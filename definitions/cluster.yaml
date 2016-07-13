@@ -19,6 +19,8 @@ properties:
         hostname:
           type: string
           description: Node hostname
+      required:
+        - hostname
   managers:
     type: object
     properties:
@@ -29,6 +31,9 @@ properties:
         type: array
         items:
           type: string
+    required:
+      - mainNode
+      - items
   workers:
     type: object
     properties:
@@ -36,6 +41,8 @@ properties:
         type: array
         items:
           type: string
+    required:
+      - nodes
   databases:
     type: object
     properties:
@@ -43,3 +50,12 @@ properties:
         type: array
         items:
           type: string
+    required:
+      - nodes
+required:
+  - nodes
+  - type
+  - domainName
+  - databases
+  - workers
+  - managers

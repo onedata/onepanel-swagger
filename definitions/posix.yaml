@@ -1,6 +1,7 @@
 allOf:
   - $ref: '#/definitions/Storage'
   - x-discriminator-value: "POSIX"
+  - description: POSIX specific storage configuration attributes.
   - properties:
       mountPoint:
         type: string

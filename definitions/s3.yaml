@@ -1,6 +1,7 @@
 allOf:
   - $ref: '#/definitions/Storage'
   - x-discriminator-value: "S3"
+  - description: Amazon S3 compatible storage configuration attributes.
   - properties:
       S3Hostname:
         type: string

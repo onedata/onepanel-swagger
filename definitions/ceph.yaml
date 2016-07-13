@@ -1,5 +1,6 @@
 allOf:
   - $ref: '#/definitions/Storage'
+  - description: The Ceph storage configuration attributes.
   - properties:
       username:
         type: string

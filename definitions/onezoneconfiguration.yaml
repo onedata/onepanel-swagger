@@ -1,5 +1,6 @@
 allOf:
   - $ref: '#/definitions/Configuration'
+  - description: Onezone cluster configuration specific attributes.
   - properties:
       onezone:
         type: object
