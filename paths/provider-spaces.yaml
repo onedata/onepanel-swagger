@@ -1,0 +1,77 @@
+get:
+  operationId: get_provider_spaces
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: spaces
+  tags:
+    - Onepanel
+  summary: Get provider spaces
+  description: |
+    Returns the list of spaces supported by Oneprovider.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Oneprovider configuration details.
+      schema:
+        type: array
+        items:
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+
+put:
+  operationId: support_space
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: spaces
+  tags:
+    - Onepanel
+  summary: Support space
+  description: |
+    Allows to support existing space or create new space and
+    automatically support it.
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Operation successful.
+      headers:
+        Location:
+          type: string
+          description: |
+            The path to the newly supported space resource, of the form 
+            `/api/v3/onepanel/provider/spaces/{id}` where `id` is the space
+            ID.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+

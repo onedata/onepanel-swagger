@@ -1,17 +1,17 @@
 get:
   summary: Get user details
-  description: Returns the basic information about the current user.
+  description: Returns the information about user account.
   x-onedata-version: 3
-  x-onedata-module: rest_onedata_user
+  x-onedata-module: rest_onepanel_user
   x-onedata-resource: user
   operationId: get_user
   tags:
     - Onepanel
   produces:
-    - application/x-yaml
+    - application/json
   responses:
     '200':
-      description: User details returned successfully.
+      description: User account details.
       schema:
         $ref: '#/definitions/UserDetailsResponse'
     '400':
@@ -30,51 +30,19 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-
-post:
-  summary: Add user
-  description: Creates new Onepanel user account.
-  x-onedata-version: 3
-  x-onedata-module: rest_onedata_user
-  x-onedata-resource: user
-  operationId: add_user
-  tags:
-    - Onepanel
-  consumes:
-    - application/json
-  responses:
-    '204':
-      description: User created successfully.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '403':
-      description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service is not available.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
-  - name: userDetails
-    in: body
-    description: New user account details.
-    schema:
-      $ref: '#/definitions/UserDetails'
+  - name: username
+    in: path
+    description: User account name.
+    type: string
     required: true
 
 
 put:
-  summary: Modify user settings
-  description: Modifies current user account details. Currently only password modification is allowed.
+  summary: Change user password
+  description: Allows to change users password.
   x-onedata-version: 3
-  x-onedata-module: rest_onedata_user
+  x-onedata-module: rest_onepanel_user
   x-onedata-resource: user
   operationId: modify_user
   tags:
@@ -83,7 +51,7 @@ put:
     - application/json
   responses:
     '204':
-      description: User details updated successfully.
+      description: User account password changed successfully.
     '400':
       description: Invalid request.
       schema:
@@ -93,7 +61,7 @@ put:
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onepanel service is not available.
+      description: User account not found.
       schema:
         $ref: '#/definitions/Error'
     '500':
@@ -101,28 +69,30 @@ put:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: userDetails
+  - name: username
+    in: path
+    description: User account name.
+    type: string
+    required: true
+  - name: password
     in: body
-    description: New user account details.
+    description: New password.
     schema:
       $ref: '#/definitions/UserDetailsUpdate'
-    required: true
 
 
 delete:
-  summary: Remove current user
-  description: Removes current user account.
+  summary: Remove user
+  description: Removes a user account.
   x-onedata-version: 3
-  x-onedata-module: rest_onedata_user
+  x-onedata-module: rest_onepanel_user
   x-onedata-resource: user
   operationId: remove_user
   tags:
     - Onepanel
-  consumes:
-    - application/json
   responses:
     '204':
-      description: User details updated successfully.
+      description: User removed successfully.
     '400':
       description: Invalid request.
       schema:
@@ -132,7 +102,7 @@ delete:
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onepanel service is not available.
+      description: User account not found.
       schema:
         $ref: '#/definitions/Error'
     '500':
@@ -140,9 +110,8 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: userDetails
-    in: body
-    description: New user account details.
-    schema:
-      $ref: '#/definitions/UserDetails'
+  - name: username
+    in: path
+    description: The user account name to remove.
+    type: string
     required: true

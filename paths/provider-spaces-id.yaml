@@ -1,0 +1,72 @@
+get:
+  operationId: get_provider_space
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space
+  tags:
+    - Onepanel
+  summary: Get information about supported space
+  description: |
+    Returns the list of spaces supported by Oneprovider.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Space details.
+      schema:
+        $ref: '#/definitions/SpaceDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+
+
+delete:
+  operationId: remove_space_support
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space
+  tags:
+    - Onepanel
+  summary: Remove space support
+  description: |
+    Removes support for space.
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Operation successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id 
+    in: path
+    description: Name of the space to remove.
+    required: true

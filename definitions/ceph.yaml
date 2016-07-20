@@ -14,12 +14,16 @@ allOf:
       clusterName:
         type: string
         description: Cluster name.
+      poolName:
+        type: string
+        description: Name of a Ceph pool.
   - required:
     - name
     - username
     - key
     - monitorHostname
     - clusterName
+    - poolName
 example:
   type: CEPH
   username: user1

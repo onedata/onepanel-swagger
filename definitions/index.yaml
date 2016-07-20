@@ -38,6 +38,12 @@ OneproviderCluster:
 Provider:
   $ref: ./provider.yaml
 
+ProviderConfigureRequest:
+  $ref: ./providerconfigurerequest.yaml
+
+ProviderUpdateRequest:
+  $ref: ./providerupdaterequest.yaml
+
 Storage:
   $ref: ./storage.yaml
 
@@ -50,9 +56,27 @@ S3:
 CEPH:
   $ref: ./ceph.yaml
 
-
 ServiceStatus:
   $ref: ./servicestatus.yaml
 
 ServicesStatus:
   $ref: ./servicesstatus.yaml
+
+Hosts:
+  $ref: ./hosts.yaml
+
+ManagerHosts:
+  $ref: ./managerhosts.yaml
+
+TaskStatus:
+  $ref: ./taskstatus.yaml
+
+SpaceSupportRequest:
+  $ref: ./spacesupportrequest.yaml
+
+SpaceDetails:
+  $ref: ./spacedetails.yaml
+
+
+
+

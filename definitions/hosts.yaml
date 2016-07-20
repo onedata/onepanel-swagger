@@ -1,0 +1,9 @@
+type: array
+description: The list of hosts which should be added to the current deployment.
+items:
+  type: string
+example:
+  - oneprovider1.example.com
+  - oneprovider2.example.com
+  - oneprovider3.example.com
+  

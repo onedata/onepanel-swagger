@@ -1,0 +1,146 @@
+get:
+  operationId: get_provider
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: provider
+  tags:
+    - Onepanel
+  summary: Get provider details
+  description: |
+    Returns the basic configuration information of Oneprovider.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Oneprovider configuration details.
+      schema:
+        $ref: '#/definitions/ProviderConfigureRequest'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: discovered
+    in: query
+    type: boolean
+    default: false
+    required: false
+
+put:
+  operationId: set_provider_details
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: provider
+  tags:
+    - Onepanel
+  summary: Set provider details
+  description: |
+    Allows to set basic provider details.
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Operation successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: providerDetails
+    in: body
+    schema:
+      $ref: '#/definitions/ProviderConfigureRequest'
+    required: true
+
+patch:
+  operationId: modify_provider_details
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: provider
+  tags:
+    - Onepanel
+  summary: Modify provider details
+  description: |
+    Allows to modify basic provider details.
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Operation successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: providerDetails
+    in: body
+    schema:
+      $ref: '#/definitions/ProviderUpdateRequest'
+    required: true
+
+delete:
+  operationId: unregister_provider
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: provider
+  tags:
+    - Onepanel
+  summary: Unregister provider which invokes this request.
+  description: |
+    Allows to unregister Oneprovider.
+  responses:
+    '204':
+      description: Operation successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+

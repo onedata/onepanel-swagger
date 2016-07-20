@@ -3,10 +3,10 @@ allOf:
   - x-discriminator-value: "S3"
   - description: Amazon S3 compatible storage configuration attributes.
   - properties:
-      S3Hostname:
+      s3Hostname:
         type: string
         description: The hostname where the S3 interface is available on.
-      IAMHostname:
+      iamHostname:
         type: string
         description: The IAM hostname for the S3 storage.
       bucketName:
@@ -20,7 +20,7 @@ allOf:
         description: The secret key to the S3 storage.
   - required:
     - s3Hostname
-    - IAMHostname
+    - iamHostname
     - bucketName
     - accessKey
     - secretKey

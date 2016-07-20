@@ -1,8 +1,8 @@
 get:
   operationId: get_cluster_database
   x-onedata-version: 3
-  x-onedata-module: rest_couchbase
-  x-onedata-resource: couchbase
+  x-onedata-module: rest_service
+  x-onedata-resource: service_couchbase
   description: Returns the status of a specific database instance.
   summary: Get database status
   tags:
@@ -41,11 +41,12 @@ get:
     minItems: 1
 
 
+
 patch:
   operationId: cluster_database_start_stop
   x-onedata-version: 3
-  x-onedata-module: rest_couchbase
-  x-onedata-resource: couchbase
+  x-onedata-module: rest_service
+  x-onedata-resource: service_couchbase
   summary: Start/stop database node.
   tags:
     - Onepanel
@@ -86,4 +87,5 @@ patch:
 
       If the state is changed, the service will be stopped or started in order to match the requested state. 
     type: boolean
+    default: true
     required: false

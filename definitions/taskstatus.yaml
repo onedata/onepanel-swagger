@@ -1,0 +1,39 @@
+type: object
+description: Status of specific Onepanel task.
+properties:
+  status:
+    type: string
+    description: Status code.
+    enum:
+      - ok
+      - error
+      - running
+  steps:
+    type: array
+    description: The list of configuration steps already performed.
+    items:
+      type: string
+  hosts:
+    type: array
+    description: The list of hosts impacted by this task.
+    items:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          error:
+            type: string
+          description:
+            type: string
+required:
+  - status
+  - steps
+example:
+  status: running
+  steps:
+    - installing
+    - configuring
+  hosts:
+    - host1:
+        error: configuration_error
+        description: Invalid configuration format

@@ -1,8 +1,8 @@
 get:
   operationId: get_cluster_worker
   x-onedata-version: 3
-  x-onedata-module: rest_cluster_worker
-  x-onedata-resource: worker
+  x-onedata-module: rest_service
+  x-onedata-resource: service_op_worker
   description: Returns the status of specific worker instance.
   summary: Get worker status
   tags:
@@ -33,7 +33,8 @@ get:
   parameters:
   - name: host
     description: |
-      The host name from which the information about the specific Oneprovider worker instance should be returned.
+      The host name from which the information about the specific Oneprovider 
+      worker instance should be returned.
     in: path
     type: string
     required: true
@@ -44,8 +45,8 @@ get:
 patch:
   operationId: cluster_worker_start_stop
   x-onedata-version: 3
-  x-onedata-module: rest_cluster_worker
-  x-onedata-resource: worker
+  x-onedata-module: rest_service
+  x-onedata-resource: service_op_worker
   summary: Start/stop worker node
   tags:
     - Onepanel
@@ -84,6 +85,7 @@ patch:
     description: |
       This flag changes the intended state of the worker instance. 
 
-      If the state is changed, the service will be stopped or started in order to match the requested state. 
+      If the state is changed, the service will be stopped or started in 
+      order to match the requested state. 
     type: boolean
     required: false

@@ -3,11 +3,11 @@
 # defined in separate files for each path
 #
 
-/user:
-  $ref: ./user.yaml
+/users:
+  $ref: ./users.yaml
 
-/user/{uid}:
-  $ref: ./user-uid.yaml
+/users/{username}:
+  $ref: ./users-username.yaml
 
 /cluster/databases:
   $ref: ./cluster-databases.yaml
@@ -30,3 +30,25 @@
 /configuration:
   $ref: ./configuration.yaml
 
+/hosts:
+  $ref: ./hosts.yaml
+
+/hosts/{host}:
+  $ref: ./hosts-host.yaml
+
+/tasks/{id}:
+  $ref: ./tasks-id.yaml
+
+/cluster/storages:
+  $ref: ./cluster-storages.yaml
+
+/cluster/storages/{name}:
+  $ref: ./cluster-storages-name.yaml
+
+/provider:
+  $ref: ./provider.yaml
+
+/provider/spaces:
+  $ref: ./provider-spaces.yaml
+
+  

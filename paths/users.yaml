@@ -1,0 +1,148 @@
+get:
+  summary: Get user details
+  description: Returns the basic information about the current user.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_user
+  x-onedata-resource: user
+  operationId: get_user
+  tags:
+    - Onepanel
+  produces:
+    - application/x-yaml
+  responses:
+    '200':
+      description: User details returned successfully.
+      schema:
+        $ref: '#/definitions/UserDetailsResponse'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service is not available.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+post:
+  summary: Add user
+  description: Creates new Onepanel user account.
+  x-onedata-version: 3
+  x-onedata-module: rest_onedata_user
+  x-onedata-resource: user
+  operationId: add_user
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: User created successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service is not available.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: userDetails
+    in: body
+    description: New user account details.
+    schema:
+      $ref: '#/definitions/UserDetails'
+    required: true
+
+
+put:
+  summary: Modify user settings
+  description: Modifies current user account details. Currently only password modification is allowed.
+  x-onedata-version: 3
+  x-onedata-module: rest_onedata_user
+  x-onedata-resource: user
+  operationId: modify_user
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: User details updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service is not available.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: userDetails
+    in: body
+    description: New user account details.
+    schema:
+      $ref: '#/definitions/UserDetailsUpdate'
+    required: true
+
+
+delete:
+  summary: Remove current user
+  description: Removes current user account.
+  x-onedata-version: 3
+  x-onedata-module: rest_onedata_user
+  x-onedata-resource: user
+  operationId: remove_user
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: User details updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service is not available.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: userDetails
+    in: body
+    description: New user account details.
+    schema:
+      $ref: '#/definitions/UserDetails'
+    required: true

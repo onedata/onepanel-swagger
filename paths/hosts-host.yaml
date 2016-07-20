@@ -1,0 +1,75 @@
+put:
+  operationId: add_host
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: host
+  tags:
+    - Onepanel
+  summary: Add cluster host
+  description: |
+    Adds new node to the Onedata cluster
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Onedata host added successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    in: path
+    type: string
+    required: true
+
+
+delete:
+  operationId: remove_host
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: host
+  tags:
+    - Onepanel
+  summary: Remove cluster host
+  description: |
+    Removes node from the Onedata cluster
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Onedata node removed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    in: path
+    type: string
+    required: true
+

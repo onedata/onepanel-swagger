@@ -1,0 +1,85 @@
+get:
+  operationId: get_hosts
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: hosts
+  tags:
+    - Onepanel
+  summary: Get cluster hosts
+  description: |
+    Returns the list of hosts in the local Onedata deployment.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the list of Onedata nodes.
+      schema:
+        type: array
+        items: 
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: discovered
+    in: query
+    type: boolean
+    default: false
+    required: false
+
+put:
+  operationId: get_hosts
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: hosts
+  tags:
+    - Onepanel
+  summary: Get cluster hosts
+  description: |
+    Allows to set the list of nodes in the local Onedata deployment.
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: List of Onedata nodes changed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: hosts
+    in: body
+    schema:
+      $ref: '#/definitions/Hosts'
+    required: false
+  - name: discovered
+    in: query
+    type: boolean
+    required: false
+    default: false
+

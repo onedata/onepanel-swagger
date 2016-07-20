@@ -1,0 +1,19 @@
+type: object
+description: Details needed by provider to support a space.
+properties:
+  name:
+    type: string
+    description: Space name.
+  token:
+    type: string
+    description: Space support token.
+  size:
+    type: integer
+    description: Requested storage space in bytes.
+required:
+  - token
+  - size
+example:
+  name: MySpace1
+  token: ASDJNASD87687ASDMNBMNASD87786asd
+  size: 1024000

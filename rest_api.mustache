@@ -44,7 +44,7 @@ routes() ->
   		methods = [#rmethod{ type='{{httpMethod}}'{{#hasConsumes}}, 
   			%% [Body parameter]
   			%% {{#bodyParam}}{{description}}{{/bodyParam}}
-  			args_spec = {{#bodyParam}}{{dataType}}_model(){{/bodyParam}} {{/hasConsumes}} 
+  			args_spec = {{#bodyParam}}rest_model:{{dataType}}_model(){{/bodyParam}} {{/hasConsumes}} 
 			{{#hasQueryParams}}, 
 			%% [Query parameters]
 			params_spec = #{ {{#queryParams}}
