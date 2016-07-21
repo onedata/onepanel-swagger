@@ -38,8 +38,6 @@ get:
     in: path
     type: string
     required: true
-    maxItems: 1
-    minItems: 1
 
 
 patch:
@@ -78,8 +76,6 @@ patch:
     in: path
     type: string
     required: true
-    maxItems: 1
-    minItems: 1
   - name: started
     in: query
     description: |
