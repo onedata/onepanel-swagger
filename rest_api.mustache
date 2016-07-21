@@ -37,7 +37,7 @@ routes() ->
    %%
    %% {{#summary}}{{{summary}}}{{/summary}}
    %%
-   { <<"{{basePathWithoutHost}}{{path}}">>, rest_handler, S#rstate{
+   { <<"{{basePathWithoutHost}}{{path}}">>, rest_handler, #rstate{
   		version = {{#vendorExtensions}}{{x-onedata-version}}{{/vendorExtensions}},
   		module = {{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}},
   		resource = {{#vendorExtensions}}{{x-onedata-resource}}{{/vendorExtensions}},
@@ -48,8 +48,8 @@ routes() ->
 			%% [Query parameters]
 			params_spec = #{ {{#queryParams}}
 				%% {{description}}
-				{{paramName}} => { {{dataType}},{{#defaultValue}} { optional, {{defaultValue}} } } {{/defaultValue}}{{^defaultValue}} {required}{{/defaultValue}} } {{#hasMore}},{{/hasMore}}{{/queryParams}}{{/hasQueryParams}} }]
-   }{{#hasMore}},{{/hasMore}}
+				{{paramName}} => { {{dataType}},{{#defaultValue}} { optional, {{defaultValue}} } } {{/defaultValue}}{{^defaultValue}} required{{/defaultValue}} } {{#hasMore}},{{/hasMore}}{{/queryParams}}{{/hasQueryParams}} }]
+   }}{{#hasMore}},{{/hasMore}}
 
 {{/operation}}
 {{/operations}}
