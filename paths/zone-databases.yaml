@@ -1,0 +1,121 @@
+get:
+  operationId: get_zone_databases
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_couchbase
+  tags:
+    - Onezone
+  summary: Get zone database nodes
+  description: | 
+    Returns the list of hostnames where Onezone databases 
+    instances are deployed (not necessarily currently running).
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: |
+        Returns the list of Onezone database nodes in this deployment.
+      schema:
+        $ref: '#/definitions/ServicesStatus'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onezone service configuration is not available. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+
+put:
+  operationId: add_zone_database_hosts
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_couchbase
+  tags:
+    - Onezone
+  summary: Get cluster hosts
+  description: |
+    Allows to set the list of database nodes in the local Onedata deployment.
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Operation successful.
+      headers:
+        Location:
+          type: string
+          description: |
+            The path to the task resource, which can be queried to 
+            check operation status.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service not found. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: hosts
+    in: body
+    schema:
+      $ref: '#/definitions/Hosts'
+    required: false
+
+
+patch:
+  operationId: zone_databases_start_stop
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_couchbase
+  summary: Start/stop zone database nodes
+  tags:
+    - Onezone
+  description: >
+    Starts or stops all Oneprovider database nodes in the local deployment.
+  responses:
+    '204':
+      description: Databases state changed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Oneprovider service configuration is not available. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: started
+    in: query
+    description: |
+      This flag changes the intended state of the database instances. 
+      If the state is changed, the service will be stopped or started in 
+      order to match the requested state. 
+    type: boolean
+    required: false
+    default: true

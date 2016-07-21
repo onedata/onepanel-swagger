@@ -4,7 +4,7 @@ get:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: space
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Get information about supported space
   description: |
     Returns the list of spaces supported by Oneprovider.
@@ -40,7 +40,7 @@ delete:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: space
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Remove space support
   description: |
     Removes support for space.

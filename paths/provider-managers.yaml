@@ -1,11 +1,11 @@
 get:
-  operationId: get_cluster_managers
+  operationId: get_provider_managers
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_cluster_manager
   tags:
-    - Onepanel
-  summary: Get manager nodes
+    - Oneprovider
+  summary: Get provider manager nodes
   description: |
     Returns the list of hostnames where Oneprovider cluster manager instances 
     are deployed (not necessarily currently running).
@@ -37,16 +37,16 @@ get:
 
 
 put:
-  operationId: add_cluster_manager_hosts
+  operationId: add_provider_manager_hosts
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_cluster_manager
   tags:
-    - Onepanel
-  summary: Add cluster manager hosts
+    - Oneprovider
+  summary: Add provider manager hosts
   description: |
     Allows to set the list of cluster manager nodes in the local 
-    Onedata deployment.
+    Oneprovider deployment.
   consumes:
     - application/json
   responses:
@@ -83,13 +83,13 @@ put:
 
 
 patch:
-  operationId: cluster_managers_start_stop
+  operationId: provider_managers_start_stop
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_cluster_manager
-  summary: Start/stop manager nodes
+  summary: Start/stop provider manager nodes
   tags:
-    - Onepanel
+    - Oneprovider
   description: >
    Starts or stops all Oneprovider cluster manager nodes in the local deployment.
   responses:

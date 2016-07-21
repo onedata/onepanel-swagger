@@ -1,17 +1,17 @@
 get:
-  operationId: get_cluster_worker
+  operationId: get_provider_database
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_op_worker
-  description: Returns the status of specific worker instance.
-  summary: Get worker status
+  x-onedata-resource: service_couchbase
+  description: Returns the status of a specific provider database instance.
+  summary: Get provider database status
   tags:
-    - Onepanel
+    - Oneprovider
   produces:
     - application/json
   responses:
     '200':
-      description: The status of a specific Oneprovider worker node.
+      description: The status of a specific Oneprovider database node.
       schema:
         $ref: '#/definitions/ServiceStatus'
     '400':
@@ -33,8 +33,8 @@ get:
   parameters:
   - name: host
     description: |
-      The host name from which the information about the specific Oneprovider 
-      worker instance should be returned.
+      The host name from which the information about the specific 
+      Oneprovider database instance should be returned.
     in: path
     type: string
     required: true
@@ -42,19 +42,20 @@ get:
     minItems: 1
 
 
+
 patch:
-  operationId: cluster_worker_start_stop
+  operationId: provider_database_start_stop
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_op_worker
-  summary: Start/stop worker node
+  x-onedata-resource: service_couchbase
+  summary: Start/stop provider database node.
   tags:
-    - Onepanel
+    - Oneprovider
   description: >
-     Starts or stops specific Oneprovider worker in the local site.
+     Starts or stops entire Oneprovider deployment in the local site.
   responses:
     '204':
-      description: Worker state changed successfully.
+      description: Database state changed successfully.
     '400':
       description: Invalid request.
       schema:
@@ -74,7 +75,7 @@ patch:
   parameters:
   - name: host
     description: |
-      The host name where the worker is running.
+      The host name where database is running.
     in: path
     type: string
     required: true
@@ -83,9 +84,10 @@ patch:
   - name: started
     in: query
     description: |
-      This flag changes the intended state of the worker instance. 
+      This flag changes the intended state of the database instance. 
 
-      If the state is changed, the service will be stopped or started in 
-      order to match the requested state. 
+      If the state is changed, the service will be stopped or started 
+      in order to match the requested state. 
     type: boolean
+    default: true
     required: false

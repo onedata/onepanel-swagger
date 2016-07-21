@@ -1,17 +1,17 @@
 get:
-  operationId: get_cluster_database
+  operationId: get_zone_worker
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
-  description: Returns the status of a specific database instance.
-  summary: Get database status
+  x-onedata-resource: service_oz_worker
+  description: Returns the status of specific Onezone worker instance.
+  summary: Get zone worker status
   tags:
-    - Onepanel
+    - Onezone
   produces:
     - application/json
   responses:
     '200':
-      description: The status of a specific Oneprovider database node.
+      description: The status of a specific Onezone worker node.
       schema:
         $ref: '#/definitions/ServiceStatus'
     '400':
@@ -33,7 +33,8 @@ get:
   parameters:
   - name: host
     description: |
-      The host name from which the information about the specific Oneprovider database instance should be returned.
+      The host name from which the information about the specific Onezone 
+      worker instance should be returned.
     in: path
     type: string
     required: true
@@ -41,20 +42,19 @@ get:
     minItems: 1
 
 
-
 patch:
-  operationId: cluster_database_start_stop
+  operationId: zone_worker_start_stop
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
-  summary: Start/stop database node.
+  x-onedata-resource: service_oz_worker
+  summary: Start/stop zone worker node
   tags:
-    - Onepanel
+    - Onezone
   description: >
-     Starts or stops entire Oneprovider deployment in the local site.
+     Starts or stops specific Onezone worker in the local site.
   responses:
     '204':
-      description: Database state changed successfully.
+      description: Worker state changed successfully.
     '400':
       description: Invalid request.
       schema:
@@ -64,7 +64,7 @@ patch:
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Oneprovider service configuration is not available. 
+      description: Onezone service configuration is not available. 
       schema:
         $ref: '#/definitions/Error'
     '500':
@@ -74,7 +74,7 @@ patch:
   parameters:
   - name: host
     description: |
-      The host name where database is running.
+      The host name where the worker is running.
     in: path
     type: string
     required: true
@@ -83,9 +83,9 @@ patch:
   - name: started
     in: query
     description: |
-      This flag changes the intended state of the database instance. 
+      This flag changes the intended state of the worker instance. 
 
-      If the state is changed, the service will be stopped or started in order to match the requested state. 
+      If the state is changed, the service will be stopped or started in 
+      order to match the requested state. 
     type: boolean
-    default: true
     required: false

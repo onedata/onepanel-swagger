@@ -3,32 +3,15 @@
 # defined in separate files for each path
 #
 
+
+#
+# Onepanel common resources
+#
 /users:
   $ref: ./users.yaml
 
 /users/{username}:
   $ref: ./users-username.yaml
-
-/cluster/databases:
-  $ref: ./cluster-databases.yaml
-
-/cluster/databases/{host}:
-  $ref: ./cluster-databases-host.yaml
-
-/cluster/managers:
-  $ref: ./cluster-managers.yaml
-
-/cluster/managers/{host}:
-  $ref: ./cluster-managers-host.yaml
-
-/cluster/workers:
-  $ref: ./cluster-workers.yaml
-
-/cluster/workers/{host}:
-  $ref: ./cluster-workers-host.yaml
-
-/configuration:
-  $ref: ./configuration.yaml
 
 /hosts:
   $ref: ./hosts.yaml
@@ -39,16 +22,66 @@
 /tasks/{id}:
   $ref: ./tasks-id.yaml
 
-/cluster/storages:
-  $ref: ./cluster-storages.yaml
 
-/cluster/storages/{name}:
-  $ref: ./cluster-storages-name.yaml
-
+#
+# Provider specific resources
+#
 /provider:
   $ref: ./provider.yaml
+
+/provider/configuration:
+  $ref: ./provider-configuration.yaml
 
 /provider/spaces:
   $ref: ./provider-spaces.yaml
 
-  
+/provider/storages:
+  $ref: ./provider-storages.yaml
+
+/provider/storages/{name}:
+  $ref: ./provider-storages-name.yaml
+
+
+/provider/databases:
+  $ref: ./provider-databases.yaml
+
+/provider/databases/{host}:
+  $ref: ./provider-databases-host.yaml
+
+/provider/managers:
+  $ref: ./provider-managers.yaml
+
+/provider/managers/{host}:
+  $ref: ./provider-managers-host.yaml
+
+/provider/workers:
+  $ref: ./provider-workers.yaml
+
+/provider/workers/{host}:
+  $ref: ./provider-workers-host.yaml
+
+
+#
+# Zone specific resources
+#
+/zone/configuration:
+  $ref: ./zone-configuration.yaml
+
+/zone/databases:
+  $ref: ./zone-databases.yaml
+
+/zone/databases/{host}:
+  $ref: ./zone-databases-host.yaml
+
+/zone/managers:
+  $ref: ./zone-managers.yaml
+
+/zone/managers/{host}:
+  $ref: ./zone-managers-host.yaml
+
+/zone/workers:
+  $ref: ./zone-workers.yaml
+
+/zone/workers/{host}:
+  $ref: ./zone-workers-host.yaml
+

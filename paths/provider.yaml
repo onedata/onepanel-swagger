@@ -4,7 +4,7 @@ get:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Get provider details
   description: |
     Returns the basic configuration information of Oneprovider.
@@ -44,7 +44,7 @@ put:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Set provider details
   description: |
     Allows to set basic provider details.
@@ -82,7 +82,7 @@ patch:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Modify provider details
   description: |
     Allows to modify basic provider details.
@@ -120,7 +120,7 @@ delete:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Unregister provider which invokes this request.
   description: |
     Allows to unregister Oneprovider.

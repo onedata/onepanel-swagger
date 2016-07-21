@@ -1,17 +1,17 @@
 get:
-  operationId: get_cluster_manager
+  operationId: get_provider_worker
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_cluster_manager
-  description: Returns the status of specific cluster manager instance.
-  summary: Get manager status
+  x-onedata-resource: service_op_worker
+  description: Returns the status of specific Oneprovider worker instance.
+  summary: Get provider worker status
   tags:
-    - Onepanel
+    - Oneprovider
   produces:
     - application/json
   responses:
     '200':
-      description: The status of a specific Oneprovider cluster manager node.
+      description: The status of a specific Oneprovider worker node.
       schema:
         $ref: '#/definitions/ServiceStatus'
     '400':
@@ -23,7 +23,7 @@ get:
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: There is no Oneprovider cluster manager instance on this node.
+      description: There is no Oneprovider database instance on this node.
       schema:
         $ref: '#/definitions/Error'
     '500':
@@ -33,8 +33,8 @@ get:
   parameters:
   - name: host
     description: |
-      The host name from which the information about the specific Oneprovider
-      cluster manager instance should be returned.
+      The host name from which the information about the specific Oneprovider 
+      worker instance should be returned.
     in: path
     type: string
     required: true
@@ -43,18 +43,18 @@ get:
 
 
 patch:
-  operationId: cluster_manager_start_stop
+  operationId: provider_worker_start_stop
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_cluster_manager
-  summary: Start/stop manager node.
+  x-onedata-resource: service_op_worker
+  summary: Start/stop provider worker node
   tags:
-    - Onepanel
+    - Oneprovider
   description: >
-     Starts or stops a specific Oneprovider cluster manager instance in the local site.
+     Starts or stops specific Oneprovider worker in the local site.
   responses:
     '204':
-      description: Cluster manager state changed successfully.
+      description: Worker state changed successfully.
     '400':
       description: Invalid request.
       schema:
@@ -74,7 +74,7 @@ patch:
   parameters:
   - name: host
     description: |
-      The host name where cluster manager is running.
+      The host name where the worker is running.
     in: path
     type: string
     required: true
@@ -83,8 +83,9 @@ patch:
   - name: started
     in: query
     description: |
-      This flag changes the intended state of the cluster manager instance. 
+      This flag changes the intended state of the worker instance. 
 
-      If the state is changed, the service will be stopped or started in order to match the requested state. 
+      If the state is changed, the service will be stopped or started in 
+      order to match the requested state. 
     type: boolean
     required: false

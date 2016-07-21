@@ -4,7 +4,7 @@ get:
   x-onedata-module: rest_service
   x-onedata-resource: storages
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Get storage resources
   description: |
     Returns the list of storage resources connected to this Onedata deployment.
@@ -13,8 +13,7 @@ get:
   responses:
     '200':
       description: |
-        Returns the list of Oneprovider cluster manager nodes in this 
-        deployment.
+        Returns the list of storages connected to the Oneprovider service.
       schema:
         type: array
         items:
@@ -43,7 +42,7 @@ put:
   x-onedata-module: rest_service
   x-onedata-resource: storages
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Add storage resources
   description: |
     Allows to add storage resources to the Onedata deployment.

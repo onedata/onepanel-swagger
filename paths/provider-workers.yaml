@@ -1,11 +1,11 @@
 get:
-  operationId: get_cluster_workers
+  operationId: get_provider_workers
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_op_worker
   tags:
-    - Onepanel
-  summary: Get worker nodes
+    - Oneprovider
+  summary: Get provider worker nodes
   description: |
     Returns the list of hostnames where Oneprovider worker instances are 
     deployed (not necessarily currently running).
@@ -34,20 +34,20 @@ get:
         $ref: '#/definitions/Error'
 
 put:
-  operationId: add_cluster_worker_hosts
+  operationId: add_provider_worker_hosts
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_op_worker
   tags:
-    - Onepanel
-  summary: Add cluster worker hosts
+    - Oneprovider
+  summary: Add provider worker hosts
   description: |
-    Allows to set the list of worker nodes in the local Onedata deployment.
+    Allows to set the list of worker nodes in the local Oneprovider deployment.
   consumes:
     - application/json
   responses:
     '204':
-      description: List of Onedata nodes added successfully.
+      description: List of Oneprovider nodes added successfully.
       headers:
         Location:
           type: string
@@ -79,13 +79,13 @@ put:
 
 
 patch:
-  operationId: cluster_workers_start_stop
+  operationId: provider_workers_start_stop
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_op_worker
-  summary: Start/stop worker nodes
+  summary: Start/stop provider worker nodes
   tags:
-    - Onepanel
+    - Oneprovider
   description: >
    Starts or stops all Oneprovider worker nodes in the local deployment.
   responses:
@@ -113,7 +113,8 @@ patch:
     description: |
       This flag changes the intended state of the worker instances. 
 
-      If the state is changed, the service will be stopped or started in order to match the requested state. 
+      If the state is changed, the service will be stopped or started in 
+      order to match the requested state. 
     type: boolean
     required: false
     default: true

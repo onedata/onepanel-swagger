@@ -4,7 +4,7 @@ get:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: spaces
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Get provider spaces
   description: |
     Returns the list of spaces supported by Oneprovider.
@@ -41,7 +41,7 @@ put:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: spaces
   tags:
-    - Onepanel
+    - Oneprovider
   summary: Support space
   description: |
     Allows to support existing space or create new space and

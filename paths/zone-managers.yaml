@@ -1,17 +1,21 @@
 get:
-  operationId: get_cluster_databases
+  operationId: get_zone_managers
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
+  x-onedata-resource: service_cluster_manager
   tags:
-    - Onepanel
-  summary: Get database nodes
-  description: Returns the list of hostnames where Oneprovider databases instances are deployed (not necessarily currently running).
+    - Onezone
+  summary: Get zone manager nodes
+  description: |
+    Returns the list of hostnames where Onezone cluster manager instances 
+    are deployed (not necessarily currently running).
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the list of Oneprovider database nodes in this deployment.
+      description: |
+        Returns the list of Onezone cluster manager nodes in this 
+        deployment.
       schema:
         $ref: '#/definitions/ServicesStatus'
     '400':
@@ -33,15 +37,16 @@ get:
 
 
 put:
-  operationId: add_cluster_database_hosts
+  operationId: add_zone_manager_hosts
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
+  x-onedata-resource: service_cluster_manager
   tags:
-    - Onepanel
-  summary: Get cluster hosts
+    - Onezone
+  summary: Add zone manager hosts
   description: |
-    Allows to set the list of database nodes in the local Onedata deployment.
+    Allows to set the list of cluster manager nodes in the local 
+    Oneprovider deployment.
   consumes:
     - application/json
   responses:
@@ -73,23 +78,23 @@ put:
   - name: hosts
     in: body
     schema:
-      $ref: '#/definitions/Hosts'
+      $ref: '#/definitions/ManagerHosts'
     required: false
 
 
 patch:
-  operationId: cluster_databases_start_stop
+  operationId: zone_managers_start_stop
   x-onedata-version: 3
   x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
-  summary: Start/stop database nodes
+  x-onedata-resource: service_cluster_manager
+  summary: Start/stop zone manager nodes
   tags:
-    - Onepanel
+    - Onezone
   description: >
-    Starts or stops all Oneprovider database nodes in the local deployment.
+   Starts or stops all Onezone cluster manager nodes in the local deployment.
   responses:
     '204':
-      description: Databases state changed successfully.
+      description: Cluster manager nodes state changed successfully.
     '400':
       description: Invalid request.
       schema:
@@ -110,9 +115,10 @@ patch:
   - name: started
     in: query
     description: |
-      This flag changes the intended state of the database instances. 
+      This flag changes the intended state of the cluster manager instances. 
 
-      If the state is changed, the service will be stopped or started in order to match the requested state. 
+      If the state is changed, the service will be stopped or started in order 
+      to match the requested state. 
     type: boolean
     required: false
     default: true

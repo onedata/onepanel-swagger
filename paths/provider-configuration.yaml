@@ -1,0 +1,79 @@
+get:
+  operationId: get_configuration
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_oneprovider
+  tags:
+    - Oneprovider
+  summary: Get provider configuration
+  description: |
+    Returns the configuration of the Onedata deployment managed by Onepanel. 
+    Depending on wether this Onepanel instance manages Onezone or Onepanel 
+    service, specific configuration will be returned.
+  produces:
+    - application/json
+    - application/x-yaml
+  responses:
+    '200':
+      description: Returns the Oneprovider service deployment configuration.
+      schema:
+        $ref: '#/definitions/Configuration'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Oneprovider service configuration is not available. 
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+
+put:
+  operationId: modify_configuration
+  summary: Update configuration
+  description: |
+    Updates the current configuration of Onedata service deployment. 
+    Depending on the type of service managed by the Onepanel, 
+    it accepts either Onezone or Oneprovider configuration description.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_oneprovider
+  tags:
+    - Oneprovider
+  consumes:
+    - application/x-yaml
+  responses:
+    '204':
+      description: Oneprovider service configuration updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onepanel service is not available.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: configuration
+    in: body
+    description: New deployment configuration.
+    schema:
+      $ref: '#/definitions/Configuration'
+    required: true
+    

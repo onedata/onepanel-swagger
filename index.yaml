@@ -8,7 +8,11 @@ definitions:
   $ref: ./definitions/index.yaml
 tags:
   - name: Onepanel
-    description: Onepanel API methods
+    description: Common Onepanel resources and operations
+  - name: Oneprovider
+    description: Resources and operations for managing Oneprovider deployment
+  - name: Onezone
+    description: Resources and operations for managing Onezone deployment
 securityDefinitions:
   basic: 
     type: basic
