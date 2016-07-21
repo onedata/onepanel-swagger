@@ -10,6 +10,16 @@ properties:
   size:
     type: integer
     description: Requested storage space in bytes.
+  storageName:
+    type: string
+    description: |
+      The name of the storage resource where the space data should be stored.
+      To be used interchangeably with `storageId`.
+  storageId:
+    type: string
+    description: |
+      The ID of the storage resource where the space data should be stored.
+      To be used interchangeably with `storageName`.
 required:
   - token
   - size

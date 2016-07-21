@@ -74,4 +74,10 @@ put:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+  - name: spacesupport
+    in: body
+    required: true
+    schema:
+      $ref: '#/definitions/SpaceSupportRequest'
 
