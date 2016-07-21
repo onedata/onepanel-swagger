@@ -7,7 +7,13 @@ docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger docker.onedata.org/swagge
 docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger docker.onedata.org/swagger-cli:1.5.0 validate /swagger/swagger.json
 
 # Generate the Cowboy server stub
-docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.5.2 generate -i ./swagger.json -l cowboy -o ./generated/cowboy
+docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.5.3 generate -i ./swagger.json -l cowboy -o ./generated/cowboy
+#
+# Fix escaped characters in Erlang REST model
+#
+sed -i "s/&#39;/\'/g" generated/cowboy/rest_model.erl
+sed -i "s/&#x3D;&gt;/=>/g" generated/cowboy/rest_model.erl
+
 docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.5.0 generate -i ./swagger.json -l go -o ./generated/goclient
 
 # Generate C# stub to get all moustache tempalte keywords

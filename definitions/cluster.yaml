@@ -27,13 +27,13 @@ properties:
       mainNode:
         type: string
         description: The Id of the main cluster manager node.
-      items:
+      nodes:
         type: array
         items:
           type: string
     required:
       - mainNode
-      - items
+      - nodes
   workers:
     type: object
     properties:

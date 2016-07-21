@@ -24,7 +24,7 @@
 %%
 {{classname}}_model() ->
   #{ 
-{{#vars}}    {{name}} => {{datatype}}{{#hasMore}},{{/hasMore}} %% {{#description}}{{description}}{{/description}}
+{{#vars}}    {{name}} => {{#required}}{{datatype}}{{/required}}{{^required}}{ {{datatype}}, optional }{{/required}} {{#hasMore}},{{/hasMore}} %% {{#description}}{{description}}{{/description}}
 	  {{/vars}} 
    }. 
 {{/model}}
