@@ -41,11 +41,10 @@ routes() ->
   		version = {{#vendorExtensions}}{{x-onedata-version}}{{/vendorExtensions}},
   		module = {{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}},
   		resource = {{#vendorExtensions}}{{x-onedata-resource}}{{/vendorExtensions}},
-  		methods = [#rmethod{ type='{{httpMethod}}'{{#hasConsumes}}, 
+  		methods = [#rmethod{ type='{{httpMethod}}'{{#hasBodyParam}},
   			%% [Body parameter]
   			%% {{#bodyParam}}{{description}}{{/bodyParam}}
-  			args_spec = {{#bodyParam}}rest_model:{{dataType}}_model(){{/bodyParam}} {{/hasConsumes}} 
-			{{#hasQueryParams}}, 
+  			args_spec = {{#bodyParam}}rest_model:{{dataType}}_model(){{/bodyParam}} {{/hasBodyParam}} {{#hasQueryParams}}, 
 			%% [Query parameters]
 			params_spec = #{ {{#queryParams}}
 				%% {{description}}
