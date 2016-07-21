@@ -1,5 +1,0 @@
-type: object
-description: The list of providers supporting a space.
-additionalProperties:
-  type: integer
-  description: Supported storage space in bytes.

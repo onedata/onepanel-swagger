@@ -35,7 +35,7 @@ post:
   summary: Add user
   description: Creates new Onepanel user account.
   x-onedata-version: 3
-  x-onedata-module: rest_onedata_user
+  x-onedata-module: rest_onepanel_user
   x-onedata-resource: user
   operationId: add_user
   tags:
@@ -109,40 +109,4 @@ put:
     required: true
 
 
-delete:
-  summary: Remove current user
-  description: Removes current user account.
-  x-onedata-version: 3
-  x-onedata-module: rest_onedata_user
-  x-onedata-resource: user
-  operationId: remove_user
-  tags:
-    - Onepanel
-  consumes:
-    - application/json
-  responses:
-    '204':
-      description: User details updated successfully.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '403':
-      description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service is not available.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-  - name: userDetails
-    in: body
-    description: New user account details.
-    schema:
-      $ref: '#/definitions/UserDetails'
-    required: true
+
