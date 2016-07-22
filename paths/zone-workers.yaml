@@ -113,7 +113,6 @@ patch:
     in: query
     description: |
       This flag changes the intended state of the worker instances. 
-
       If the state is changed, the service will be stopped or started in 
       order to match the requested state. 
     type: boolean
