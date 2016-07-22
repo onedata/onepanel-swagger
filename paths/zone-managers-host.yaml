@@ -86,3 +86,4 @@ patch:
       to match the requested state. 
     type: boolean
     required: false
+    default: true

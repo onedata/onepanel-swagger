@@ -38,7 +38,7 @@ get:
     required: true
 
 
-put:
+patch:
   summary: Change user password
   description: Allows to change users password.
   x-onedata-version: 3

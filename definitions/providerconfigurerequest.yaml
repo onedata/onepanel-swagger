@@ -9,13 +9,20 @@ properties:
     description: Redirection point.
   geoLongitude:
     type: number
+    x-erlang-datatype: float
+    default: 0.0
     description: Geographical longitude of the storage provider.
   geoLatitude:
     type: number
+    x-erlang-datatype: float
+    default: 0.0
     description: Geographical latitude of the storage provider.
   onezoneDomainName:
     type: string
-    description: The name of Onezone domain to which this provider belongs.    
+    description: The name of Onezone domain to which this provider belongs.  
+required:
+  - name  
+  - redirectionPoint
 example:
   name: Provider1
   redirectionPoint: https://192.168.11.23:8443/

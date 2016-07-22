@@ -119,3 +119,8 @@ patch:
     type: boolean
     required: false
     default: true
+  - name: hosts
+    in: body
+    schema:
+      $ref: '#/definitions/Hosts'
+    required: false

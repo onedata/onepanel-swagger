@@ -79,10 +79,10 @@ patch:
     required: true
   - name: started
     in: query
+    required: false
+    default: false
     description: |
       This flag changes the intended state of the cluster manager instance. 
-
       If the state is changed, the service will be stopped or started in order 
       to match the requested state. 
     type: boolean
-    required: false

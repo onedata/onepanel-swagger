@@ -32,6 +32,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
+  - name: id 
+    in: path
+    type: string
+    description: Name of the space to remove.
+    required: true
 
 
 delete:
@@ -68,5 +73,6 @@ delete:
   parameters:
   - name: id 
     in: path
+    type: string
     description: Name of the space to remove.
     required: true

@@ -35,6 +35,9 @@
 /provider/spaces:
   $ref: ./provider-spaces.yaml
 
+/provider/spaces/{id}:
+  $ref: ./provider-spaces-id.yaml
+
 /provider/storages:
   $ref: ./provider-storages.yaml
 

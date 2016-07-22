@@ -9,9 +9,11 @@ properties:
     description: Redirection point.
   geoLongitude:
     type: number
+    x-erlang-datatype: float
     description: Geographical longitude of the storage provider.
   geoLatitude:
     type: number
+    x-erlang-datatype: float
     description: Geographical latitude of the storage provider.
 example:
   name: Provider1

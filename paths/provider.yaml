@@ -31,12 +31,7 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: discovered
-    in: query
-    type: boolean
-    default: false
-    required: false
+
 
 put:
   operationId: set_provider_details

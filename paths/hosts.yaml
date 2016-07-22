@@ -3,6 +3,7 @@ get:
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: hosts
+  x-onedata-noauth: true
   tags:
     - Onepanel
   summary: Get cluster hosts
@@ -41,13 +42,14 @@ get:
     required: false
 
 put:
-  operationId: get_hosts
+  operationId: add_hosts
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: hosts
+  x-onedata-noauth: true
   tags:
     - Onepanel
-  summary: Get cluster hosts
+  summary: Add cluster hosts
   description: |
     Allows to set the list of nodes in the local Onedata deployment.
   consumes:
@@ -72,11 +74,6 @@ put:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: hosts
-    in: body
-    schema:
-      $ref: '#/definitions/Hosts'
-    required: false
   - name: discovered
     in: query
     type: boolean
