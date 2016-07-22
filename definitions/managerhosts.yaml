@@ -9,6 +9,9 @@ properties:
     description: The list of hosts which should be added to the current deployment.
     items:
       type: string
+required:
+  - mainHost
+  - hosts
 example:
   mainHost: oneprovider1.example.com
   hosts:

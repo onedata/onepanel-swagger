@@ -37,6 +37,6 @@ put:
     in: body
     description: New deployment configuration.
     schema:
-      $ref: '#/definitions/Configuration'
+      $ref: '#/definitions/OnezoneConfiguration'
     required: true
     

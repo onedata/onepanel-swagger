@@ -17,24 +17,12 @@ UserDetailsResponse:
 Database:
   $ref: ./database.yaml
 
-Configuration:
-  $ref: ./configuration.yaml
-
 OneproviderConfiguration:
   $ref: ./oneproviderconfiguration.yaml
 
 OnezoneConfiguration:
   $ref: ./onezoneconfiguration.yaml
 
-Cluster:
-  $ref: ./cluster.yaml
-
-OnezoneCluster:
-  $ref: ./onezonecluster.yaml
-
-OneproviderCluster:
-  $ref: ./oneprovidercluster.yaml
-  
 Provider:
   $ref: ./provider.yaml
 
@@ -55,6 +43,9 @@ S3:
 
 CEPH:
   $ref: ./ceph.yaml
+
+StorageList:
+  $ref: ./storagelist.yaml
 
 ServiceStatus:
   $ref: ./servicestatus.yaml

@@ -4,7 +4,7 @@ properties:
   service:
     type: string
     description: |
-      The type of service.
+      The type of service:
       * oz_worker - an instance of Onezone worker process
       * op_worker - an instance of Oneprovider worker process
       * cluster_manager - an instance of ClusterManager process

@@ -5,7 +5,9 @@ allOf:
   - properties:
       mountPoint:
         type: string
-        description: The absolute path of the mountpoint where the storage is mounted on the Oneprovider nodes.
+        description: |
+          The absolute path of the mountpoint where the storage is mounted 
+          on the Oneprovider nodes.
   - required:
     - mountPoint
 example:

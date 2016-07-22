@@ -18,7 +18,6 @@ allOf:
         type: string
         description: Name of a Ceph pool.
   - required:
-    - name
     - username
     - key
     - monitorHostname

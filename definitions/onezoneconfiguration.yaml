@@ -1,9 +1,68 @@
-allOf:
-  - $ref: '#/definitions/Configuration'
-  - description: Onezone cluster configuration specific attributes.
-  - properties:
-      onezone:
+type: object
+description: Onezone custom configuration.
+properties:
+  cluster:
+    type: object
+    description: Onezone cluster specification
+    properties:
+      domainName:
+        type: string
+        description: Domain name of the service.
+      nodes:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            hostname:
+              type: string
+              description: Node hostname
+          required:
+            - hostname
+      managers:
         type: object
         properties:
-          domainName:
+          mainNode:
             type: string
+            description: The Id of the main cluster manager node.
+          nodes:
+            type: array
+            items:
+              type: string
+        required:
+          - mainNode
+          - nodes
+      workers:
+        type: object
+        properties:
+          nodes:
+            type: array
+            items:
+              type: string
+        required:
+          - nodes
+      databases:
+        type: object
+        properties:
+          nodes:
+            type: array
+            items:
+              type: string
+        required:
+          - nodes
+    required:
+      - domainName
+      - nodes
+      - managers
+      - workers
+      - databases
+  onezone:
+    type: object
+    properties:
+      domainName:
+        type: string
+      name:
+        type: string
+required:
+  - cluster
+
+

@@ -1,4 +1,7 @@
 %%%--------------------------------------------------------------------
+%%% This file has been automatically generated from Swagger
+%%% specification - DO NOT EDIT!
+%%%
 %%% @author Krzysztof Trzepla
 %%% @copyright (C) 2016 ACK CYFRONET AGH
 %%% This software is released under the MIT license
@@ -23,13 +26,28 @@
 %% {{#description}}{{description}}{{/description}}
 %%
 {{classname}}_model() ->
+{{#vendorExtensions}}
+{{#x-erlang-oneof}}
+  {oneof, [
+{{#x-erlang-subclasses}}
+{{.}}_model(),
+{{/x-erlang-subclasses}}
+  ]}.
+{{/x-erlang-oneof}}
+{{^x-erlang-oneof}}
+{{#x-erlang-dictionary-value-type}}
+{ '_' => {{x-erlang-dictionary-value-type}}_model() }.
+{{/x-erlang-dictionary-value-type}}
+{{^x-erlang-dictionary-value-type}}
   #{ 
 {{#vars}}    {{name}} => {{#required}}{{datatype}}{{/required}}{{^required}}{ {{datatype}}, optional }{{/required}} {{#hasMore}},{{/hasMore}} %% {{#description}}{{description}}{{/description}}
 	  {{/vars}} 
-   }. 
+    }.
+{{/x-erlang-dictionary-value-type}}
+{{/x-erlang-oneof}}
+{{/vendorExtensions}}
+   
 {{/model}}
-
-
 {{/models}}
 
 

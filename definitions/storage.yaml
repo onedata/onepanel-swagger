@@ -1,6 +1,11 @@
 type: object
 description: Describes the properties of a storage resource.
 discriminator: type
+x-erlang-oneof: true
+x-erlang-subclasses:
+  - ceph
+  - s3
+  - posix
 properties:
   type:
     type: string
@@ -11,3 +16,4 @@ properties:
       - CEPH
 required:
   - type
+  - mountPoint

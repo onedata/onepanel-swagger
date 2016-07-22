@@ -33,6 +33,7 @@ get:
       schema:
         $ref: '#/definitions/Error'
 
+
 put:
   operationId: add_provider_worker_hosts
   x-onedata-version: 3

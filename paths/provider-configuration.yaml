@@ -36,6 +36,6 @@ put:
     in: body
     description: New deployment configuration.
     schema:
-      $ref: '#/definitions/Configuration'
+      $ref: '#/definitions/OneproviderConfiguration'
     required: true
     

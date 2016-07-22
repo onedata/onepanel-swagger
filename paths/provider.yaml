@@ -109,6 +109,7 @@ patch:
       $ref: '#/definitions/ProviderUpdateRequest'
     required: true
 
+
 delete:
   operationId: unregister_provider
   x-onedata-version: 3

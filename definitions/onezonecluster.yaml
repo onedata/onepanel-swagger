@@ -1,3 +1,0 @@
-allOf:
-  - $ref: '#/definitions/Cluster'
-  - description: Onezone cluster specific configuration.

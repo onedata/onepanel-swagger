@@ -44,7 +44,6 @@
 /provider/storages/{name}:
   $ref: ./provider-storages-name.yaml
 
-
 /provider/databases:
   $ref: ./provider-databases.yaml
 

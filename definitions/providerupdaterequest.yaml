@@ -15,6 +15,9 @@ properties:
     type: number
     x-erlang-datatype: float
     description: Geographical latitude of the storage provider.
+required:
+  - name  
+  - redirectionPoint
 example:
   name: Provider1
   redirectionPoint: https://192.168.11.23:8443/

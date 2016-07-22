@@ -77,8 +77,6 @@ put:
   - name: storages
     in: body
     schema:
-      type: object
-      additionalProperties:
-        $ref: '#/definitions/Storage'
+      $ref: '#/definitions/StorageList'
     required: true
 

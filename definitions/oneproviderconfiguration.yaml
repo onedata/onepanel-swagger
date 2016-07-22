@@ -1,11 +1,72 @@
-allOf:
-  - $ref: '#/definitions/Configuration'
-  - description: Oneprovider custom configuration.
-  - properties:
-      oneprovider:
-        $ref: '#/definitions/Provider'
-      onezone:
+type: object
+description: Oneprovider custom configuration.
+properties:
+  cluster:
+    type: object
+    description: Oneprovider cluster specification
+    properties:
+      domainName:
+        type: string
+        description: Domain name of the service.
+      nodes:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            hostname:
+              type: string
+              description: Node hostname
+          required:
+            - hostname
+      managers:
         type: object
         properties:
-          domain_name:
+          mainNode:
             type: string
+            description: The Id of the main cluster manager node.
+          nodes:
+            type: array
+            items:
+              type: string
+        required:
+          - mainNode
+          - nodes
+      workers:
+        type: object
+        properties:
+          nodes:
+            type: array
+            items:
+              type: string
+        required:
+          - nodes
+      databases:
+        type: object
+        properties:
+          nodes:
+            type: array
+            items:
+              type: string
+        required:
+          - nodes
+      storages:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/Storage'
+    required:
+      - domainName
+      - nodes
+      - managers
+      - workers
+      - databases
+  oneprovider:
+    $ref: '#/definitions/Provider'
+  onezone:
+    type: object
+    properties:
+      domain_name:
+        type: string
+required:
+  - cluster
+
+
