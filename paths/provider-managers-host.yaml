@@ -80,7 +80,7 @@ patch:
   - name: started
     in: query
     required: false
-    default: false
+    default: true
     description: |
       This flag changes the intended state of the cluster manager instance. 
       If the state is changed, the service will be stopped or started in order 
