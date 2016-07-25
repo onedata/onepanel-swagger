@@ -40,7 +40,15 @@
 {{/x-erlang-dictionary-value-type}}
 {{^x-erlang-dictionary-value-type}}
   #{ 
-{{#vars}}    {{name}} => {{#required}}{{datatype}}{{/required}}{{^required}}{ {{datatype}}, optional }{{/required}} {{#hasMore}},{{/hasMore}} %% {{#description}}{{description}}{{/description}}
+{{#vars}}    {{name}} => 
+
+{{#required}}{{datatype}}{{/required}}
+
+{{^required}}{ {{datatype}}, optional }{{/required}} 
+
+{{#hasMore}},{{/hasMore}} %% {{#description}}{{description}}{{/description}}
+
+
 	  {{/vars}} 
     }.
 {{/x-erlang-dictionary-value-type}}

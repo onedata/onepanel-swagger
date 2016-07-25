@@ -48,7 +48,7 @@ routes() ->
 			%% [Query parameters]
 			params_spec = #{ {{#queryParams}}
 				%% {{description}}
-				{{paramName}} => { {{dataType}},{{#defaultValue}}{ optional, {{defaultValue}} }{{/defaultValue}}{{^defaultValue}} required{{/defaultValue}} }{{#hasMore}},{{/hasMore}}{{/queryParams}} }{{/hasQueryParams}} }]
+				{{paramName}} => { {{dataType}}, {{#defaultValue}}{ optional, {{#x-erlang-default-value}}{{x-erlang-default-value}}{{/x-erlang-default-value}}{{^x-erlang-default-value}}{{defaultValue}}{{/x-erlang-default-value}} }{{/defaultValue}}{{^defaultValue}} required{{/defaultValue}} }{{#hasMore}},{{/hasMore}}{{/queryParams}} }{{/hasQueryParams}} }]
    }}{{#hasMore}},{{/hasMore}}
 
 {{/operation}}
