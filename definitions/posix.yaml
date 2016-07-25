@@ -1,14 +1,15 @@
 allOf:
   - $ref: '#/definitions/Storage'
-  - x-discriminator-value: "POSIX"
-  - description: POSIX specific storage configuration attributes.
-  - properties:
+  - type: object
+    x-discriminator-value: "POSIX"
+    description: POSIX specific storage configuration attributes.
+    properties:
       mountPoint:
         type: string
         description: |
           The absolute path of the mountpoint where the storage is mounted 
           on the Oneprovider nodes.
-  - required:
+    required:
     - mountPoint
 example:
   type: POSIX

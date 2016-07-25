@@ -76,6 +76,7 @@ put:
   parameters:
   - name: storages
     in: body
+    description: The list of storage resources to register.
     schema:
       $ref: '#/definitions/StorageList'
     required: true

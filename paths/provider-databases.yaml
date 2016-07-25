@@ -42,7 +42,7 @@ put:
   x-onedata-resource: service_couchbase
   tags:
     - Oneprovider
-  summary: Get cluster hosts
+  summary: Add cluster hosts
   description: |
     Allows to set the list of database nodes in the local Onedata deployment.
   consumes:
@@ -75,6 +75,7 @@ put:
   parameters:
   - name: hosts
     in: body
+    description: The list of hosts which should be added.
     schema:
       $ref: '#/definitions/Hosts'
     required: false
@@ -121,6 +122,7 @@ patch:
     default: true
   - name: hosts
     in: body
+    description: The list of hosts which should be added.
     schema:
       $ref: '#/definitions/Hosts'
     required: false

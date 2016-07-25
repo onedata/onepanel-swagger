@@ -5,8 +5,7 @@ properties:
     type: array
     items:
       type: string
-required:
-  - hosts
+    x-erlang-default-value: "[]"
 example:
   hosts:
     - oneprovider1.example.com

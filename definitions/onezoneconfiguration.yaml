@@ -1,60 +1,10 @@
 type: object
 description: Onezone custom configuration.
+required:
+- cluster
 properties:
   cluster:
-    type: object
-    description: Onezone cluster specification
-    properties:
-      domainName:
-        type: string
-        description: Domain name of the service.
-      nodes:
-        type: object
-        additionalProperties:
-          type: object
-          properties:
-            hostname:
-              type: string
-              description: Node hostname
-          required:
-            - hostname
-      managers:
-        type: object
-        properties:
-          mainNode:
-            type: string
-            description: The Id of the main cluster manager node.
-          nodes:
-            type: array
-            items:
-              type: string
-        required:
-          - mainNode
-          - nodes
-      workers:
-        type: object
-        properties:
-          nodes:
-            type: array
-            items:
-              type: string
-        required:
-          - nodes
-      databases:
-        type: object
-        properties:
-          nodes:
-            type: array
-            items:
-              type: string
-        required:
-          - nodes
-    required:
-      - domainName
-      - nodes
-      - managers
-      - workers
-      - databases
+    $ref: '#/definitions/ClusterZoneConfiguration'
   onezone:
     type: object
     properties:
@@ -62,7 +12,6 @@ properties:
         type: string
       name:
         type: string
-required:
-  - cluster
+
 
 

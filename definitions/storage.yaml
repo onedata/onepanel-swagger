@@ -10,10 +10,10 @@ properties:
   type:
     type: string
     description: Type of storage resource
+    x-discriminator: true
     enum:
       - POSIX
       - S3
       - CEPH
 required:
   - type
-  - mountPoint

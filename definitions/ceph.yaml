@@ -1,7 +1,9 @@
 allOf:
   - $ref: '#/definitions/Storage'
-  - description: The Ceph storage configuration attributes.
-  - properties:
+  - type: object
+    description: The Ceph storage configuration attributes.
+    x-discriminator-value: "CEPH"
+    properties:
       username:
         type: string
         description: The username for authentication to Ceph.
@@ -17,7 +19,7 @@ allOf:
       poolName:
         type: string
         description: Name of a Ceph pool.
-  - required:
+    required:
     - username
     - key
     - monitorHostname

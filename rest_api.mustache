@@ -14,7 +14,6 @@
 -author("Krzysztof Trzepla").
 
 -include("http/rest.hrl").
--include("rest_model.hrl").
 
 %% API
 -export([routes/0]).
@@ -30,6 +29,7 @@
 %%--------------------------------------------------------------------
 -spec routes() ->
     [{Path :: binary(), Module :: module(), State :: rest_handler:state()}].
+
 routes() ->
 [
 {{#operations}}
@@ -45,10 +45,11 @@ routes() ->
   			%% [Body parameter]
   			%% {{#bodyParam}}{{description}}{{/bodyParam}}
   			args_spec = {{#bodyParam}}rest_model:{{dataType}}_model(){{/bodyParam}} {{/hasBodyParam}} {{#hasQueryParams}}, 
-			%% [Query parameters]
-			params_spec = #{ {{#queryParams}}
-				%% {{description}}
-				{{paramName}} => { {{dataType}}, {{#defaultValue}}{ optional, {{#x-erlang-default-value}}{{x-erlang-default-value}}{{/x-erlang-default-value}}{{^x-erlang-default-value}}{{defaultValue}}{{/x-erlang-default-value}} }{{/defaultValue}}{{^defaultValue}} required{{/defaultValue}} }{{#hasMore}},{{/hasMore}}{{/queryParams}} }{{/hasQueryParams}} }]
+			  %% [Query parameters]
+			  params_spec = #{ {{#queryParams}}
+				  %% {{description}}
+				  {{paramName}} => { {{dataType}}, {{#defaultValue}}{ optional, {{#x-erlang-default-value}}{{x-erlang-default-value}}{{/x-erlang-default-value}}{{^x-erlang-default-value}}{{defaultValue}}{{/x-erlang-default-value}}{{!}}}{{/defaultValue}}{{^defaultValue}} required{{/defaultValue}}{{!}}}{{#hasMore}},{{/hasMore}}{{/queryParams}}{{!}}}{{/hasQueryParams}}{{#vendorExtensions}}{{#x-onedata-noauth}}, 
+        noauth = true{{/x-onedata-noauth}}{{/vendorExtensions}}{{!}}}]
    }}{{#hasMore}},{{/hasMore}}
 
 {{/operation}}

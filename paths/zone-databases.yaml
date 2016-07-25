@@ -42,7 +42,7 @@ put:
   x-onedata-resource: service_couchbase
   tags:
     - Onezone
-  summary: Get cluster hosts
+  summary: Add cluster hosts
   description: |
     Allows to set the list of database nodes in the local Onedata deployment.
   consumes:

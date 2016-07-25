@@ -1,8 +1,9 @@
 allOf:
   - $ref: '#/definitions/Storage'
-  - x-discriminator-value: "S3"
-  - description: Amazon S3 compatible storage configuration attributes.
-  - properties:
+  - type: object
+    x-discriminator-value: "S3"
+    description: Amazon S3 compatible storage configuration attributes.
+    properties:
       s3Hostname:
         type: string
         description: The hostname where the S3 interface is available on.
@@ -18,7 +19,7 @@ allOf:
       secretKey:
         type: string
         description: The secret key to the S3 storage.
-  - required:
+    required:
     - s3Hostname
     - iamHostname
     - bucketName

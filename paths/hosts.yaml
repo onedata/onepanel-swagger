@@ -37,6 +37,7 @@ get:
   parameters:
   - name: discovered
     in: query
+    description: Whether we should add automatically discovered nodes.
     type: boolean
     default: false
     required: false
@@ -78,12 +79,10 @@ put:
     in: body
     schema:
       $ref: '#/definitions/Hosts'
-    required: false
-    #x-erlang-default-value: "[]"
-    default:
-      
+    required: true
   - name: discovered
     in: query
+    description: Whether we should add automatically discovered nodes.
     type: boolean
     required: false
     default: false

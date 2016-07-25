@@ -1,0 +1,9 @@
+type: object
+description: Cluster workers list
+properties:
+  nodes:
+    type: array
+    items:
+      type: string
+required:
+- nodes

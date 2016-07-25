@@ -7,7 +7,8 @@ docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger docker.onedata.org/swagge
 output=$(docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger docker.onedata.org/swagger-cli:1.5.0 validate /swagger/swagger.json 2>&1)
 
 if [[ $output =~ .*Swagger\ schema\ validation\ failed.* ]]; then
-  echo "Generated swagger.json is not valid - check YAML sources\n"  
+  echo "Generated swagger.json is not valid - check YAML sources:\n"
+  echo $output  
   exit 1
 fi
 
@@ -18,14 +19,15 @@ docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swa
 #
 sed -i "s/&#39;/\'/g" generated/cowboy/rest_model.erl
 sed -i "s/&#x3D;&gt;/=>/g" generated/cowboy/rest_model.erl
+sed -i "s/,]/]/g" generated/cowboy/rest_model.erl
+sed -i "s/,)/]/g" generated/cowboy/rest_model.erl
 
 
 docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.5.0 generate -i ./swagger.json -l go -o ./generated/goclient
 
-# Generate C# stub to get all moustache tempalte keywords
+# Generate C# stub to get all moustache template keywords
 swagger-codegen-dbg generate -i ./swagger.json -l csharp -o ./generated/csharp -o tmp > model.json
 
-exit 0
 
 # Generate the 
 docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.5.0 generate -i ./swagger.json -l html -o ./generated/html

@@ -15,9 +15,10 @@
 -author("Krzysztof Trzepla").
 
 -export([
-        {{#models}}
-    {{#model}}{{classname}}_model/0,{{/model}}
-    {{/models}}]).
+    {{#models}}
+    {{#model}}
+    
+    {{classname}}_model/0,{{/model}}{{/models}}]).
 
 
 {{#models}}
@@ -28,29 +29,17 @@
 {{classname}}_model() ->
 {{#vendorExtensions}}
 {{#x-erlang-oneof}}
-  {oneof, [
-{{#x-erlang-subclasses}}
-    {{.}}_model(),
-{{/x-erlang-subclasses}}
-  ]}.
+  {oneof, [{{#x-erlang-subclasses}}{{.}}_model(),{{/x-erlang-subclasses}}]}.
 {{/x-erlang-oneof}}
 {{^x-erlang-oneof}}
 {{#x-erlang-dictionary-value-type}}
 { '_' => {{x-erlang-dictionary-value-type}}_model() }.
 {{/x-erlang-dictionary-value-type}}
 {{^x-erlang-dictionary-value-type}}
-  #{ 
-{{#vars}}    {{name}} => 
-
-{{#required}}{{datatype}}{{/required}}
-
-{{^required}}{ {{datatype}}, optional }{{/required}} 
-
-{{#hasMore}},{{/hasMore}} %% {{#description}}{{description}}{{/description}}
-
-
-	  {{/vars}} 
-    }.
+  #{ {{#vars}} 
+      %% {{#description}}{{description}}{{/description}}
+      {{name}} => {{#vendorExtensions}}{{#x-discriminator}}{ equal, <<"{{classVarName}}">>}{{/x-discriminator}}{{^x-discriminator}}{{#required}}{{datatype}}{{/required}}{{^required}}{{#vendorExtensions}}{{#x-required}}{{datatype}}{{/x-required}}{{/vendorExtensions}}{ {{datatype}}, {{#vendorExtensions}}{{#x-erlang-default-value}} {optional, {{x-erlang-default-value}}{{!}}}{{/x-erlang-default-value}}{{^x-erlang-default-value}}optional{{/x-erlang-default-value}}{{/vendorExtensions}} }{{/required}}{{/x-discriminator}}{{/vendorExtensions}}{{#hasMore}},{{/hasMore}}{{/vars}} 
+   }.
 {{/x-erlang-dictionary-value-type}}
 {{/x-erlang-oneof}}
 {{/vendorExtensions}}

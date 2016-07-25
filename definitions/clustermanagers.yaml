@@ -1,0 +1,13 @@
+type: object
+description: Cluster managers list
+properties:
+  mainNode:
+    type: string
+    description: The Id of the main cluster manager node.
+  nodes:
+    type: array
+    items:
+      type: string
+required:
+- mainNode
+- nodes

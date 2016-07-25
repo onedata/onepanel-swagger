@@ -1,0 +1,32 @@
+type: object
+description: Oneprovider cluster specification
+required:
+- domainName
+- nodes
+- managers
+- workers
+- databases
+properties:
+  domainName:
+    type: string
+    description: Domain name of the service.
+  nodes:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        hostname:
+          type: string
+          description: Node hostname
+      required:
+      - hostname
+  managers:
+    $ref: '#/definitions/ClusterManagers'
+  databases:
+    $ref: '#/definitions/ClusterDatabases'
+  workers:
+    $ref: '#/definitions/ClusterWorkers'
+  storages:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/Storage'

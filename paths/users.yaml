@@ -5,6 +5,7 @@ post:
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
   x-onedata-resource: user
+  x-onedata-noauth: true
   operationId: add_user
   tags:
     - Onepanel

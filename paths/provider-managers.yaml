@@ -77,6 +77,7 @@ put:
   parameters:
   - name: hosts
     in: body
+    description: The list of hosts which should be added.
     schema:
       $ref: '#/definitions/ManagerHosts'
     required: false
@@ -116,7 +117,6 @@ patch:
     in: query
     description: |
       This flag changes the intended state of the cluster manager instances. 
-
       If the state is changed, the service will be stopped or started in order 
       to match the requested state. 
     type: boolean
