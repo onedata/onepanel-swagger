@@ -26,7 +26,7 @@ sed -i "s/,)/]/g" generated/cowboy/rest_model.erl
 docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.5.0 generate -i ./swagger.json -l go -o ./generated/goclient
 
 # Generate C# stub to get all moustache template keywords
-swagger-codegen-dbg generate -i ./swagger.json -l csharp -o ./generated/csharp -o tmp > model.json
+#swagger-codegen-dbg generate -i ./swagger.json -l csharp -o ./generated/csharp -o tmp > model.json
 
 
 # Generate the 
