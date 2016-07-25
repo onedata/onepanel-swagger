@@ -20,7 +20,7 @@ docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swa
 sed -i "s/&#39;/\'/g" generated/cowboy/rest_model.erl
 sed -i "s/&#x3D;&gt;/=>/g" generated/cowboy/rest_model.erl
 sed -i "s/,]/]/g" generated/cowboy/rest_model.erl
-sed -i "s/,)/]/g" generated/cowboy/rest_model.erl
+sed -i "s/,)/)/g" generated/cowboy/rest_model.erl
 
 
 docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.5.0 generate -i ./swagger.json -l go -o ./generated/goclient
