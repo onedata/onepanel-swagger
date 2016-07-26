@@ -1,0 +1,114 @@
+get:
+  operationId: get_zone_workers
+  summary: Get cluster worker service status
+  description: |
+    Returns status of cluster worker service on each host where it has been
+    deployed.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_oz_worker
+  tags:
+    - Onezone
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: |
+        The status of cluster worker service on each host where it has been
+        deployed.
+      schema:
+        $ref: '#/definitions/ServiceStatus'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Cluster worker service has not been deployed.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+put:
+  operationId: put_zone_workers
+  summary: Deploy cluster worker service
+  description: Deploys a cluster worker service cluster on provided hosts.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_oz_worker
+  tags:
+    - Onezone
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Deployment process successfully started.
+      headers:
+        Location:
+          type: string
+          description: |
+            The path to the task resource, which can be queried to 
+            check operation status.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: serviceHosts
+    in: body
+    schema:
+      $ref: '#/definitions/ServiceHosts'
+    required: true
+
+patch:
+  operationId: patch_zone_workers
+  summary: Start/stop cluster worker service
+  description: |
+    Starts or stops cluster worker service on all hosts in the local deployment.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_oz_worker
+  tags:
+    - Onezone
+  responses:
+    '204':
+      description: Databases service state changed successfully.
+    '400':
+      description: An error has occurred while changing cluster worker service status.
+      schema:
+        $ref: '#/definitions/ServiceError'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Cluster worker service has not been deployed.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: started
+    in: query
+    description: |
+      Defines the intended state of the cluster worker service. The service will be
+      started or stopped in order to match the requested state.
+    type: boolean
+    default: true
+    required: false

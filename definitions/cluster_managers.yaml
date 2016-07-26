@@ -1,0 +1,14 @@
+type: object
+description: The cluster manager service configuration.
+properties:
+  mainNode:
+    type: string
+    description: The alias of the main cluster manager node.
+  nodes:
+    type: array
+    description: The list of aliases of cluster manager nodes.
+    items:
+      type: string
+required:
+- mainNode
+- nodes

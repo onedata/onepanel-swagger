@@ -1,19 +1,18 @@
-
 post:
-  summary: Add user
-  description: Creates new Onepanel user account.
+  operationId: post_users
+  summary: Create user
+  description: Creates a Onepanel user account.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
-  x-onedata-resource: user
+  x-onedata-resource: users
   x-onedata-noauth: true
-  operationId: add_user
   tags:
     - Onepanel
   consumes:
     - application/json
   responses:
     '204':
-      description: User created successfully.
+      description: The user account has been successfully created.
     '400':
       description: Invalid request.
       schema:
@@ -22,20 +21,15 @@ post:
       description: Forbidden request.
       schema:
         $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service is not available.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: userDetails
+  - name: userCreateRequest
     in: body
-    description: New user account details.
     schema:
-      $ref: '#/definitions/UserDetails'
+      $ref: '#/definitions/UserCreateRequest'
     required: true
 
 

@@ -1,0 +1,34 @@
+get:
+  operationId: get_provider_storages_name
+  summary: Get storage details
+  description: Returns the details of the selected storage.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: storage
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The details of a selected storage
+      schema:
+        $ref: '#/definitions/ClusterStorages'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: name
+    in: path
+    type: string
+    description: The name of a storage which details should be returned.
+    required: true

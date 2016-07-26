@@ -1,6 +1,0 @@
-type: object
-description: Type allowing to specify a dictionary of storage resources.
-x-erlang-dictionary: true
-x-erlang-dictionary-value-type: storage
-additionalProperties:
-  $ref: '#/definitions/Storage'

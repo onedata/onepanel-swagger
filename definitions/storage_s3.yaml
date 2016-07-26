@@ -1,0 +1,34 @@
+allOf:
+  - $ref: '#/definitions/ClusterStorages'
+  - type: object
+    x-discriminator-value: "S3"
+    description: The Simple Storage Service configuration.
+    properties:
+      s3Hostname:
+        type: string
+        description: The hostname of a machine where S3 storage is installed.
+      iamHostname:
+        type: string
+        description: The IAM hostname for the S3 storage.
+      bucketName:
+        type: string
+        description: The storage bucket name.
+      accessKey:
+        type: string
+        description: The access key to the S3 storage.
+      secretKey:
+        type: string
+        description: The secret key to the S3 storage.
+    required:
+    - s3Hostname
+    - iamHostname
+    - bucketName
+    - accessKey
+    - secretKey
+example:
+  type: S3
+  S3Hostname: s3.example.com
+  IAMHostname: iam.example.com
+  bucketName: bucket1.iam.example.com
+  accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
+  secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDKNJK

@@ -1,0 +1,22 @@
+type: object
+description: The provider configuration details that can be modified.
+properties:
+  name:
+    type: string
+    description: The name under which the provider has been registered in a zone.
+  redirectionPoint:
+    type: string
+    description: The address used for user redirection from a zone to the provider.
+  geoLongitude:
+    type: number
+    format: float
+    description: The geographical longitude of the provider.
+  geoLatitude:
+    type: number
+    format: float
+    description: The geographical latitude of the provider.
+example:
+  name: Provider1
+  redirectionPoint: https://192.168.11.23
+  geoLongitude: -24.3776025
+  geoLatitude: -128.3519364

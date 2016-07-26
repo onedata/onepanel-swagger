@@ -1,0 +1,68 @@
+get:
+  operationId: get_provider_spaces
+  summary: Get provider spaces
+  description: Returns the list of spaces supported by provider.
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: spaces
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of IDs of spaces supported by provider.
+      schema:
+        type: array
+        items:
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+put:
+  operationId: put_provider_spaces
+  summary: Create or support space
+  description: |
+    Supports an existing space or create a new space and automatically supports it.
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: spaces
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: The spaces has been successfully creates/supported.
+      headers:
+        Location:
+          type: string
+          description: The path to the created/supported space resource.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: spaceSupportRequest
+    in: body
+    schema:
+      $ref: '#/definitions/SpaceSupportRequest'
+    required: true

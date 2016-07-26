@@ -1,89 +1,79 @@
-#
 # This file groups path definitions for Onepanel API
 # defined in separate files for each path
-#
 
 
-#
 # Onepanel common resources
-#
 /users:
   $ref: ./users.yaml
 
 /users/{username}:
-  $ref: ./users-username.yaml
+  $ref: ./users_username.yaml
 
 /hosts:
   $ref: ./hosts.yaml
 
 /hosts/{host}:
-  $ref: ./hosts-host.yaml
+  $ref: ./hosts_host.yaml
 
 /tasks/{id}:
-  $ref: ./tasks-id.yaml
+  $ref: ./tasks_id.yaml
 
-
-#
 # Provider specific resources
-#
 /provider:
   $ref: ./provider.yaml
 
 /provider/configuration:
-  $ref: ./provider-configuration.yaml
+  $ref: ./provider_configuration.yaml
 
 /provider/spaces:
-  $ref: ./provider-spaces.yaml
+  $ref: ./provider_spaces.yaml
 
 /provider/spaces/{id}:
-  $ref: ./provider-spaces-id.yaml
+  $ref: ./provider_spaces_id.yaml
 
 /provider/storages:
-  $ref: ./provider-storages.yaml
+  $ref: ./provider_storages.yaml
 
 /provider/storages/{name}:
-  $ref: ./provider-storages-name.yaml
+  $ref: ./provider_storages_name.yaml
 
 /provider/databases:
-  $ref: ./provider-databases.yaml
+  $ref: ./provider_databases.yaml
 
 /provider/databases/{host}:
-  $ref: ./provider-databases-host.yaml
+  $ref: ./provider_databases_host.yaml
 
 /provider/managers:
-  $ref: ./provider-managers.yaml
+  $ref: ./provider_managers.yaml
 
 /provider/managers/{host}:
-  $ref: ./provider-managers-host.yaml
+  $ref: ./provider_managers_host.yaml
 
 /provider/workers:
-  $ref: ./provider-workers.yaml
+  $ref: ./provider_workers.yaml
 
 /provider/workers/{host}:
-  $ref: ./provider-workers-host.yaml
+  $ref: ./provider_workers_host.yaml
 
-
-#
 # Zone specific resources
-#
 /zone/configuration:
-  $ref: ./zone-configuration.yaml
+  $ref: ./zone_configuration.yaml
 
 /zone/databases:
-  $ref: ./zone-databases.yaml
+  $ref: ./zone_databases.yaml
 
 /zone/databases/{host}:
-  $ref: ./zone-databases-host.yaml
+  $ref: ./zone_databases_host.yaml
 
 /zone/managers:
-  $ref: ./zone-managers.yaml
+  $ref: ./zone_managers.yaml
 
 /zone/managers/{host}:
-  $ref: ./zone-managers-host.yaml
+  $ref: ./zone_managers_host.yaml
 
 /zone/workers:
-  $ref: ./zone-workers.yaml
+  $ref: ./zone_workers.yaml
 
 /zone/workers/{host}:
-  $ref: ./zone-workers-host.yaml
+  $ref: ./zone_workers_host.yaml
 

@@ -1,21 +1,26 @@
 get:
   operationId: get_hosts
+  summary: Get cluster/discovered hosts
+  description: |
+    Returns the list of administrative cluster hosts. It is also possible to
+    return list of hosts that have been discovered using multicast advertisment.
+    In order to retrive discovered hosts set the "discovered" query string to
+    "true". This request can be executed unauthorized as long as there are
+    no admin users.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: hosts
   x-onedata-noauth: true
   tags:
     - Onepanel
-  summary: Get cluster hosts
-  description: |
-    Returns the list of hosts in the local Onedata deployment.
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the list of Onedata nodes.
+      description: The list of administrative cluster hosts.
       schema:
         type: array
+        description: List of cluster or discovered hosts.
         items: 
           type: string
     '400':
@@ -26,38 +31,38 @@ get:
       description: Forbidden request.
       schema:
         $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service not found. 
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: discovered
-    in: query
-    description: Whether we should add automatically discovered nodes.
-    type: boolean
-    default: false
-    required: false
+    - name: discovered
+      in: query
+      description: Defines whether return cluster or discovered hosts.
+      type: boolean
+      default: false
+      required: false
 
 put:
-  operationId: add_hosts
+  operationId: put_hosts
+  summary: Create or join cluster
+  description: |
+    Initializes administrative cluster or if "clusterHost" parameter has been
+    provided in the query string adds this host to an existing cluster.
+    In case of cluster initialization this request removes all user and
+    configuration data. This request can be executed unauthorized as long as
+    there are no admin users.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: hosts
   x-onedata-noauth: true
   tags:
     - Onepanel
-  summary: Add cluster hosts
-  description: |
-    Allows to set the list of nodes in the local Onedata deployment.
   consumes:
     - application/json
   responses:
     '204':
-      description: List of Onedata nodes changed successfully.
+      description: Cluster has been successfully initialized or extended.
     '400':
       description: Invalid request.
       schema:
@@ -66,24 +71,13 @@ put:
       description: Forbidden request.
       schema:
         $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service not found. 
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: hosts
-    in: body
-    schema:
-      $ref: '#/definitions/Hosts'
-    required: true
-  - name: discovered
-    in: query
-    description: Whether we should add automatically discovered nodes.
-    type: boolean
-    required: false
-    default: false
-
+    - name: clusterHost
+      in: query
+      description: Hostname of an existing cluster node.
+      type: string
+      required: false

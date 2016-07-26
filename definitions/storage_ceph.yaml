@@ -1,0 +1,33 @@
+allOf:
+  - $ref: '#/definitions/ClusterStorages'
+  - type: object
+    description: The Ceph storage configuration.
+    x-discriminator-value: "CEPH"
+    properties:
+      username:
+        type: string
+        description: The username for authentication to Ceph cluster.
+      key:
+        type: string
+        description: The key to access the Ceph cluster.
+      monitorHostname:
+        type: string
+        description: The monitor host name.
+      clusterName:
+        type: string
+        description: The Ceph cluster name.
+      poolName:
+        type: string
+        description: The Ceph pool name.
+    required:
+    - username
+    - key
+    - monitorHostname
+    - clusterName
+    - poolName
+example:
+  type: CEPH
+  username: user1
+  key: LKJASHD6876ASDBJHV65765ASD
+  monitorHostname: test.example.com
+  clusterName: CephCluster1

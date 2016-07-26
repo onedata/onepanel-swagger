@@ -1,0 +1,36 @@
+type: object
+description: |
+  The result of a scheduled operation, e.g. database service configuration.
+properties:
+  status:
+    type: string
+    description: The operation status.
+    enum:
+      - ok
+      - error
+      - running
+  steps:
+    type: array
+    description: The list of operation steps that has been so far executed.
+    items:
+      type: string
+  hosts:
+      type: object
+      description: |
+        The collection of hosts with associated error description. This property
+        is set only when an error occurred during operation execution, i.e. the
+        value of property 'status' is set to 'error'.
+      additionalProperties:
+        description: The description of an error that has occured on a service host.
+        $ref: '#/definitions/Error'
+required:
+  - status
+  - steps
+example:
+  status: running
+  steps:
+    - configuring
+  hosts:
+    - host1:
+        error: Operation Error
+        description: Storage name is not available.

@@ -6,83 +6,82 @@ Error:
   $ref: ./error.yaml
 
 UserDetails:
-  $ref: ./userdetails.yaml
+  $ref: ./user_details.yaml
 
-UserDetailsUpdate:
-  $ref: ./userdetailsupdate.yaml
+UserCreateRequest:
+  $ref: ./user_create_request.yaml
 
-UserDetailsResponse:
-  $ref: ./userdetailsresponse.yaml
-
-Database:
-  $ref: ./database.yaml
-
-OneproviderConfiguration:
-  $ref: ./oneproviderconfiguration.yaml
-
-ClusterProviderConfiguration:
-  $ref: ./clusterproviderconfiguration.yaml
-
-ClusterZoneConfiguration:
-  $ref: ./clusterzoneconfiguration.yaml
+UserModifyRequest:
+  $ref: ./user_modify_request.yaml
 
 ClusterWorkers:
-  $ref: ./clusterworkers.yaml
+  $ref: ./cluster_workers.yaml
 
 ClusterManagers:
-  $ref: ./clustermanagers.yaml
+  $ref: ./cluster_managers.yaml
 
 ClusterDatabases:
-  $ref: ./clusterdatabases.yaml
+  $ref: ./cluster_databases.yaml
 
-OnezoneConfiguration:
-  $ref: ./onezoneconfiguration.yaml
+ClusterStorages:
+  $ref: ./cluster_storages.yaml
 
-Provider:
-  $ref: ./provider.yaml
-
-ProviderConfigureRequest:
-  $ref: ./providerconfigurerequest.yaml
-
-ProviderUpdateRequest:
-  $ref: ./providerupdaterequest.yaml
-
-Storage:
-  $ref: ./storage.yaml
+ClusterStoragesList:
+  $ref: ./cluster_storages_list.yaml
 
 POSIX:
-  $ref: ./posix.yaml
+  $ref: ./storage_posix.yaml
 
 S3:
-  $ref: ./s3.yaml
+  $ref: ./storage_s3.yaml
 
-CEPH:
-  $ref: ./ceph.yaml
+Ceph:
+  $ref: ./storage_ceph.yaml
 
-StorageList:
-  $ref: ./storagelist.yaml
+ZoneConfiguration:
+  $ref: ./zone_configuration.yaml
+
+ZoneClusterConfiguration:
+  $ref: ./zone_cluster_configuration.yaml
+
+ProviderConfiguration:
+  $ref: ./provider_configuration.yaml
+
+ProviderClusterConfiguration:
+  $ref: ./provider_cluster_configuration.yaml
+
+ProviderDetails:
+  $ref: ./provider_details.yaml
+
+ProviderRegisterRequest:
+  $ref: ./provider_register_request.yaml
+
+ProviderModifyRequest:
+  $ref: ./provider_modify_request.yaml
 
 ServiceStatus:
-  $ref: ./servicestatus.yaml
+  $ref: ./service_status.yaml
 
-ServicesStatus:
-  $ref: ./servicesstatus.yaml
+ServiceStatusHost:
+  $ref: ./service_status_host.yaml
 
-Hosts:
-  $ref: ./hosts.yaml
+ServiceError:
+  $ref: ./service_error.yaml
+
+ServiceHosts:
+  $ref: ./service_hosts.yaml
 
 ManagerHosts:
-  $ref: ./managerhosts.yaml
+  $ref: ./manager_hosts.yaml
 
 TaskStatus:
-  $ref: ./taskstatus.yaml
-
-SpaceSupportRequest:
-  $ref: ./spacesupportrequest.yaml
+  $ref: ./task_status.yaml
 
 SpaceDetails:
-  $ref: ./spacedetails.yaml
+  $ref: ./space_details.yaml
 
+SpaceSupportRequest:
+  $ref: ./space_support_request.yaml
 
 
 

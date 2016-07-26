@@ -1,0 +1,6 @@
+type: object
+description: The list of supported storage types.
+x-onedata-dictionary: true
+x-onedata-dictionary-value-type: cluster_storages
+additionalProperties:
+  $ref: '#/definitions/ClusterStorages'

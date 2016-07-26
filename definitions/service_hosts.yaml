@@ -1,0 +1,16 @@
+type: object
+description: The service hosts configuration.
+properties:
+  hosts:
+    type: array
+    description: The list of hosts where service should be deployed.
+    items:
+      type: string
+required:
+  - hosts
+example:
+  hosts:
+    - node1.example.com
+    - node2.example.com
+    - node3.example.com
+  

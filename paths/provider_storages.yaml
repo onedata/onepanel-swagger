@@ -1,0 +1,67 @@
+get:
+  operationId: get_provider_storages
+  summary: Get storages
+  description: Returns the list of storages details used be a provider.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: storages
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of storages details used be a provider.
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ClusterStorages'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+put:
+  operationId: put_provider_storages
+  summary: Configure storage
+  description: Adds a storage to the prvider deployment.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: storages
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The storage has been successfully added to the provider deployment.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: clusterStoragesList
+    in: body
+    description: |
+      The list of configuration details of storages to be added to the provider
+      deployment.
+    schema:
+      $ref: '#/definitions/ClusterStoragesList'
+    required: true
+

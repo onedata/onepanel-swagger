@@ -1,20 +1,19 @@
 get:
   operationId: get_provider
+  summary: Get provider details
+  description: Returns the basic configuration information of the provider.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider
   tags:
     - Oneprovider
-  summary: Get provider details
-  description: |
-    Returns the basic configuration information of Oneprovider.
   produces:
     - application/json
   responses:
     '200':
-      description: Oneprovider configuration details.
+      description: The provider configuration details.
       schema:
-        $ref: '#/definitions/ProviderConfigureRequest'
+        $ref: '#/definitions/ProviderDetails'
     '400':
       description: Invalid request.
       schema:
@@ -23,31 +22,25 @@ get:
       description: Forbidden request.
       schema:
         $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service not found. 
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-
 
 put:
-  operationId: set_provider_details
+  operationId: put_provider
+  summary: Register provider
+  description: Registers provider in the zone.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider
   tags:
     - Oneprovider
-  summary: Set provider details
-  description: |
-    Allows to set basic provider details.
   consumes:
     - application/json
   responses:
     '204':
-      description: Operation successful.
+      description: Provider has been successfully registered.
     '400':
       description: Invalid request.
       schema:
@@ -56,46 +49,37 @@ put:
       description: Forbidden request.
       schema:
         $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service not found. 
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: providerDetails
-    in: body
-    schema:
-      $ref: '#/definitions/ProviderConfigureRequest'
-    required: true
+    - name: providerRegisterRequest
+      in: body
+      schema:
+        $ref: '#/definitions/ProviderRegisterRequest'
+      required: true
 
 patch:
-  operationId: modify_provider_details
+  operationId: patch_provider
+  summary: Modify provider details
+  description: Modifies basic provider details in the zone.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider
   tags:
     - Oneprovider
-  summary: Modify provider details
-  description: |
-    Allows to modify basic provider details.
   consumes:
     - application/json
   responses:
     '204':
-      description: Operation successful.
+      description: Provider details has been successfully modified.
     '400':
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service not found. 
       schema:
         $ref: '#/definitions/Error'
     '500':
@@ -103,26 +87,24 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: providerDetails
-    in: body
-    schema:
-      $ref: '#/definitions/ProviderUpdateRequest'
-    required: true
-
+    - name: providerModifyRequest
+      in: body
+      schema:
+        $ref: '#/definitions/ProviderModifyRequest'
+      required: true
 
 delete:
-  operationId: unregister_provider
+  operationId: delete_provider
+  summary: Unregister provider
+  description: Unregisters provider in the zone.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider
   tags:
     - Oneprovider
-  summary: Unregister provider which invokes this request.
-  description: |
-    Allows to unregister Oneprovider.
   responses:
     '204':
-      description: Operation successful.
+      description: Provider has been successfully unregistered.
     '400':
       description: Invalid request.
       schema:
@@ -131,12 +113,7 @@ delete:
       description: Forbidden request.
       schema:
         $ref: '#/definitions/Error'
-    '404':
-      description: Onepanel service not found. 
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-

@@ -1,0 +1,17 @@
+type: object
+description: The zone deployment configuration.
+properties:
+  cluster:
+    $ref: '#/definitions/ZoneClusterConfiguration'
+  onezone:
+    type: object
+    description: The zone custom configuration.
+    properties:
+      domainName:
+        description: The name of a HTTP domain.
+        type: string
+      name:
+        description: The name of a zone.
+        type: string
+required:
+  - cluster

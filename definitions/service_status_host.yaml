@@ -1,0 +1,12 @@
+type: object
+description: The service status.
+properties:
+  status:
+    type: string
+    description: The service status.
+    enum:
+      - running
+      - stopped
+      - missing
+required:
+  - status

@@ -1,0 +1,20 @@
+type: object
+description: The user configuration details.
+properties:
+  userId:
+    type: string
+    description: The user ID.
+  userRole:
+    type: string
+    x-onedata-datatype: atom
+    description: The user role, one of 'admin' or 'regular'.
+    enum:
+      - admin
+      - regular
+required:
+  - userId
+  - userRole
+example:
+  userId: i3h2bp4TjPVuOyvXulbW
+  userRole: admin
+  

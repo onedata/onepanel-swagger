@@ -1,0 +1,84 @@
+get:
+  operationId: get_provider_databases_host
+  summary: Get database service status on host
+  description: Returns status of database service on selected host.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_couchbase
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The status of database service on selected host.
+      schema:
+        $ref: '#/definitions/ServiceStatusHost'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Database service has not been deployed on selected host.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    description: |
+      The name of a host for which database service status should be returned.
+    in: path
+    type: string
+    required: true
+
+patch:
+  operationId: patch_provider_databases_host
+  summary: Start/stop database service on selected host
+  description: |
+    Starts or stops database service on selected hosts in the local deployment.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_couchbase
+  tags:
+    - Oneprovider
+  responses:
+    '204':
+      description: Databases service state changed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Database service has not been deployed on selected host.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    description: |
+      The name of a host for which database service status should be changed.
+    in: path
+    type: string
+    required: true
+  - name: started
+    in: query
+    description: |
+      Defines the intended state of the database service. The service will be
+      started or stopped in order to match the requested state.
+    type: boolean
+    default: true
+    required: false

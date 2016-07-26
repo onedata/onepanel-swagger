@@ -1,0 +1,67 @@
+get:
+  operationId: get_provider_spaces_id
+  summary: Get space details
+  description: Returns space details.
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The space details.
+      schema:
+        $ref: '#/definitions/SpaceDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id 
+    in: path
+    type: string
+    description: The ID of a space which details should be returned.
+    required: true
+
+delete:
+  operationId: delete_provider_spaces_id
+  summary: Revoke space support
+  description: Revokes support for a space.
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: The space support has been successfully revoked.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id 
+    in: path
+    type: string
+    description: The ID of a space to be removed.
+    required: true

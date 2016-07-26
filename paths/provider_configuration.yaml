@@ -1,0 +1,41 @@
+put:
+  operationId: put_provider_configuration
+  summary: Create provider deployment
+  description: |
+    Configures and starts provider services, such as database, cluster manager
+    and cluster worker. Depending on the configuration, sets up provider storage
+    and registers in the zone.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_oneprovider
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Deployment process successfully started.
+      headers:
+        Location:
+          type: string
+          description: |
+            The path to the task resource, which can be queried to check
+            operation status.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: providerConfiguration
+    in: body
+    schema:
+      $ref: '#/definitions/ProviderConfiguration'
+    required: true

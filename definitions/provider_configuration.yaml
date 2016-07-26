@@ -1,0 +1,48 @@
+type: object
+description: The provider deployment configuration.
+properties:
+  cluster:
+    $ref: '#/definitions/ProviderClusterConfiguration'
+  oneprovider:
+    type: object
+    description: The provider custom configuration.
+    properties:
+      register:
+        type: boolean
+        description: Defines whether the provider should be registered in a zone.
+      name:
+        type: string
+        description: The name under which the provider will be registered in a zone.
+      redirectionPoint:
+        type: string
+        description: The address used for user redirection from a zone to the provider.
+      geoLongitude:
+        type: number
+        format: float
+        description: The geographical longitude of the provider.
+      geoLatitude:
+        type: number
+        format: float
+        description: The geographical latitude of the provider.
+    required:
+      - register
+      - name
+      - redirectionPoint
+    example:
+      register: true
+      name: Provider1
+      redirectionPoint: https://192.168.11.23
+      geoLongitude: -24.3776025
+      geoLatitude: -128.3519364
+  onezone:
+    type: object
+    description: The zone custom configuration.
+    properties:
+      domainName:
+        description: The domain name of a zone where provider will be registered.
+        type: string
+    required:
+      - domainName
+required:
+  - cluster
+

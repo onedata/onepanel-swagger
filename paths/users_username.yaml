@@ -1,0 +1,115 @@
+get:
+  operationId: get_users_username
+  summary: Get user details
+  description: Returns the configuration information of the Onepanel user.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_user
+  x-onedata-resource: user
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The configuration information of the user.
+      schema:
+        $ref: '#/definitions/UserDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: The user has not been found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: username
+    in: path
+    description: The name of a user whose details should be returned.
+    type: string
+    required: true
+
+patch:
+  operationId: patch_users_username
+  summary: Modify user details
+  description: Modifies the Onepanel user password.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_user
+  x-onedata-resource: user
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The user password has been successfully changed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: The user has not been found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: username
+    in: path
+    description: The user name.
+    type: string
+    required: true
+  - name: userModifyRequest
+    in: body
+    schema:
+      $ref: '#/definitions/UserModifyRequest'
+    required: true
+
+delete:
+  operationId: delete_users_username
+  summary: Remove user
+  description: Removes the Onepanel user account.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_user
+  x-onedata-resource: user
+  tags:
+    - Onepanel
+  responses:
+    '204':
+      description: The user account has been successfully removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: User account not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: username
+    in: path
+    description: The name of the user to be removed.
+    type: string
+    required: true

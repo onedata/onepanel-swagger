@@ -1,0 +1,36 @@
+type: object
+description: The provider cluster configuration.
+properties:
+  domainName:
+    type: string
+    description: |
+      The name of a domain common for all services in the cluster. Together with
+      a node hostname constitute a node fully qualified domain name.
+  nodes:
+    type: object
+    description: The collection of nodes aliases associated with nodes properties.
+    additionalProperties:
+      type: object
+      properties:
+        hostname:
+          type: string
+          description: The name of a host.
+      required:
+        - hostname
+  databases:
+    $ref: '#/definitions/ClusterDatabases'
+  managers:
+    $ref: '#/definitions/ClusterManagers'
+  workers:
+    $ref: '#/definitions/ClusterWorkers'
+  storages:
+    type: object
+    description: The cluster storage configuration.
+    additionalProperties:
+      $ref: '#/definitions/ClusterStorages'
+required:
+  - domainName
+  - nodes
+  - databases
+  - managers
+  - workers

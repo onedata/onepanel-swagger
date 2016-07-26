@@ -1,0 +1,40 @@
+type: object
+description: The provider configuration details.
+properties:
+  id:
+    type: string
+    description: The ID assigned by a zone.
+  name:
+    type: string
+    description: The name under which the provider has been registered in a zone.
+  urls:
+    type: array
+    description: The list of IP addresses of provider cluster worker nodes.
+    items:
+      type: string
+  redirectionPoint:
+    type: string
+    description: The address used for user redirection from a zone to the provider.
+  geoLongitude:
+    type: number
+    format: float
+    description: The geographical longitude of the provider.
+  geoLatitude:
+    type: number
+    format: float
+    description: The geographical latitude of the provider.
+required:
+  - id
+  - name
+  - urls
+  - redirectionPoint
+  - geoLongitude
+  - geoLatitude
+example:
+  id: VAiDGZbs3k0FD8jPhyU1
+  name: Provider1
+  urls:
+    - 192.168.11.23
+  redirectionPoint: https://192.168.11.23
+  geoLongitude: -24.3776025
+  geoLatitude: -128.3519364

@@ -1,0 +1,36 @@
+delete:
+  operationId: delete_host
+  summary: Remove cluster node
+  description: Removes node from the administrative cluster.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: host
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Node has been successfully removed from the cluster.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Host not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: host
+      in: path
+      type: string
+      description: Hostname of node to be removed from the cluster.
+      required: true

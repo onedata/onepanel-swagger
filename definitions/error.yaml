@@ -1,15 +1,15 @@
 type: object
-description: Generic error model for REST requests.
+description: The generic error model for REST requests.
 properties:
   error:
-    description: Identifier representing internal error code.
+    description: The name of an error type.
     type: string
-  error_description:
-    description: Detailed error message.
+  description:
+    description: The detailed error description.
     type: string
 required:
   - error
-  - error_description
+  - description
 example:
-  error: invalid_token
-  error_description: Provided token could not be validated.
+  error: Authentication Error
+  description: Invalid username or password.

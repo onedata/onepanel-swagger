@@ -8,64 +8,81 @@
 %%% cited in 'LICENSE.txt'.
 %%% @end
 %%%--------------------------------------------------------------------
-%%% @doc @todo write me!
+%%% @doc This module contains REST models definitions.
 %%% @end
 %%%--------------------------------------------------------------------
 -module(rest_model).
 -author("Krzysztof Trzepla").
 
 -export([
-    {{#models}}
+{{#models}}
     {{#model}}
-    
-    {{classname}}_model/0,{{/model}}{{/models}}]).
+    {{classname}}_model/0,
+    {{/model}}
+{{/models}}
+]).
 
 
 {{#models}}
-{{#model}}
-%%
-%% {{#description}}{{description}}{{/description}}
-%%
+    {{#model}}
+        {{#description}}
+%%--------------------------------------------------------------------
+%% @doc {{description}}
+%%--------------------------------------------------------------------
+        {{/description}}
+        {{#vendorExtensions}}
+            {{#x-onedata-oneof}}
+-spec {{classname}}_model() -> {oneof, Oneof :: list()}.
+            {{/x-onedata-oneof}}
+            {{^x-onedata-oneof}}
+-spec {{classname}}_model() -> #{}.
+            {{/x-onedata-oneof}}
+        {{/vendorExtensions}}
 {{classname}}_model() ->
-{{#vendorExtensions}}
-{{#x-erlang-oneof}}
-  {oneof, [{{#x-erlang-subclasses}}{{.}}_model(),{{/x-erlang-subclasses}}]}.
-{{/x-erlang-oneof}}
-{{^x-erlang-oneof}}
-{{#x-erlang-dictionary-value-type}}
-{ '_' => {{x-erlang-dictionary-value-type}}_model() }.
-{{/x-erlang-dictionary-value-type}}
-{{^x-erlang-dictionary-value-type}}
-  #{ {{#vars}} 
-      %% {{#description}}{{description}}{{/description}}
-      {{name}} => {{#vendorExtensions}}{{#x-discriminator}}{ equal, <<"{{classVarName}}">>}{{/x-discriminator}}{{^x-discriminator}}{{#required}}{{datatype}}{{/required}}{{^required}}{{#vendorExtensions}}{{#x-required}}{{datatype}}{{/x-required}}{{/vendorExtensions}}{ {{datatype}}, {{#vendorExtensions}}{{#x-erlang-default-value}} {optional, {{x-erlang-default-value}}{{!}}}{{/x-erlang-default-value}}{{^x-erlang-default-value}}optional{{/x-erlang-default-value}}{{/vendorExtensions}} }{{/required}}{{/x-discriminator}}{{/vendorExtensions}}{{#hasMore}},{{/hasMore}}{{/vars}} 
-   }.
-{{/x-erlang-dictionary-value-type}}
-{{/x-erlang-oneof}}
-{{/vendorExtensions}}
-   
-{{/model}}
+        {{#vendorExtensions}}
+            {{#x-onedata-oneof}}
+    {oneof, [{{#x-onedata-subclasses}}{{.}}_model(),{{/x-onedata-subclasses}}]}.
+            {{/x-onedata-oneof}}
+            {{^x-onedata-oneof}}
+                {{#x-onedata-dictionary-value-type}}
+    #{ '_' => {{x-onedata-dictionary-value-type}}_model() }.
+                {{/x-onedata-dictionary-value-type}}
+                {{^x-onedata-dictionary-value-type}}
+    #{
+                    {{#vars}}
+                        {{#description}}
+        %% {{description}}
+                        {{/description}}
+                        {{#vendorExtensions}}
+                            {{#x-discriminator}}
+        {{name}} => {equal, <<"{{classname}}">>}{{#hasMore}},{{/hasMore}}
+                            {{/x-discriminator}}
+                            {{^x-discriminator}}
+                                {{#required}}
+                                    {{#x-onedata-datatype}}
+        {{name}} => {{x-onedata-datatype}}{{#hasMore}},{{/hasMore}}
+                                    {{/x-onedata-datatype}}
+                                    {{^x-onedata-datatype}}
+        {{name}} => {{datatype}}{{#hasMore}},{{/hasMore}}
+                                    {{/x-onedata-datatype}}
+                                {{/required}}
+                                {{^required}}
+                                    {{#vendorExtensions}}
+                                        {{#x-onedata-default-value}}
+        {{name}} => { {{datatype}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
+                                        {{/x-onedata-default-value}}
+                                        {{^x-onedata-default-value}}
+        {{name}} => { {{datatype}}, optional }{{#hasMore}},{{/hasMore}}
+                                        {{/x-onedata-default-value}}
+                                    {{/vendorExtensions}}
+                                {{/required}}
+                            {{/x-discriminator}}
+                        {{/vendorExtensions}}
+                    {{/vars}}
+    }.
+                {{/x-onedata-dictionary-value-type}}
+            {{/x-onedata-oneof}}
+        {{/vendorExtensions}}
+    {{/model}}
+
 {{/models}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

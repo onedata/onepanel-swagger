@@ -1,0 +1,11 @@
+type: object
+description: The service error model for REST requests.
+properties:
+  hosts:
+    type: object
+    description: The collection of hosts with associated error description.
+    additionalProperties:
+      description: The description of an error that has occured on a service host.
+      $ref: '#/definitions/Error'
+required:
+  - hosts

@@ -1,0 +1,10 @@
+type: object
+description: The cluster database service configuration.
+properties:
+  nodes:
+    type: array
+    description: The list of aliases of cluster database nodes.
+    items:
+      type: string
+required:
+- nodes
