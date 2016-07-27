@@ -1,6 +1,6 @@
 get:
   operationId: get_zone_databases_host
-  summary: Get database service status on host
+  summary: Get zone database
   description: Returns status of database service on selected host.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -38,9 +38,10 @@ get:
     type: string
     required: true
 
+
 patch:
   operationId: patch_zone_databases_host
-  summary: Start/stop database service on selected host
+  summary: Start/stop zone database
   description: |
      Starts or stops database service on selected hosts in the local deployment.
   x-onedata-version: 3

@@ -1,7 +1,7 @@
 get:
   operationId: get_provider_spaces
   summary: Get provider spaces
-  description: Returns the list of spaces supported by provider.
+  description: Returns the list of spaces supported by a provider.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: spaces
@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of IDs of spaces supported by provider.
+      description: The list of IDs of spaces supported by a provider.
       schema:
         type: array
         items:
@@ -29,11 +29,12 @@ get:
       schema:
         $ref: '#/definitions/Error'
 
+
 put:
   operationId: put_provider_spaces
   summary: Create or support space
   description: |
-    Supports an existing space or create a new space and automatically supports it.
+    Supports an existing space or creates a new space and automatically supports it.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: spaces

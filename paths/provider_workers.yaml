@@ -1,6 +1,6 @@
 get:
   operationId: get_provider_workers
-  summary: Get cluster worker service status
+  summary: Get provider workers
   description: |
     Returns status of cluster worker service on each host where it has been
     deployed.
@@ -35,10 +35,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
 
+
 put:
   operationId: put_provider_workers
-  summary: Deploy cluster worker service
-  description: Deploys a cluster worker service cluster on provided hosts.
+  summary: Deploy provider workers
+  description: Deploys a cluster worker service on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_op_worker

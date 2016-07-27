@@ -1,6 +1,6 @@
 get:
   operationId: get_provider_databases
-  summary: Get database service status
+  summary: Get provider databases status
   description: |
     Returns status of database service on each host where it has been deployed.
   x-onedata-version: 3
@@ -33,10 +33,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
 
+
 put:
   operationId: put_provider_databases
-  summary: Deploy database service
-  description: Deploys a database service cluster on provided hosts.
+  summary: Deploy provider databases
+  description: Deploys a database cluster service on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_couchbase
@@ -72,9 +73,10 @@ put:
       $ref: '#/definitions/ServiceHosts'
     required: true
 
+
 patch:
   operationId: patch_provider_databases
-  summary: Start/stop database service
+  summary: Start/stop provider databases
   description: |
     Starts or stops database service on all hosts in the local deployment.
   x-onedata-version: 3

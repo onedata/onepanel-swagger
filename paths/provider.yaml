@@ -96,7 +96,7 @@ patch:
 delete:
   operationId: delete_provider
   summary: Unregister provider
-  description: Unregisters provider in the zone.
+  description: Unregisters provider from the zone.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: provider

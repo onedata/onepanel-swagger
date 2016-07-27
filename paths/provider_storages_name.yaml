@@ -30,5 +30,5 @@ get:
   - name: name
     in: path
     type: string
-    description: The name of a storage which details should be returned.
+    description: The name of a storage resource, which details should be returned.
     required: true

@@ -3,9 +3,10 @@ get:
   summary: Get cluster/discovered hosts
   description: |
     Returns the list of administrative cluster hosts. It is also possible to
-    return list of hosts that have been discovered using multicast advertisment.
-    In order to retrive discovered hosts set the "discovered" query string to
-    "true". This request can be executed unauthorized as long as there are
+    return the list of hosts that have been discovered using multicast 
+    advertisment.
+    In order to retrive discovered hosts set the `discovered` query string to
+    `true`. This request can be executed unauthorized as long as there are
     no admin users.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
@@ -47,8 +48,9 @@ put:
   operationId: put_hosts
   summary: Create or join cluster
   description: |
-    Initializes administrative cluster or if "clusterHost" parameter has been
+    Initializes administrative cluster or if `clusterHost` parameter has been
     provided in the query string adds this host to an existing cluster.
+    
     In case of cluster initialization this request removes all user and
     configuration data. This request can be executed unauthorized as long as
     there are no admin users.

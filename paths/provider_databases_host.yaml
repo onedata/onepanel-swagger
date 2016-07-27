@@ -1,6 +1,6 @@
 get:
   operationId: get_provider_databases_host
-  summary: Get database service status on host
+  summary: Get provider database status
   description: Returns status of database service on selected host.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -38,9 +38,10 @@ get:
     type: string
     required: true
 
+
 patch:
   operationId: patch_provider_databases_host
-  summary: Start/stop database service on selected host
+  summary: Start/stop provider database
   description: |
     Starts or stops database service on selected hosts in the local deployment.
   x-onedata-version: 3

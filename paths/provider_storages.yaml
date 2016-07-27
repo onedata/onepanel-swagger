@@ -1,7 +1,7 @@
 get:
   operationId: get_provider_storages
   summary: Get storages
-  description: Returns the list of storages details used be a provider.
+  description: Returns the list of provider storage resources and their details.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: storages
@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of storages details used be a provider.
+      description: The list of provider storage and their details.
       schema:
         type: array
         items:
@@ -29,10 +29,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
 
+
 put:
   operationId: put_provider_storages
   summary: Configure storage
-  description: Adds a storage to the prvider deployment.
+  description: Adds a storage to the provider deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: storages

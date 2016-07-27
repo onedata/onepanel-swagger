@@ -1,6 +1,6 @@
 get:
   operationId: get_zone_workers
-  summary: Get cluster worker service status
+  summary: Get zone workers
   description: |
     Returns status of cluster worker service on each host where it has been
     deployed.
@@ -35,9 +35,10 @@ get:
       schema:
         $ref: '#/definitions/Error'
 
+
 put:
   operationId: put_zone_workers
-  summary: Deploy cluster worker service
+  summary: Deploy zone workers
   description: Deploys a cluster worker service cluster on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -74,9 +75,10 @@ put:
       $ref: '#/definitions/ServiceHosts'
     required: true
 
+
 patch:
   operationId: patch_zone_workers
-  summary: Start/stop cluster worker service
+  summary: Start/stop zone workers
   description: |
     Starts or stops cluster worker service on all hosts in the local deployment.
   x-onedata-version: 3

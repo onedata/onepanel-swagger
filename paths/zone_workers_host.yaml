@@ -1,6 +1,6 @@
 get:
   operationId: get_zone_workers_host
-  summary: Get cluster worker service status on host
+  summary: Get zone worker status
   description: Returns status of cluster worker service on selected host.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -38,9 +38,10 @@ get:
     type: string
     required: true
 
+
 patch:
   operationId: patch_zone_workers_host
-  summary: Start/stop cluster worker service on selected host
+  summary: Start/stop zone worker
   description: |
      Starts or stops cluster worker service on selected hosts in the local deployment.
   x-onedata-version: 3

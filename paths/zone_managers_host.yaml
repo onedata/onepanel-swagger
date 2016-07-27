@@ -1,6 +1,6 @@
 get:
   operationId: get_zone_managers_host
-  summary: Get cluster manager service status on host
+  summary: Get zone manager status
   description: Returns status of cluster manager service on selected host.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -38,9 +38,10 @@ get:
     type: string
     required: true
 
+
 patch:
   operationId: patch_zone_managers_host
-  summary: Start/stop cluster manager service on selected host
+  summary: Start/stop zone manager
   description: |
      Starts or stops cluster manager service on selected hosts in the local deployment.
   x-onedata-version: 3

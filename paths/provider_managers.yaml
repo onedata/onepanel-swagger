@@ -1,6 +1,6 @@
 get:
   operationId: get_provider_managers
-  summary: Get cluster manager service status
+  summary: Get provider managers
   description: |
     Returns status of cluster manager service on each host where it has been
     deployed.
@@ -37,7 +37,7 @@ get:
 
 put:
   operationId: put_provider_managers
-  summary: Deploy cluster manager service
+  summary: Deploy provider managers
   description: |
     Deploys a cluster manager service cluster on provided hosts.
   x-onedata-version: 3
@@ -77,7 +77,7 @@ put:
 
 patch:
   operationId: patch_provider_managers
-  summary: Start/stop cluster manager service
+  summary: Start/stop provider managers
   description: |
     Starts or stops cluster manager service on all hosts in the local deployment.
   x-onedata-version: 3

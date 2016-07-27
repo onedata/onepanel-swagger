@@ -37,6 +37,7 @@ get:
     type: string
     required: true
 
+
 patch:
   operationId: patch_users_username
   summary: Modify user details
@@ -78,6 +79,7 @@ patch:
     schema:
       $ref: '#/definitions/UserModifyRequest'
     required: true
+
 
 delete:
   operationId: delete_users_username

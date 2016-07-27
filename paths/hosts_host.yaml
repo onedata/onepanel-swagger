@@ -1,7 +1,7 @@
 delete:
   operationId: delete_host
   summary: Remove cluster node
-  description: Removes node from the administrative cluster.
+  description: Removes a node from the administrative cluster.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: host
@@ -32,5 +32,5 @@ delete:
     - name: host
       in: path
       type: string
-      description: Hostname of node to be removed from the cluster.
+      description: Hostname of a node to be removed from the cluster.
       required: true
