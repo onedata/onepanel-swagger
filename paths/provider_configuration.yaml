@@ -19,8 +19,7 @@ put:
         Location:
           type: string
           description: |
-            The path to the task resource, which can be queried to check
-            operation status.
+            The path to the task resource, which can be queried to check operation status.
     '400':
       description: Invalid request.
       schema:
