@@ -1,6 +1,6 @@
 put:
   operationId: put_provider_configuration
-  summary: Create provider deployment
+  summary: Configure provider deployment
   description: |
     Configures and starts provider services, such as database, cluster manager
     and cluster worker. Depending on the configuration, sets up provider storage
@@ -27,12 +27,8 @@ put:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
   - name: providerConfiguration
     in: body

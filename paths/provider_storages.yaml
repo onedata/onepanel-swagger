@@ -22,12 +22,8 @@ get:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
 
 
 put:
@@ -50,12 +46,8 @@ put:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
   - name: clusterStoragesList
     in: body

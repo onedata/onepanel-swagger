@@ -30,12 +30,8 @@ get:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
     - name: discovered
       in: query
@@ -50,7 +46,7 @@ put:
   description: |
     Initializes administrative cluster or if `clusterHost` parameter has been
     provided in the query string adds this host to an existing cluster.
-    
+
     In case of cluster initialization this request removes all user and
     configuration data. This request can be executed unauthorized as long as
     there are no admin users.
@@ -71,12 +67,8 @@ put:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
     - name: clusterHost
       in: query

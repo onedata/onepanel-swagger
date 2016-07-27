@@ -18,16 +18,10 @@ delete:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '404':
       description: Host not found.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
     - name: host
       in: path

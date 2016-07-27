@@ -20,16 +20,10 @@ get:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '404':
       description: Database service has not been deployed on selected host.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
   - name: host
     description: |
@@ -58,16 +52,10 @@ patch:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '404':
       description: Database service has not been deployed on selected host.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
   - name: host
     description: |

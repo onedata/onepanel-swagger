@@ -20,12 +20,9 @@ get:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
+
 
 put:
   operationId: put_provider
@@ -47,18 +44,15 @@ put:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
     - name: providerRegisterRequest
       in: body
       schema:
         $ref: '#/definitions/ProviderRegisterRequest'
       required: true
+
 
 patch:
   operationId: patch_provider
@@ -80,18 +74,15 @@ patch:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
   parameters:
     - name: providerModifyRequest
       in: body
       schema:
         $ref: '#/definitions/ProviderModifyRequest'
       required: true
+
 
 delete:
   operationId: delete_provider
@@ -111,9 +102,6 @@ delete:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-      schema:
-        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
-      schema:
-        $ref: '#/definitions/Error'
+      
