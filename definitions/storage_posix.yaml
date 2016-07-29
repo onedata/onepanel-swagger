@@ -1,12 +1,12 @@
 allOf:
   - $ref: '#/definitions/ClusterStorages'
   - type: object
-    x-discriminator-value: "POSIX"
+    x-discriminator-value: POSIX
     description: The POSIX storage configuration.
     properties:
       mountPoint:
         type: string
-        description: |
+        description: >
           The absolute path to the directory where the POSIX storage is mounted
           on the cluster nodes.
     required:

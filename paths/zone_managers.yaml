@@ -13,7 +13,7 @@ get:
     - application/json
   responses:
     '200':
-      description: |
+      description: >
         The status of cluster manager service on each host where it has been
         deployed.
       schema:
@@ -47,7 +47,7 @@ put:
       headers:
         Location:
           type: string
-          description: |
+          description: >
             The path to the task resource, which can be queried to 
             check operation status.
     '400':
@@ -92,9 +92,9 @@ patch:
   parameters:
   - name: started
     in: query
-    description: |
-      Defines the intended state of the cluster manager service. The service will be
-      started or stopped in order to match the requested state.
+    description: >
+      Defines the intended state of the cluster manager service. The service 
+      will be started or stopped in order to match the requested state.
     type: boolean
     default: true
     required: false

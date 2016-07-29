@@ -9,7 +9,7 @@ properties:
     description: The name of the space.
   supportingProviders:
     type: object
-    description: |
+    description: >
       The collection of provider IDs with associated supported storage space in bytes.
     additionalProperties:
       type: integer

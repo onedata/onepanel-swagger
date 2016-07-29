@@ -3,7 +3,7 @@ description: The zone cluster configuration.
 properties:
   domainName:
     type: string
-    description: |
+    description: >
       The name of a domain common for all services in the cluster. Together with
       a node hostname constitute a node fully qualified domain name.
   nodes:

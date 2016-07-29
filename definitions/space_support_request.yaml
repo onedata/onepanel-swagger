@@ -1,10 +1,10 @@
 type: object
-description: |
+description: >
   The configuration details required to create or support a space by a provider.
 properties:
   name:
     type: string
-    description: |
+    description: >
       The space name. If this property is provided and space with given name
       will be created and automatically supported by a provider.
   token:
@@ -12,16 +12,16 @@ properties:
     description: The token for space creation or support.
   size:
     type: integer
-    description: |
+    description: >
       The storage space size in bytes that provider is willing to assign to the space.
   storageName:
     type: string
-    description: |
-      The name of the storage resource where the space data should be stored.
+    description: >
+      The user defined name of the storage resource, where the space data should be stored.
       To be used interchangeably with `storageId`.
   storageId:
     type: string
-    description: |
+    description: >
       The ID of the storage resource where the space data should be stored.
       To be used interchangeably with `storageName`.
 required:

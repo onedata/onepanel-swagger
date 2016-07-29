@@ -28,12 +28,6 @@ properties:
       - register
       - name
       - redirectionPoint
-    example:
-      register: true
-      name: Provider1
-      redirectionPoint: https://192.168.11.23
-      geoLongitude: -24.3776025
-      geoLatitude: -128.3519364
   onezone:
     type: object
     description: The zone custom configuration.
@@ -45,4 +39,31 @@ properties:
       - domainName
 required:
   - cluster
-
+example:  
+  cluster:
+    domainName: "oneprovider.onedata.example.com"
+    nodes:
+      node1:
+        hostname: "node1"
+    manager:
+      defaultNode: "node1"
+      nodes:
+        - "node1"
+    worker:
+      nodes:
+        - "node1"
+    database:
+      nodes:
+        - "node1"
+    storage:
+      NFS:
+        type: "POSIX"
+        mountPoint: "/volumes/storage"
+  oneprovider:
+    register: true
+    name: "example"
+    redirectionPoint: "https://node1.oneprovider.onedata.example.com"
+    geoLongitude: -24.3776025
+    geoLatitude: -128.3519364
+  onezone:
+    domainName: "node1.onezone.onedata.example.com"

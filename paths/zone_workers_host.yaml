@@ -26,7 +26,7 @@ get:
       description: Internal server error.
   parameters:
   - name: host
-    description: |
+    description: >
       The name of a host for which cluster worker service status should be returned.
     in: path
     type: string
@@ -58,14 +58,14 @@ patch:
       description: Internal server error.
   parameters:
   - name: host
-    description: |
+    description: >
       The name of a host for which cluster worker service status should be changed.
     in: path
     type: string
     required: true
   - name: started
     in: query
-    description: |
+    description: >
       Defines the intended state of the cluster worker service. The service will be
       started or stopped in order to match the requested state.
     type: boolean

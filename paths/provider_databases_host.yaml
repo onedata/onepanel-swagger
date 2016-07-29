@@ -36,7 +36,7 @@ get:
 patch:
   operationId: patch_provider_databases_host
   summary: Start/stop provider database
-  description: |
+  description: >
     Starts or stops database service on selected hosts in the local deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -58,14 +58,14 @@ patch:
       description: Internal server error.
   parameters:
   - name: host
-    description: |
+    description: >
       The name of a host for which database service status should be changed.
     in: path
     type: string
     required: true
   - name: started
     in: query
-    description: |
+    description: >
       Defines the intended state of the database service. The service will be
       started or stopped in order to match the requested state.
     type: boolean

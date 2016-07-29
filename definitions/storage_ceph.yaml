@@ -31,3 +31,4 @@ example:
   key: LKJASHD6876ASDBJHV65765ASD
   monitorHostname: test.example.com
   clusterName: CephCluster1
+  poolName: data

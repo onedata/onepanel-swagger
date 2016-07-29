@@ -9,7 +9,7 @@ x-onedata-subclasses:
 properties:
   type:
     type: string
-    description: The type of a storage.
+    description: The type of storage.
     x-discriminator: true
     enum:
       - POSIX

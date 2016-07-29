@@ -65,7 +65,7 @@ patch:
     required: true
   - name: started
     in: query
-    description: |
+    description: >
       Defines the intended state of the cluster worker service. The service will be
       started or stopped in order to match the requested state.
     type: boolean

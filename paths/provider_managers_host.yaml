@@ -26,8 +26,9 @@ get:
       description: Internal server error.
   parameters:
   - name: host
-    description: |
-      The name of a host for which cluster manager service status should be returned.
+    description: >
+      The name of a host for which cluster manager service status 
+      should be returned.
     in: path
     type: string
     required: true
@@ -36,8 +37,9 @@ get:
 patch:
   operationId: patch_provider_managers_host
   summary: Start/stop provider manager
-  description: |
-     Starts or stops cluster manager service on selected hosts in the local deployment.
+  description: >
+     Starts or stops cluster manager service on selected hosts in the 
+     local deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_cluster_manager
@@ -53,21 +55,24 @@ patch:
     '403':
       description: Forbidden request.
     '404':
-      description: Cluster manager service has not been deployed on selected host.
+      description: >
+        Cluster manager service has not been deployed on selected host.
     '500':
       description: Internal server error.
   parameters:
   - name: host
-    description: |
-      The name of a host for which cluster manager service status should be changed.
+    description: >
+      The name of a host for which cluster manager service 
+      status should be changed.
     in: path
     type: string
     required: true
   - name: started
     in: query
-    description: |
-      Defines the intended state of the cluster manager service. The service will be
-      started or stopped in order to match the requested state.
+    description: >
+      Defines the intended state of the cluster manager service. 
+      The service will be started or stopped in order to match the 
+      requested state.
     type: boolean
     default: true
     required: false

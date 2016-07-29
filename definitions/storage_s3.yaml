@@ -1,7 +1,7 @@
 allOf:
   - $ref: '#/definitions/ClusterStorages'
   - type: object
-    x-discriminator-value: "S3"
+    x-discriminator-value: S3
     description: The Simple Storage Service configuration.
     properties:
       s3Hostname:
@@ -27,8 +27,8 @@ allOf:
     - secretKey
 example:
   type: S3
-  S3Hostname: s3.example.com
-  IAMHostname: iam.example.com
+  s3Hostname: s3.example.com
+  iamHostname: iam.example.com
   bucketName: bucket1.iam.example.com
   accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
   secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDKNJK

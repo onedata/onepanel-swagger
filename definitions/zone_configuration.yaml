@@ -15,3 +15,21 @@ properties:
         type: string
 required:
   - cluster
+example:
+  cluster:
+    domainName: "onezone.onedata.example.com"
+    nodes:
+      node1:
+        hostname: "node1"
+    manager:
+      defaultNode: "node1"
+      nodes:
+        - "node1"
+    worker:
+      nodes:
+        - "node1"
+    database:
+      nodes:
+        - "node1"
+  onezone:
+    name: "example"

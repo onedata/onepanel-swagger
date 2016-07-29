@@ -1,5 +1,5 @@
 type: object
-description: |
+description: >
   The result of a scheduled operation, e.g. database service configuration.
 properties:
   status:
@@ -11,12 +11,12 @@ properties:
       - running
   steps:
     type: array
-    description: The list of operation steps that has been so far executed.
+    description: The list of operation steps that have been executed so far.
     items:
       type: string
   hosts:
       type: object
-      description: |
+      description: >
         The collection of hosts with associated error description. This property
         is set only when an error occurred during operation execution, i.e. the
         value of property 'status' is set to 'error'.

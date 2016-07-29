@@ -51,7 +51,7 @@ put:
   parameters:
   - name: clusterStoragesList
     in: body
-    description: |
+    description: >
       The list of configuration details of storages to be added to the provider
       deployment.
     schema:

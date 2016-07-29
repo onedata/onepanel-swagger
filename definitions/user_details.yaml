@@ -7,7 +7,7 @@ properties:
   userRole:
     type: string
     x-onedata-datatype: atom
-    description: The user role, one of 'admin' or 'regular'.
+    description: The user role, one of `admin` or `regular`.
     enum:
       - admin
       - regular
