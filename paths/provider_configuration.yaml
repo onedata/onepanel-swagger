@@ -1,7 +1,7 @@
 put:
   operationId: put_provider_configuration
   summary: Configure provider deployment
-  description: >
+  description: |
     Configures and starts provider services, such as database, cluster manager
     and cluster worker. Depending on the configuration, sets up provider storage
     and registers in the zone.
