@@ -23,7 +23,7 @@ SRC_SWAGGER=swagger.json
 PATH_IN_GITBOOK=${TMP_DIR}/doc/swagger/onepanel
 $git_c rm -r $PATH_IN_GITBOOK/*
 mkdir -p $PATH_IN_GITBOOK
-cp -r $SRC_SWAGGER/* $PATH_IN_GITBOOK/
+cp -r $SRC_SWAGGER $PATH_IN_GITBOOK/
 
 $git_c add -A
 $git_c diff 
