@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os, re, sys
+import os, re, sys, textwrap
 
 DIR = "generated/cowboy"
 
@@ -11,14 +11,11 @@ for n in os.listdir(DIR):
         lines = f.readlines()
         new_lines = []
         for line in lines:
-            if '\\n' in line.rstrip():
-                pos = line.find('%%')
-                if pos >= 0:
-                    parts = filter(lambda p: p, line[pos + 3:].rstrip().split('\\n'))
-                    parts = map(lambda p: ' ' * pos + '%% ' + p + '\n', parts)
-                    new_lines.extend(parts)
-                else:
-                    new_lines.append(line)
+            pos = line.find('%% ')
+            if pos != -1:
+                parts = textwrap.wrap(line[pos + 3:], 77 - pos, break_long_words=False)
+                parts = map(lambda p: ' ' * pos + '%% ' + p + '\n', parts)
+                new_lines.extend(parts)
             else:
                 new_lines.append(line)
         lines = ''.join(new_lines)
@@ -28,6 +25,7 @@ for n in os.listdir(DIR):
         lines = re.sub('\\&\\#39\\;', '\'', lines)
         lines = re.sub('\\&\\#x3D\\;\\&gt\\;', '=>', lines)
         lines = re.sub('\\&\\#x60\\;', '`', lines)
+        lines = lines.replace('\\n', '')
 
         # Write new file.
         f.seek(0)

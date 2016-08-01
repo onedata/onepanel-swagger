@@ -1,0 +1,22 @@
+get:
+  operationId: get_cookie
+  summary: Get cluster cookie
+  description: >
+    Returns cookie of a cluster this host belongs to. The cookie is a character
+    sequence that is common for all the cluster nodes.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: cookie
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The cookie of a cluster this host belongs to.
+      schema:
+        type: string
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.

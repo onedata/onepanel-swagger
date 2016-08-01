@@ -1,5 +1,5 @@
 delete:
-  operationId: delete_host
+  operationId: delete_hosts_host
   summary: Remove cluster node
   description: Removes a node from the administrative cluster.
   x-onedata-version: 3
