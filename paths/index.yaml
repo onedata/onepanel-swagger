@@ -9,6 +9,9 @@
 /users/{username}:
   $ref: ./users_username.yaml
 
+/cookie:
+  $ref: ./cookie.yaml
+
 /hosts:
   $ref: ./hosts.yaml
 

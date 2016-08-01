@@ -28,6 +28,7 @@
         {{#description}}
 %%--------------------------------------------------------------------
 %% @doc {{description}}
+%% @end
 %%--------------------------------------------------------------------
         {{/description}}
         {{#vendorExtensions}}
@@ -72,7 +73,12 @@
         {{name}} => { {{datatype}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
                                         {{/x-onedata-default-value}}
                                         {{^x-onedata-default-value}}
+                                            {{#x-onedata-datatype}}
+        {{name}} => { {{x-onedata-datatype}}, optional }{{#hasMore}},{{/hasMore}}
+                                            {{/x-onedata-datatype}}
+                                            {{^x-onedata-datatype}}
         {{name}} => { {{datatype}}, optional }{{#hasMore}},{{/hasMore}}
+                                            {{/x-onedata-datatype}}
                                         {{/x-onedata-default-value}}
                                     {{/vendorExtensions}}
                                 {{/required}}
