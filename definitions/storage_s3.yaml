@@ -1,8 +1,8 @@
+description: The Simple Storage Service configuration.
 allOf:
   - $ref: '#/definitions/ClusterStorages'
   - type: object
     x-discriminator-value: S3
-    description: The Simple Storage Service configuration.
     properties:
       s3Hostname:
         type: string

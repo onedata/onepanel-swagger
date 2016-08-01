@@ -1,7 +1,7 @@
+description: The Ceph storage configuration.
 allOf:
   - $ref: '#/definitions/ClusterStorages'
   - type: object
-    description: The Ceph storage configuration.
     x-discriminator-value: "CEPH"
     properties:
       username:

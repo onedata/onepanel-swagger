@@ -1,8 +1,8 @@
+description: The POSIX storage configuration.
 allOf:
   - $ref: '#/definitions/ClusterStorages'
   - type: object
     x-discriminator-value: POSIX
-    description: The POSIX storage configuration.
     properties:
       mountPoint:
         type: string
