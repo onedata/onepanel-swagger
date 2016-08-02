@@ -12,7 +12,7 @@ for n in os.listdir(DIR):
         new_lines = []
         for line in lines:
             pos = line.find('%% ')
-            if pos != -1:
+            if pos != -1 and '%%%' not in line:
                 parts = textwrap.wrap(line[pos + 3:], 77 - pos, break_long_words=False)
                 parts = map(lambda p: ' ' * pos + '%% ' + p + '\n', parts)
                 new_lines.extend(parts)
