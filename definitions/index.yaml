@@ -38,6 +38,9 @@ S3:
 Ceph:
   $ref: ./storage_ceph.yaml
 
+Swift:
+  $ref: ./storage_swift.yaml
+
 ZoneConfiguration:
   $ref: ./zone_configuration.yaml
 

@@ -6,6 +6,7 @@ x-onedata-subclasses:
   - posix
   - s3
   - ceph
+  - swift
 properties:
   type:
     type: string
@@ -14,6 +15,7 @@ properties:
     enum:
       - POSIX
       - S3
-      - CEPH
+      - Ceph
+      - Swift
 required:
   - type
