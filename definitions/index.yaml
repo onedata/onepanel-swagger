@@ -86,5 +86,3 @@ SpaceDetails:
 SpaceSupportRequest:
   $ref: ./space_support_request.yaml
 
-
-
