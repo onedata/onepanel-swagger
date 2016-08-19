@@ -14,6 +14,9 @@ UserCreateRequest:
 UserModifyRequest:
   $ref: ./user_modify_request.yaml
 
+PanelConfiguration:
+  $ref: ./panel_configuration.yaml
+
 ClusterWorkers:
   $ref: ./cluster_workers.yaml
 

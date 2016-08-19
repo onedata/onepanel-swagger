@@ -37,6 +37,8 @@ properties:
         type: string
     required:
       - domainName
+  onepanel:
+    $ref: '#/definitions/PanelConfiguration'
 required:
   - cluster
 example:  

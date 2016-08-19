@@ -1,0 +1,24 @@
+type: object
+description: The panel configuration.
+properties:
+  users:
+    type: object
+    description: The collection of user names associated with users properties.
+    additionalProperties:
+      type: object
+      properties:
+        password:
+          type: string
+          description: The user password.
+        userRole:
+          type: string
+          x-onedata-datatype: atom
+          description: The user role, one of 'admin' or 'regular'.
+          enum:
+            - admin
+            - regular
+      required:
+        - password
+        - userRole
+required:
+  - users
