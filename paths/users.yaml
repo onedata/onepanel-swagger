@@ -21,6 +21,8 @@ post:
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: userCreateRequest
     in: body

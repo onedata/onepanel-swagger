@@ -1,19 +1,49 @@
-put:
+get:
+  operationId: get_provider_configuration
+  summary: Get provider cluster configuration
+  description: Returns the provider cluster configuration.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_oneprovider
+  x-onedata-noauth: true
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The provider cluster configuration.
+      schema:
+        $ref: '#/definitions/ProviderConfiguration'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+        
+
+post:
   operationId: put_provider_configuration
   summary: Configure provider deployment
   description: |
     Configures and starts provider services, such as database, cluster manager
     and cluster worker. Depending on the configuration, sets up provider storage
     and registers in the zone.
+
+    This request can be executed unauthorized as long as there are no admin users.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_oneprovider
+  x-onedata-noauth: true
   tags:
     - Oneprovider
   consumes:
     - application/json
   responses:
-    '204':
+    '201':
       description: Deployment process successfully started.
       headers:
         Location:
@@ -28,6 +58,8 @@ put:
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: providerConfiguration
     in: body

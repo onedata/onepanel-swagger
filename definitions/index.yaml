@@ -59,6 +59,9 @@ ProviderClusterConfiguration:
 ProviderDetails:
   $ref: ./provider_details.yaml
 
+ProviderSpaces:
+  $ref: ./provider_spaces.yaml
+
 ProviderRegisterRequest:
   $ref: ./provider_register_request.yaml
 

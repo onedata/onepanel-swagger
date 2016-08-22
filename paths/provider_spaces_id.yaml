@@ -14,14 +14,16 @@ get:
       description: The space details.
       schema:
         $ref: '#/definitions/SpaceDetails'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Space does not exist or is not supported by the provider.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: id 
     in: path
@@ -44,14 +46,16 @@ delete:
   responses:
     '204':
       description: The space support has been successfully revoked.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Space does not exist or is not supported by the provider.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: id 
     in: path

@@ -11,18 +11,27 @@ properties:
       - running
   steps:
     type: array
-    description: The list of operation steps that have been executed so far.
+    description: The list of operation steps that have been executed successfully.
     items:
       type: string
+  error:
+    description: The name of an error type.
+    type: string
+  description:
+    description: The detailed error description.
+    type: string
+  module:
+    description: The name of a module containing function that returned error.
+    type: string
+  function:
+    description: The name of a function that returned error.
+    type: string
   hosts:
-      type: object
-      description: >
-        The collection of hosts with associated error description. This property
-        is set only when an error occurred during operation execution, i.e. the
-        value of property 'status' is set to 'error'.
-      additionalProperties:
-        description: The description of an error that has occured on a service host.
-        $ref: '#/definitions/Error'
+    type: object
+    description: The collection of hosts with associated error description.
+    additionalProperties:
+      description: The description of an error that has occured on a service host.
+      $ref: '#/definitions/Error'
 required:
   - status
   - steps
@@ -30,7 +39,3 @@ example:
   status: running
   steps:
     - configuring
-  hosts:
-    - host1:
-        error: Operation Error
-        description: Storage name is not available.

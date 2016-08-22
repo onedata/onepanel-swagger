@@ -11,5 +11,5 @@ required:
   - error
   - description
 example:
-  error: Authentication Error
-  description: Invalid username or password.
+  error: Invalid Request
+  description: User role must be one of 'admin' or 'regular'.

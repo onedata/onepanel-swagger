@@ -1,7 +1,7 @@
 get:
   operationId: get_provider_managers_host
-  summary: Get provider manager status
-  description: Returns status of cluster manager service on a selected host.
+  summary: Get provider cluster manager status
+  description: Returns status of cluster manager service on the selected host.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_cluster_manager
@@ -11,24 +11,23 @@ get:
     - application/json
   responses:
     '200':
-      description: The status of cluster manager service on selected host.
+      description: The status of cluster manager service on the selected host.
       schema:
         $ref: '#/definitions/ServiceStatusHost'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Cluster manager service has not been deployed on selected host.
+      description: Cluster manager service has not been deployed on the selected host.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster manager service status 
-      should be returned.
+      The name of a host for which cluster manager service status should be returned.
     in: path
     type: string
     required: true
@@ -36,10 +35,9 @@ get:
 
 patch:
   operationId: patch_provider_managers_host
-  summary: Start/stop provider manager
+  summary: Start/stop provider cluster manager
   description: >
-     Starts or stops cluster manager service on selected hosts in the 
-     local deployment.
+    Starts or stops cluster manager service on the selected hosts in the local deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_cluster_manager
@@ -47,32 +45,29 @@ patch:
     - Oneprovider
   responses:
     '204':
-      description: Databases service state changed successfully.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+      description: Cluster manager service state changed successfully.
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: >
-        Cluster manager service has not been deployed on selected host.
+      description: Cluster manager service has not been deployed on the selected host.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster manager service 
-      status should be changed.
+      The name of a host for which cluster manager service status should be changed.
     in: path
     type: string
     required: true
   - name: started
     in: query
     description: >
-      Defines the intended state of the cluster manager service. 
-      The service will be started or stopped in order to match the 
-      requested state.
+      Defines the intended state of the cluster manager service. The service will be
+      started or stopped in order to match the requested state.
     type: boolean
     default: true
     required: false

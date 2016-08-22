@@ -16,17 +16,17 @@ get:
         type: array
         items:
           $ref: '#/definitions/ClusterStorages'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
 
 
-put:
+post:
   operationId: put_provider_storages
   summary: Configure storage
   description: Adds a storage to the provider deployment.
@@ -44,10 +44,14 @@ put:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: clusterStoragesList
     in: body

@@ -1,9 +1,8 @@
 get:
   operationId: get_zone_workers
-  summary: Get zone workers
-  description: |
-    Returns status of cluster worker service on each host where it has been
-    deployed.
+  summary: Get zone cluster workers status
+  description: >
+    Returns status of cluster worker service on each host where it has been deployed.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_oz_worker
@@ -13,27 +12,26 @@ get:
     - application/json
   responses:
     '200':
-      description: |
-        The status of cluster worker service on each host where it has been
-        deployed.
+      description: >
+        The status of cluster worker service on each host where it has been deployed.
       schema:
         $ref: '#/definitions/ServiceStatus'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
       description: Cluster worker service has not been deployed.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
 
 
-put:
+post:
   operationId: put_zone_workers
-  summary: Deploy zone workers
-  description: Deploys a cluster worker service cluster on provided hosts.
+  summary: Deploy zone cluster workers
+  description: Deploys a cluster worker service on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_oz_worker
@@ -53,10 +51,14 @@ put:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
   parameters:
   - name: serviceHosts
     in: body
@@ -67,8 +69,8 @@ put:
 
 patch:
   operationId: patch_zone_workers
-  summary: Start/stop zone workers
-  description: |
+  summary: Start/stop zone cluster workers
+  description: >
     Starts or stops cluster worker service on all hosts in the local deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -77,17 +79,17 @@ patch:
     - Onezone
   responses:
     '204':
-      description: Databases service state changed successfully.
-    '400':
-      description: An error has occurred while changing cluster worker service status.
-      schema:
-        $ref: '#/definitions/ServiceError'
+      description: Cluster worker service state changed successfully.
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
       description: Cluster worker service has not been deployed.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
   parameters:
   - name: started
     in: query

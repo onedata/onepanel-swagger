@@ -1,6 +1,11 @@
 type: object
 description: The zone cluster configuration.
 properties:
+  autoDeploy:
+    type: boolean
+    description: >
+      Defines whether administrative cluster should be created from the list
+      of provided cluster nodes.
   domainName:
     type: string
     description: >

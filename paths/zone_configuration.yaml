@@ -1,25 +1,54 @@
-put:
-  operationId: put_zone_configuration
-  summary: Create zone deployment
-  description: |
-    Configures and starts zone services, such as database, cluster manager
-    and cluster worker.
+get:
+  operationId: get_zone_configuration
+  summary: Get zone cluster configuration
+  description: Returns the zone cluster configuration.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_onezone
+  x-onedata-noauth: true
+  tags:
+    - Onezone
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The zone cluster configuration.
+      schema:
+        $ref: '#/definitions/ZoneConfiguration'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+
+post:
+  operationId: put_zone_configuration
+  summary: Configure zone deployment
+  description: |
+    Configures and starts zone services, such as database, cluster manager
+    and cluster worker.
+
+    This request can be executed unauthorized as long as there are no admin users.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: service_onezone
+  x-onedata-noauth: true
   tags:
     - Onezone
   consumes:
     - application/json
   responses:
-    '204':
+    '201':
       description: Deployment process successfully started.
       headers:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried 
-            to check operation status.
+            The path to the task resource, which can be queried to check operation status.
     '400':
       description: Invalid request.
       schema:
@@ -28,6 +57,8 @@ put:
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: zoneConfiguration
     in: body
