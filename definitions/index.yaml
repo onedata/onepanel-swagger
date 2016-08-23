@@ -80,6 +80,9 @@ ServiceError:
 ServiceHosts:
   $ref: ./service_hosts.yaml
 
+ServiceDatabases:
+  $ref: ./service_databases.yaml
+
 ManagerHosts:
   $ref: ./manager_hosts.yaml
 

@@ -63,7 +63,7 @@ post:
   - name: serviceHosts
     in: body
     schema:
-      $ref: '#/definitions/ServiceHosts'
+      $ref: '#/definitions/ServiceDatabases'
     required: true
 
 
