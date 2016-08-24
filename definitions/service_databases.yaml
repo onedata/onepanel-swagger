@@ -1,9 +1,9 @@
 type: object
-description: The cluster database service configuration.
+description: The service hosts configuration.
 properties:
-  nodes:
+  hosts:
     type: array
-    description: The list of aliases of cluster database nodes.
+    description: The list of hosts where service should be deployed.
     items:
       type: string
   serverQuota:
@@ -19,4 +19,10 @@ properties:
       The bucket quota is the amount of RAM memory in bytes allocated to an
       individual bucket for caching data.
 required:
-- nodes
+  - hosts
+example:
+  hosts:
+    - node1.example.com
+    - node2.example.com
+    - node3.example.com
+  

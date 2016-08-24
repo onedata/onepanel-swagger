@@ -1,7 +1,7 @@
 get:
   operationId: get_zone_databases
   summary: Get zone databases status
-  description: |
+  description: >
     Returns status of database service on each host where it has been deployed.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -12,26 +12,26 @@ get:
     - application/json
   responses:
     '200':
-      description: |
+      description: >
         The status of database service on each host where it has been deployed.
       schema:
         $ref: '#/definitions/ServiceStatus'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
       description: Database service has not been deployed.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
 
 
-put:
+post:
   operationId: put_zone_databases
   summary: Deploy zone databases
-  description: Deploys a database service cluster on provided hosts.
+  description: Deploys a database service on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_couchbase
@@ -46,28 +46,31 @@ put:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check 
-            operation status.
+            The path to the task resource, which can be queried to check operation status.
     '400':
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
   parameters:
   - name: serviceHosts
     in: body
     schema:
-      $ref: '#/definitions/ServiceHosts'
+      $ref: '#/definitions/ServiceDatabases'
     required: true
 
 
 patch:
   operationId: patch_zone_databases
   summary: Start/stop zone databases
-  description: |
+  description: >
     Starts or stops database service on all hosts in the local deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -76,17 +79,17 @@ patch:
     - Onezone
   responses:
     '204':
-      description: Databases service state changed successfully.
-    '400':
-      description: An error has occurred while changing database service status.
-      schema:
-        $ref: '#/definitions/ServiceError'
+      description: Database service state changed successfully.
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
       description: Database service has not been deployed.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
   parameters:
   - name: started
     in: query
