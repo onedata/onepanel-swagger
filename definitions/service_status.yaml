@@ -1,15 +1,12 @@
 type: object
 description: The generic model for service status.
 properties:
-  services:
+  hosts:
     type: object
-    description: The collection of services with associated status information.
+    description: |
+      The collection of hosts with associated service status, for each host
+      where given service has been deployed.
     additionalProperties:
-      type: object
-      description: |
-        The collection of hosts with associated service status, for each host
-        where given service has been deployed.
-      additionalProperties:
-        $ref: '#/definitions/ServiceStatusHost'
+      $ref: '#/definitions/ServiceStatusHost'
 required:
   - services

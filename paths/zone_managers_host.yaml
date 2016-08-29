@@ -1,7 +1,7 @@
 get:
   operationId: get_zone_managers_host
-  summary: Get zone manager status
-  description: Returns status of cluster manager service on selected host.
+  summary: Get zone cluster manager status
+  description: Returns status of cluster manager service on the selected host.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_cluster_manager
@@ -11,19 +11,19 @@ get:
     - application/json
   responses:
     '200':
-      description: The status of cluster manager service on selected host.
+      description: The status of cluster manager service on the selected host.
       schema:
         $ref: '#/definitions/ServiceStatusHost'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Cluster manager service has not been deployed on selected host.
+      description: Cluster manager service has not been deployed on the selected host.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
   parameters:
   - name: host
     description: >
@@ -35,9 +35,9 @@ get:
 
 patch:
   operationId: patch_zone_managers_host
-  summary: Start/stop zone manager
-  description: |
-     Starts or stops cluster manager service on selected hosts in the local deployment.
+  summary: Start/stop zone cluster manager
+  description: >
+    Starts or stops cluster manager service on the selected hosts in the local deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_cluster_manager
@@ -45,17 +45,17 @@ patch:
     - Onezone
   responses:
     '204':
-      description: Databases service state changed successfully.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+      description: Cluster manager service state changed successfully.
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Cluster manager service has not been deployed on selected host.
+      description: Cluster manager service has not been deployed on the selected host.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
   parameters:
   - name: host
     description: >

@@ -16,7 +16,11 @@ get:
       description: The cookie of a cluster this host belongs to.
       schema:
         type: string
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'

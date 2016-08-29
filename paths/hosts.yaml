@@ -25,14 +25,12 @@ get:
         description: List of cluster or discovered hosts.
         items: 
           type: string
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
     - name: discovered
       in: query
@@ -41,16 +39,18 @@ get:
       default: false
       required: false
 
-put:
-  operationId: put_hosts
+
+post:
+  operationId: post_hosts
   summary: Create or join cluster
   description: |
     Initializes administrative cluster or if `clusterHost` parameter has been
     provided in the query string adds this host to an existing cluster.
 
-    In case of cluster initialization this request removes all user and
-    configuration data. This request can be executed unauthorized as long as
-    there are no admin users.
+    In both cases the host handling this request has to be newly started or
+    removed from previous cluster. It cannot contain any configuration data.
+
+    This request can be executed unauthorized as long as there are no admin users.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: hosts
@@ -62,14 +62,12 @@ put:
   responses:
     '204':
       description: Cluster has been successfully initialized or extended.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
     - name: clusterHost
       in: query

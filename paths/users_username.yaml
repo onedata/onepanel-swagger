@@ -14,16 +14,16 @@ get:
       description: The configuration information of the user.
       schema:
         $ref: '#/definitions/UserDetails'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: The user has not been found.
+      description: The user does not exist.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: username
     in: path
@@ -50,12 +50,16 @@ patch:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: The user has not been found.
+      description: The user does not exist.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: username
     in: path
@@ -81,16 +85,16 @@ delete:
   responses:
     '204':
       description: The user account has been successfully removed.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
       description: User account not found.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: username
     in: path

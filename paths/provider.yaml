@@ -14,17 +14,17 @@ get:
       description: The provider configuration details.
       schema:
         $ref: '#/definitions/ProviderDetails'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
 
 
-put:
+post:
   operationId: put_provider
   summary: Register provider
   description: Registers provider in the zone.
@@ -42,10 +42,14 @@ put:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
     - name: providerRegisterRequest
       in: body
@@ -68,14 +72,14 @@ patch:
   responses:
     '204':
       description: Provider details has been successfully modified.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
     - name: providerModifyRequest
       in: body
@@ -96,12 +100,12 @@ delete:
   responses:
     '204':
       description: Provider has been successfully unregistered.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
       

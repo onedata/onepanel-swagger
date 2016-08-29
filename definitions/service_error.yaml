@@ -1,6 +1,18 @@
 type: object
 description: The service error model for REST requests.
 properties:
+  error:
+    description: The name of an error type.
+    type: string
+  description:
+    description: The detailed error description.
+    type: string
+  module:
+    description: The name of a module containing function that returned error.
+    type: string
+  function:
+    description: The name of a function that returned error.
+    type: string
   hosts:
     type: object
     description: The collection of hosts with associated error description.
@@ -8,4 +20,5 @@ properties:
       description: The description of an error that has occured on a service host.
       $ref: '#/definitions/Error'
 required:
-  - hosts
+  - error
+  - description

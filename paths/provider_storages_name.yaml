@@ -14,14 +14,16 @@ get:
       description: The details of a selected storage
       schema:
         $ref: '#/definitions/ClusterStorages'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Storage does not exist.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: name
     in: path

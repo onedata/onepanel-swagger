@@ -7,6 +7,7 @@ get:
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: task
+  x-onedata-noauth: true
   tags:
     - Onepanel
   produces:
@@ -16,16 +17,16 @@ get:
       description: The task result.
       schema:
         $ref: '#/definitions/TaskStatus'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: The task has not been found.
+      description: The task does not exist.
     '500':
       description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
