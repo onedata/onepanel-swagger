@@ -32,3 +32,10 @@ sed -n '/<body>/,/<\/body>/p' generated/static/index.html \
 # Generate Markdown for direct Gitbook integration
 # The output from generated/gitbook should be copied to onedata-documentation/doc/advanced/rest/onepanel folder
 docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-gitbook:1.4.1 convert -i ./swagger.json -d ./generated/gitbook -c ./gitbook.properties
+
+#
+# Build Python client using official latest version of swagger-codegen
+# in 'generated/python'
+#
+docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen-official:ID-507bde287c  generate -i ./swagger.json -l python -o ./generated/python -c python-config.json
+
