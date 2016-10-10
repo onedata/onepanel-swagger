@@ -1,7 +1,8 @@
 get:
-  operationId: get_users_username
-  summary: Get user details
-  description: Returns the configuration information of the Onepanel user.
+  operationId: get_user
+  summary: Get Onepanel user details
+  description: >
+    Returns the configuration information of the Onepanel user.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
   x-onedata-resource: user
@@ -27,15 +28,16 @@ get:
   parameters:
   - name: username
     in: path
-    description: The name of a user whose details should be returned.
+    description: The name of the user whose details should be returned.
     type: string
     required: true
 
 
 patch:
-  operationId: patch_users_username
-  summary: Modify user details
-  description: Modifies the Onepanel user password.
+  operationId: modify_user
+  summary: Modify Onepanel user details
+  description: >
+    Modifies the Onepanel user password.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
   x-onedata-resource: user
@@ -74,9 +76,10 @@ patch:
 
 
 delete:
-  operationId: delete_users_username
-  summary: Remove user
-  description: Removes the Onepanel user account.
+  operationId: remove_user
+  summary: Remove Onepanel user
+  description: >
+    Removes the Onepanel user account.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
   x-onedata-resource: user

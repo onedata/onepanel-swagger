@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider_databases_host
+  operationId: get_provider_database_status
   summary: Get provider database status
   description: Returns status of database service on the selected host.
   x-onedata-version: 3
@@ -34,7 +34,7 @@ get:
 
 
 patch:
-  operationId: patch_provider_databases_host
+  operationId: start_stop_provider_database
   summary: Start/stop provider database
   description: >
     Starts or stops database service on the selected hosts in the local deployment.

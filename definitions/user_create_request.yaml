@@ -1,5 +1,5 @@
 type: object
-description: The user configuration details required for creation process.
+description: The new user account details.
 properties:
   username:
     type: string

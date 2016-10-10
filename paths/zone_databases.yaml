@@ -1,5 +1,5 @@
 get:
-  operationId: get_zone_databases
+  operationId: get_zone_databases_status
   summary: Get zone databases status
   description: >
     Returns status of database service on each host where it has been deployed.
@@ -29,8 +29,8 @@ get:
 
 
 post:
-  operationId: put_zone_databases
-  summary: Deploy zone databases
+  operationId: add_zone_databases
+  summary: Add zone databases
   description: Deploys a database service on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -62,13 +62,15 @@ post:
   parameters:
   - name: serviceHosts
     in: body
+    description: >
+      The service hosts configuration where databases should be deployed.
     schema:
       $ref: '#/definitions/ServiceDatabases'
     required: true
 
 
 patch:
-  operationId: patch_zone_databases
+  operationId: start_stop_zone_databases
   summary: Start/stop zone databases
   description: >
     Starts or stops database service on all hosts in the local deployment.

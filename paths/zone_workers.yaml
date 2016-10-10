@@ -13,7 +13,8 @@ get:
   responses:
     '200':
       description: >
-        The status of cluster worker service on each host where it has been deployed.
+        The status of cluster worker service on each host where it has been 
+        deployed.
       schema:
         $ref: '#/definitions/ServiceStatus'
     '401':
@@ -29,8 +30,8 @@ get:
 
 
 post:
-  operationId: put_zone_workers
-  summary: Deploy zone cluster workers
+  operationId: add_zone_workers
+  summary: Add zone cluster workers
   description: Deploys a cluster worker service on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -46,7 +47,8 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check operation status.
+            The path to the task resource, which can be queried to check 
+            operation status.
     '400':
       description: Invalid request.
       schema:
@@ -62,13 +64,14 @@ post:
   parameters:
   - name: serviceHosts
     in: body
+    description: The hosts specification where the workers should be deployed.
     schema:
       $ref: '#/definitions/ServiceHosts'
     required: true
 
 
 patch:
-  operationId: patch_zone_workers
+  operationId: start_stop_zone_workers
   summary: Start/stop zone cluster workers
   description: >
     Starts or stops cluster worker service on all hosts in the local deployment.
@@ -94,8 +97,8 @@ patch:
   - name: started
     in: query
     description: >
-      Defines the intended state of the cluster worker service. The service will be
-      started or stopped in order to match the requested state.
+      Defines the intended state of the cluster worker service. The service 
+      will be started or stopped in order to match the requested state.
     type: boolean
     default: true
     required: false

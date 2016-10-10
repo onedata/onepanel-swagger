@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider_storages
+  operationId: get_storages
   summary: Get storages
   description: Returns the list of provider storage resources and their details.
   x-onedata-version: 3
@@ -27,9 +27,9 @@ get:
 
 
 post:
-  operationId: put_provider_storages
-  summary: Configure storage
-  description: Adds a storage to the provider deployment.
+  operationId: add_storage
+  summary: Add storage.
+  description: Adds additional storage resource to the storage provider.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: storages
@@ -39,7 +39,8 @@ post:
     - application/json
   responses:
     '204':
-      description: The storage has been successfully added to the provider deployment.
+      description: >
+        The storage has been successfully added to the provider deployment.
     '400':
       description: Invalid request.
       schema:
@@ -61,4 +62,3 @@ post:
     schema:
       $ref: '#/definitions/ClusterStoragesList'
     required: true
-

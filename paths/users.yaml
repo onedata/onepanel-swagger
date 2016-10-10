@@ -1,7 +1,7 @@
 post:
-  operationId: post_users
-  summary: Create user
-  description: Creates a Onepanel user account.
+  operationId: add_user
+  summary: Create Onepanel user
+  description: Creates a new Onepanel user account.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
   x-onedata-resource: users
@@ -26,6 +26,7 @@ post:
   parameters:
   - name: userCreateRequest
     in: body
+    description: The user configuration details.
     schema:
       $ref: '#/definitions/UserCreateRequest'
     required: true

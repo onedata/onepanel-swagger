@@ -1,6 +1,6 @@
 delete:
-  operationId: delete_hosts_host
-  summary: Remove cluster node
+  operationId: remove_cluster_host
+  summary: Remove host from cluster
   description: >
     Removes a node from the administrative cluster. This operation removes all
     user and configuration data from the host. It also removes the host from each
@@ -10,8 +10,6 @@ delete:
   x-onedata-resource: host
   tags:
     - Onepanel
-  consumes:
-    - application/json
   responses:
     '204':
       description: Node has been successfully removed from the cluster.

@@ -26,9 +26,9 @@ get:
         
 
 post:
-  operationId: put_provider_configuration
+  operationId: configure_provider
   summary: Configure provider deployment
-  description: |
+  description: >
     Configures and starts provider services, such as database, cluster manager
     and cluster worker. Depending on the configuration, sets up provider storage
     and registers in the zone.
@@ -49,7 +49,8 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check operation status.
+            The path to the task resource, which can be queried to check 
+            operation status.
     '400':
       description: Invalid request.
       schema:
@@ -63,6 +64,7 @@ post:
   parameters:
   - name: providerConfiguration
     in: body
+    description: The provider configuration description.
     schema:
       $ref: '#/definitions/ProviderConfiguration'
     required: true

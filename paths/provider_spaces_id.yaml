@@ -1,7 +1,8 @@
 get:
-  operationId: get_provider_spaces_id
+  operationId: get_space_details
   summary: Get space details
-  description: Returns space details.
+  description: >
+    Returns details of space specified by space Id in the path.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: space
@@ -33,16 +34,17 @@ get:
 
 
 delete:
-  operationId: delete_provider_spaces_id
-  summary: Revoke space support
-  description: Revokes support for a space.
+  operationId: revoke_space_support
+  summary: Revoke space support for a space.
+  description: >
+    Allows provider to revoke storage support for a specific space. Users with
+    access to this space will no longer be able to store data on the resources
+    of this provider. 
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: space
   tags:
     - Oneprovider
-  produces:
-    - application/json
   responses:
     '204':
       description: The space support has been successfully revoked.

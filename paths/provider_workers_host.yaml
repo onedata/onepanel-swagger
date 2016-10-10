@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider_workers_host
+  operationId: get_provider_worker_status
   summary: Get provider cluster worker status
   description: Returns status of cluster worker service on the selected host.
   x-onedata-version: 3
@@ -19,7 +19,8 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: Cluster worker service has not been deployed on the selected host.
+      description: >
+        Cluster worker service has not been deployed on the selected host.
     '500':
       description: Internal server error.
       schema:
@@ -27,17 +28,19 @@ get:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster worker service status should be returned.
+      The name of a host for which cluster worker service status should be 
+      returned.
     in: path
     type: string
     required: true
 
 
 patch:
-  operationId: patch_provider_workers_host
+  operationId: start_stop_provider_worker
   summary: Start/stop provider cluster worker
   description: >
-    Starts or stops cluster worker service on the selected hosts in the local deployment.
+    Starts or stops cluster worker service on the selected host in the 
+    local deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_op_worker
@@ -51,7 +54,8 @@ patch:
     '403':
       description: Forbidden request.
     '404':
-      description: Cluster worker service has not been deployed on the selected host.
+      description: >
+        Cluster worker service has not been deployed on the selected host.
     '500':
       description: Internal server error.
       schema:
@@ -59,15 +63,16 @@ patch:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster worker service status should be changed.
+      The name of a host for which cluster worker service status should be 
+      changed.
     in: path
     type: string
     required: true
   - name: started
     in: query
     description: >
-      Defines the intended state of the cluster worker service. The service will be
-      started or stopped in order to match the requested state.
+      Defines the intended state of the cluster worker service. The service will 
+      be started or stopped in order to match the requested state.
     type: boolean
     default: true
     required: false
