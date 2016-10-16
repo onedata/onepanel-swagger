@@ -28,7 +28,7 @@ get:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster manager service status should be 
+      The name of a host for which cluster manager service status should be
       returned.
     in: path
     type: string
@@ -63,8 +63,7 @@ patch:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster manager service status should be 
-      changed.
+      The name of a host for which cluster manager service status should be changed.
     in: path
     type: string
     required: true
