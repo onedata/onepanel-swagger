@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider_databases_host
+  operationId: get_provider_database_status
   summary: Get provider database status
   description: Returns status of database service on the selected host.
   x-onedata-version: 3
@@ -31,10 +31,13 @@ get:
     in: path
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderDatabaseStatus host=db1.example.com --host https://op.example.com:9443
 
 
 patch:
-  operationId: patch_provider_databases_host
+  operationId: start_stop_provider_database
   summary: Start/stop provider database
   description: >
     Starts or stops database service on the selected hosts in the local deployment.
@@ -71,3 +74,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopProviderDatabase host=db1.example.com --host https://op.example.com:9443

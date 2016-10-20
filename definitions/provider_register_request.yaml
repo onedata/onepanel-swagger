@@ -1,23 +1,29 @@
 type: object
-description: The provider configuration details required for registration process.
+description: >
+  The storage provider configuration details required for registration process.
 properties:
   name:
     type: string
-    description: The name under which the provider should be registered in a zone.
+    description: >
+      The name under which the provider should be registered in a zone.
   redirectionPoint:
     type: string
-    description: The address used for user redirection from a zone to the provider.
+    description: >
+      The address used for user redirection from a zone to the storage provider.
   geoLongitude:
     type: number
     format: float
-    description: The geographical longitude of the provider.
+    description: >
+      The geographical longitude of the storage provider.
   geoLatitude:
     type: number
     format: float
-    description: The geographical latitude of the provider.
+    description: >
+      The geographical latitude of the storage provider.
   onezoneDomainName:
     type: string
-    description: The domain name of a zone where provider will be registered.
+    description: >
+      The domain name of a zone where this storage provider will be registered.
 required:
   - name  
   - redirectionPoint

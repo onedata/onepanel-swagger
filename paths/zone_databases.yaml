@@ -1,5 +1,5 @@
 get:
-  operationId: get_zone_databases
+  operationId: get_zone_databases_status
   summary: Get zone databases status
   description: >
     Returns status of database service on each host where it has been deployed.
@@ -26,11 +26,14 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/ServiceError'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getZoneDatabasesStatus --host https://op.example.com:9443
 
 
 post:
-  operationId: put_zone_databases
-  summary: Deploy zone databases
+  operationId: add_zone_databases
+  summary: Add zone databases
   description: Deploys a database service on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -62,13 +65,18 @@ post:
   parameters:
   - name: serviceHosts
     in: body
+    description: >
+      The service hosts configuration where databases should be deployed.
     schema:
       $ref: '#/definitions/ServiceDatabases'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat hosts.json | onepanel-rest-cli -u alice:secret addZoneDatabases --host https://op.example.com:9443
 
 
 patch:
-  operationId: patch_zone_databases
+  operationId: start_stop_zone_databases
   summary: Start/stop zone databases
   description: >
     Starts or stops database service on all hosts in the local deployment.
@@ -99,3 +107,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopZoneDatabases started=false --host https://op.example.com:9443

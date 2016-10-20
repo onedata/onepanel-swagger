@@ -2,6 +2,9 @@
 # This file groups the type definitions for Onepanel REST API
 #
 
+Cookie:
+  $ref: ./cookie.yaml
+  
 Error:
   $ref: ./error.yaml
 

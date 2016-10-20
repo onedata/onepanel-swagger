@@ -1,7 +1,7 @@
 get:
-  operationId: get_tasks_id
-  summary: Get task result
-  description: |
+  operationId: get_task_status
+  summary: Get background task result
+  description: >
     Returns result of an asynchronous operation, e.g. database service
     configuration.
   x-onedata-version: 3
@@ -14,7 +14,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The task result.
+      description: The requested task status.
       schema:
         $ref: '#/definitions/TaskStatus'
     '401':
@@ -30,6 +30,9 @@ get:
   parameters:
   - name: id
     in: path
-    description: The task ID.
+    description: The requested task Id.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getTaskStatus id=ASLDJLAKSJDASD --host https://op.example.com:9443

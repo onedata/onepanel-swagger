@@ -1,15 +1,16 @@
 get:
-  operationId: get_cookie
+  operationId: get_cluster_cookie
   summary: Get cluster cookie
   description: >
     Returns cookie of a cluster this host belongs to. The cookie is a character
-    sequence that is common for all the cluster nodes.
+    sequence that is common for all the cluster nodes. The cookies are used for
+    authentication between distributed Erlang Onedata processes.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: cookie
   tags:
     - Onepanel
-  consumes:
+  produces:
     - application/json
   responses:
     '200':
@@ -24,3 +25,6 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getClusterCookie --host https://op.example.com:9443 

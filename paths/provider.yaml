@@ -22,10 +22,13 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProvider --host https://example.com:9443
 
 
 post:
-  operationId: put_provider
+  operationId: add_provider
   summary: Register provider
   description: Registers provider in the zone.
   x-onedata-version: 3
@@ -53,13 +56,17 @@ post:
   parameters:
     - name: providerRegisterRequest
       in: body
+      description: The new provider details.
       schema:
         $ref: '#/definitions/ProviderRegisterRequest'
       required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat provider_details.json | onepanel-rest-cli -u alice:secret addProvider --host https://example.com:9443
 
 
 patch:
-  operationId: patch_provider
+  operationId: modify_provider
   summary: Modify provider details
   description: Modifies basic provider details in the zone.
   x-onedata-version: 3
@@ -83,13 +90,19 @@ patch:
   parameters:
     - name: providerModifyRequest
       in: body
+      description: >
+        New values for provider configuration parameters which should
+        be changed.
       schema:
         $ref: '#/definitions/ProviderModifyRequest'
       required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat provider_details.json | onepanel-rest-cli -u alice:secret modifyProvider --host https://example.com:9443
 
 
 delete:
-  operationId: delete_provider
+  operationId: remove_provider
   summary: Unregister provider
   description: Unregisters provider from the zone.
   x-onedata-version: 3
@@ -108,4 +121,6 @@ delete:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-      
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret removeProvider --host https://example.com:9443

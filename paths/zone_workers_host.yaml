@@ -1,5 +1,5 @@
 get:
-  operationId: get_zone_workers_host
+  operationId: get_zone_worker_status
   summary: Get zone cluster worker status
   description: Returns status of cluster worker service on the selected host.
   x-onedata-version: 3
@@ -31,13 +31,17 @@ get:
     in: path
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getZoneWorkerStatus host=work.example.com --host https://op.example.com:9443
 
 
 patch:
-  operationId: patch_zone_workers_host
+  operationId: start_stop_zone_worker
   summary: Start/stop zone cluster worker
   description: >
-    Starts or stops cluster worker service on the selected hosts in the local deployment.
+    Starts or stops cluster worker service on the selected hosts in the local 
+    deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_oz_worker
@@ -51,7 +55,8 @@ patch:
     '403':
       description: Forbidden request.
     '404':
-      description: Cluster worker service has not been deployed on the selected host.
+      description: >
+        Cluster worker service has not been deployed on the selected host.
     '500':
       description: Internal server error.
       schema:
@@ -59,7 +64,8 @@ patch:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster worker service status should be changed.
+      The name of a host for which cluster worker service status should be 
+      changed.
     in: path
     type: string
     required: true
@@ -71,3 +77,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopZoneWorker host=work.example.com started=false --host https://op.example.com:9443

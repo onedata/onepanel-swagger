@@ -1,5 +1,5 @@
 get:
-  operationId: get_zone_databases_host
+  operationId: get_zone_database_status
   summary: Get zone database status
   description: Returns status of database service on the selected host.
   x-onedata-version: 3
@@ -31,13 +31,17 @@ get:
     in: path
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getZoneDatabaseStatus host=db1.example.com --host https://op.example.com:9443
 
 
 patch:
-  operationId: patch_zone_databases_host
+  operationId: start_stop_zone_databases_host
   summary: Start/stop zone database
   description: >
-    Starts or stops database service on the selected hosts in the local deployment.
+    Starts or stops database service on the selected hosts in the local 
+    deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_couchbase
@@ -71,3 +75,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopZoneDatabasesHost host=db1.example.com started=false --host https://op.example.com:9443

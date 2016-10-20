@@ -1,7 +1,7 @@
 get:
   operationId: get_provider_spaces
   summary: Get provider spaces
-  description: Returns the collection of spaces supported by a provider.
+  description: Returns the list of spaces supported by the provider.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: spaces
@@ -22,19 +22,23 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderSpaces --host https://op.example.com:9443
 
 
 post:
-  operationId: put_provider_spaces
+  operationId: support_space
   summary: Create or support space
-  description: |
-    Supports an existing space or creates a new space and automatically supports it.
+  description: >
+    Supports an existing space or creates a new space and automatically 
+    supports it.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: spaces
   tags:
     - Oneprovider
-  produces:
+  consumes:
     - application/json
   responses:
     '204':
@@ -58,6 +62,12 @@ post:
   parameters:
   - name: spaceSupportRequest
     in: body
+    description: >
+      Specification of the space support request including name of the space,
+      size and support token.
     schema:
       $ref: '#/definitions/SpaceSupportRequest'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret supportSpace name:=MySpace1 token:=ASDKJASKJDHKAJSHD size+=1073741824 --host https://op.example.com:9443

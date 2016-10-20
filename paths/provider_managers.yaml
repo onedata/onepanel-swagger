@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider_managers
+  operationId: get_provider_managers_status
   summary: Get provider cluster managers status
   description: >
     Returns status of cluster manager service on each host where it has been deployed.
@@ -26,11 +26,14 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/ServiceError'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderManagersStatus --host https://op.example.com:9443
 
 
 post:
-  operationId: put_provider_managers
-  summary: Deploy provider cluster managers
+  operationId: add_provider_managers
+  summary: Add provider cluster managers
   description: Deploys a cluster manager service on provided hosts.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -46,7 +49,8 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check operation status.
+            The path to the task resource, which can be queried to check 
+            operation status.
     '400':
       description: Invalid request.
       schema:
@@ -62,13 +66,17 @@ post:
   parameters:
   - name: managerHosts
     in: body
+    description: The cluster manager service hosts configuration.
     schema:
       $ref: '#/definitions/ManagerHosts'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat mng_hosts.json | onepanel-rest-cli -u alice:secret -ct json addProviderManagers --host https://op.example.com:9443
 
 
 patch:
-  operationId: patch_provider_managers
+  operationId: start_stop_provider_managers
   summary: Start/stop provider cluster managers
   description: >
     Starts or stops cluster manager service on all hosts in the local deployment.
@@ -99,3 +107,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopProviderManagers started=false --host https://op.example.com:9443

@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider_databases
+  operationId: get_provider_databases_status
   summary: Get provider databases status
   description: >
     Returns status of database service on each host where it has been deployed.
@@ -26,10 +26,13 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/ServiceError'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderDatabasesStatus --host https://example.com:9443
 
 
 post:
-  operationId: put_provider_databases
+  operationId: add_provider_databases
   summary: Deploy provider databases
   description: Deploys a database service on provided hosts.
   x-onedata-version: 3
@@ -46,7 +49,8 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check operation status.
+            The path to the task resource, which can be queried to check 
+            operation status.
     '400':
       description: Invalid request.
       schema:
@@ -62,13 +66,18 @@ post:
   parameters:
   - name: serviceHosts
     in: body
+    description: >
+      The service hosts configuration where databases should be deployed.
     schema:
       $ref: '#/definitions/ServiceDatabases'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat service_dbs.json | onepanel-rest-cli -u alice:secret addProviderDatabases --host https://example.com:9443
 
 
 patch:
-  operationId: patch_provider_databases
+  operationId: start_stop_provider_databases
   summary: Start/stop provider databases
   description: >
     Starts or stops database service on all hosts in the local deployment.
@@ -99,3 +108,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopProviderDatabases started=false --host https://example.com:9443
