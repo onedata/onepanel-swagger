@@ -1,5 +1,5 @@
 get:
-  operationId: get_zone_workers
+  operationId: get_zone_workers_status
   summary: Get zone cluster workers status
   description: >
     Returns status of cluster worker service on each host where it has been deployed.
@@ -27,6 +27,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/ServiceError'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getZoneWorkersStatus --host https://op.example.com:9443
 
 
 post:
@@ -68,6 +71,9 @@ post:
     schema:
       $ref: '#/definitions/ServiceHosts'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat hosts.json | onepanel-rest-cli -u alice:secret addZoneWorkers --host https://op.example.com:9443
 
 
 patch:
@@ -102,3 +108,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopZoneWorkers started=false --host https://op.example.com:9443

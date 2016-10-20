@@ -1,5 +1,37 @@
-version: 3.0.0-rc9
+version: 3.0.0-rc10
 title: Onepanel
+x-bash-codegen-description: |
+  This is the RESTful API definition of **Onepanel** component of Onedata data 
+  management system [http://www.onedata.org].
+
+  This API allows control and configuration of local Onedata deployment, 
+  in particular full control over the **Onezone** and **Oneprovider** services 
+  and their distribution and monitoring on the local resources. 
+  
+  Each of these components is composed of the following services:
+  
+  **Worker services** - these are available under `/zone/workers` and 
+                        `/provider/workers` paths,
+  
+  **Databases services** - each Onedata component stores it's metadata in a 
+                           Couchbase backend, which can be distributed on any 
+                           number of nodes, these are available under 
+                           `/zone/databases` and `/provider/databases` paths,
+  
+  **Cluster manager services** - this is a service which controls other 
+                                 deployed processes in one site, these are 
+                                 availables under these are available under 
+                                 `/zone/managers` and `/provider/managers` 
+                                 paths.
+
+  **Onezone** and **Oneprovider** components are composed of 3 types of 
+  services: **managers**, **databases** and **workers**. 
+  
+  Using this API each of these components can be deployed, configured, 
+  started and stopped on a specified host in the local site, in the context of 
+  either **Onezone** or **Oneprovider** service. 
+  
+
 description: |
   This is the RESTful API definition of **Onepanel** component of Onedata data management system [onedata.org](http://www.onedata.org).
   
@@ -70,3 +102,6 @@ contact:
 license:
   name: Apache 2.0
   url: http://www.apache.org/licenses/LICENSE-2.0.html
+x-logo:
+  url: https://onedata.org/docs/doc/img/heading.png
+  backgroundColor: "#FFFFFF"

@@ -31,3 +31,6 @@ get:
     description: >
       The name of a storage resource, which details should be returned.
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getStorageDetails name=S3 --host https://op.example.com:9443

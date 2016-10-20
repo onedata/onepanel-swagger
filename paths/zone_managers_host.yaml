@@ -1,5 +1,5 @@
 get:
-  operationId: get_zone_managers_status
+  operationId: get_zone_manager_status
   summary: Get zone cluster manager status
   description: Returns status of cluster manager service on the selected host.
   x-onedata-version: 3
@@ -33,10 +33,13 @@ get:
     in: path
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getZoneManagerStatus host=mng.example.com started=true --host https://op.example.com:9443
 
 
 patch:
-  operationId: start_stop_zone_managers_host
+  operationId: start_stop_zone_manager
   summary: Start/stop zone cluster manager
   description: >
     Starts or stops cluster manager service on the selected hosts in the local 
@@ -76,3 +79,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopZoneManager host=mng.example.com started=true --host https://op.example.com:9443

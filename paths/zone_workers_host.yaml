@@ -1,5 +1,5 @@
 get:
-  operationId: get_zone_workers_status
+  operationId: get_zone_worker_status
   summary: Get zone cluster worker status
   description: Returns status of cluster worker service on the selected host.
   x-onedata-version: 3
@@ -31,10 +31,13 @@ get:
     in: path
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getZoneWorkerStatus host=work.example.com --host https://op.example.com:9443
 
 
 patch:
-  operationId: start_stop_zone_workers_host
+  operationId: start_stop_zone_worker
   summary: Start/stop zone cluster worker
   description: >
     Starts or stops cluster worker service on the selected hosts in the local 
@@ -74,3 +77,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopZoneWorker host=work.example.com started=false --host https://op.example.com:9443

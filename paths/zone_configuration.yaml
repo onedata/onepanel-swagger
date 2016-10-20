@@ -23,6 +23,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getZoneConfiguration --host https://op.example.com:9443
 
 
 post:
@@ -68,3 +71,6 @@ post:
     schema:
       $ref: '#/definitions/ZoneConfiguration'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat zone_config.json | onepanel-rest-cli -u alice:secret configureZone --host https://op.example.com:9443

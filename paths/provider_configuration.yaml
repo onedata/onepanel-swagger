@@ -23,7 +23,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-        
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderConfiguration --host https://example.com:9443
 
 post:
   operationId: configure_provider
@@ -68,3 +70,6 @@ post:
     schema:
       $ref: '#/definitions/ProviderConfiguration'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat provider_config.json | onepanel-rest-cli -u alice:secret configureProvider --host https://example.com:9443

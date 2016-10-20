@@ -42,6 +42,9 @@ get:
       type: boolean
       default: false
       required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getClusterHosts discovered=true --host https://op.example.com:9443
 
 
 post:
@@ -84,3 +87,6 @@ post:
       description: The cookie used for cluster authentication.
       schema:
         $ref: '#/definitions/Cookie'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret createCluster clusterHost=cluster.example.com cookie:=AS2KLJH1231AJSHDKJBC12KS578A3SDA --host https://op.example.com:9443

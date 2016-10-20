@@ -31,6 +31,9 @@ get:
     description: The name of the user whose details should be returned.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getUser username:=bob --host https://op.example.com:9443
 
 
 patch:
@@ -73,6 +76,9 @@ patch:
     schema:
       $ref: '#/definitions/UserModifyRequest'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret modifyUser password:=new_secret --host https://op.example.com:9443
 
 
 delete:
@@ -104,3 +110,6 @@ delete:
     description: The name of the user to be removed.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret removeUser username:=bob --host https://op.example.com:9443

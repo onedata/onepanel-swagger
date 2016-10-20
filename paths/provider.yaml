@@ -22,6 +22,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProvider --host https://example.com:9443
 
 
 post:
@@ -57,6 +60,9 @@ post:
       schema:
         $ref: '#/definitions/ProviderRegisterRequest'
       required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat provider_details.json | onepanel-rest-cli -u alice:secret addProvider --host https://example.com:9443
 
 
 patch:
@@ -90,6 +96,9 @@ patch:
       schema:
         $ref: '#/definitions/ProviderModifyRequest'
       required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat provider_details.json | onepanel-rest-cli -u alice:secret modifyProvider --host https://example.com:9443
 
 
 delete:
@@ -112,4 +121,6 @@ delete:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-      
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret removeProvider --host https://example.com:9443

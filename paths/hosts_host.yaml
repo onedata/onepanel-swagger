@@ -27,3 +27,6 @@ delete:
       type: string
       description: Hostname of a node to be removed from the cluster.
       required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret removeClusterHost discovered=true host=cluster.example.com --host https://op.example.com:9443

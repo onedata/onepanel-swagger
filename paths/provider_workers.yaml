@@ -28,6 +28,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/ServiceError'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderWorkersStatus --host https://op.example.com:9443
 
 
 post:
@@ -70,6 +73,9 @@ post:
     schema:
       $ref: '#/definitions/ServiceHosts'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat hosts.json | onepanel-rest-cli -u alice:secret addProviderWorkers --host https://op.example.com:9443
 
 
 patch:
@@ -104,3 +110,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopProviderWorkers started=true --host https://op.example.com:9443

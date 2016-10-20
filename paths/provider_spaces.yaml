@@ -22,6 +22,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderSpaces --host https://op.example.com:9443
 
 
 post:
@@ -65,3 +68,6 @@ post:
     schema:
       $ref: '#/definitions/SpaceSupportRequest'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret supportSpace name:=MySpace1 token:=ASDKJASKJDHKAJSHD size+=1073741824 --host https://op.example.com:9443

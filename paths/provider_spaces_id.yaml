@@ -31,6 +31,9 @@ get:
     type: string
     description: The ID of a space which details should be returned.
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getSpaceDetails id=ASLKDJHAKJSDH --host https://op.example.com:9443
 
 
 delete:
@@ -64,3 +67,6 @@ delete:
     type: string
     description: The ID of a space to be removed.
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret revokeSpaceSupport id=ASLKDJHAKJSDH --host https://op.example.com:9443

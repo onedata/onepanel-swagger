@@ -26,6 +26,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/ServiceError'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderManagersStatus --host https://op.example.com:9443
 
 
 post:
@@ -67,6 +70,9 @@ post:
     schema:
       $ref: '#/definitions/ManagerHosts'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat mng_hosts.json | onepanel-rest-cli -u alice:secret -ct json addProviderManagers --host https://op.example.com:9443
 
 
 patch:
@@ -101,3 +107,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopProviderManagers started=false --host https://op.example.com:9443

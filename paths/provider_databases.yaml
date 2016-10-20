@@ -26,6 +26,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/ServiceError'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getProviderDatabasesStatus --host https://example.com:9443
 
 
 post:
@@ -68,6 +71,9 @@ post:
     schema:
       $ref: '#/definitions/ServiceDatabases'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat service_dbs.json | onepanel-rest-cli -u alice:secret addProviderDatabases --host https://example.com:9443
 
 
 patch:
@@ -102,3 +108,6 @@ patch:
     type: boolean
     default: true
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret startStopProviderDatabases started=false --host https://example.com:9443

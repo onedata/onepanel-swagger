@@ -24,6 +24,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getStorages --host https://op.example.com:9443
 
 
 post:
@@ -62,3 +65,6 @@ post:
     schema:
       $ref: '#/definitions/ClusterStoragesList'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat storages.json | onepanel-rest-cli -u alice:secret addStorage --host https://op.example.com:9443
