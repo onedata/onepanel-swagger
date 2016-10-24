@@ -45,6 +45,7 @@ post:
     - Onezone
   consumes:
     - application/json
+    - application/x-yaml
   responses:
     '201':
       description: Deployment process successfully started.
