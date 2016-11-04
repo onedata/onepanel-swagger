@@ -42,5 +42,5 @@ docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swa
 #
 # Build Bash client
 #
-docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/bash-swagger-codegen:0.3.6 generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json
+docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/bash-swagger-codegen:0.3.7 generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json
 
