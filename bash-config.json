@@ -1,0 +1,10 @@
+{
+  "processMarkdown": true,
+  "curlOptions": "-sS --tlsv1.2",
+  "scriptName": "onepanel-rest-cli",
+  "generateBashCompletion": true,
+  "generateZshCompletion": true,
+  "hostEnvironmentVariable": "ONEPANEL_HOST",
+  "basicAuthEnvironmentVariable": "ONEPANEL_BASIC_AUTH"
+}
+
