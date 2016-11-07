@@ -4,7 +4,7 @@
 # Clean
 #
 rm -rf generated
-rm swaggers.json
+rm swagger.json
 
 
 # Generate aggregate JSON file from YAML

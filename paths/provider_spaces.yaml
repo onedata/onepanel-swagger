@@ -29,7 +29,7 @@ get:
 
 post:
   operationId: support_space
-  summary: Create or support space
+  summary: Support or create space
   description: >
     Supports an existing space or creates a new space and automatically 
     supports it.
