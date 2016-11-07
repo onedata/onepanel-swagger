@@ -16,7 +16,7 @@ for release_branch in "${!releases[@]}"; do
     docker run --rm -e "CHOWNUID=${UID}" \
         -v `pwd`:/swagger docker.onedata.org/swagger-aggregator:1.5.0
     docker run --rm -e "CHOWNUID=${UID}" \
-        -v `pwd`:/swagger -t docker.onedata.org/bash-swagger-codegen:0.3.7 generate \
+        -v `pwd`:/swagger -t docker.onedata.org/bash-swagger-codegen:0.3.8 generate \
         -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json
 
     mkdir -p "packages/bash/${releases[$release_branch]}"
