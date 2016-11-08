@@ -1,0 +1,8 @@
+type: object
+description: The storage configuration details that can be modified.
+properties:
+  timeout:
+    type: integer
+    description: Storage operation timeout in milliseconds.
+example:
+  timeout: 10000

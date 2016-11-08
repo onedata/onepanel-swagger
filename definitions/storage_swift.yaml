@@ -19,6 +19,12 @@ allOf:
       password:
         type: string
         description: The Keystone authentication password.
+      timeout:
+        type: integer
+        description: Storage operation timeout in milliseconds.
+      blockSize:
+        type: integer
+        description: Storage block size in bytes.
     required:
     - authUrl
     - tenantName

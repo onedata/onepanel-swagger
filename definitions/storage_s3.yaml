@@ -19,6 +19,12 @@ allOf:
       secretKey:
         type: string
         description: The secret key to the S3 storage.
+      timeout:
+        type: integer
+        description: Storage operation timeout in milliseconds.
+      blockSize:
+        type: integer
+        description: Storage block size in bytes.
     required:
     - s3Hostname
     - iamHostname
