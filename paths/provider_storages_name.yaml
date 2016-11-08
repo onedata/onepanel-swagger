@@ -34,3 +34,44 @@ get:
   x-code-samples:
   - lang: Shell
     source: onepanel-rest-cli -u alice:secret getStorageDetails name=S3 --host https://op.example.com:9443
+
+patch:
+  operationId: modify_storage
+  summary: Modify storage details
+  description: Modifies basic storage details, such as operation timeout.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: storage
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Storage details have been successfully modified.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: name
+    in: path
+    type: string
+    description: >
+      The name of a storage resource, which details should be returned.
+    required: true
+  - name: storageModifyRequest
+    in: body
+    description: >
+      New values for storage configuration parameters which should
+      be changed.
+    schema:
+      $ref: '#/definitions/StorageModifyRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 modifyStorage name=S3 timeout==10000
