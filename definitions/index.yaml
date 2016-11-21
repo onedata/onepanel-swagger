@@ -47,6 +47,9 @@ Ceph:
 Swift:
   $ref: ./storage_swift.yaml
 
+StorageModifyRequest:
+  $ref: ./storage_modify_request.yaml
+
 ZoneConfiguration:
   $ref: ./zone_configuration.yaml
 

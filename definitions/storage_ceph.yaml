@@ -19,6 +19,9 @@ allOf:
       poolName:
         type: string
         description: The Ceph pool name.
+      timeout:
+        type: integer
+        description: Storage operation timeout in milliseconds.
     required:
     - username
     - key
