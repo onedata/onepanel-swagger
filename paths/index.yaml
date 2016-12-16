@@ -25,6 +25,9 @@
 /provider:
   $ref: ./provider.yaml
 
+/provider/nagios:
+  $ref: ./provider_nagios.yaml
+
 /provider/configuration:
   $ref: ./provider_configuration.yaml
 
@@ -59,6 +62,9 @@
   $ref: ./provider_workers_host.yaml
 
 # Zone specific resources
+/zone/nagios:
+  $ref: ./zone_nagios.yaml
+
 /zone/configuration:
   $ref: ./zone_configuration.yaml
 
@@ -79,4 +85,3 @@
 
 /zone/workers/{host}:
   $ref: ./zone_workers_host.yaml
-
