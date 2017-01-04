@@ -4,12 +4,9 @@ allOf:
   - type: object
     x-discriminator-value: S3
     properties:
-      s3Hostname:
+      hostname:
         type: string
         description: The hostname of a machine where S3 storage is installed.
-      iamHostname:
-        type: string
-        description: The IAM hostname for the S3 storage.
       bucketName:
         type: string
         description: The storage bucket name.
@@ -25,16 +22,21 @@ allOf:
       blockSize:
         type: integer
         description: Storage block size in bytes.
+      insecure:
+        type: boolean
+        default: false
+        description: >
+          Defines whether storage administrator credentials (accessKey and
+          secretKey) may be used by users without storage accounts to access
+          storage in direct IO mode.
     required:
-    - s3Hostname
-    - iamHostname
+    - hostname
     - bucketName
     - accessKey
     - secretKey
 example:
   type: S3
-  s3Hostname: s3.example.com
-  iamHostname: iam.example.com
+  hostname: s3.example.com
   bucketName: bucket1.iam.example.com
   accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
   secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDKNJK
