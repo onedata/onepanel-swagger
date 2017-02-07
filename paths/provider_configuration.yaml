@@ -52,7 +52,7 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check 
+            The path to the task resource, which can be queried to check
             operation status.
     '400':
       description: Invalid request.
@@ -73,4 +73,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_config.json | onepanel-rest-cli -u alice:secret configureProvider --host https://example.com:9443
+    source: cat provider_config.json | onepanel-rest-cli -u alice:secret  --host https://example.com:9443 configureProvider -

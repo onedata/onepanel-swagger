@@ -2,7 +2,7 @@ get:
   operationId: get_provider_workers_status
   summary: Get provider cluster workers status
   description: >
-    Returns status of cluster worker service on each host where it has been 
+    Returns status of cluster worker service on each host where it has been
     deployed.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -14,7 +14,7 @@ get:
   responses:
     '200':
       description: >
-        The status of cluster worker service on each host where it has been 
+        The status of cluster worker service on each host where it has been
         deployed.
       schema:
         $ref: '#/definitions/ServiceStatus'
@@ -30,7 +30,7 @@ get:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderWorkersStatus --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 getProviderWorkersStatus
 
 
 post:
@@ -51,7 +51,7 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check 
+            The path to the task resource, which can be queried to check
             operation status.
     '400':
       description: Invalid request.
@@ -75,7 +75,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat hosts.json | onepanel-rest-cli -u alice:secret addProviderWorkers --host https://op.example.com:9443
+    source: cat hosts.json | onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 addProviderWorkers -
 
 
 patch:
@@ -105,11 +105,11 @@ patch:
   - name: started
     in: query
     description: >
-      Defines the intended state of the cluster worker service. The service 
+      Defines the intended state of the cluster worker service. The service
       will be started or stopped in order to match the requested state.
     type: boolean
     default: true
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret startStopProviderWorkers started=true --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 startStopProviderWorkers started=true

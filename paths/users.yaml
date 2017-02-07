@@ -32,6 +32,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret addUser username==bob password==secret userRole==regular --host https://op.example.com:9443
-
-
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 addUser username==bob password==secret userRole==regular

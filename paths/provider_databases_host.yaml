@@ -33,7 +33,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderDatabaseStatus host=db1.example.com --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 getProviderDatabaseStatus host=db1.example.com
 
 
 patch:
@@ -76,4 +76,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret startStopProviderDatabase host=db1.example.com --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 startStopProviderDatabase host=db1.example.com

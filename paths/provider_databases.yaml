@@ -28,7 +28,7 @@ get:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderDatabasesStatus --host https://example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://example.com:9443 getProviderDatabasesStatus
 
 
 post:
@@ -49,7 +49,7 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check 
+            The path to the task resource, which can be queried to check
             operation status.
     '400':
       description: Invalid request.
@@ -73,7 +73,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat service_dbs.json | onepanel-rest-cli -u alice:secret addProviderDatabases --host https://example.com:9443
+    source: cat service_dbs.json | onepanel-rest-cli -u alice:secret --host https://example.com:9443 addProviderDatabases -
 
 
 patch:
@@ -110,4 +110,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret startStopProviderDatabases started=false --host https://example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://example.com:9443 startStopProviderDatabases started=false

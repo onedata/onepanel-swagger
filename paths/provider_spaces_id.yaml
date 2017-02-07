@@ -26,14 +26,14 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: id 
+  - name: id
     in: path
     type: string
     description: The ID of a space which details should be returned.
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getSpaceDetails id=ASLKDJHAKJSDH --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 getSpaceDetails id=ASLKDJHAKJSDH
 
 
 delete:
@@ -42,7 +42,7 @@ delete:
   description: >
     Allows provider to revoke storage support for a specific space. Users with
     access to this space will no longer be able to store data on the resources
-    of this provider. 
+    of this provider.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: space
@@ -62,11 +62,11 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: id 
+  - name: id
     in: path
     type: string
     description: The ID of a space to be removed.
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret revokeSpaceSupport id=ASLKDJHAKJSDH --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 revokeSpaceSupport id=ASLKDJHAKJSDH

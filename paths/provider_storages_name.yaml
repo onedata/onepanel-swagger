@@ -33,7 +33,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getStorageDetails name=S3 --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 getStorageDetails name=S3
 
 patch:
   operationId: modify_storage
@@ -74,4 +74,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 modifyStorage name=S3 timeout==10000
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 modifyStorage name=S3 timeout:=10000

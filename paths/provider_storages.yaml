@@ -26,7 +26,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getStorages --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 getStorages
 
 
 post:
@@ -67,4 +67,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat storages.json | onepanel-rest-cli -u alice:secret addStorage --host https://op.example.com:9443
+    source: cat storages.json | onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 addStorage -
