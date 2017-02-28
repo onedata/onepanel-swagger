@@ -37,10 +37,9 @@ docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-gitbook:1.4.1 co
 # Build Python client using official latest version of swagger-codegen
 # in 'generated/python'
 #
-docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen-official:ID-507bde287c  generate -i ./swagger.json -l python -o ./generated/python -c python-config.json
+#docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen-official:ID-507bde287c  generate -i ./swagger.json -l python -o ./generated/python -c python-config.json
 
 #
 # Build Bash client
 #
-docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/bash-swagger-codegen:0.3.8 generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json
-
+#docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/bash-swagger-codegen:0.3.8 generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json

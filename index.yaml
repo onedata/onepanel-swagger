@@ -14,5 +14,7 @@ tags:
   - name: Onezone
     description: Resources and operations for managing Onezone deployment
 securityDefinitions:
-  basic: 
+  basic:
     type: basic
+security:
+  - basic: []
