@@ -8,7 +8,6 @@ SERVICE=onepanel
 #
 LANGUAGE=$1
 TARGET_DIRECTORY=$2
-
 WORK_DIRECTORY=$PWD
 
 declare -A releases
@@ -28,23 +27,29 @@ for release_branch in "${!releases[@]}"; do
 
     git worktree add build-"${releases[$release_branch]}" $release_branch
 
+    cp ${LANGUAGE}-config.json build-"${releases[$release_branch]}"
+
     cd build-"${releases[$release_branch]}"
 
     docker run --rm -e "CHOWNUID=${UID}" \
         -v `pwd`:/swagger docker.onedata.org/swagger-aggregator:1.5.0
 
-    pushd $TARGET_DIRECTORY && git checkout $release_branch \
-    && popd
+    cd $TARGET_DIRECTORY && git checkout $release_branch && cd -
 
     docker run --rm -e "CHOWNUID=${UID}" \
         -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:ID-2fc8126ac8 \
-        generate -i ./swagger.json -l ${LANGUAGE} \
-        -o ${TARGET_DIRECTORY} -c ${LANGUAGE}-config.json \
-        -DprojectVersion="${releases[$release_branch]}"
+        generate -i ./swagger.json -l ${LANGUAGE} -o generated-${LANGUAGE} \
+        -c ./${LANGUAGE}-config.json
 
-    pushd $TARGET_DIRECTORY && git add -A . && git commit -a -m "Auto update" \
-    && popd
+    cp -R generated-${LANGUAGE}/* $TARGET_DIRECTORY
+
+    cd $TARGET_DIRECTORY && git add -A . && git commit -a -m "Auto update" \
+    && git push origin $release_branch && cd -
+
+    cd ..
+
+    rm -rf build-"${releases[$release_branch]}"
+
+    git worktree prune
 
 done
-
-git checkout master
