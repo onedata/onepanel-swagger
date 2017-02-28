@@ -7,8 +7,8 @@ SERVICE=onepanel
 # Language of the client repo (e.g. js, python, ...)
 #
 LANGUAGE=$1
+TARGET_DIRECTORY=$2
 
-TARGET_DIRECTORY=$(mktemp -d)
 WORK_DIRECTORY=$PWD
 
 declare -A releases
