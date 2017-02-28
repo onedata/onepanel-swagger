@@ -26,13 +26,15 @@ git clone ssh://git@git.plgrid.pl:7999/vfs/${SERVICE}-${LANGUAGE}-client.git ${T
 rm -rf packages
 for release_branch in "${!releases[@]}"; do
 
-    git checkout $release_branch
+    git worktree add build-"${releases[$release_branch]}" $release_branch
+
+    cd build-"${releases[$release_branch]}"
 
     docker run --rm -e "CHOWNUID=${UID}" \
         -v `pwd`:/swagger docker.onedata.org/swagger-aggregator:1.5.0
 
-    cd $TARGET_DIRECTORY && git checkout $release_branch \
-    && cd $WORK_DIRECTORY
+    pushd $TARGET_DIRECTORY && git checkout $release_branch \
+    && popd
 
     docker run --rm -e "CHOWNUID=${UID}" \
         -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:ID-2fc8126ac8 \
@@ -40,8 +42,8 @@ for release_branch in "${!releases[@]}"; do
         -o ${TARGET_DIRECTORY} -c ${LANGUAGE}-config.json \
         -DprojectVersion="${releases[$release_branch]}"
 
-    cd $TARGET_DIRECTORY && git add -A . && git commit -a -m "Auto update" \
-    && cd $WORK_DIRECTORY
+    pushd $TARGET_DIRECTORY && git add -A . && git commit -a -m "Auto update" \
+    && popd
 
 done
 
