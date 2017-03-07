@@ -24,6 +24,11 @@ properties:
     description: >
       The ID of the storage resource where the space data should be stored.
       To be used interchangeably with `storageName`.
+  mountInRoot:
+    type: boolean
+    default: false
+    description: >
+      Defines whether space will be mounted in / or /{SpaceId}/ path.
 required:
   - token
   - size
