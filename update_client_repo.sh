@@ -59,10 +59,10 @@ for release_branch in "${!releases[@]}"; do
     cp -R generated-${LANGUAGE}/* $TARGET_DIRECTORY
 
     # Commit&push the changes to the client repository
-    cd $TARGET_DIRECTORY && \
+    cd $TARGET_DIRECTORY
     git add -A . && \
     git commit -a -m "Auto update" \
-    && git push origin $release_branch && \
+    && git push origin $release_branch
     cd -
 
     cd ..
