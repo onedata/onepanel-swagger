@@ -1,4 +1,4 @@
 {
-  "usePromises": "true",
+  "usePromises": "false",
   "projectDescription": "This is a Javascript client for [Onedata Onepanel](https://onedata.org) service, automatically generated using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen)"
 }
