@@ -31,7 +31,7 @@ rm -rf packages
 for release_branch in "${!releases[@]}"; do
 
     # Checkout the specific API version as worktree subdirectory
-    git worktree add build-"${releases[$release_branch]}" $release_branch
+    git worktree add build-"${releases[$release_branch]}" remotes/origin/$release_branch
 
     # Copy the codegen config file to workdir and set version
     cp ${LANGUAGE}-config.json build-"${releases[$release_branch]}"/
