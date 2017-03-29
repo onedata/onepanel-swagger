@@ -11,9 +11,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The details of a selected storage
+      description: The details of a selected storage.
       schema:
-        $ref: '#/definitions/ClusterStorages'
+        $ref: '#/definitions/StorageDetails'
     '401':
       description: Unauthorized request.
     '403':
@@ -25,11 +25,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: name
+  - name: id
     in: path
     type: string
     description: >
-      The name of a storage resource, which details should be returned.
+      The ID of a storage resource, which details should be returned.
     required: true
   x-code-samples:
   - lang: Shell
@@ -58,11 +58,11 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: name
+  - name: id
     in: path
     type: string
     description: >
-      The name of a storage resource, which details should be returned.
+      The ID of a storage resource, which details should be modified.
     required: true
   - name: storageModifyRequest
     in: body

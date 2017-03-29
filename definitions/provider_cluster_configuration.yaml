@@ -29,10 +29,7 @@ properties:
   workers:
     $ref: '#/definitions/ClusterWorkers'
   storages:
-    type: object
-    description: The cluster storage configuration.
-    additionalProperties:
-      $ref: '#/definitions/ClusterStorages'
+    $ref: '#/definitions/StorageCreateRequest'
 required:
   - domainName
   - nodes

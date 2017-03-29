@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The provider spaces details.
+      description: The provider spaces IDs.
       schema:
         $ref: '#/definitions/ProviderSpaces'
     '401':
@@ -31,7 +31,7 @@ post:
   operationId: support_space
   summary: Create or support space
   description: >
-    Supports an existing space or creates a new space and automatically 
+    Supports an existing space or creates a new space and automatically
     supports it.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider

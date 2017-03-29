@@ -11,11 +11,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of provider storage and their details.
+      description: The provider storage resources IDs.
       schema:
-        type: array
-        items:
-          $ref: '#/definitions/ClusterStorages'
+        $ref: '#/definitions/ProviderStorages'
     '401':
       description: Unauthorized request.
     '403':
@@ -31,8 +29,8 @@ get:
 
 post:
   operationId: add_storage
-  summary: Add storage.
-  description: Adds additional storage resource to the storage provider.
+  summary: Add storage
+  description: Adds additional storage resources to the provider.
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: storages
@@ -43,7 +41,7 @@ post:
   responses:
     '204':
       description: >
-        The storage has been successfully added to the provider deployment.
+        The storage resources have been successfully added to the provider deployment.
     '400':
       description: Invalid request.
       schema:
@@ -57,13 +55,13 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: clusterStoragesList
+  - name: storageCreateRequest
     in: body
     description: >
-      The list of configuration details of storages to be added to the provider
+      The configuration details of storage resources to be added to the provider
       deployment.
     schema:
-      $ref: '#/definitions/ClusterStoragesList'
+      $ref: '#/definitions/StorageCreateRequest'
     required: true
   x-code-samples:
   - lang: Shell

@@ -1,9 +1,10 @@
 type: object
-description: The list of supported storage types.
+description: >
+  The configuration details required to add storage resources.
 x-onedata-dictionary: true
-x-onedata-dictionary-value-type: cluster_storages
+x-onedata-dictionary-value-type: storage_details
 additionalProperties:
-  $ref: '#/definitions/ClusterStorages'
+  $ref: '#/definitions/StorageDetails'
 example:
   s3:
     type: S3

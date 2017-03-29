@@ -1,0 +1,10 @@
+type: object
+description: The user session details.
+properties:
+  sessionId:
+    type: string
+    description: The session ID.
+required:
+  - sessionId
+example:
+  sessionId: i3h2bp4TjPVuOyvXulbW  
