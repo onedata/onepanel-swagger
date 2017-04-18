@@ -1,0 +1,83 @@
+post:
+  operationId: create_session
+  summary: Create Onepanel user session
+  description: Creates a new Onepanel user session.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_session
+  x-onedata-resource: session
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The created session details.
+      schema:
+        $ref: '#/definitions/SessionDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret createSession --host https://op.example.com:9443
+
+get:
+  operationId: get_session
+  summary: Get Onepanel user session
+  description: >
+    Returns details of a Onepanel user session associated with the request.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_session
+  x-onedata-resource: session
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The created session details.
+      schema:
+        $ref: '#/definitions/SessionDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Session not found.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+delete:
+  operationId: remove_session
+  summary: Remove Onepanel user session
+  description: >
+    Removes the Onepanel user session.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_session
+  x-onedata-resource: session
+  tags:
+    - Onepanel
+  responses:
+    '204':
+      description: The user session has been successfully removed.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: User session not found.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
