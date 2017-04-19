@@ -20,7 +20,7 @@ releases["release/3.0.0-rc10"]="3.0.0-rc10"
 releases["release/3.0.0-rc11"]="3.0.0-rc11"
 releases["release/3.0.0-rc12"]="3.0.0-rc12"
 releases["develop"]="3.0.0-dev"
-releases["feature/VFS-3128-change-storage-list-in-onepanel"]="3.0.0-dev"
+releases["release/future"]="3.0.0-dev"
 
 # Checkout the client repository which should be updated
 git clone \
