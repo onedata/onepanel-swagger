@@ -52,7 +52,7 @@ for release_branch in "${!releases[@]}"; do
 
     # Build the javascript client from the current API version in the worktree
     docker run --rm -e "CHOWNUID=${UID}" \
-        -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:2.2.2-1b1767e \
+        -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:VFS-3144 \
         generate -i ./swagger.json -l ${LANGUAGE} -o ./generated-${LANGUAGE}/ \
         -c ./${LANGUAGE}-config.json
 
