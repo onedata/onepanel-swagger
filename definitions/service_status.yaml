@@ -9,4 +9,4 @@ properties:
     additionalProperties:
       $ref: '#/definitions/ServiceStatusHost'
 required:
-  - services
+  - hosts

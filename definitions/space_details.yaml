@@ -2,10 +2,10 @@ type: object
 description: The space details.
 properties:
   id:
-    type: string 
+    type: string
     description: The ID of the space.
   name:
-    type: string 
+    type: string
     description: The name of the space.
   supportingProviders:
     type: object
@@ -15,6 +15,6 @@ properties:
       type: integer
       description: Supported storage space in bytes.
 required:
-  - spaceId
+  - id
   - name
   - supportingProviders
