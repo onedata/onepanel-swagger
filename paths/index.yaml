@@ -3,8 +3,8 @@
 
 
 # Onepanel common resources
-/login:
-  $ref: ./login.yaml
+/session:
+  $ref: ./session.yaml
 
 /users:
   $ref: ./users.yaml

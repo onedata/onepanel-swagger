@@ -1,10 +1,16 @@
 type: object
 description: The user configuration details that can be modified.
 properties:
-  password:
+  currentPassword:
     type: string
-    description: The user password.
+    description: >
+      The current user password that should be changed or password of an administrator that is issuing this request on behalf of a user. 
+  newPassword:
+    type: string
+    description: The new user password.
 required:
-  - password
+  - currentPassword
+  - newPassword
 example:
-  password: P@@$$W0RD
+  currentPassword: P@@$$W0RD1
+  newPassword: P@@$$W0RD2
