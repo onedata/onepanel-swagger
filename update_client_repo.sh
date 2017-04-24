@@ -20,7 +20,7 @@ releases["release/3.0.0-rc10"]="3.0.0-rc10"
 releases["release/3.0.0-rc11"]="3.0.0-rc11"
 releases["release/3.0.0-rc12"]="3.0.0-rc12"
 releases["develop"]="3.0.0-dev"
-releases["feature/VFS-3128-change-storage-list-in-onepanel"]="3.0.0-dev"
+releases["release/future"]="3.0.0-dev"
 
 # Checkout the client repository which should be updated
 git clone \
@@ -52,7 +52,7 @@ for release_branch in "${!releases[@]}"; do
 
     # Build the javascript client from the current API version in the worktree
     docker run --rm -e "CHOWNUID=${UID}" \
-        -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:2.2.2-1b1767e \
+        -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:VFS-3144 \
         generate -i ./swagger.json -l ${LANGUAGE} -o ./generated-${LANGUAGE}/ \
         -c ./${LANGUAGE}-config.json
 
