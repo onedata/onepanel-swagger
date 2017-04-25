@@ -56,11 +56,17 @@ StorageModifyRequest:
 ZoneConfiguration:
   $ref: ./zone_configuration.yaml
 
+ZoneConfigurationDetails:
+  $ref: ./zone_configuration_details.yaml
+
 ZoneClusterConfiguration:
   $ref: ./zone_cluster_configuration.yaml
 
 ProviderConfiguration:
   $ref: ./provider_configuration.yaml
+
+ProviderConfigurationDetails:
+  $ref: ./provider_configuration_details.yaml
 
 ProviderClusterConfiguration:
   $ref: ./provider_cluster_configuration.yaml
@@ -95,8 +101,17 @@ ServiceHosts:
 ServiceDatabases:
   $ref: ./service_databases.yaml
 
+DatabaseHosts:
+  $ref: ./database_hosts.yaml
+
 ManagerHosts:
   $ref: ./manager_hosts.yaml
+
+WorkerHosts:
+  $ref: ./worker_hosts.yaml
+
+ClusterConfigurationDetails:
+  $ref: ./cluster_configuration_details.yaml
 
 TaskStatus:
   $ref: ./task_status.yaml

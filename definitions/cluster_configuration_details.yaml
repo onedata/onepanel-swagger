@@ -1,0 +1,13 @@
+type: object
+description: The cluster configuration.
+properties:
+  databases:
+    $ref: '#/definitions/DatabaseHosts'
+  managers:
+    $ref: '#/definitions/ManagerHosts'
+  workers:
+    $ref: '#/definitions/WorkerHosts'
+required:
+  - databases
+  - managers
+  - workers

@@ -24,7 +24,7 @@ example:
       node1:
         hostname: "node1"
     manager:
-      defaultNode: "node1"
+      mainNode: "node1"
       nodes:
         - "node1"
     worker:
