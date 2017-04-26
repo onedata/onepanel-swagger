@@ -14,7 +14,7 @@ get:
     '200':
       description: The zone cluster configuration.
       schema:
-        $ref: '#/definitions/ZoneConfiguration'
+        $ref: '#/definitions/ZoneConfigurationDetails'
     '401':
       description: Unauthorized request.
     '403':
@@ -35,7 +35,7 @@ post:
     Configures and starts zone services, such as database, cluster manager
     and cluster worker.
 
-    This request can be executed by unauthorized usersas long as there are no 
+    This request can be executed by unauthorized usersas long as there are no
     admin users in the system.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -53,7 +53,7 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check 
+            The path to the task resource, which can be queried to check
             operation status.
     '400':
       description: Invalid request.

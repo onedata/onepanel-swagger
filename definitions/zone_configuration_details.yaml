@@ -1,0 +1,31 @@
+type: object
+description: The zone cluster configuration.
+properties:
+  cluster:
+    $ref: '#/definitions/ClusterConfigurationDetails'
+  onezone:
+    type: object
+    description: The zone custom configuration.
+    properties:
+      name:
+        description: The name of a zone.
+        type: string
+    required:
+      - name
+required:
+  - cluster
+  - onezone
+example:
+  cluster:
+    manager:
+      mainHost: "node1.onezone.onedata.example.com"
+      hosts:
+        - "node1.onezone.onedata.example.com"
+    worker:
+      hosts:
+        - "node1.onezone.onedata.example.com"
+    database:
+      hosts:
+        - "node1.onezone.onedata.example.com"
+  onezone:
+    name: "example"

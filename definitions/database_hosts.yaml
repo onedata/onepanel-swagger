@@ -1,0 +1,15 @@
+type: object
+description: The cluster database service hosts configuration.
+properties:
+  hosts:
+    type: array
+    description: The list of service hosts.
+    items:
+      type: string
+required:
+  - hosts
+example:
+  hosts:
+    - node1.example.com
+    - node2.example.com
+    - node3.example.com

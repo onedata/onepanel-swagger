@@ -1,0 +1,31 @@
+type: object
+description: The provider deployment configuration.
+properties:
+  cluster:
+    $ref: '#/definitions/ClusterConfigurationDetails'
+  oneprovider:
+    type: object
+    description: The provider custom configuration.
+    properties:
+      name:
+        description: The name of a provider.
+        type: string
+    required:
+      - name
+required:
+  - cluster
+  - oneprovider
+example:
+  cluster:
+    manager:
+      mainHost: "node1.oneprovider.onedata.example.com"
+      hosts:
+        - "node1.oneprovider.onedata.example.com"
+    worker:
+      hosts:
+        - "node1.oneprovider.onedata.example.com"
+    database:
+      hosts:
+        - "node1.oneprovider.onedata.example.com"
+  oneprovider:
+    name: "example"
