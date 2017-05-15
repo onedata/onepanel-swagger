@@ -8,6 +8,9 @@ x-onedata-subclasses:
   - ceph
   - swift
 properties:
+  id:
+    type: string
+    description: The ID of storage.
   name:
     type: string
     description: The name of storage.
