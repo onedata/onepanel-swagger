@@ -12,7 +12,6 @@ get:
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: hosts
-  x-onedata-noauth: true
   tags:
     - Onepanel
   produces:
