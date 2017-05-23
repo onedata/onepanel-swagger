@@ -3,11 +3,11 @@ get:
   summary: Get cluster or discovered hosts
   description: >
     Returns the list of administrative cluster hosts. It is also possible to
-    return the list of hosts that have been discovered using multicast 
+    return the list of hosts that have been discovered using multicast
     advertisment.
 
     In order to retrieve discovered hosts set the `discovered` query string to
-    `true`. This request can be executed by unauthorized users only if there 
+    `true`. This request can be executed by unauthorized users only if there
     are no admin users in the system.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
@@ -22,7 +22,7 @@ get:
       schema:
         type: array
         description: List of cluster or discovered hosts.
-        items: 
+        items:
           type: string
         example:
           - host1.example.org
@@ -50,13 +50,13 @@ post:
   operationId: create_cluster
   summary: Create or join cluster
   description: >
-    Initializes administrative cluster or if `clusterHost` parameter has been 
+    Initializes administrative cluster or if `clusterHost` parameter has been
     provided in the query string adds this host to an existing cluster.
 
-    In both cases the host handling this request has to be newly started or 
+    In both cases the host handling this request has to be newly started or
     removed from previous cluster. It cannot contain any configuration data.
 
-    This request can be executed by unauthorized users as long as there are no 
+    This request can be executed by unauthorized users as long as there are no
     admin users.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
@@ -88,4 +88,4 @@ post:
         $ref: '#/definitions/Cookie'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret createCluster clusterHost=cluster.example.com cookie:=AS2KLJH1231AJSHDKJBC12KS578A3SDA --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret createCluster clusterHost=cluster.example.com cookie==AS2KLJH1231AJSHDKJBC12KS578A3SDA --host https://op.example.com:9443
