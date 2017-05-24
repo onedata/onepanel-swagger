@@ -1,0 +1,17 @@
+type: object
+description: The storage update configuration.
+properties:
+  strategy:
+    type: string
+    description: The update strategy. One of no_update, simple_scan.
+  scanInterval:
+    type: integer
+    description: todo
+  writeOnce:
+    type: boolean
+    description: todo
+  deleteEnable:
+    type: boolean
+    description: todo
+required:
+  - strategy
