@@ -4,5 +4,8 @@ properties:
   strategy:
     type: string
     description: The import strategy. One of no_import, simple_scan.
+  maxDepth:
+    type: integer
+    description: todo
 required:
   - strategy

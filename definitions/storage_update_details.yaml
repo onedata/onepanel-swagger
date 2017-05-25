@@ -4,6 +4,9 @@ properties:
   strategy:
     type: string
     description: The update strategy. One of no_update, simple_scan.
+  maxDepth:
+    type: integer
+    description: todo
   scanInterval:
     type: integer
     description: todo
