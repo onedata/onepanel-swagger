@@ -14,8 +14,8 @@ properties:
   scanInterval:
     type: integer
     description: >
-      Period between subsequent scans (counted from end of one scan till
-      beginning of the following).
+      Period between subsequent scans in seconds (counted from end of one scan
+      till beginning of the following).
   writeOnce:
     type: boolean
     description: >
