@@ -121,3 +121,9 @@ SpaceDetails:
 
 SpaceSupportRequest:
   $ref: ./space_support_request.yaml
+
+SpaceSyncStats:
+  $ref: ./space_sync_stats.yaml
+
+TimeStats:
+  $ref: ./time_stats.yaml

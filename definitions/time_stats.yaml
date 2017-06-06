@@ -1,0 +1,50 @@
+type: object
+description: Statistics for single metric over specified time.
+properties:
+  name:
+    type: string
+    description: Name of metric for which this object holds statistics. 
+    enum:
+      - queueLength
+      - insertCount
+      - updateCount
+      - deleteCount
+    description: How many samples were taken in measurement period.
+  period:
+    description: Predefined time period for which the statistics should be fetched
+    type: string
+    enum:
+      - minute
+      - hour
+      - day
+  values:
+    type: array
+    description: >
+      List of sample values for given metric. The used period is divided into
+      array-length number of parts. E.g. if the used period is an hour, and if
+      there are 12 values in this array, every value is a value for 1/12 of day,
+      which gives value for every hour of the day.
+      If the value is null, there is no sample for given time part.
+    items:
+      type: number
+  
+required:
+  - name
+  - period
+  - values
+example:
+  name: queueLength
+  period: hour
+  values:
+    - 4
+    - 8
+    - 12
+    - 16
+    - 20
+    - 10
+    - 4
+    - 2
+    - 0
+    - 0
+    - 0
+    - 0

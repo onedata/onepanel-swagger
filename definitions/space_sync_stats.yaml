@@ -1,0 +1,46 @@
+type: object
+description: Status and statistics of storage/space synchronization.
+properties:
+  importStatus:
+    type: string
+    description: Describes import algorithm run status.
+    enum:
+      - inProgress
+      - done
+  updateStatus:
+    type: string
+    enum:
+      - waiting
+      - inProgress
+    description: Describes update algorithm run status.
+  stats:
+    type: array
+    description: Collection of statistics for requested metrics.
+    items:
+      $ref: '#/definitions/TimeStats'
+required:
+  - importStatus
+  - updateStatus
+  - stats
+example:
+  importStatus: done
+  updateStatus: inProgress
+  stats:
+    - name: queueLength
+      values:
+        - 4
+        - 8
+        - 12
+        - 16
+        - 20
+        - 10
+        - 0
+    - name: insertCount
+      values:
+        - 1
+        - 2
+        - 2
+        - 3
+        - 0
+        - 2
+        - 1
