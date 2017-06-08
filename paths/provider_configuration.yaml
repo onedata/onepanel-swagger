@@ -14,7 +14,7 @@ get:
     '200':
       description: The provider cluster configuration.
       schema:
-        $ref: '#/definitions/ProviderConfiguration'
+        $ref: '#/definitions/ProviderConfigurationDetails'
     '401':
       description: Unauthorized request.
     '403':
@@ -52,7 +52,7 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check 
+            The path to the task resource, which can be queried to check
             operation status.
     '400':
       description: Invalid request.

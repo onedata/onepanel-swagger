@@ -14,16 +14,10 @@ properties:
     type: integer
     description: >
       The storage space size in bytes that provider is willing to assign to the space.
-  storageName:
-    type: string
-    description: >
-      The user defined name of the storage resource, where the space data should be stored.
-      To be used interchangeably with `storageId`.
   storageId:
     type: string
     description: >
       The ID of the storage resource where the space data should be stored.
-      To be used interchangeably with `storageName`.
   mountInRoot:
     type: boolean
     default: false
@@ -32,7 +26,8 @@ properties:
 required:
   - token
   - size
+  - storageId
 example:
-  name: MySpace1
   token: ASDJNASD87687ASDMNBMNASD87786asd
   size: 1024000
+  storageId: x7It3cpgNgLZ8RwOrOoW

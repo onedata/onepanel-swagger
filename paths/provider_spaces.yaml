@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The provider spaces details.
+      description: The provider spaces IDs.
       schema:
         $ref: '#/definitions/ProviderSpaces'
     '401':

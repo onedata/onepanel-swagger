@@ -1,6 +1,6 @@
 description: The OpenStack Swift configuration.
 allOf:
-  - $ref: '#/definitions/ClusterStorages'
+  - $ref: '#/definitions/StorageDetails'
   - type: object
     x-discriminator-value: SWIFT
     properties:
@@ -44,6 +44,7 @@ allOf:
     - password
 example:
   type: SWIFT
+  name: SomeSwift
   authUrl: http://keystone2.example.com
   tenantName: Project1
   containerName: Container1

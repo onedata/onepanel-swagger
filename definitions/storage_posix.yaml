@@ -1,6 +1,6 @@
 description: The POSIX storage configuration.
 allOf:
-  - $ref: '#/definitions/ClusterStorages'
+  - $ref: '#/definitions/StorageDetails'
   - type: object
     x-discriminator-value: POSIX
     properties:
@@ -20,4 +20,5 @@ allOf:
     - mountPoint
 example:
   type: POSIX
+  name: SomePosix
   mountPoint: /mnt/nfs
