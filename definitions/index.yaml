@@ -47,6 +47,9 @@ Ceph:
 Swift:
   $ref: ./storage_swift.yaml
 
+Glusterfs:
+  $ref: ./storage_glusterfs.yaml
+
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml
 
