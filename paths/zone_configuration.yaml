@@ -35,7 +35,7 @@ post:
     Configures and starts zone services, such as database, cluster manager
     and cluster worker.
 
-    This request can be executed by unauthorized usersas long as there are no
+    This request can be executed by unauthorized users as long as there are no
     admin users in the system.
   x-onedata-version: 3
   x-onedata-module: rest_service
