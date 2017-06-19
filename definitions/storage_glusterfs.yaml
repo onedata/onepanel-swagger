@@ -22,7 +22,7 @@ allOf:
           - rdma
           - socket
         default: tcp
-      mountpoint:
+      mountPoint:
         type: string
         description: Relative mountpoint within the volume which should be used by Oneprovider.
         default: ""
@@ -55,6 +55,6 @@ example:
   volume: Volume1
   hostname: volfileserver.example.com
   port: 24007
-  mountpoint: ""
+  mountPoint: ""
   xlatorOptions: "transport.socket.ssl-enabled=on"
   insecure: true
