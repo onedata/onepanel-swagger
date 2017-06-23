@@ -1,0 +1,7 @@
+type: object
+description: The space configuration details that can be modified.
+properties:
+  storageImport:
+    $ref: '#/definitions/StorageImportDetails'
+  storageUpdate:
+    $ref: '#/definitions/StorageUpdateDetails'

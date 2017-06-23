@@ -7,6 +7,11 @@ properties:
   name:
     type: string
     description: The name of the space.
+  storageId:
+    type: string
+    description: >
+      Id of StorageDetails that supports this space on provider that is
+      associated with this panel.
   supportingProviders:
     type: object
     description: >
@@ -14,7 +19,12 @@ properties:
     additionalProperties:
       type: integer
       description: Supported storage space in bytes.
+  storageImport:
+    $ref: '#/definitions/StorageImportDetails'
+  storageUpdate:
+    $ref: '#/definitions/StorageUpdateDetails'
 required:
   - id
   - name
+  - storageId
   - supportingProviders
