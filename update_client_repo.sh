@@ -15,10 +15,12 @@ declare -A releases
 #
 # Maps branch names to release names
 #
-releases["release/3.0.0-rc9"]="3.0.0-rc9"
-releases["release/3.0.0-rc10"]="3.0.0-rc10"
-releases["release/3.0.0-rc11"]="3.0.0-rc11"
-releases["release/3.0.0-rc12"]="3.0.0-rc12"
+#releases["release/3.0.0-rc9"]="3.0.0-rc9"
+#releases["release/3.0.0-rc10"]="3.0.0-rc10"
+#releases["release/3.0.0-rc11"]="3.0.0-rc11"
+#releases["release/3.0.0-rc12"]="3.0.0-rc12"
+releases["release/3.0.0-rc14"]="3.0.0-rc14"
+releases["release/3.0.0-rc15"]="3.0.0-rc15"
 releases["develop"]="3.0.0-dev"
 releases["release/future"]="3.0.0-dev"
 
