@@ -27,6 +27,8 @@ example:
   updateStatus: inProgress
   stats:
     - name: queueLength
+      lastValueDate: "2017-06-22T13:29:39.654Z"
+      period: hour
       values:
         - 4
         - 8
@@ -34,13 +36,25 @@ example:
         - 16
         - 20
         - 10
+        - 4
+        - 2
+        - 0
+        - 0
+        - 0
         - 0
     - name: insertCount
+      lastValueDate: "2017-06-22T13:29:39.654Z"
+      period: hour
       values:
-        - 1
+        - 4
+        - 8
+        - 12
+        - 16
+        - 20
+        - 10
+        - 4
         - 2
-        - 2
-        - 3
         - 0
-        - 2
-        - 1
+        - 0
+        - 0
+        - 0

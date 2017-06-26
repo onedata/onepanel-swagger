@@ -14,7 +14,7 @@ properties:
     type: string
     description: Date of last measurement value in this object in ISO 8601 format
   period:
-    description: Predefined time period for which the statistics should be fetched
+    description: Predefined time period for which the statistics were fetched
     type: string
     enum:
       - minute
@@ -30,16 +30,14 @@ properties:
       If the value is null, there is no sample for given time part.
     items:
       type: number
-  
 required:
   - name
   - lastValueDate
-  - period
   - values
 example:
   name: queueLength
   lastValueDate: "2017-06-22T13:29:39.654Z"
-  period: hour
+  period: minute
   values:
     - 4
     - 8
