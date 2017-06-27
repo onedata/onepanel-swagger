@@ -9,7 +9,6 @@ properties:
       - insertCount
       - updateCount
       - deleteCount
-    description: How many samples were taken in measurement period.
   lastValueDate:
     type: string
     description: Date of last measurement value in this object in ISO 8601 format
