@@ -139,3 +139,6 @@ SpaceSyncStats:
 
 TimeStats:
   $ref: ./time_stats.yaml
+
+TimeStatsCollection:
+  $ref: ./time_stats_collection.yaml

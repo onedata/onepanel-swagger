@@ -14,19 +14,18 @@ properties:
       - inProgress
     description: Describes update algorithm run status.
   stats:
-    type: array
     description: Collection of statistics for requested metrics.
-    items:
-      $ref: '#/definitions/TimeStats'
+    $ref: '#/definitions/TimeStatsCollection'
 required:
   - importStatus
   - updateStatus
-  - stats
+
 example:
   importStatus: done
   updateStatus: inProgress
   stats:
-    - name: queueLength
+    queueLength:
+      name: queueLength
       lastValueDate: "2017-06-22T13:29:39.654Z"
       period: hour
       values:
@@ -42,7 +41,8 @@ example:
         - 0
         - 0
         - 0
-    - name: insertCount
+    insertCount:
+      name: insertCount
       lastValueDate: "2017-06-22T13:29:39.654Z"
       period: hour
       values:
