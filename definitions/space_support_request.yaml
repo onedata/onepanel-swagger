@@ -23,11 +23,15 @@ properties:
     default: false
     description: >
       Defines whether space will be mounted in / or /{SpaceId}/ path.
+  storageImport:
+    $ref: '#/definitions/StorageImportDetails'
+  storageUpdate:
+    $ref: '#/definitions/StorageUpdateDetails'
 required:
   - token
   - size
   - storageId
 example:
-  name: MySpace1
   token: ASDJNASD87687ASDMNBMNASD87786asd
   size: 1024000
+  storageId: x7It3cpgNgLZ8RwOrOoW

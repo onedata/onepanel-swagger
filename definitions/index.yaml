@@ -47,11 +47,20 @@ Ceph:
 Swift:
   $ref: ./storage_swift.yaml
 
+Glusterfs:
+  $ref: ./storage_glusterfs.yaml
+
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml
 
 StorageModifyRequest:
   $ref: ./storage_modify_request.yaml
+
+StorageImportDetails:
+  $ref: ./storage_import_details.yaml
+
+StorageUpdateDetails:
+  $ref: ./storage_update_details.yaml
 
 ZoneConfiguration:
   $ref: ./zone_configuration.yaml
@@ -121,6 +130,9 @@ SpaceDetails:
 
 SpaceSupportRequest:
   $ref: ./space_support_request.yaml
+
+SpaceModifyRequest:
+  $ref: ./space_modify_request.yaml
 
 SpaceSyncStats:
   $ref: ./space_sync_stats.yaml
