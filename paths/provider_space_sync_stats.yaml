@@ -28,7 +28,7 @@ get:
   - lang: Shell
     source: onepanel-rest-cli -u alice:secret getProviderSpaceSyncStats --host https://op.example.com:9443
   parameters:
-  - name: space_id
+  - name: id
     in: path
     type: string
     description: The ID of a space for which sync stats should be returned.
@@ -44,13 +44,6 @@ get:
     required: false
   - name: metrics
     in: query
-    description: Specify which statistic metrics should be returned
-    type: array
-    items:
-      type: string
-      enum:
-        - queueLength
-        - insertCount
-        - updateCount
-        - deleteCount
+    description: Specify which statistic metrics should be returned - strings delimited with comma
+    type: string
     required: false

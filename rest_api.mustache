@@ -51,29 +51,29 @@ routes() ->
             {{/bodyParam}}
         {{/hasBodyParam}}
         {{#hasQueryParams}}
-            {{#queryParams}}
-                params_spec = #{
-                {{#description}}
-                    %% {{description}}
-                {{/description}}
-                {{#required}}
-                    {{paramName}} => {{dataType}}{{#hasMore}},{{/hasMore}}
-                {{/required}}
-                {{^required}}
-                    {{#defaultValue}}
-                        {{#x-onedata-default-value}}
-                    {{paramName}} => { {{dataType}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
-                        {{/x-onedata-default-value}}
-                        {{^x-onedata-default-value}}
-                    {{paramName}} => { {{dataType}}, {optional, {{defaultValue}} } }{{#hasMore}},{{/hasMore}}
-                        {{/x-onedata-default-value}}
-                    {{/defaultValue}}
-                    {{^defaultValue}}
-                    {{paramName}} => { {{dataType}}, optional }{{#hasMore}},{{/hasMore}}
-                    {{/defaultValue}}
-                {{/required}}
-                },
-            {{/queryParams}}
+            params_spec = #{
+                {{#queryParams}}
+                    {{#description}}
+                        %% {{description}}
+                    {{/description}}
+                    {{#required}}
+                        {{paramName}} => {{dataType}}{{#hasMore}},{{/hasMore}}
+                    {{/required}}
+                    {{^required}}
+                        {{#defaultValue}}
+                            {{#x-onedata-default-value}}
+                        {{paramName}} => { {{dataType}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
+                            {{/x-onedata-default-value}}
+                            {{^x-onedata-default-value}}
+                        {{paramName}} => { {{dataType}}, {optional, {{defaultValue}} } }{{#hasMore}},{{/hasMore}}
+                            {{/x-onedata-default-value}}
+                        {{/defaultValue}}
+                        {{^defaultValue}}
+                        {{paramName}} => { {{dataType}}, optional }{{#hasMore}},{{/hasMore}}
+                        {{/defaultValue}}
+                    {{/required}}
+                {{/queryParams}}
+            },
         {{/hasQueryParams}}
         {{#vendorExtensions}}
             {{#x-onedata-noauth}}

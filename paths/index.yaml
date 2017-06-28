@@ -40,7 +40,7 @@
 /provider/spaces/{id}:
   $ref: ./provider_spaces_id.yaml
 
-/provider/spaces/{space_id}/sync:
+/provider/spaces/{id}/sync:
   $ref: ./provider_space_sync_stats.yaml
 
 /provider/storages:
