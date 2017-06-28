@@ -35,19 +35,19 @@ ClusterDatabases:
 StorageDetails:
   $ref: ./storage_details.yaml
 
-POSIX:
+posix:
   $ref: ./storage_posix.yaml
 
-S3:
+s3:
   $ref: ./storage_s3.yaml
 
-Ceph:
+ceph:
   $ref: ./storage_ceph.yaml
 
-Swift:
+swift:
   $ref: ./storage_swift.yaml
 
-Glusterfs:
+glusterfs:
   $ref: ./storage_glusterfs.yaml
 
 StorageCreateRequest:

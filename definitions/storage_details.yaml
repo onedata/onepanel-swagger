@@ -20,10 +20,10 @@ properties:
     description: The type of storage.
     x-discriminator: true
     enum:
-      - POSIX
-      - S3
-      - Ceph
-      - Swift
-      - GlusterFS
+      - posix
+      - s3
+      - ceph
+      - swift
+      - glusterfs
 required:
   - type

@@ -2,7 +2,7 @@ description: The GlusterFS storage configuration.
 allOf:
   - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: "GlusterFS"
+    x-discriminator-value: "glusterfs"
     properties:
       volume:
         type: string
@@ -50,10 +50,11 @@ allOf:
     - volume
     - hostname
 example:
-  type: GlusterFS
+  type: glusterfs
   name: LocalGluster
   volume: Volume1
   hostname: volfileserver.example.com
+  transport: tcp
   port: 24007
   mountPoint: ""
   xlatorOptions: "transport.socket.ssl-enabled=on"

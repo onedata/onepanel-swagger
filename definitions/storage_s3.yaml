@@ -2,7 +2,7 @@ description: The Simple Storage Service configuration.
 allOf:
   - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: S3
+    x-discriminator-value: s3
     properties:
       hostname:
         type: string
@@ -45,7 +45,7 @@ allOf:
     - accessKey
     - secretKey
 example:
-  type: S3
+  type: s3
   name: SomeS3
   hostname: s3.example.com
   bucketName: bucket1.iam.example.com

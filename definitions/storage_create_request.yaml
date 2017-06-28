@@ -7,14 +7,14 @@ additionalProperties:
   $ref: '#/definitions/StorageDetails'
 example:
   s3:
-    type: S3
+    type: s3
     s3Hostname: s3.example.com
     iamHostname: iam.example.com
     bucketName: bucket1.iam.example.com
     accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
     secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDK
   swift:
-    type: SWIFT
+    type: swift
     authUrl: http://keystone2.example.com
     tenantName: Project1
     containerName: Container1

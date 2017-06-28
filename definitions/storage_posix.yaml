@@ -2,7 +2,7 @@ description: The POSIX storage configuration.
 allOf:
   - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: POSIX
+    x-discriminator-value: posix
     properties:
       mountPoint:
         type: string

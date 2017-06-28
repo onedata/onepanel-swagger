@@ -59,7 +59,7 @@ example:
         - "node1"
     storage:
       NFS:
-        type: "POSIX"
+        type: "posix"
         mountPoint: "/volumes/storage"
   oneprovider:
     register: true

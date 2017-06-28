@@ -2,7 +2,7 @@ description: The OpenStack Swift configuration.
 allOf:
   - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: SWIFT
+    x-discriminator-value: swift
     properties:
       authUrl:
         type: string
@@ -43,7 +43,7 @@ allOf:
     - username
     - password
 example:
-  type: SWIFT
+  type: swift
   name: SomeSwift
   authUrl: http://keystone2.example.com
   tenantName: Project1
