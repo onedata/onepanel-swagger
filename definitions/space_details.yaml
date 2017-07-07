@@ -12,6 +12,11 @@ properties:
     description: >
       Id of StorageDetails that supports this space on provider that is
       associated with this panel.
+  localStorages:
+    type: array
+    description: The list of IDs of cluster storage resources.
+    items:
+      type: string
   supportingProviders:
     type: object
     description: >
@@ -19,6 +24,11 @@ properties:
     additionalProperties:
       type: integer
       description: Supported storage space in bytes.
+  mountInRoot:
+    type: boolean
+    default: false
+    description: >
+      Defines whether space will be mounted in / or /{SpaceId}/ path.
   storageImport:
     $ref: '#/definitions/StorageImportDetails'
   storageUpdate:
@@ -27,4 +37,5 @@ required:
   - id
   - name
   - storageId
+  - localStorages
   - supportingProviders
