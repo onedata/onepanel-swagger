@@ -1,4 +1,4 @@
-version: 17.06.0-beta2
+version: 17.06.0-beta5
 title: Onepanel
 x-bash-codegen-description: |
   This is the RESTful API definition of **Onepanel** component of Onedata data
