@@ -133,3 +133,12 @@ SpaceSupportRequest:
 
 SpaceModifyRequest:
   $ref: ./space_modify_request.yaml
+
+SpaceSyncStats:
+  $ref: ./space_sync_stats.yaml
+
+TimeStats:
+  $ref: ./time_stats.yaml
+
+TimeStatsCollection:
+  $ref: ./time_stats_collection.yaml
