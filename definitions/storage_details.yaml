@@ -36,5 +36,12 @@ properties:
       - ceph
       - swift
       - glusterfs
+  lumaEnabled:
+    type: boolean
+    description: If true LUMA and reverse LUMA services will be enabled.
+    default: false
+  lumaUrl:
+    type: string
+    description: URL of external LUMA service
 required:
   - type
