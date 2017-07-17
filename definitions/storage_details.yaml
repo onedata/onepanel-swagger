@@ -46,5 +46,6 @@ properties:
   lumaCacheTimeout:
     type: integer
     description: LUMA cache timeout in minutes.
+    default: 5
 required:
   - type
