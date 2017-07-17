@@ -47,5 +47,8 @@ properties:
     type: integer
     description: LUMA cache timeout in minutes.
     default: 5
+  lumaApiKey:
+    type: string
+    description: LUMA API Key, must be identical with API Key in external LUMA service.
 required:
   - type
