@@ -43,5 +43,8 @@ properties:
   lumaUrl:
     type: string
     description: URL of external LUMA service
+  lumaCacheTimeout:
+    type: integer
+    description: LUMA cache timeout in minutes.
 required:
   - type
