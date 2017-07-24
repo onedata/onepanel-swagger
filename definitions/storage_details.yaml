@@ -36,5 +36,19 @@ properties:
       - ceph
       - swift
       - glusterfs
+  lumaEnabled:
+    type: boolean
+    description: If true LUMA and reverse LUMA services will be enabled.
+    default: false
+  lumaUrl:
+    type: string
+    description: URL of external LUMA service
+  lumaCacheTimeout:
+    type: integer
+    description: LUMA cache timeout in minutes.
+    default: 5
+  lumaApiKey:
+    type: string
+    description: LUMA API Key, must be identical with API Key in external LUMA service.
 required:
   - type
