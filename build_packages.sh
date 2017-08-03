@@ -13,6 +13,7 @@ releases["release/3.0.0-rc15"]="3.0.0-rc15"
 releases["release/3.0.0-rc16"]="3.0.0-rc16"
 releases["release/17.06.0-beta2"]="17.06.0-beta2"
 releases["release/17.06.0-beta6"]="17.06.0-beta6"
+releases["release/17.06.0-rc2"]="17.06.0-rc2"
 
 rm -rf packages
 for release_branch in "${!releases[@]}"; do
