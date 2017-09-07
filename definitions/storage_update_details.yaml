@@ -25,5 +25,9 @@ properties:
     type: boolean
     description: >
       Flag determining that deletions of files will be detected.
+  syncAcl:
+    type: boolean
+    description: >
+      Flag that enables synchronization of NFSv4 ACLs.
 required:
   - strategy

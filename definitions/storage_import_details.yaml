@@ -11,5 +11,9 @@ properties:
     description: >
       Maximum depth of filesystem tree that will be traversed during storage
       synchronization.
+  syncAcl:
+    type: boolean
+    description: >
+      Flag that enables synchronization of NFSv4 ACLs.
 required:
   - strategy
