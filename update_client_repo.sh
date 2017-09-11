@@ -25,6 +25,8 @@ if [ $TARGET_BRANCH == "develop" ]; then
     releases[$TARGET_BRANCH]="17.06.0-dev"
 elif [ $TARGET_BRANCH == "release/*" ]; then
     releases[$TARGET_BRANCH]=$( echo $TARGET_BRANCH | sed "s/release\/\(.*\)/\1/p" -n )
+elif [ $TARGET_BRANCH == "master" ]; then
+    exit 0
 else
     releases[$TARGET_BRANCH]=$TARGET_BRANCH
 fi
