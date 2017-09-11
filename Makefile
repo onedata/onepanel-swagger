@@ -42,10 +42,8 @@ bash-client: validate
 javascript-client:
 	docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_JS_CLIENT_IMAGE}  generate -i ./swagger.json -l javascript -o ./generated-javascript/ -c ./${LANGUAGE}-config.json
 
-
-javascript-update-repo: JS_BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
 javascript-update-repo:
-	./update_client_repo.sh javascript $(mktemp -d) ${JS_BRANCH}
+	./update_client_repo.sh javascript $(shell mktemp -d) $(shell git rev-parse --abbrev-ref HEAD)
 
 doc-static: validate
 	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger -t ${SWAGGER_BOOTPRINT_IMAGE} swagger ./swagger.json generated/static

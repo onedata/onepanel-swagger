@@ -17,6 +17,11 @@ TARGET_DIRECTORY=$2
 # Branch which will be updated in the client repo
 #
 TARGET_BRANCH=$3
+if [ x$TARGET_BRANCH == "x" ]; then
+    echo "Missing target branch!!!"
+    exit 1
+fi
+
 WORK_DIRECTORY=$PWD
 
 declare -A releases
