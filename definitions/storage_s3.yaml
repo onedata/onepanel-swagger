@@ -1,8 +1,8 @@
 description: The Simple Storage Service configuration.
 allOf:
-  - $ref: '#/definitions/ClusterStorages'
+  - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: S3
+    x-discriminator-value: s3
     properties:
       hostname:
         type: string
@@ -16,6 +16,12 @@ allOf:
       secretKey:
         type: string
         description: The secret key to the S3 storage.
+      signatureVersion:
+        type: integer
+        default: 4
+        description: >
+          The version of signature used to sign requests.
+          One of: 2, 4. Default: 4.
       timeout:
         type: integer
         description: Storage operation timeout in milliseconds.
@@ -39,7 +45,8 @@ allOf:
     - accessKey
     - secretKey
 example:
-  type: S3
+  type: s3
+  name: SomeS3
   hostname: s3.example.com
   bucketName: bucket1.iam.example.com
   accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD

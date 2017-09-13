@@ -7,7 +7,21 @@ SERVICE=onepanel
 # Language of the client repo (e.g. js, python, ...)
 #
 LANGUAGE=$1
+
+#
+# Temporary directory where the client will be built
+#
 TARGET_DIRECTORY=$2
+
+#
+# Branch which will be updated in the client repo
+#
+TARGET_BRANCH=$3
+if [ x$TARGET_BRANCH == "x" ]; then
+    echo "Missing target branch!!!"
+    exit 1
+fi
+
 WORK_DIRECTORY=$PWD
 
 declare -A releases
@@ -21,6 +35,7 @@ declare -A releases
 #releases["release/3.0.0-rc12"]="3.0.0-rc12"
 releases["release/3.0.0-rc14"]="3.0.0-rc14"
 releases["release/3.0.0-rc15"]="3.0.0-rc15"
+releases["release/17.06.0-rc2"]="17.06.0-rc2"
 releases["develop"]="3.0.0-dev"
 releases["release/future"]="3.0.0-dev"
 
@@ -34,7 +49,7 @@ rm -rf packages
 for release_branch in "${!releases[@]}"; do
 
     # Checkout the specific API version as worktree subdirectory
-    git worktree add build-"${releases[$release_branch]}" remotes/origin/$release_branch
+    git worktree add build-"${releases[$release_branch]}" $release_branch
 
     # Copy the codegen config file to workdir and set version
     cp ${LANGUAGE}-config.json build-"${releases[$release_branch]}"/

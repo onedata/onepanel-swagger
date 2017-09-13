@@ -25,7 +25,7 @@ properties:
     description: >
       The domain name of a zone where this storage provider will be registered.
 required:
-  - name  
+  - name
   - redirectionPoint
 example:
   name: Provider1

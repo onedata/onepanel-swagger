@@ -4,9 +4,12 @@
 
 Cookie:
   $ref: ./cookie.yaml
-  
+
 Error:
   $ref: ./error.yaml
+
+SessionDetails:
+  $ref: ./session_details.yaml
 
 UserDetails:
   $ref: ./user_details.yaml
@@ -29,35 +32,50 @@ ClusterManagers:
 ClusterDatabases:
   $ref: ./cluster_databases.yaml
 
-ClusterStorages:
-  $ref: ./cluster_storages.yaml
+StorageDetails:
+  $ref: ./storage_details.yaml
 
-ClusterStoragesList:
-  $ref: ./cluster_storages_list.yaml
-
-POSIX:
+posix:
   $ref: ./storage_posix.yaml
 
-S3:
+s3:
   $ref: ./storage_s3.yaml
 
-Ceph:
+ceph:
   $ref: ./storage_ceph.yaml
 
-Swift:
+swift:
   $ref: ./storage_swift.yaml
+
+glusterfs:
+  $ref: ./storage_glusterfs.yaml
+
+StorageCreateRequest:
+  $ref: ./storage_create_request.yaml
 
 StorageModifyRequest:
   $ref: ./storage_modify_request.yaml
 
+StorageImportDetails:
+  $ref: ./storage_import_details.yaml
+
+StorageUpdateDetails:
+  $ref: ./storage_update_details.yaml
+
 ZoneConfiguration:
   $ref: ./zone_configuration.yaml
+
+ZoneConfigurationDetails:
+  $ref: ./zone_configuration_details.yaml
 
 ZoneClusterConfiguration:
   $ref: ./zone_cluster_configuration.yaml
 
 ProviderConfiguration:
   $ref: ./provider_configuration.yaml
+
+ProviderConfigurationDetails:
+  $ref: ./provider_configuration_details.yaml
 
 ProviderClusterConfiguration:
   $ref: ./provider_cluster_configuration.yaml
@@ -67,6 +85,9 @@ ProviderDetails:
 
 ProviderSpaces:
   $ref: ./provider_spaces.yaml
+
+ProviderStorages:
+  $ref: ./provider_storages.yaml
 
 ProviderRegisterRequest:
   $ref: ./provider_register_request.yaml
@@ -89,8 +110,17 @@ ServiceHosts:
 ServiceDatabases:
   $ref: ./service_databases.yaml
 
+DatabaseHosts:
+  $ref: ./database_hosts.yaml
+
 ManagerHosts:
   $ref: ./manager_hosts.yaml
+
+WorkerHosts:
+  $ref: ./worker_hosts.yaml
+
+ClusterConfigurationDetails:
+  $ref: ./cluster_configuration_details.yaml
 
 TaskStatus:
   $ref: ./task_status.yaml
@@ -101,3 +131,14 @@ SpaceDetails:
 SpaceSupportRequest:
   $ref: ./space_support_request.yaml
 
+SpaceModifyRequest:
+  $ref: ./space_modify_request.yaml
+
+SpaceSyncStats:
+  $ref: ./space_sync_stats.yaml
+
+TimeStats:
+  $ref: ./time_stats.yaml
+
+TimeStatsCollection:
+  $ref: ./time_stats_collection.yaml

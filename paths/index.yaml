@@ -3,6 +3,9 @@
 
 
 # Onepanel common resources
+/session:
+  $ref: ./session.yaml
+
 /users:
   $ref: ./users.yaml
 
@@ -37,11 +40,14 @@
 /provider/spaces/{id}:
   $ref: ./provider_spaces_id.yaml
 
+/provider/spaces/{id}/sync:
+  $ref: ./provider_space_sync_stats.yaml
+
 /provider/storages:
   $ref: ./provider_storages.yaml
 
-/provider/storages/{name}:
-  $ref: ./provider_storages_name.yaml
+/provider/storages/{id}:
+  $ref: ./provider_storages_id.yaml
 
 /provider/databases:
   $ref: ./provider_databases.yaml

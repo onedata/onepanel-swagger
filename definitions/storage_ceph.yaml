@@ -1,8 +1,8 @@
 description: The Ceph storage configuration.
 allOf:
-  - $ref: '#/definitions/ClusterStorages'
+  - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: "CEPH"
+    x-discriminator-value: "ceph"
     properties:
       username:
         type: string
@@ -40,7 +40,8 @@ allOf:
     - clusterName
     - poolName
 example:
-  type: CEPH
+  type: ceph
+  name: SomeCeph
   username: user1
   key: LKJASHD6876ASDBJHV65765ASD
   monitorHostname: test.example.com

@@ -30,7 +30,7 @@ properties:
     type: object
     description: The collection of hosts with associated error description.
     additionalProperties:
-      description: The description of an error that has occured on a service host.
+      # The description of an error that has occured on a service host.
       $ref: '#/definitions/Error'
 required:
   - status

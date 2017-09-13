@@ -2,11 +2,21 @@ type: object
 description: The space details.
 properties:
   id:
-    type: string 
+    type: string
     description: The ID of the space.
   name:
-    type: string 
+    type: string
     description: The name of the space.
+  storageId:
+    type: string
+    description: >
+      Id of StorageDetails that supports this space on provider that is
+      associated with this panel.
+  localStorages:
+    type: array
+    description: The list of IDs of cluster storage resources.
+    items:
+      type: string
   supportingProviders:
     type: object
     description: >
@@ -14,7 +24,18 @@ properties:
     additionalProperties:
       type: integer
       description: Supported storage space in bytes.
+  mountInRoot:
+    type: boolean
+    default: false
+    description: >
+      Defines whether space will be mounted in / or /{SpaceId}/ path.
+  storageImport:
+    $ref: '#/definitions/StorageImportDetails'
+  storageUpdate:
+    $ref: '#/definitions/StorageUpdateDetails'
 required:
-  - spaceId
+  - id
   - name
+  - storageId
+  - localStorages
   - supportingProviders

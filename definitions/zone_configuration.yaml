@@ -24,7 +24,7 @@ example:
       node1:
         hostname: "node1"
     manager:
-      defaultNode: "node1"
+      mainNode: "node1"
       nodes:
         - "node1"
     worker:
@@ -34,4 +34,5 @@ example:
       nodes:
         - "node1"
   onezone:
+    domainName: "example.com"
     name: "example"

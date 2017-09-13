@@ -41,14 +41,14 @@ properties:
     $ref: '#/definitions/PanelConfiguration'
 required:
   - cluster
-example:  
+example:
   cluster:
     domainName: "oneprovider.onedata.example.com"
     nodes:
       node1:
         hostname: "node1"
     manager:
-      defaultNode: "node1"
+      mainNode: "node1"
       nodes:
         - "node1"
     worker:
@@ -59,7 +59,7 @@ example:
         - "node1"
     storage:
       NFS:
-        type: "POSIX"
+        type: "posix"
         mountPoint: "/volumes/storage"
   oneprovider:
     register: true

@@ -1,16 +1,11 @@
 type: object
 description: The provider cluster configuration.
 properties:
-  autoDeploy:
-    type: boolean
-    description: >
-      Defines whether administrative cluster should be created from the list
-      of provided cluster nodes.
   domainName:
     type: string
     description: >
       The name of a domain common for all services in the cluster. Together with
-      a node hostname constitutes a fully qualified domain name (FDQN) of the node.
+      a node hostname constitutes a fully qualified domain name (FQDN) of the node.
   nodes:
     type: object
     description: The collection of nodes aliases associated with nodes properties.
@@ -29,10 +24,7 @@ properties:
   workers:
     $ref: '#/definitions/ClusterWorkers'
   storages:
-    type: object
-    description: The cluster storage configuration.
-    additionalProperties:
-      $ref: '#/definitions/ClusterStorages'
+    $ref: '#/definitions/StorageCreateRequest'
 required:
   - domainName
   - nodes

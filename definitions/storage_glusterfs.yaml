@@ -1,0 +1,61 @@
+description: The GlusterFS storage configuration.
+allOf:
+  - $ref: '#/definitions/StorageDetails'
+  - type: object
+    x-discriminator-value: "glusterfs"
+    properties:
+      volume:
+        type: string
+        description: The name of the volume to use as a storage backend.
+      hostname:
+        type: string
+        description: The hostname (IP address or FQDN) of GlusterFS volume server.
+      port:
+        type: integer
+        description: The GlusterFS port on volume server.
+        default: 24007
+      transport:
+        type: string
+        description: The transport protocol to use to connect to the volume server.
+        enum:
+          - tcp
+          - rdma
+          - socket
+        default: tcp
+      mountPoint:
+        type: string
+        description: Relative mountpoint within the volume which should be used by Oneprovider.
+        default: ""
+      xlatorOptions:
+        type: string
+        description: |
+          Volume specific GlusterFS translator options, in the format:
+            TRANSLATOR1.OPTION1=VALUE1;TRANSLATOR2.OPTION2=VALUE2;...
+        default: ""
+      timeout:
+        type: integer
+        description: Storage operation timeout in milliseconds.
+      insecure:
+        type: boolean
+        default: false
+        description: >
+          Defines whether storage administrator credentials (username and key)
+          may be used by users without storage accounts to access storage in
+          direct IO mode.
+      readonly:
+        type: boolean
+        default: false
+        description: Defines whether storage is readonly.
+    required:
+    - volume
+    - hostname
+example:
+  type: glusterfs
+  name: LocalGluster
+  volume: Volume1
+  hostname: volfileserver.example.com
+  transport: tcp
+  port: 24007
+  mountPoint: ""
+  xlatorOptions: "transport.socket.ssl-enabled=on"
+  insecure: true
