@@ -15,7 +15,7 @@ get:
     '200':
       description: Information about files popularity feature for the space
       schema:
-        $ref: '#/definitions/space_files_popularity'
+        $ref: '#/definitions/SpaceFilesPopularity'
     '401':
       description: Unauthorized request.
     '403':
@@ -24,6 +24,12 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The ID of a space
+      required: true
 patch:
   operationId: configure_space_files_popularity
   summary: Configure space files popularity
@@ -50,3 +56,9 @@ patch:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The ID of a space
+      required: true

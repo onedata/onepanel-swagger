@@ -43,6 +43,18 @@
 /provider/spaces/{id}/sync:
   $ref: ./provider_space_sync_stats.yaml
 
+/provider/spaces/{id}/files_popularity:
+  $ref: ./provider_space_files_popularity.yaml
+  
+/provider/spaces/{id}/auto_cleaning:
+  $ref: ./provider_space_auto_cleaning.yaml
+
+/provider/spaces/{id}/auto_cleaning/status:
+  $ref: ./provider_space_auto_cleaning_status.yaml
+
+/provider/spaces/{id}/auto_cleaning/reports:
+  $ref: ./provider_space_auto_cleaning_reports.yaml
+
 /provider/storages:
   $ref: ./provider_storages.yaml
 

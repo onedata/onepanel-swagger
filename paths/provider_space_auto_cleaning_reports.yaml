@@ -1,11 +1,11 @@
 get:
-  operationId: get_provider_space_auto_cleaning_report
+  operationId: get_provider_space_auto_cleaning_reports
   summary: Get reports of space auto cleaning
   description: >
     Returns collection of reports of auto cleaning for the space
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_auto_cleaning_report
+  x-onedata-resource: space_auto_cleaning_reports
   tags:
     - Oneprovider
   produces:
@@ -14,7 +14,7 @@ get:
     '200':
       description: Collection of space auto cleaning reports
       schema:
-        $ref: '#/definitions/space_auto_cleaning_report'
+        $ref: '#/definitions/SpaceAutoCleaningReports'
     '401':
       description: Unauthorized request.
     '403':
@@ -23,3 +23,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The ID of a space
+      required: true

@@ -6,7 +6,7 @@ properties:
     description: If true, files popularity feature for the space is enabled
   restUrl:
     type: string
-    description: FIXME: description
+    description: FIXME
 required:
   - enabled
 example:

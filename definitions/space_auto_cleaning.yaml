@@ -6,7 +6,7 @@ properties:
     description: If true, auto cleaning feature for the space is enabled
   settings:
     description: Settings when and what files auto cleaning should clean
-    $ref: '#/definitions/AutoCleaningSettings'
+    $ref: '#/definitions/SpaceAutoCleaningSettings'
 example:
   enabled: true
   settings:

@@ -15,7 +15,7 @@ get:
     '200':
       description: Information about auto cleaning feature for the space
       schema:
-        $ref: '#/definitions/space_auto_cleaning'
+        $ref: '#/definitions/SpaceAutoCleaning'
     '401':
       description: Unauthorized request.
     '403':
@@ -24,6 +24,13 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The ID of a space
+      required: true
+
 patch:
   operationId: configure_space_auto_cleaning
   summary: Configure space auto cleaning
@@ -50,3 +57,9 @@ patch:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The ID of a space
+      required: true

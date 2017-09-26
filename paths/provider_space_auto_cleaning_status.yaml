@@ -14,7 +14,7 @@ get:
     '200':
       description: Information about current auto cleaning process for the space
       schema:
-        $ref: '#/definitions/space_auto_cleaning_status'
+        $ref: '#/definitions/SpaceAutoCleaningStatus'
     '401':
       description: Unauthorized request.
     '403':
@@ -23,3 +23,9 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The ID of a space
+      required: true
