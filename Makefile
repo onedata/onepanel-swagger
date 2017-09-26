@@ -49,15 +49,15 @@ javascript-update-repo: javascript-client
 	git clone ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git generated/javascript-git
 	# Commit&push the changes to the client repository
 	cd generated/javascript-git && \
-	git checkout ${BRANCH} && \
-	cp -R ../javascript . && \
-    git add -A . && \
-    git config user.email "bamboo@onedata.org" && \
-    git config user.name "Bamboo Agent" && \
-    git commit -a -m "Auto update" && \
-    git push origin ${BRANCH} && \
-    cd ../.. && \
-    rm -rf generated/javascript-git
+	git checkout -B ${BRANCH} && \
+	cp -R ../javascript/* . && \
+	git add -A . && \
+	git config user.email "bamboo@onedata.org" && \
+	git config user.name "Bamboo Agent" && \
+	git commit -a -m "Auto update" && \
+	git push origin ${BRANCH} && \
+	cd ../.. && \
+	rm -rf generated/javascript-git
 
 doc-static: validate
 	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger -t ${SWAGGER_BOOTPRINT_IMAGE} swagger ./swagger.json generated/static
