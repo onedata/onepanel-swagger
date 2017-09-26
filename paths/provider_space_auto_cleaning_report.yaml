@@ -1,0 +1,25 @@
+get:
+  operationId: get_provider_space_auto_cleaning_report
+  summary: Get reports of space auto cleaning
+  description: >
+    Returns collection of reports of auto cleaning for the space
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space_auto_cleaning_report
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Collection of space auto cleaning reports
+      schema:
+        $ref: '#/definitions/space_auto_cleaning_report'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'

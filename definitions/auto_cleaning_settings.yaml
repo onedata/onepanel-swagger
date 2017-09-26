@@ -1,0 +1,30 @@
+type: object
+description: >
+  Settings for auto cleaning algorithms - for what files and when it should
+  be started
+properties:
+  fileSizeGreaterThan:
+    type: number
+    description: Only files which size [b] exceeds given should be cleaned
+  fileSizeLesserThan:
+    type: number
+    description: >
+      Only files which size [b] is lesser than given should be cleaned
+  fileTimeNotActive:
+    type: number
+    description: >
+      Only files that were not active for given amount of time [s] should be
+      cleaned
+  spaceSoftQuota:
+    type: number
+    description: Start cleaning after delay if given soft quota is exceeded
+  spaceHardQuota:
+    type: number
+    description: Start cleaning after delay if given soft quota is exceeded
+example:
+  fileSizeGreaterThan: 1000
+  fileSizeLesserThan: 1000000
+  fileTimeNotActive: 60000
+  spaceSoftQuota: 5000000000
+  spaceHardQuota: 6000000000
+  

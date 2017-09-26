@@ -1,0 +1,52 @@
+get:
+  operationId: get_provider_space_files_popularity
+  summary: Get config of space files popularity
+  description: >
+    Returns state and basic information about files popularity feature that
+    can be turned on for the space
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space_files_popularity
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about files popularity feature for the space
+      schema:
+        $ref: '#/definitions/space_files_popularity'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+patch:
+  operationId: configure_space_files_popularity
+  summary: Configure space files popularity
+  description: Change files popularity feature options for the space
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resouce: space_files_popularity
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Files popularity feature has been successfully configured
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'

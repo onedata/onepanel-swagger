@@ -1,0 +1,17 @@
+type: object
+description: Settings of auto cleanging space feature
+properties:
+  enabled:
+    type: boolean
+    description: If true, auto cleaning feature for the space is enabled
+  settings:
+    description: Settings when and what files auto cleaning should clean
+    $ref: '#/definitions/AutoCleaningSettings'
+example:
+  enabled: true
+  settings:
+    fileSizeGreaterThan: 1000
+    fileSizeLesserThan: 1000000
+    fileTimeNotActive: 60000
+    spaceSoftQuota: 5000000000
+    spaceHardQuota: 6000000000

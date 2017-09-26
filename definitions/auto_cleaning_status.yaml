@@ -1,0 +1,16 @@
+type: object
+description: Status of current auto cleaning process for given space
+properties:
+  isWorking:
+    type: boolean
+    description: If true, auto cleaning algorithm is currently working
+  spaceUsed:
+    type: number
+    description: Currently used space [b] in the space
+  # FIXME: maybe we should provide settings with this autocleaning process was started
+required:
+  - isWorking
+example:
+  isWorking: true
+  spaceUsed: 100200
+  

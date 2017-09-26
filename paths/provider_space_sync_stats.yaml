@@ -24,9 +24,6 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderSpaceSyncStats --host https://op.example.com:9443
   parameters:
   - name: id
     in: path
