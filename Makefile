@@ -12,6 +12,7 @@ SWAGGER_BASH_CLIENT_IMAGE   ?= docker.onedata.org/swagger-codegen:ID-2fc8126ac8
 SWAGGER_REDOC_IMAGE         ?= docker.onedata.org/swagger-redoc:1.0.0
 
 BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
+COMMIT_MESSAGE = $(shell git log -1 --pretty=format:%s)
 
 .PHONY : all swagger.json
 all : cowboy-server python-client bash-client doc-static doc-markdown
@@ -46,15 +47,16 @@ javascript-client: validate
 
 javascript-update-repo: javascript-client
 	rm -rf generated/javascript-git
-	git clone ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git generated/javascript-git
-	# Commit&push the changes to the client repository
+	git clone ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git generated/javascript-git && \
 	cd generated/javascript-git && \
 	git checkout -B ${BRANCH} && \
+	git branch --set-upstream-to=origin/${BRANCH} ${BRANCH} && \
+	git pull && \
 	cp -R ../javascript/* . && \
 	git add -A . && \
 	git config user.email "bamboo@onedata.org" && \
 	git config user.name "Bamboo Agent" && \
-	git commit -a -m "Auto update" && \
+	git commit -a -m "Auto update: ${COMMIT_MESSAGE}" && \
 	git push origin ${BRANCH} && \
 	cd ../.. && \
 	rm -rf generated/javascript-git
