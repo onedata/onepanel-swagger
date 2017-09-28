@@ -43,8 +43,10 @@ patch:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Space auto cleaning feature has been successfully configured
+    '200':
+      description: Information about auto cleaning feature for the space
+      schema:
+        $ref: '#/definitions/SpaceAutoCleaning'
     '400':
       description: Invalid request.
       schema:

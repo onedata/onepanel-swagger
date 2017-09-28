@@ -42,8 +42,10 @@ patch:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Files popularity feature has been successfully configured
+    '200':
+      description: Information about files popularity feature for the space
+      schema:
+        $ref: '#/definitions/SpaceFilesPopularity'
     '400':
       description: Invalid request.
       schema:
