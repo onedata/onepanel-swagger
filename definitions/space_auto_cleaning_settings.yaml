@@ -1,30 +1,38 @@
 type: object
 description: >
   Settings for auto cleaning algorithms - for what files and when it should
-  be started
+  be started. If parameter is not set in the request, previous value will be
+  used.
 properties:
   fileSizeGreaterThan:
     type: number
-    description: Only files which size [b] exceeds given should be cleaned
+    description: >
+      Only files which size [b] exceeds given should be cleaned.
+      Set to null to disable this parameter.
   fileSizeLesserThan:
     type: number
     description: >
       Only files which size [b] is lesser than given should be cleaned
+      Set to null to disable this parameter.
   fileTimeNotActive:
     type: number
     description: >
       Only files that were not active for given amount of time [s] should be
-      cleaned
-  spaceSoftQuota:
+      cleaned. Set to null to disable this parameter.
+  threshold:
     type: number
-    description: Start cleaning after delay if given soft quota is exceeded
-  spaceHardQuota:
+    description: >
+      Autocleaning will start if occupancy of storage will exceed this value.
+      This parameter is required to start autocleaning.
+  target:
     type: number
-    description: Start cleaning after delay if given soft quota is exceeded
+    description: >
+      Autocleaning will stop if occupancy of storage will reach this value.
+      This parameter is required to start autocleaning.
 example:
   fileSizeGreaterThan: 1000
   fileSizeLesserThan: 1000000
   fileTimeNotActive: 60000
-  spaceSoftQuota: 5000000000
-  spaceHardQuota: 6000000000
+  target: 5000000000
+  threshold: 6000000000
   

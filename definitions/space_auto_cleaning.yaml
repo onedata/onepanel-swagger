@@ -13,5 +13,5 @@ example:
     fileSizeGreaterThan: 1000
     fileSizeLesserThan: 1000000
     fileTimeNotActive: 60000
-    spaceSoftQuota: 5000000000
-    spaceHardQuota: 6000000000
+    target: 5000000000
+    threshold: 6000000000

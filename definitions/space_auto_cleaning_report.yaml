@@ -1,0 +1,30 @@
+type: object
+description: Autocleaning report
+properties:
+  startedAt:
+    type: string
+    description: Start time of autocleaning procedure in ISO 8601 format
+  stoppedAt:
+    type: string
+    description: Finish time of autocleaning procedure in ISO 8601 format
+  releasedSize:
+    type: integer
+    description: Number of bytes deleted during autocleaning procedure.
+  plannedReleasedSize:
+    type: integer
+    description: Number of bytes that should be deleted.
+  filesNumber:
+    type: integer
+    description: Number of deleted files.
+required:
+  - startedAt
+  - stoppedAt
+  - releasedSize
+  - plannedReleasedSize
+  - filesNumber
+example:
+  startedAt: 2017-06-22T13:29:39.654Z
+  stoppedAt: 2017-06-22T15:57:41.958Z
+  releasedSize: 60000
+  plannedReleasedSize: 500
+  filesNumber: 10

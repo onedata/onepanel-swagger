@@ -5,7 +5,7 @@ get:
     Returns collection of reports of auto cleaning for the space
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_auto_cleaning_reports
+  x-onedata-resource: space_auto_cleaning_report_collection
   tags:
     - Oneprovider
   produces:
@@ -14,7 +14,7 @@ get:
     '200':
       description: Collection of space auto cleaning reports
       schema:
-        $ref: '#/definitions/SpaceAutoCleaningReports'
+        $ref: '#/definitions/SpaceAutoCleaningReportCollection'
     '401':
       description: Unauthorized request.
     '403':
@@ -28,4 +28,9 @@ get:
       in: path
       type: string
       description: The ID of a space
+      required: true
+    - name: started_after
+      in: query
+      type: string
+      description: Fetch only reports that started after this date (ISO-8601)
       required: true
