@@ -7,10 +7,10 @@ properties:
   stoppedAt:
     type: string
     description: Finish time of autocleaning procedure in ISO 8601 format
-  releasedSize:
+  releasedBytes:
     type: integer
     description: Number of bytes deleted during autocleaning procedure.
-  plannedReleasedSize:
+  bytesToRelease:
     type: integer
     description: Number of bytes that should be deleted.
   filesNumber:
@@ -19,12 +19,12 @@ properties:
 required:
   - startedAt
   - stoppedAt
-  - releasedSize
-  - plannedReleasedSize
+  - releasedBytes
+  - bytesToRelease
   - filesNumber
 example:
   startedAt: 2017-06-22T13:29:39.654Z
   stoppedAt: 2017-06-22T15:57:41.958Z
-  releasedSize: 60000
-  plannedReleasedSize: 500
+  releasedBytes: 60000
+  bytesToRelease: 500
   filesNumber: 10
