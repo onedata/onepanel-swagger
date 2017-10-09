@@ -6,10 +6,10 @@ properties:
     description: If true, auto cleaning algorithm is currently working
   spaceUsed:
     type: number
-    description: Currently used space [b] in the space
-  # FIXME: maybe we should provide settings with this autocleaning process was started
+    description: Current occupancy [b] of storage support supporting given space
 required:
   - isWorking
+  - spaceUsed
 example:
   isWorking: true
   spaceUsed: 100200
