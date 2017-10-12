@@ -9,15 +9,15 @@ properties:
     description: >
       Only files which size [b] exceeds given should be cleaned.
       Set to null to disable this parameter.
-  fileSizeLesserThan:
+  fileSizeLessThan:
     type: number
     description: >
-      Only files which size [b] is lesser than given should be cleaned
+      Only files which size [b] is less than given should be cleaned
       Set to null to disable this parameter.
-  fileTimeNotActive:
+  fileNotActiveHours:
     type: number
     description: >
-      Only files that were not active for given amount of time [s] should be
+      Only files that were not active for given period [h] should be
       cleaned. Set to null to disable this parameter.
   threshold:
     type: number
@@ -31,8 +31,8 @@ properties:
       This parameter is required to start autocleaning.
 example:
   fileSizeGreaterThan: 1000
-  fileSizeLesserThan: 1000000
-  fileTimeNotActive: 60000
+  fileSizeLessThan: 1000000
+  fileNotActiveHours: 60000
   target: 5000000000
   threshold: 6000000000
   
