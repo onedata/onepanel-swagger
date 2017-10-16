@@ -5,27 +5,27 @@ description: >
   used.
 properties:
   fileSizeGreaterThan:
-    type: number
+    type: integer
     description: >
       Only files which size [b] exceeds given should be cleaned.
       Set to null to disable this parameter.
   fileSizeLessThan:
-    type: number
+    type: integer
     description: >
       Only files which size [b] is less than given should be cleaned
       Set to null to disable this parameter.
   fileNotActiveHours:
-    type: number
+    type: integer
     description: >
       Only files that were not active for given period [h] should be
       cleaned. Set to null to disable this parameter.
   threshold:
-    type: number
+    type: integer
     description: >
       Autocleaning will start if occupancy of storage will exceed this value.
       This parameter is required to start autocleaning.
   target:
-    type: number
+    type: integer
     description: >
       Autocleaning will stop if occupancy of storage will reach this value.
       This parameter is required to start autocleaning.

@@ -5,7 +5,7 @@ properties:
     type: boolean
     description: If true, auto cleaning algorithm is currently working
   spaceUsed:
-    type: number
+    type: integer
     description: Current occupancy [b] of storage support supporting given space
 required:
   - isWorking
