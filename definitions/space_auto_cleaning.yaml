@@ -10,8 +10,8 @@ properties:
 example:
   enabled: true
   settings:
-    fileSizeGreaterThan: 1000
-    fileSizeLesserThan: 1000000
-    fileTimeNotActive: 60000
+    lowerFileSizeLimit: 1000
+    upperFileSizeLimit: 1000000
+    maxFileNotOpenedHours: 60000
     target: 5000000000
     threshold: 6000000000

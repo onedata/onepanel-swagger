@@ -4,35 +4,35 @@ description: >
   be started. If parameter is not set in the request, previous value will be
   used.
 properties:
-  fileSizeGreaterThan:
+  lowerFileSizeLimit:
     type: integer
     description: >
-      Only files which size [b] exceeds given should be cleaned.
+      Only files which size [b] is greater than or equal to given value should be cleaned.
       Set to null to disable this parameter.
-  fileSizeLessThan:
+  upperFileSizeLimit:
     type: integer
     description: >
-      Only files which size [b] is less than given should be cleaned
+      Only files which size [b] is less than or equal to given value should be cleaned
       Set to null to disable this parameter.
-  fileNotActiveHours:
+  maxFileNotOpenedHours:
     type: integer
     description: >
-      Only files that were not active for given period [h] should be
+      Files that haven't been opened for longer than or equal to given period [h] will be
       cleaned. Set to null to disable this parameter.
   threshold:
     type: integer
     description: >
-      Autocleaning will start if occupancy of storage will exceed this value.
+      Autocleaning will start if occupancy of storage will greater than or equal to this value [b].
       This parameter is required to start autocleaning.
   target:
     type: integer
     description: >
-      Autocleaning will stop if occupancy of storage will reach this value.
+      Autocleaning will stop if occupancy of storage will be less than or equal to this value [b].
       This parameter is required to start autocleaning.
 example:
-  fileSizeGreaterThan: 1000
-  fileSizeLessThan: 1000000
-  fileNotActiveHours: 60000
+  lowerFileSizeLimit: 1000
+  upperFileSizeLimit: 1000000
+  maxFileNotOpenedHours: 60000
   target: 5000000000
   threshold: 6000000000
   

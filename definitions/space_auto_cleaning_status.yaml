@@ -1,16 +1,16 @@
 type: object
 description: Status of current auto cleaning process for given space
 properties:
-  isWorking:
+  inProgress:
     type: boolean
-    description: If true, auto cleaning algorithm is currently working
-  spaceUsed:
+    description: Flag which indicates that autocleaning process is currently in progress.
+  spaceOccupancy:
     type: integer
-    description: Current occupancy [b] of storage support supporting given space
+    description: Current occupancy [b] of storage supporting given space.
 required:
-  - isWorking
-  - spaceUsed
+  - inProgress
+  - spaceOccupancy
 example:
-  isWorking: true
-  spaceUsed: 100200
+  inProgress: true
+  spaceOccupancy: 100200
   
