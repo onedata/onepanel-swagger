@@ -31,13 +31,9 @@ properties:
         type: number
         format: float
         description: The geographical latitude of the provider.
-      onezoneDomainName:
-        type: string
-        description: The domain name of a zone where this storage provider will be registered.
     required:
       - register
       - name
-      - onezoneDomainName
   onezone:
     type: object
     description: The zone custom configuration.
