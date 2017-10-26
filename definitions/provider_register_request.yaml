@@ -9,16 +9,20 @@ properties:
   subdomainDelegation:
     type: boolean
     description: >
-      If enabled, the storage provider will be assigned a subdomain in onezone's domain and subdomain property must be provided. If disabled, domain property should be provided.
+      If enabled, the storage provider will be assigned a subdomain in onezone's domain 
+      and subdomain property must be provided. If disabled, domain property 
+      should be provided.
     default: false
   subdomain:
     type: string
     description: >
-      Unique subdomain in onezone's domain for the storage provider. Required if subdomain delegation is enabled.
+      Unique subdomain in onezone's domain for the storage provider. Required if 
+      subdomain delegation is enabled.
   domain:
     type: string
     description: >
-      The fully qualified domain name for the storage provider. Required if subdomain delegation is disabled.
+      The fully qualified domain name for the storage provider. Required if 
+      subdomain delegation is disabled.
   geoLongitude:
     type: number
     format: float
