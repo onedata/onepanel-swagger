@@ -54,7 +54,7 @@ javascript-update-repo: javascript-client
     git add -A . && \
     git config user.email "bamboo@onedata.org" && \
     git config user.name "Bamboo Agent" && \
-    git commit -a -m "Auto update" && \
+    { git commit -a -m "Auto update" || true } && \
     git push origin ${BRANCH} && \
     cd ../.. && \
     rm -rf generated/javascript-git
