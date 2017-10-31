@@ -48,13 +48,13 @@ javascript-update-repo: javascript-client
 	rm -rf generated/javascript-git
 	git clone ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git generated/javascript-git
 	# Commit&push the changes to the client repository
-	cd generated/javascript-git && \
+	- cd generated/javascript-git && \
 	git checkout ${BRANCH} && \
 	cp -R ../javascript . && \
     git add -A . && \
     git config user.email "bamboo@onedata.org" && \
     git config user.name "Bamboo Agent" && \
-    { git commit -a -m "Auto update" || true } && \
+    git commit -a -m "Auto update" && \
     git push origin ${BRANCH} && \
     cd ../.. && \
     rm -rf generated/javascript-git
