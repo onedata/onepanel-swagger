@@ -3,8 +3,8 @@ post:
   summary: Start space cleaning
   description: Starts cleaning of space with current configuration.
   x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_op_worker
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: start_cleaning
   tags:
     - Oneprovider
   consumes:
