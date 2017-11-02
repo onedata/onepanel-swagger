@@ -29,3 +29,8 @@ get:
       type: string
       description: The ID of a space
       required: true
+  x-code-samples:
+  - lang: Shell
+    source: >
+      onepanel-rest-cli -u alice:secret --host https://op.example.com:9443
+      getProviderSpaceAutoCleaningStatus id=JaHSGDJHG12312aassdCXX09

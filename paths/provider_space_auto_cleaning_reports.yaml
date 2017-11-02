@@ -34,3 +34,9 @@ get:
       type: string
       description: Fetch only reports that started after this date (ISO-8601)
       required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u alice:secret --host https://op.example.com:9443
+        getProviderSpaceAutoCleaningReports id=JaHSGDJHG12312aassdCXX09
+        started_after="2017-10-20T21:39:37"

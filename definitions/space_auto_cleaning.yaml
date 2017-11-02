@@ -1,5 +1,5 @@
 type: object
-description: Settings of auto cleanging space feature
+description: Space auto cleaning settings
 properties:
   enabled:
     type: boolean

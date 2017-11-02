@@ -3,10 +3,11 @@ description: Status of current auto cleaning process for given space
 properties:
   inProgress:
     type: boolean
-    description: Flag which indicates that autocleaning process is currently in progress.
+    description: >
+      Flag which indicates whether auto cleaning process is currently in progress
   spaceOccupancy:
     type: integer
-    description: Current occupancy [b] of storage supporting given space.
+    description: Amount of storage [b] used by data from given space on that storage.
 required:
   - inProgress
   - spaceOccupancy

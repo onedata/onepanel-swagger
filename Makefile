@@ -45,19 +45,17 @@ bash-client: validate
 javascript-client: validate
 	docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_JS_CLIENT_IMAGE}  generate -i ./swagger.json -l javascript -o ./generated/javascript/ -c ./javascript-config.json
 
-javascript-update-repo: javascript-client
+javascript-update-repo: clean javascript-client
 	rm -rf generated/javascript-git
 	git clone ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git generated/javascript-git && \
 	cd generated/javascript-git && \
-	git checkout -B ${BRANCH} && \
-	git branch --set-upstream-to=origin/${BRANCH} ${BRANCH} && \
-	git pull && \
+	( ( git checkout ${BRANCH} && ( git pull || exit 1 ) ) || git checkout -b ${BRANCH} ) && \
 	cp -R ../javascript/* . && \
 	git add -A . && \
 	git config user.email "bamboo@onedata.org" && \
 	git config user.name "Bamboo Agent" && \
 	git commit -a -m "Auto update: ${COMMIT_MESSAGE}" && \
-	git push origin ${BRANCH} && \
+	git push -u origin ${BRANCH} && \
 	cd ../.. && \
 	rm -rf generated/javascript-git
 

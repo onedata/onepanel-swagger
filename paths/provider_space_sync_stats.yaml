@@ -44,3 +44,9 @@ get:
     description: Specify which statistic metrics should be returned - strings delimited with comma
     type: string
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: >
+      onepanel-rest-cli -u alice:secret --host https://op.example.com:9443
+      getProviderSpaceSyncStats id=JaHSGDJHG12312aassdCXX09
+      started_after="2017-10-20T21:39:37"

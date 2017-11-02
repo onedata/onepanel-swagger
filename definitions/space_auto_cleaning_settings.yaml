@@ -22,13 +22,14 @@ properties:
   threshold:
     type: integer
     description: >
-      Autocleaning will start if occupancy of storage will greater than or equal to this value [b].
-      This parameter is required to start autocleaning.
+      Amount of data [b], which should trigger the auto cleaning in the space. 
+      Only replicas maintained by this storage provider will be removed. If not 
+      specified, the auto cleaning will not start automatically.
   target:
     type: integer
     description: >
-      Autocleaning will stop if occupancy of storage will be less than or equal to this value [b].
-      This parameter is required to start autocleaning.
+      Amount of data [b], at which the auto cleaning process should stop. This
+      parameter is required to enale auto cleaning.
 example:
   lowerFileSizeLimit: 1000
   upperFileSizeLimit: 1000000
