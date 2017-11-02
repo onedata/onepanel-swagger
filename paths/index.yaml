@@ -49,6 +49,9 @@
 /provider/spaces/{id}/auto_cleaning_reports:
   $ref: ./provider_space_auto_cleaning_reports.yaml
 
+/provider/spaces/{id}/start_cleaning:
+  $ref: ./provider_space_start_cleaning.yaml
+
 /provider/storages:
   $ref: ./provider_storages.yaml
 
