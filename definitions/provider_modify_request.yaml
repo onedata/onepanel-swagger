@@ -13,13 +13,13 @@ properties:
   subdomain:
     type: string
     description: >
-      Unique subdomain in onezone's domain for the provider. Required if subdomain 
-      delegation is enabled.
+      Unique subdomain in onezone's domain for the provider. This property is required 
+      only if subdomain delegation is enabled. Otherwise it is ignored.
   domain:
     type: string
     description: >
-      The fully qualified domain name for the provider. Required if subdomain 
-      delegation is disabled.
+      The fully qualified domain name for the provider. This property is required 
+      only if subdomain delegation is disabled. Otherwise it is ignored.
   geoLongitude:
     type: number
     format: float
