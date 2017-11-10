@@ -29,13 +29,24 @@ properties:
     default: false
     description: >
       Defines whether space will be mounted in / or /{SpaceId}/ path.
+  softQuota:
+    type: integer
+    description: >
+      Number of bytes that can be written above support limit.
   storageImport:
     $ref: '#/definitions/StorageImportDetails'
   storageUpdate:
     $ref: '#/definitions/StorageUpdateDetails'
+  filesPopularity:
+    description: Configuration of files popularity feature for this space
+    $ref: '#/definitions/SpaceFilesPopularity'
+  autoCleaning:
+    description: Configuration of auto cleaning feature for this space
+    $ref: '#/definitions/SpaceAutoCleaning'
 required:
   - id
   - name
   - storageId
   - localStorages
   - supportingProviders
+  - softQuota

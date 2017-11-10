@@ -1,0 +1,8 @@
+type: object
+description: List of auto cleaning report entries
+properties:
+  reportEntries:
+    type: array
+    items:
+      $ref: '#/definitions/SpaceAutoCleaningReport'
+      minItems: 0

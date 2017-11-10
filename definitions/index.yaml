@@ -142,3 +142,21 @@ TimeStats:
 
 TimeStatsCollection:
   $ref: ./time_stats_collection.yaml
+
+SpaceFilesPopularity:
+  $ref: ./space_files_popularity.yaml
+  
+SpaceAutoCleaning:
+  $ref: ./space_auto_cleaning.yaml
+
+SpaceAutoCleaningSettings:
+  $ref: ./space_auto_cleaning_settings.yaml
+
+SpaceAutoCleaningStatus:
+  $ref: ./space_auto_cleaning_status.yaml
+  
+SpaceAutoCleaningReportCollection:
+  $ref: ./space_auto_cleaning_report_collection.yaml
+
+SpaceAutoCleaningReport:
+  $ref: ./space_auto_cleaning_report.yaml
