@@ -1,0 +1,42 @@
+get:
+  operationId: get_provider_space_auto_cleaning_reports
+  summary: Get reports of space auto cleaning
+  description: >
+    Returns collection of reports of auto cleaning for the space
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space_auto_cleaning_report_collection
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Collection of space auto cleaning reports
+      schema:
+        $ref: '#/definitions/SpaceAutoCleaningReportCollection'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The ID of a space
+      required: true
+    - name: started_after
+      in: query
+      type: string
+      description: Fetch only reports that started after this date (ISO-8601)
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u alice:secret --host https://op.example.com:9443
+        getProviderSpaceAutoCleaningReports id=JaHSGDJHG12312aassdCXX09
+        started_after="2017-10-20T21:39:37"

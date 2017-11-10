@@ -1,0 +1,36 @@
+get:
+  operationId: get_provider_space_auto_cleaning_status
+  summary: Get status of space auto cleaning
+  description: >
+    Returns status of current process of auto cleaning for the space
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space_auto_cleaning_status
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about current auto cleaning process for the space
+      schema:
+        $ref: '#/definitions/SpaceAutoCleaningStatus'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The ID of a space
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: >
+      onepanel-rest-cli -u alice:secret --host https://op.example.com:9443
+      getProviderSpaceAutoCleaningStatus id=JaHSGDJHG12312aassdCXX09
