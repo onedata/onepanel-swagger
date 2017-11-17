@@ -5,4 +5,4 @@ properties:
     type: array
     items:
       $ref: '#/definitions/SpaceAutoCleaningReport'
-      minItems: 0
+    minItems: 0
