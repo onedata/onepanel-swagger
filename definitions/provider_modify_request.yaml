@@ -8,7 +8,7 @@ properties:
     type: boolean
     description: >
       If enabled, the storage provider will be assigned a subdomain in onezone's domain 
-      and "subdomain" property must be provided. If disabled, "domain" property 
+      and 'subdomain' property must be provided. If disabled, 'domain' property 
       should be provided.
   subdomain:
     type: string
