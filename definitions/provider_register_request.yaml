@@ -6,10 +6,24 @@ properties:
     type: string
     description: >
       The name under which the provider should be registered in a zone.
-  redirectionPoint:
+  subdomainDelegation:
+    type: boolean
+    description: >
+      If enabled, the storage provider will be assigned a subdomain in onezone's domain 
+      and 'subdomain' property must be provided. If disabled, 'domain' property 
+      should be provided.
+    default: false
+  subdomain:
     type: string
     description: >
-      The address used for user redirection from a zone to the storage provider.
+      Unique subdomain in onezone's domain for the storage provider. Required if 
+      subdomain delegation is enabled.
+  domain:
+    type: string
+    description: >
+      The fully qualified domain name of the storage provider or its IP address (only for 
+      single-node deployments or clusters with a reverse proxy). Required if 
+      subdomain delegation is disabled.
   geoLongitude:
     type: number
     format: float
@@ -26,10 +40,11 @@ properties:
       The domain name of a zone where this storage provider will be registered.
 required:
   - name
-  - redirectionPoint
+  - onezoneDomainName
 example:
   name: Provider1
-  redirectionPoint: https://192.168.11.23
+  subdomainDelegation: false
+  domain: provider.example.com
   geoLongitude: -24.3776025
   geoLatitude: -128.3519364
   onezoneDomainName: onezone2.example.com
