@@ -46,9 +46,13 @@ properties:
         type: number
         format: float
         description: The geographical latitude of the provider.
+      adminEmail:
+        type: string
+        description: Email address of the oneprovider administrator.
     required:
       - register
       - name
+      - adminEmail
       - letsencryptEnabled
   onezone:
     type: object
@@ -89,6 +93,7 @@ example:
     subdomainDelegation: false,
     letsencryptEnabled: false,
     domain: "provider.example.com"
+    adminEmail: "admin@example.eu"
     geoLongitude: -24.3776025
     geoLatitude: -128.3519364
   onezone:

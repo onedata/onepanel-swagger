@@ -38,6 +38,9 @@ properties:
     type: string
     description: >
       The domain name of a zone where this storage provider will be registered.
+  adminEmail:
+    type: string
+    description: Email address of the oneprovider administrator.
 required:
   - name
   - onezoneDomainName

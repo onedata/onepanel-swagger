@@ -36,6 +36,9 @@ properties:
     type: number
     format: float
     description: The geographical latitude of the provider.
+  adminEmail:
+    type: string
+    description: Email address of the oneprovider administrator.
 example:
   name: Provider1
   subdomainDelegation: false
