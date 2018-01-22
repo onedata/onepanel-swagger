@@ -22,6 +22,12 @@ properties:
     description: >
       The fully qualified domain name of the provider or its IP address 
       (only for single-node deployments or clusters with a reverse proxy).
+  letsencryptEnabled:
+    type: boolean
+    description: .
+      If enabled the provider will use Let's Encrypt service to obtain SSL certificates.
+      Otherwise certificates must be manually provided.
+      This option cannot be enabled if subdomainDelegation is false.
   geoLongitude:
     type: number
     format: float
