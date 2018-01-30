@@ -10,21 +10,21 @@ properties:
   subdomainDelegation:
     type: boolean
     description: >
-      If enabled, the storage provider has a subdomain in onezone's domain and 
+      If enabled, the storage provider has a subdomain in onezone's domain and
       'subdomain' property must be provided.
   subdomain:
     type: string
     description: >
-      Unique subdomain in onezone's domain for the provider. Required if subdomain 
+      Unique subdomain in onezone's domain for the provider. Required if subdomain
       delegation is enabled.
   domain:
     type: string
     description: >
-      The fully qualified domain name of the provider or its IP address 
+      The fully qualified domain name of the provider or its IP address
       (only for single-node deployments or clusters with a reverse proxy).
-  letsencryptEnabled:
+  letsEncryptEnabled:
     type: boolean
-    description: .
+    description: >
       If enabled the provider will use Let's Encrypt service to obtain SSL certificates.
       Otherwise certificates must be manually provided.
       This option cannot be enabled if subdomainDelegation is false.

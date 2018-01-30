@@ -43,6 +43,8 @@ properties:
     description: Email address of the oneprovider administrator.
 required:
   - name
+  - subdomainDelegation
+  - adminEmail
   - onezoneDomainName
 example:
   name: Provider1

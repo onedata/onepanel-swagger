@@ -25,7 +25,7 @@ properties:
         description: >
           Unique subdomain in onezone's domain for the provider. Required if subdomain 
           delegation is enabled.
-      letsencryptEnabled:
+      letsEncryptEnabled:
         type: boolean
         description: >
           If enabled the provider will use Let's Encrypt service to obtain SSL certificates.
@@ -53,7 +53,7 @@ properties:
       - register
       - name
       - adminEmail
-      - letsencryptEnabled
+      - letsEncryptEnabled
   onezone:
     type: object
     description: The zone custom configuration.
@@ -91,7 +91,7 @@ example:
     register: true
     name: "example"
     subdomainDelegation: false,
-    letsencryptEnabled: false,
+    letsEncryptEnabled: false,
     domain: "provider.example.com"
     adminEmail: "admin@example.eu"
     geoLongitude: -24.3776025

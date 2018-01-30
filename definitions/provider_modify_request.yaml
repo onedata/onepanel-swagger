@@ -10,7 +10,7 @@ properties:
       If enabled, the storage provider will be assigned a subdomain in onezone's domain 
       and 'subdomain' property must be provided. If disabled, 'domain' property 
       should be provided.
-  letsencryptEnabled:
+  letsEncryptEnabled:
     type: boolean
     description: >
       If enabled the provider will use Let's Encrypt service to obtain SSL certificates.
