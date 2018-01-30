@@ -28,6 +28,9 @@ properties:
       If enabled the provider will use Let's Encrypt service to obtain SSL certificates.
       Otherwise certificates must be manually provided.
       This option cannot be enabled if subdomainDelegation is false.
+  adminEmail:
+      type: string
+      description: Email address of the oneprovider administrator.
   geoLongitude:
     type: number
     format: float
@@ -44,6 +47,7 @@ required:
   - name
   - subdomainDelegation
   - domain
+  - adminEmail
   - geoLongitude
   - geoLatitude
   - onezoneDomainName
