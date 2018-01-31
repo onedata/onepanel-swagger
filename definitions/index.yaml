@@ -50,6 +50,9 @@ swift:
 glusterfs:
   $ref: ./storage_glusterfs.yaml
 
+nulldevice:
+  $ref: ./storage_nulldevice.yaml
+
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml
 

@@ -1,0 +1,47 @@
+description: The Null Device storage configuration.
+allOf:
+  - $ref: '#/definitions/StorageDetails'
+  - type: object
+    x-discriminator-value: "nulldevice"
+    properties:
+      latencyMin:
+        type: integer
+        description: |
+            Minimum latency in milliseconds, which should be simulated for
+            selected operations.
+        default: 0
+      latencyMax:
+        type: integer
+        description: |
+            Maximum latency in milliseconds, which should be simulated for
+            selected operations.
+        default: 0
+      timeoutProbability:
+        type: number
+        format: float
+        description: |
+            Probability (0.0, 1.0), with which an operation should return
+            a timeout error.
+        default: 0.0
+      filter:
+        type: string
+        description: |
+            Comma-separated list of filesystem operations, for which latency
+            and timeout should be simulated. Empty or '*' mean all operations
+            will be affected.
+        default: "*"
+      timeout:
+        type: integer
+        description: Storage operation timeout in milliseconds.
+      readonly:
+        type: boolean
+        default: false
+        description: Defines whether storage is readonly.
+example:
+  type: nulldevice
+  name: Slow storage
+  latencyMin: 250
+  latencyMax: 750
+  timeoutProbability: 0.1
+  filter: "read,write,open"
+  insecure: true

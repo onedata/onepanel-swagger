@@ -8,6 +8,7 @@ x-onedata-subclasses:
   - ceph
   - swift
   - glusterfs
+  - nulldevice
 properties:
   id:
     type: string
@@ -36,6 +37,7 @@ properties:
       - ceph
       - swift
       - glusterfs
+      - nulldevice
   lumaEnabled:
     type: boolean
     description: If true LUMA and reverse LUMA services will be enabled.
