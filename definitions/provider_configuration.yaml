@@ -27,6 +27,7 @@ properties:
           delegation is enabled.
       letsEncryptEnabled:
         type: boolean
+        default: false
         description: >
           If enabled the provider will use Let's Encrypt service to obtain SSL certificates.
           Otherwise certificates must be manually provided.
@@ -53,7 +54,6 @@ properties:
       - register
       - name
       - adminEmail
-      - letsEncryptEnabled
   onezone:
     type: object
     description: The zone custom configuration.
