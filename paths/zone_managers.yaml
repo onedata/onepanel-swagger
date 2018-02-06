@@ -2,7 +2,7 @@ get:
   operationId: get_zone_managers_status
   summary: Get zone cluster managers status
   description: >
-    Returns status of cluster manager service on each host where it has been 
+    Returns status of cluster manager service on each host where it has been
     eployed.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -14,7 +14,7 @@ get:
   responses:
     '200':
       description: >
-        The status of cluster manager service on each host where it has been 
+        The status of cluster manager service on each host where it has been
         deployed.
       schema:
         $ref: '#/definitions/ServiceStatus'
@@ -51,7 +51,7 @@ post:
         Location:
           type: string
           description: >
-            The path to the task resource, which can be queried to check 
+            The path to the task resource, which can be queried to check
             operation status.
     '400':
       description: Invalid request.
@@ -105,7 +105,7 @@ patch:
   - name: started
     in: query
     description: >
-      Defines the intended state of the cluster manager service. The service 
+      Defines the intended state of the cluster manager service. The service
       will be started or stopped in order to match the requested state.
     type: boolean
     default: true

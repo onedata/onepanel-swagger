@@ -3,7 +3,7 @@ description: Statistics for single metric over specified time.
 properties:
   name:
     type: string
-    description: Name of metric for which this object holds statistics. 
+    description: Name of metric for which this object holds statistics.
     enum:
       - queueLength
       - insertCount

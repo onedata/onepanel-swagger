@@ -28,7 +28,7 @@ get:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster worker service status should be 
+      The name of a host for which cluster worker service status should be
       returned.
     in: path
     type: string
@@ -42,7 +42,7 @@ patch:
   operationId: start_stop_provider_worker
   summary: Start/stop provider cluster worker
   description: >
-    Starts or stops cluster worker service on the selected host in the 
+    Starts or stops cluster worker service on the selected host in the
     local deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -66,7 +66,7 @@ patch:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster worker service status should be 
+      The name of a host for which cluster worker service status should be
       changed.
     in: path
     type: string
@@ -74,7 +74,7 @@ patch:
   - name: started
     in: query
     description: >
-      Defines the intended state of the cluster worker service. The service will 
+      Defines the intended state of the cluster worker service. The service will
       be started or stopped in order to match the requested state.
     type: boolean
     default: true

@@ -40,7 +40,7 @@ patch:
   operationId: start_stop_zone_worker
   summary: Start/stop zone cluster worker
   description: >
-    Starts or stops cluster worker service on the selected hosts in the local 
+    Starts or stops cluster worker service on the selected hosts in the local
     deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -64,7 +64,7 @@ patch:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster worker service status should be 
+      The name of a host for which cluster worker service status should be
       changed.
     in: path
     type: string
