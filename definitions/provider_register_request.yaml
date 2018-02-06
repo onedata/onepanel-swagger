@@ -9,20 +9,20 @@ properties:
   subdomainDelegation:
     type: boolean
     description: >
-      If enabled, the storage provider will be assigned a subdomain in onezone's domain 
-      and 'subdomain' property must be provided. If disabled, 'domain' property 
+      If enabled, the storage provider will be assigned a subdomain in onezone's domain
+      and 'subdomain' property must be provided. If disabled, 'domain' property
       should be provided.
     default: false
   subdomain:
     type: string
     description: >
-      Unique subdomain in onezone's domain for the storage provider. Required if 
+      Unique subdomain in onezone's domain for the storage provider. Required if
       subdomain delegation is enabled.
   domain:
     type: string
     description: >
-      The fully qualified domain name of the storage provider or its IP address (only for 
-      single-node deployments or clusters with a reverse proxy). Required if 
+      The fully qualified domain name of the storage provider or its IP address (only for
+      single-node deployments or clusters with a reverse proxy). Required if
       subdomain delegation is disabled.
   geoLongitude:
     type: number
@@ -38,8 +38,13 @@ properties:
     type: string
     description: >
       The domain name of a zone where this storage provider will be registered.
+  adminEmail:
+    type: string
+    description: Email address of the oneprovider administrator.
 required:
   - name
+  - subdomainDelegation
+  - adminEmail
   - onezoneDomainName
 example:
   name: Provider1

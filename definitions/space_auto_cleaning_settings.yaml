@@ -22,8 +22,8 @@ properties:
   threshold:
     type: integer
     description: >
-      Amount of data [b], which should trigger the auto cleaning in the space. 
-      Only replicas maintained by this storage provider will be removed. If not 
+      Amount of data [b], which should trigger the auto cleaning in the space.
+      Only replicas maintained by this storage provider will be removed. If not
       specified, the auto cleaning will not start automatically.
   target:
     type: integer
@@ -36,4 +36,3 @@ example:
   maxFileNotOpenedHours: 60000
   target: 5000000000
   threshold: 6000000000
-  

@@ -40,7 +40,7 @@ patch:
   operationId: start_stop_zone_databases_host
   summary: Start/stop zone database
   description: >
-    Starts or stops database service on the selected hosts in the local 
+    Starts or stops database service on the selected hosts in the local
     deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
