@@ -76,6 +76,9 @@
 /provider/workers/{host}:
   $ref: ./provider_workers_host.yaml
 
+/provider/cluster_ips:
+  $ref: ./provider_cluster_ips.yaml
+
 # Zone specific resources
 /zone/nagios:
   $ref: ./zone_nagios.yaml
@@ -100,3 +103,6 @@
 
 /zone/workers/{host}:
   $ref: ./zone_workers_host.yaml
+
+/zone/cluster_ips:
+  $ref: ./zone_cluster_ips.yaml

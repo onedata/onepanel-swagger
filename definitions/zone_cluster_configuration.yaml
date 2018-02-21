@@ -15,6 +15,9 @@ properties:
         hostname:
           type: string
           description: The name of a host.
+        externalIp:
+          type: string
+          description: External IP of the node.
       required:
         - hostname
   databases:

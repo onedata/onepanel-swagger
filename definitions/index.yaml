@@ -32,6 +32,12 @@ ClusterManagers:
 ClusterDatabases:
   $ref: ./cluster_databases.yaml
 
+ClusterIps:
+  $ref: ./cluster_ips.yaml
+
+ModifyClusterIps:
+  $ref: ./modify_cluster_ips.yaml
+
 StorageDetails:
   $ref: ./storage_details.yaml
 
