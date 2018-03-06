@@ -1,0 +1,16 @@
+type: object
+description: External IPs used by cluster nodes.
+properties:
+  isConfigured:
+    type: boolean
+    description: >
+      If true, user has already sent a request updating IPs thus marking them as
+      accepted.
+  hosts:
+    type: object
+    description: The collection of cluster nodes associated with their IPs.
+    additionalProperties:
+      type: string
+required:
+- isConfigured
+- hosts

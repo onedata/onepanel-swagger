@@ -1,0 +1,10 @@
+type: object
+description: External IPs used by cluster nodes.
+properties:
+  hosts:
+    type: object
+    description: The collection of cluster nodes associated with their IPs.
+    additionalProperties:
+      type: string
+required:
+- hosts
