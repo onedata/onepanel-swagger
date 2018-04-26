@@ -19,6 +19,8 @@ get:
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Not all services are deployed to cluster yet.
     '500':
       description: Internal server error.
       schema:

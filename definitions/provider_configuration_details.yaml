@@ -10,8 +10,12 @@ properties:
       name:
         description: The name of a provider.
         type: string
+      ready:
+        description: Informs about cluster deployment being finished
+        type: boolean
     required:
       - name
+      - ready
 required:
   - cluster
   - oneprovider
@@ -29,3 +33,4 @@ example:
         - "node1.oneprovider.onedata.example.com"
   oneprovider:
     name: "example"
+    ready: true
