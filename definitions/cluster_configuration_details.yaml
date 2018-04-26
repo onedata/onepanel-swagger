@@ -1,6 +1,9 @@
 type: object
 description: The cluster configuration.
 properties:
+  master:
+    type: string
+    description: Host designated for managing service deployment and subsequent starts.
   databases:
     $ref: '#/definitions/DatabaseHosts'
   managers:
@@ -8,6 +11,7 @@ properties:
   workers:
     $ref: '#/definitions/WorkerHosts'
 required:
+  - master
   - databases
   - managers
   - workers
