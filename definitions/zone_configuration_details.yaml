@@ -10,17 +10,18 @@ properties:
       name:
         description: The name of a zone.
         type: string
-      ready:
-        description: Informs about cluster deployment being finished
+      configured:
+        description: True iff all steps of initial cluster deployment have been performed.
         type: boolean
     required:
       - name
-      - ready
+      - configured
 required:
   - cluster
   - onezone
 example:
   cluster:
+    master: "node1.onezone.onedata.example.com"
     manager:
       mainHost: "node1.onezone.onedata.example.com"
       hosts:
@@ -33,4 +34,4 @@ example:
         - "node1.onezone.onedata.example.com"
   onezone:
     name: "example"
-    ready: true
+    configured: true

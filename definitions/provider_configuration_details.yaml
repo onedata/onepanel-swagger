@@ -8,19 +8,20 @@ properties:
     description: The provider custom configuration.
     properties:
       name:
-        description: The name of a provider.
+        description: The name of a provider. Null if not registered.
         type: string
-      ready:
-        description: Informs about cluster deployment being finished
+      configured:
+        description: True iff all steps of initial cluster deployment have been performed.
         type: boolean
     required:
       - name
-      - ready
+      - configured
 required:
   - cluster
   - oneprovider
 example:
   cluster:
+    master: "node1.oneprovider.onedata.example.com"
     manager:
       mainHost: "node1.oneprovider.onedata.example.com"
       hosts:
@@ -33,4 +34,4 @@ example:
         - "node1.oneprovider.onedata.example.com"
   oneprovider:
     name: "example"
-    ready: true
+    configured: true
