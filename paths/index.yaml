@@ -15,6 +15,9 @@
 /cookie:
   $ref: ./cookie.yaml
 
+/hostname:
+  $ref: ./hostname.yaml
+
 /hosts:
   $ref: ./hosts.yaml
 
