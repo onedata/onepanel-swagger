@@ -3,7 +3,7 @@ description: The cluster configuration.
 properties:
   master:
     type: string
-    description: Host designated for managing service deployment and subsequent starts.
+    description: Host responsible for deploying cluster and coordinating cluster restarts.
   databases:
     $ref: '#/definitions/DatabaseHosts'
   managers:

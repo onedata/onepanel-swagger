@@ -11,7 +11,7 @@ properties:
         description: The name of a provider. Null if not registered.
         type: string
       configured:
-        description: True iff all steps of initial cluster deployment have been performed.
+        description: True if all steps of cluster deployment and configuration have been performed.
         type: boolean
     required:
       - name
