@@ -2,12 +2,8 @@ get:
   operationId: get_cluster_hosts
   summary: Get cluster or discovered hosts
   description: >
-    Returns the list of administrative cluster hosts. It is also possible to
-    return the list of hosts that have been discovered using multicast
-    advertisment.
-
-    In order to retrieve discovered hosts set the `discovered` query string to
-    `true`. This request can be executed by unauthorized users only if there
+    Returns the list of administrative cluster hosts.
+    This request can be executed by unauthorized users only if there
     are no admin users in the system.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
@@ -34,13 +30,6 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-    - name: discovered
-      in: query
-      description: Defines whether to return cluster or discovered hosts.
-      type: boolean
-      default: false
-      required: false
   x-code-samples:
   - lang: Shell
     source: onepanel-rest-cli -u alice:secret getClusterHosts discovered=true --host https://op.example.com:9443
