@@ -1,0 +1,65 @@
+get:
+  operationId: get_known_hosts
+  summary: Get nodes available for clustering
+  description: >
+    Returns the list of hosts available for clustering.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: known_hosts
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of known hosts.
+      schema:
+        type: array
+        description: List of known hosts.
+        items:
+          type: string
+        example:
+          - host1.example.org
+          - host2.example.org
+          - host3.example.org
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getKnownHosts --host https://op.example.com:9443
+
+
+post:
+  operationId: add_known_host
+  summary: Adds given host if it's available for clustering.
+  description: >
+    Checks if given host is available for clustering (has no admin users configured)
+    and stores it.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: known_hosts
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Host added.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: address
+      in: body
+      schema:
+        $ref: '#/definitions/KnownHostAddRequest'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret addKnownHost host=cluster.example.com --host https://op.example.com:9443

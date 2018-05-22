@@ -131,6 +131,9 @@ ManagerHosts:
 WorkerHosts:
   $ref: ./worker_hosts.yaml
 
+KnownHostAddRequest:
+  $ref: ./known_host_add_request.yaml
+
 ClusterConfigurationDetails:
   $ref: ./cluster_configuration_details.yaml
 

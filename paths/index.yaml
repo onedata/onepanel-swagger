@@ -24,6 +24,12 @@
 /hosts/{host}:
   $ref: ./hosts_host.yaml
 
+/known_hosts/:
+  $ref: ./known_hosts.yaml
+
+/known_hosts/{host}:
+  $ref: ./known_hosts_host.yaml
+
 /tasks/{id}:
   $ref: ./tasks_id.yaml
 
