@@ -1,7 +1,7 @@
 type: object
 description: List of onepanel user usernames.
 properties:
-  ids:
+  usernames:
     type: array
     description: The list of usernames.
     items:
