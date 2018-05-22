@@ -1,7 +1,7 @@
 get:
   operationId: get_users
   summary: List onepanel users
-  description: Lists all user details.
+  description: Lists all usernames.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
   x-onedata-resource: users
@@ -30,6 +30,7 @@ get:
     in: query
     description: If present, query returns only users with specified role.
     type: string
+    enum: [admin, regular]
     required: false
   x-code-samples:
   - lang: Shell

@@ -11,4 +11,4 @@ required:
 example:
   usernames:
     - myAdmin
-    - "regular user"
+    - "regularuser"
