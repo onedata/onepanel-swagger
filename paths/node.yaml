@@ -1,25 +1,24 @@
 get:
-  operationId: get_hostname
-  summary: Get erlang hostname of this node.
+  operationId: get_node
+  summary: Get information about current onepanel node.
   description: >
-    Returns the erlang hostname of queried node.
+    Returns information about current onepanel node.
 
     This request can be executed by unauthorized users only if there
     are no admin users in the system.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
-  x-onedata-resource: hostname
+  x-onedata-resource: node
+  x-onedata-noauth: true
   tags:
     - Onepanel
   produces:
     - application/json
   responses:
     '200':
-      description: Erlang hostname of the node.
+      description: Details of this onepanel node.
       schema:
-        type: string
-        description: Erlang hostname
-        example: "onedata.org"
+        $ref: '#/definitions/Node'
     '403':
       description: Forbidden request.
     '500':

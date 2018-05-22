@@ -49,6 +49,8 @@ post:
   responses:
     '204':
       description: Host added.
+      schema:
+        $ref: '#/definitions/KnownHost'
     '403':
       description: Forbidden request.
     '500':

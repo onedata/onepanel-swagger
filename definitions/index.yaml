@@ -134,6 +134,12 @@ WorkerHosts:
 KnownHostAddRequest:
   $ref: ./known_host_add_request.yaml
 
+KnownHost:
+  $ref: ./known_host.yaml
+
+Node:
+  $ref: ./node.yaml
+
 ClusterConfigurationDetails:
   $ref: ./cluster_configuration_details.yaml
 

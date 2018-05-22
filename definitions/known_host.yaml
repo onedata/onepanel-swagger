@@ -1,0 +1,8 @@
+type: object
+description: Details of a host available for clustering.
+properties:
+  hostname:
+    type: string
+    description: Erlang hostname of the node.
+required:
+- hostname
