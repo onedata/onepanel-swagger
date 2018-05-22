@@ -1,6 +1,6 @@
 get:
   operationId: get_hostname
-  summary: Get cluster or discovered hosts
+  summary: Get erlang hostname of this node.
   description: >
     Returns the erlang hostname of queried node.
 

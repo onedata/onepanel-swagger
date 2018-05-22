@@ -1,6 +1,6 @@
 get:
   operationId: get_cluster_hosts
-  summary: Get cluster or discovered hosts
+  summary: Get cluster hosts
   description: >
     Returns the list of administrative cluster hosts.
     This request can be executed by unauthorized users only if there
@@ -17,7 +17,7 @@ get:
       description: The list of administrative cluster hosts.
       schema:
         type: array
-        description: List of cluster or discovered hosts.
+        description: List of cluster hosts.
         items:
           type: string
         example:
@@ -32,7 +32,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getClusterHosts discovered=true --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getClusterHosts --host https://op.example.com:9443
 
 
 post:
