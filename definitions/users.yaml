@@ -1,0 +1,14 @@
+type: object
+description: List of onepanel user usernames.
+properties:
+  ids:
+    type: array
+    description: The list of usernames.
+    items:
+      type: string
+required:
+  - usernames
+example:
+  usernames:
+    - myAdmin
+    - "regular user"
