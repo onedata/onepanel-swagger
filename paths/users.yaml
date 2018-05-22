@@ -14,14 +14,7 @@ get:
     '200':
       description: List of existing users.
       schema:
-        type: array
-        description: List of existing users.
-        items:
-          $ref: '#/definitions/Users'
-        example:
-          usernames:
-            - myAdmin
-            - "regular user"
+        $ref: '#/definitions/Users'
     '400':
       description: Invalid request.
       schema:
