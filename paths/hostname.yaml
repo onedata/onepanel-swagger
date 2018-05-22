@@ -15,7 +15,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of administrative cluster hosts.
+      description: Erlang hostname of the node.
       schema:
         type: string
         description: Erlang hostname
@@ -26,14 +26,6 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-    - name: host
-      in: query
-      description: >
-        If present, specified remote host is queried for its hostname.
-        Otherwise hostname of current node is returned.
-      type: string
-      required: false
   x-code-samples:
   - lang: Shell
     source: onepanel-rest-cli -u alice:secret getHostname --host https://op.example.com:9443
