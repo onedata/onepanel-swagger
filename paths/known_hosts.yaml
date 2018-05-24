@@ -58,10 +58,11 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: address
+    - name: KnownHostAddRequest
       in: body
       schema:
         $ref: '#/definitions/KnownHostAddRequest'
+      required: true
   x-code-samples:
   - lang: Shell
     source: onepanel-rest-cli -u alice:secret addKnownHost host=cluster.example.com --host https://op.example.com:9443
