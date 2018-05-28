@@ -19,6 +19,8 @@ get:
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Cluster is not fully deployed.
     '500':
       description: Internal server error.
       schema:
@@ -56,7 +58,7 @@ post:
             The path to the task resource, which can be queried to check
             operation status.
     '400':
-      description: Invalid request.
+      description: Invalid request - cluster already deployed.
       schema:
         $ref: '#/definitions/Error'
     '403':

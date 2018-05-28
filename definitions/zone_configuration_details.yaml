@@ -10,13 +10,18 @@ properties:
       name:
         description: The name of a zone.
         type: string
+      configured:
+        description: True if all steps of cluster deployment and configuration have been performed.
+        type: boolean
     required:
       - name
+      - configured
 required:
   - cluster
   - onezone
 example:
   cluster:
+    master: "node1.onezone.onedata.example.com"
     manager:
       mainHost: "node1.onezone.onedata.example.com"
       hosts:
@@ -29,3 +34,4 @@ example:
         - "node1.onezone.onedata.example.com"
   onezone:
     name: "example"
+    configured: true
