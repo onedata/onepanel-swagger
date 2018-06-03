@@ -3,7 +3,7 @@ description: Details of a onepanel node.
 properties:
   hostname:
     type: string
-    description: Erlang hostname of the node.
+    description: Hostname of the node.
   application:
     type: string
     description: Type of application managed by this onepanel.
@@ -11,4 +11,3 @@ properties:
 required:
 - hostname
 - application
-

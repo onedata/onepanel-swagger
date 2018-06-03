@@ -1,0 +1,36 @@
+post:
+  operationId: join_cluster
+  summary: Join existing cluster
+  description: >
+    Adds this host to adminstrative cluster.
+
+    The host handling this request has to be newly started or
+    removed from previous cluster. It cannot contain any configured user
+    accounts or other configuration data. Therefor this request does not
+    need authorization.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: cluster
+  x-onedata-noauth: true
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The node successfully joined cluster.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: JoinClusterRequest
+      in: body
+      schema:
+        $ref: '#/definitions/JoinClusterRequest'
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret joinCluster clusterHost==cluster.example.com cookie==AS2KLJH1231AJSHDKJBC12KS578A3SDA --host https://op.example.com:9443

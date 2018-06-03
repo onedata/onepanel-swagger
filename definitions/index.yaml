@@ -2,11 +2,17 @@
 # This file groups the type definitions for Onepanel REST API
 #
 
-Cookie:
-  $ref: ./cookie.yaml
-
 Error:
   $ref: ./error.yaml
+
+Host:
+  $ref: ./host.yaml
+
+HostAddRequest:
+  $ref: ./host_add_request.yaml
+
+JoinClusterRequest:
+  $ref: ./join_cluster_request.yaml
 
 SessionDetails:
   $ref: ./session_details.yaml
@@ -40,6 +46,9 @@ ClusterIps:
 
 ModifyClusterIps:
   $ref: ./modify_cluster_ips.yaml
+
+Node:
+  $ref: ./node.yaml
 
 StorageDetails:
   $ref: ./storage_details.yaml
