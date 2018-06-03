@@ -43,9 +43,6 @@ properties:
   autoCleaning:
     description: Configuration of auto cleaning feature for this space
     $ref: '#/definitions/SpaceAutoCleaning'
-  spaceOccupancy:
-    type: integer
-    description: Amount of storage [b] used by data from given space on that storage.
 required:
   - id
   - name
@@ -53,4 +50,3 @@ required:
   - localStorages
   - supportingProviders
   - softQuota
-  - spaceOccupancy
