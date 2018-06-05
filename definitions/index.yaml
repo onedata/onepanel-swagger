@@ -140,12 +140,6 @@ ManagerHosts:
 WorkerHosts:
   $ref: ./worker_hosts.yaml
 
-KnownHostAddRequest:
-  $ref: ./known_host_add_request.yaml
-
-KnownHost:
-  $ref: ./known_host.yaml
-
 Node:
   $ref: ./node.yaml
 
