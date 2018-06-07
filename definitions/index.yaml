@@ -47,9 +47,6 @@ ClusterIps:
 ModifyClusterIps:
   $ref: ./modify_cluster_ips.yaml
 
-Node:
-  $ref: ./node.yaml
-
 StorageDetails:
   $ref: ./storage_details.yaml
 

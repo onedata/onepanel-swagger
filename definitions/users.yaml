@@ -1,5 +1,6 @@
 type: object
-description: List of onepanel user usernames.
+description: >
+  List of onepanel user usernames.
 properties:
   usernames:
     type: array
@@ -11,4 +12,4 @@ required:
 example:
   usernames:
     - myAdmin
-    - "regularuser"
+    - regularuser

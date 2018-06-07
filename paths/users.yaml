@@ -1,7 +1,9 @@
 get:
   operationId: get_users
   summary: List onepanel users
-  description: Lists all usernames.
+  description: >
+    Lists all usernames. This request can be executed by unauthorized users
+    only if there are no admin users in the system.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
   x-onedata-resource: users
