@@ -4,10 +4,10 @@ properties:
   hostname:
     type: string
     description: Hostname of the node.
-  application:
+  componentType:
     type: string
-    description: Type of application managed by this onepanel.
+    description: Type of Onedata component managed by this onepanel.
     enum: [oneprovider, onezone]
 required:
 - hostname
-- application
+- componentType
