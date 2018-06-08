@@ -21,6 +21,8 @@ post:
       description: The node successfully joined cluster.
     '403':
       description: Forbidden request.
+    '409':
+      description: Node already is a part of a cluster.
     '500':
       description: Internal server error.
       schema:
