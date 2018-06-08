@@ -15,12 +15,14 @@ get:
       description: The zone cluster configuration.
       schema:
         $ref: '#/definitions/ZoneConfigurationDetails'
-    '401':
-      description: Unauthorized request.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
-    '404':
-      description: Cluster is not fully deployed.
+    '409':
+      description: Cluster already deployed.
     '500':
       description: Internal server error.
       schema:
