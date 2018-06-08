@@ -4,7 +4,7 @@ properties:
   address:
     type: string
     description: >
-      Address which can be used for performing request to the host.
+      Address at which the host is available, IP or hostname.
 required:
   - address
 example:
