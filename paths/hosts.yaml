@@ -36,8 +36,8 @@ get:
 
 
 post:
-  operationId: add_host
-  summary: Adds given host to the cluster.
+  operationId: add_cluster_host
+  summary: Adds given host to the cluster
   description: >
     Adds given host to the current cluster. The host can be specified
     by any address by which it is reachable.
@@ -71,5 +71,5 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret addHost address==172.17.0.5 --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret addClusterHost address==172.17.0.5 --host https://op.example.com:9443
 

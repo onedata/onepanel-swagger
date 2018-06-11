@@ -6,7 +6,7 @@ post:
 
     The host handling this request has to be newly started or
     removed from previous cluster. It cannot contain any configured user
-    accounts or other configuration data. Therefor this request does not
+    accounts or other configuration data. Therefore this request does not
     need authorization.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
@@ -18,11 +18,11 @@ post:
     - application/json
   responses:
     '204':
-      description: The node successfully joined cluster.
+      description: The node successfully joined the cluster.
     '403':
       description: Forbidden request.
     '409':
-      description: Node already is a part of a cluster.
+      description: Operation forbidden. The node is already a part of a cluster.
     '500':
       description: Internal server error.
       schema:
