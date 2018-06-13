@@ -1,0 +1,9 @@
+type: object
+description: Details of a cluster host.
+properties:
+  hostname:
+    type: string
+    description: Host's hostname.
+required:
+- hostname
+

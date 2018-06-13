@@ -1,3 +1,43 @@
+get:
+  operationId: get_users
+  summary: List onepanel users
+  description: >
+    Lists all usernames. This request can be executed by unauthorized users
+    only if there are no admin users in the system.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_user
+  x-onedata-resource: users
+  x-onedata-noauth: true
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: List of existing users.
+      schema:
+        $ref: '#/definitions/Users'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: role
+    in: query
+    description: If present, query returns only users with specified role.
+    type: string
+    enum: [admin, regular]
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getUsers role=admin --host https://op.example.com:9443
+
 post:
   operationId: add_user
   summary: Create Onepanel user

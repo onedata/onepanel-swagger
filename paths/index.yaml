@@ -15,6 +15,12 @@
 /cookie:
   $ref: ./cookie.yaml
 
+/join_cluster:
+  $ref: ./join_cluster.yaml
+
+/node:
+  $ref: ./node.yaml
+
 /hosts:
   $ref: ./hosts.yaml
 
