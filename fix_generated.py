@@ -25,7 +25,11 @@ for n in os.listdir(DIR):
             lines = re.sub(r',(\s*[}\]\)])', '\g<1>', lines)
             lines = re.sub('\\&\\#39\\;', '\'', lines)
             lines = re.sub('\\&\\#x3D\\;\\&gt\\;', '=>', lines)
+            lines = re.sub('\\&\\#x3D\\;', '=', lines)
             lines = re.sub('\\&\\#x60\\;', '`', lines)
+            lines = re.sub('\\s{\\s', ' {', lines)
+            lines = re.sub('\\#{\\s([^\s])', '#{\g<1>', lines)
+            lines = re.sub('([^\s])\\s}', '\g<1>}', lines)
             lines = lines.replace('\\n', '')
 
             # Write new file.
