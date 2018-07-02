@@ -29,10 +29,9 @@ get:
 
 post:
   operationId: support_space
-  summary: Create or support space
+  summary: Support space
   description: >
-    Supports an existing space or creates a new space and automatically
-    supports it.
+    Supports an existing space.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: spaces
@@ -42,11 +41,11 @@ post:
     - application/json
   responses:
     '204':
-      description: The spaces has been successfully creates/supported.
+      description: The spaces has been successfully supported.
       headers:
         Location:
           type: string
-          description: The path to the created/supported space resource.
+          description: The path to the supported space resource.
     '400':
       description: Invalid request.
       schema:
@@ -63,11 +62,10 @@ post:
   - name: spaceSupportRequest
     in: body
     description: >
-      Specification of the space support request including name of the space,
-      size and support token.
+      Specification of the space support request including support size and token.
     schema:
       $ref: '#/definitions/SpaceSupportRequest'
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret supportSpace name==MySpace1 token==ASDKJASKJDHKAJSHD size:=1073741824 --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret supportSpace token==ASDKJASKJDHKAJSHD size:=1073741824 --host https://op.example.com:9443
