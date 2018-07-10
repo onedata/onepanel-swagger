@@ -24,6 +24,9 @@
 /tasks/{id}:
   $ref: ./tasks_id.yaml
 
+/web_cert:
+  $ref: ./web_cert.yaml
+
 # Provider specific resources
 /provider:
   $ref: ./provider.yaml

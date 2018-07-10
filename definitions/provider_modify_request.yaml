@@ -15,7 +15,6 @@ properties:
     description: >
       If enabled the provider will use Let's Encrypt service to obtain SSL certificates.
       Otherwise certificates must be manually provided.
-      This option cannot be enabled is subdomainDelegation is disabled.
       By enabling this option you agree to the Let's Encrypt Subscriber Agreement.
   subdomain:
     type: string
