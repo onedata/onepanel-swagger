@@ -18,7 +18,7 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: Certificate not configured.
+      description: Cluster hosts are not configured.
     '500':
       description: Internal server error.
       schema:
@@ -43,7 +43,7 @@ patch:
     - application/json
   responses:
     '204':
-      description: Provider details has been successfully modified.
+      description: Certificate configuration has been successfully modified.
     '400':
       description: Invalid request.
       schema:
