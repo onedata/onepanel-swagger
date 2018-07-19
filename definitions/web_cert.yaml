@@ -53,15 +53,15 @@ properties:
   lastRenewalSuccess:
     type: string
     description: >
-      Date and time in ISO 8601 format. Represents last sucesfful attempt
-      to obtain certificate from Let's Encrypt.
+      Date and time in ISO 8601 format.
+      Represents last successful Let's Encrypt certification.
       If there are no successful attempts its value is null.
       This property is omitted if letsEncrypt is off.
   lastRenewalFailure:
     type: string
     description: >
-      Date and time in ISO 8601 format. Represents last unsucesfful attempt
-      to obtain certificate from Let's Encrypt.
+      Date and time in ISO 8601 format.
+      Represents last unsuccessful Let's Encrypt certification.
       If there are no successful attempts its value is null.
       This property is omitted if letsEncrypt is off.
 required:
