@@ -59,6 +59,9 @@ s3:
 ceph:
   $ref: ./storage_ceph.yaml
 
+cephrados:
+  $ref: ./storage_cephrados.yaml
+
 swift:
   $ref: ./storage_swift.yaml
 

@@ -1,8 +1,8 @@
-description: The Ceph storage configuration (uses libradosstriper).
+description: The Ceph storage configuration (uses librados).
 allOf:
   - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: "ceph"
+    x-discriminator-value: "cephrados"
     properties:
       username:
         type: string
@@ -22,6 +22,10 @@ allOf:
       timeout:
         type: integer
         description: Storage operation timeout in milliseconds.
+      blockSize:
+        type: integer
+        description: Storage block size in bytes.
+        default: 4194304
       insecure:
         type: boolean
         default: false
@@ -49,7 +53,7 @@ allOf:
     - clusterName
     - poolName
 example:
-  type: ceph
+  type: cephrados
   name: SomeCeph
   username: user1
   key: LKJASHD6876ASDBJHV65765ASD
@@ -57,3 +61,4 @@ example:
   clusterName: CephCluster1
   poolName: data
   insecure: true
+  blockSize: 10485760
