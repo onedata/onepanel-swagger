@@ -15,6 +15,12 @@
 /cookie:
   $ref: ./cookie.yaml
 
+/dns_check:
+  $ref: ./dns_check.yaml
+
+/dns_check/configuration:
+  $ref: ./dns_check_configuration.yaml
+
 /hosts:
   $ref: ./hosts.yaml
 
@@ -86,6 +92,7 @@
   $ref: ./provider_cluster_ips.yaml
 
 # Zone specific resources
+
 /zone/nagios:
   $ref: ./zone_nagios.yaml
 
@@ -112,3 +119,6 @@
 
 /zone/cluster_ips:
   $ref: ./zone_cluster_ips.yaml
+
+/zone/policies:
+  $ref: ./zone_policies.yaml
