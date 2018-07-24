@@ -13,6 +13,13 @@ properties:
       name:
         description: The name of a zone.
         type: string
+      letsEncryptEnabled:
+        type: boolean
+        default: false
+        description: >
+          If enabled the zone will use Let's Encrypt service to obtain SSL certificates.
+          Otherwise certificates must be manually provided.
+          By enabling this option you agree to the Let's Encrypt Subscriber Agreement.
   onepanel:
     $ref: '#/definitions/PanelConfiguration'
 required:
@@ -36,3 +43,4 @@ example:
   onezone:
     domainName: "example.com"
     name: "example"
+    letsEncryptEnabled: true

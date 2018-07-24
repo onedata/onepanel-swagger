@@ -1,0 +1,13 @@
+type: object
+description: The SSL certificate configuration details that can be modified.
+properties:
+  letsEncrypt:
+    type: boolean
+    description: >
+      If enabled Let's Encrypt service will be used to obtain SSL certificates
+      and renew them before expiration.
+      Otherwise certificates must be manually provided.
+required:
+  - letsEncrypt
+example:
+  letsEncrypt: true
