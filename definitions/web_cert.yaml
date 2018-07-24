@@ -1,0 +1,84 @@
+type: object
+description: The SSL certificate details.
+properties:
+  letsEncrypt:
+    type: boolean
+    description: >
+      If true, the certificate is obtained from Let's Encrypt service and
+      renewed automatically.
+      Otherwise, the certificate management is up to the administrator.
+  expirationTime:
+    type: string
+    description: >
+      Installed certificate's expiration time in ISO 8601 format.
+  creationTime:
+    type: string
+    description: >
+      Installed certificate's creation time in ISO 8601 format.
+  status:
+    type: string
+    description: Describes certificate validity status.
+    enum:
+      - valid
+      - near_expiration
+      - expired
+      - domain_mismatch
+      - regenerating
+      - unknown
+  paths:
+    type: object
+    description: Paths to certificate-related files.
+    properties:
+      cert:
+        type: string
+        description: Path to the certificate PEM file.
+      key:
+        type: string
+        description: Path to the corresponding private key PEM file.
+      chain:
+        type: string
+        description: Path to the file containing certificate chain.
+    required:
+      - cert
+      - key
+      - chain
+  domain:
+    type: string
+    description: >
+      The domain (Common Name) for which current certificate was issued.
+  issuer:
+    type: string
+    description: >
+      Issuer value of the current certificate.
+  lastRenewalSuccess:
+    type: string
+    description: >
+      Date and time in ISO 8601 format.
+      Represents last successful Let's Encrypt certification.
+      If there are no successful attempts its value is null.
+      This property is omitted if letsEncrypt is off.
+  lastRenewalFailure:
+    type: string
+    description: >
+      Date and time in ISO 8601 format.
+      Represents last unsuccessful Let's Encrypt certification.
+      If there are no successful attempts its value is null.
+      This property is omitted if letsEncrypt is off.
+required:
+  - letsEncrypt
+  - expirationTime
+  - creationTime
+  - paths
+  - domain
+  - issuer
+  - status
+example:
+  paths:
+    cert: "/etc/oz_panel/certs/web_cert.pem"
+    key: "/etc/oz_panel/certs/web_key.pem"
+    chain: "/etc/oz_panel/certs/web_chain.pem"
+  obtainedTime: "2018-07-11T13:11:05Z"
+  letsEncrypt: true
+  issuer: "LE Intermediate X3"
+  expirationTime: "2018-10-09T13:11:05Z"
+  domain: "onedata.org"

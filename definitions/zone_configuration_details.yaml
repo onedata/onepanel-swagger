@@ -7,6 +7,9 @@ properties:
     type: object
     description: The zone custom configuration.
     properties:
+      domainName:
+        description: Onezone's domain.
+        type: string
       name:
         description: The name of a zone.
         type: string
@@ -14,6 +17,7 @@ properties:
         description: True if all steps of cluster deployment and configuration have been performed.
         type: boolean
     required:
+      - domainName
       - name
       - configured
 required:
@@ -33,5 +37,6 @@ example:
       hosts:
         - "node1.onezone.onedata.example.com"
   onezone:
+    domainName: "example.com"
     name: "example"
     configured: true
