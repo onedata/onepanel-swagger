@@ -5,7 +5,7 @@ get:
     Returns the configuration information of the Onepanel user performing the query.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
-  x-onedata-resource: user
+  x-onedata-resource: current_user
   tags:
     - Onepanel
   produces:
@@ -37,7 +37,7 @@ patch:
     Modifies the Onepanel user password.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
-  x-onedata-resource: user
+  x-onedata-resource: current_user
   tags:
     - Onepanel
   consumes:
@@ -77,7 +77,7 @@ delete:
     Removes the Onepanel user account.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
-  x-onedata-resource: user
+  x-onedata-resource: current_user
   tags:
     - Onepanel
   responses:
