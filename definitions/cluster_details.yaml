@@ -1,0 +1,19 @@
+type: object
+description: Details of a user's cluster.
+properties:
+  id:
+    type: string
+    description: Type of Onedata component managed by this onepanel.
+    enum: [oneprovider, onezone]
+  domain:
+    type: string
+    description: Domain of the cluster.
+  name:
+    type: string
+  online:
+    type: boolean
+required:
+- id
+- domain
+- name
+- online

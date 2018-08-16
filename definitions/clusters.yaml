@@ -1,0 +1,14 @@
+type: object
+description: >
+  List of user's clusters..
+properties:
+  clusters:
+    type: array
+    description: The list of cluster ids.
+    items:
+      type: string
+required:
+  - clusters
+example:
+  clusters:
+    - "dff724101e991b0d97b3d4cc303b9f78"
