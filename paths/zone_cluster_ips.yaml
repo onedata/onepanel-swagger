@@ -22,6 +22,8 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
     source: onepanel-rest-cli -u alice:secret getZoneClusterIps --host https://example.com:9443
@@ -53,6 +55,8 @@ patch:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services need to fulfill this request are not running.
   parameters:
   - name: clusterIps
     in: body
