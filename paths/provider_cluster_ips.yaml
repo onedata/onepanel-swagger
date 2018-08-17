@@ -22,8 +22,6 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-    '503':
-      description: Services need to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
     source: onepanel-rest-cli -u alice:secret getProviderClusterIps --host https://example.com:9443
