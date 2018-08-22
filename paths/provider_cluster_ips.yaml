@@ -53,6 +53,8 @@ patch:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
   - name: clusterIps
     in: body

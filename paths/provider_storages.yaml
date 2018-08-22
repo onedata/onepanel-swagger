@@ -22,6 +22,8 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
     source: onepanel-rest-cli -u alice:secret getStorages --host https://op.example.com:9443
@@ -54,6 +56,8 @@ post:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
   - name: storageCreateRequest
     in: body
