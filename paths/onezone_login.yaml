@@ -18,6 +18,8 @@ get:
         type: string
     '403':
       description: Forbidden request.
+    '404':
+      description: Returned by op_panel when its Oneprovider is not registered in Onezone.
     '500':
       description: Internal server error.
       schema:
