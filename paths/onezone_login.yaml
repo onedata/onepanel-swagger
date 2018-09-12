@@ -1,5 +1,5 @@
 get:
-  operationId: get_node
+  operationId: get_onezone_login
   summary: Get information needed for logging in via Onezone.
   description: >
     Returns URL used to redirect user to Onezone connection page.
@@ -34,5 +34,5 @@ get:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getHostname --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getOnezoneLogin --host https://op.example.com:9443
 
