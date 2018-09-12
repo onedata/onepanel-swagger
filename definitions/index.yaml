@@ -51,6 +51,9 @@ UserDetails:
 OnezoneUserDetails:
   $ref: ./user_details.yaml
 
+OnezoneRedirect:
+  $ref: ./onezone_redirect.yaml
+
 UserCreateRequest:
   $ref: ./user_create_request.yaml
 

@@ -13,9 +13,9 @@ get:
     - application/json
   responses:
     '200':
-      description: URL used to login or link accounts..
+      description: URL used to login or link accounts.
       schema:
-        type: string
+        $ref: '#/definitions/OnezoneRedirect'
     '403':
       description: Forbidden request.
     '404':
