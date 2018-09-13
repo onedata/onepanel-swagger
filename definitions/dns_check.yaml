@@ -1,0 +1,33 @@
+type: object
+description: >
+  Gathers results of DNS checks for various aspects of the cluster domain.
+
+  Both Oneprovider and Onezone return field 'domain' for checking if cluster's domain
+  can be resolved.
+
+  In Onezone there is additional field 'dnsZone' for checking whether DNS zone management
+  for the Onezone's domain has been delegated to Onezone server (SOA and NS records)
+  allowing for subdomain delegation.
+
+  If the cluster is configured with an IP neither 'domain' nor 'dnsZone' is returned.
+properties:
+  domain:
+    $ref: '#/definitions/DnsCheckResult'
+  dnsZone:
+    $ref: '#/definitions/DnsCheckResult'
+  timestamp:
+    type: string
+    description: Time at which the DNS check was perfmormed. Formatted according to ISO 8601.
+required:
+  - timestamp
+example:
+  timestamp: "2018-10-20T21:39:37"
+  domain:
+    summary: ok
+    expected: ["10.11.12.13"]
+    got: ["10.11.12.13"]
+  dnsZone:
+    summary: bad_records
+    expected: ["10.11.12.13"]
+    got: ["100.100.102.102"]
+

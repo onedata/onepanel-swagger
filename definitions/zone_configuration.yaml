@@ -20,6 +20,8 @@ properties:
           If enabled the zone will use Let's Encrypt service to obtain SSL certificates.
           Otherwise certificates must be manually provided.
           By enabling this option you agree to the Let's Encrypt Subscriber Agreement.
+      policies:
+        $ref: '#/definitions/ZonePolicies'
   onepanel:
     $ref: '#/definitions/PanelConfiguration'
 required:
