@@ -42,7 +42,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The created session details.
+      description: The details of user session.
       schema:
         $ref: '#/definitions/SessionDetails'
     '400':
