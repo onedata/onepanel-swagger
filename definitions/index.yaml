@@ -2,6 +2,15 @@
 # This file groups the type definitions for Onepanel REST API
 #
 
+DnsCheck:
+  $ref: ./dns_check.yaml
+
+DnsCheckResult:
+  $ref: ./dns_check_result.yaml
+
+DnsCheckConfiguration:
+  $ref: ./dns_check_configuration.yaml
+
 Error:
   $ref: ./error.yaml
 
@@ -190,3 +199,6 @@ WebCert:
 
 WebCertModifyRequest:
   $ref: ./web_cert_modify_request.yaml
+
+ZonePolicies:
+  $ref: ./zone_policies.yaml

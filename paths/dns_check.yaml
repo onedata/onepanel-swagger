@@ -1,0 +1,46 @@
+get:
+  operationId: check_dns
+  summary: Check correctness of DNS entries for the cluster's domain.
+  description: >
+    Returns results of the last DNS check, verifying validity
+    of DNS configuration for cluster's domain.
+    Unless 'forceCheck' flag is set, the results may be cached.
+
+    If the cluster is configured with an IP instead of a domain
+    no results are returned.
+
+    Settings used for the check, ie. DNS servers used can be modified
+    using the dns_check/configuration endpoint.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: dns_check
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The DNS check results.
+      schema:
+        $ref: '#/definitions/DnsCheck'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Cluster not yet deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: forceCheck
+      in: query
+      description: If true the DNS check cache is overriden and check is performed
+        during handling of the request.
+      type: boolean
+      default: false
+      required: false
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret checkDns --host https://example.com:9443
