@@ -3,7 +3,7 @@ get:
   summary: Get storages
   description: Returns the list of provider storage resources and their details.
   x-onedata-version: 3
-  x-onedata-module: rest_service
+  x-onedata-module: rest_oneprovider
   x-onedata-resource: storages
   tags:
     - Oneprovider
@@ -32,7 +32,7 @@ post:
   summary: Add storage
   description: Adds additional storage resources to the provider.
   x-onedata-version: 3
-  x-onedata-module: rest_service
+  x-onedata-module: rest_oneprovider
   x-onedata-resource: storages
   tags:
     - Oneprovider

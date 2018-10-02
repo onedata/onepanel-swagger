@@ -3,7 +3,7 @@ patch:
   summary: Invalidate LUMA cache
   description: Invalidates LUMA cache in provider for given storage.
   x-onedata-version: 3
-  x-onedata-module: rest_service
+  x-onedata-module: rest_oneprovider
   x-onedata-resource: luma
   tags:
     - Oneprovider

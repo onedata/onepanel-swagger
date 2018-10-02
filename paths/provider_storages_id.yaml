@@ -3,7 +3,7 @@ get:
   summary: Get storage details
   description: Returns the details of the selected storage.
   x-onedata-version: 3
-  x-onedata-module: rest_service
+  x-onedata-module: rest_oneprovider
   x-onedata-resource: storage
   tags:
     - Oneprovider
@@ -40,7 +40,7 @@ patch:
   summary: Modify storage details
   description: Modifies basic storage details, such as operation timeout.
   x-onedata-version: 3
-  x-onedata-module: rest_service
+  x-onedata-module: rest_oneprovider
   x-onedata-resource: storage
   tags:
     - Oneprovider
