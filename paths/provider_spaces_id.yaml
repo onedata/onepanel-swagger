@@ -48,8 +48,11 @@ patch:
   consumes:
     - application/json
   responses:
-    '204':
+    '200':
       description: The space details has been successfully changed.
+        Returns object with ID of the space.
+      schema:
+        $ref: '#/definitions/SpaceId'
     '400':
       description: Invalid request.
       schema:
