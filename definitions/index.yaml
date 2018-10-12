@@ -194,6 +194,9 @@ SpaceAutoCleaningReportCollection:
 SpaceAutoCleaningReport:
   $ref: ./space_auto_cleaning_report.yaml
 
+SpaceId:
+  $ref: ./space_id.yaml
+
 WebCert:
   $ref: ./web_cert.yaml
 

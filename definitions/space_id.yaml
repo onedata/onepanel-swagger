@@ -1,0 +1,8 @@
+type: object
+description: Provides ID of a space.
+properties:
+  id:
+    type: string
+    description: The ID of the space.
+required:
+- id
