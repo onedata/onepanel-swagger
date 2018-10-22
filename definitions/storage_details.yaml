@@ -10,6 +10,7 @@ x-onedata-subclasses:
   - swift
   - glusterfs
   - nulldevice
+  - webdav
 properties:
   id:
     type: string
@@ -40,6 +41,7 @@ properties:
       - swift
       - glusterfs
       - nulldevice
+      - webdav
   lumaEnabled:
     type: boolean
     description: If true LUMA and reverse LUMA services will be enabled.

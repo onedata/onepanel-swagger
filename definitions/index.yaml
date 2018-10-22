@@ -80,6 +80,9 @@ glusterfs:
 nulldevice:
   $ref: ./storage_nulldevice.yaml
 
+webdav:
+  $ref: ./storage_webdav.yaml
+
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml
 
