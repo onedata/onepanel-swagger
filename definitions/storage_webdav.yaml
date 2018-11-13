@@ -14,6 +14,7 @@ allOf:
             Determines whether Oneprovider should verify the certificate of
             the WebDAV server.
         default: true
+        x-onedata-default-value: true
       credentialsType:
         type: string
         description: >
@@ -21,6 +22,7 @@ allOf:
             field.
         enum: [none, basic, token]
         default: none
+        x-onedata-default-value: none
       credentials:
         type: string
         description: >
@@ -44,17 +46,20 @@ allOf:
             selected no write support is available for this WebDAV storage.
         enum: [none, moddav, sabredav]
         default: none
+        x-onedata-default-value: none
       connectionPoolSize:
         type: integer
         description: >
             Defines the maximum number of parallel connections for a single WebDAV storage.
         default: 10
+        x-onedata-default-value: 10
       maximumUploadSize:
         type: integer
         description: >
             Defines the maximum upload size for a single `PUT` or `PATCH` request. If set to 0,
             assumes that the WebDAV server has no upload limit.
         default: 0
+        x-onedata-default-value: 0
       timeout:
         type: integer
         description: Storage operation timeout in milliseconds.
