@@ -7,9 +7,9 @@ properties:
   restUrl:
     type: string
     description: >
-      REST endpoint to view file popularity statistics
+      REST endpoint to view file-popularity statistics
 required:
   - enabled
 example:
   enabled: true
-  restUrl: https://example.com/some_api/some_method
+  restUrl: https://example.com/api/v3/oneprovider/spaces/example_space_id/indexes/file-popularity?spatial=true&start_range=\[1,0,0,0,0,0\]&end_range=\[null,null,null,null,null,null\]"

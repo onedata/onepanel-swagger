@@ -3,7 +3,7 @@ description: The space details.
 properties:
   id:
     type: string
-    description: The ID of the space.
+    description: The Id of the space.
   name:
     type: string
     description: The name of the space.
@@ -34,11 +34,11 @@ properties:
   storageUpdate:
     $ref: '#/definitions/StorageUpdateDetails'
   filesPopularity:
-    description: Configuration of files popularity feature for this space
-    $ref: '#/definitions/SpaceFilesPopularity'
+    description: Configuration of collecting file-popularity statistics mechanism for this space
+    $ref: '#/definitions/SpaceFilePopularity'
   autoCleaning:
-    description: Configuration of auto cleaning feature for this space
-    $ref: '#/definitions/SpaceAutoCleaning'
+    description: Configuration of auto-cleaning mechanism for this space
+    $ref: '#/definitions/SpaceAutoCleaningConfiguration'
   spaceOccupancy:
     type: integer
     description: Amount of storage [b] used by data from given space on that storage.

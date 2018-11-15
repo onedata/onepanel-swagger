@@ -1,0 +1,41 @@
+patch:
+  operationId: configure_space_auto_cleaning
+  summary: Configure space auto-cleaning mechanism.
+  description: >
+    Returns collection of reports of auto-cleaning for the space.
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space_auto_cleaning_configuration
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Auto-cleaning configuration has been updated
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The Id of a space
+      required: true
+    - name: spaceAutoCleaningConfiguration
+      in: body
+      description: >
+        New configuration of space auto-cleaning mechanism.
+      schema:
+        $ref: '#/definitions/SpaceAutoCleaningConfiguration'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        cat new_auto_cleaning_config.json | onepanel-rest-cli -u alice:secret --host https://$HOST:9443 \
+        configureSpaceAutoCleaning id=$SPACE_ID -

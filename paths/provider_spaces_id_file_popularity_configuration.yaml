@@ -1,0 +1,41 @@
+patch:
+  operationId: configure_file_popularity
+  summary: Configure file-popularity in the space.
+  description: Enables or disables collecting file-popularity statistics in the space.
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: file_popularity
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: File-popularity configuration has been changed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The Id of a space.
+      required: true
+    - name: enabled
+      in: body
+      schema:
+        $ref: '#/definitions/SpaceFilePopularity'
+      description: Value informing whether collecting file-popularity statistics in the space should be turned on or off.
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret configureFilePopularity --host https://$HOST:9443 enabled:=true
