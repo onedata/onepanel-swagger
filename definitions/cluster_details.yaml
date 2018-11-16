@@ -3,8 +3,6 @@ description: Details of a user's cluster.
 properties:
   id:
     type: string
-    description: Type of Onedata component managed by this onepanel.
-    enum: [oneprovider, onezone]
   domain:
     type: string
     description: Domain of the cluster.
@@ -12,6 +10,17 @@ properties:
     type: string
   online:
     type: boolean
+  type:
+    type: string
+    description: "Type of Onedata component in this cluster. (@fixme)"
+    enum: [oneprovider, onezone]
+  users: # async - separate model
+    type: array
+    items:
+      type: string
+  proxy:
+    type: boolean
+
 required:
 - id
 - domain
