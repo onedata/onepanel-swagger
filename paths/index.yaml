@@ -61,8 +61,8 @@
 /provider/spaces/{id}/auto-cleaning/status:
   $ref: ./provider_spaces_id_auto_cleaning_status.yaml
 
-/provider/spaces/{id}/file-popularity/configuration:
-  $ref: ./provider_spaces_id_file_popularity_configuration.yaml
+/provider/spaces/{id}/files-popularity/configuration:
+  $ref: ./provider_spaces_id_files_popularity_configuration.yaml
 
 /provider/spaces/{id}/sync:
   $ref: ./provider_spaces_id_sync_stats.yaml
