@@ -29,7 +29,7 @@ properties:
       policies:
         $ref: '#/definitions/ZonePolicies'
   onepanel:
-    $ref: '#/definitions/PanelConfiguration'
+    $ref: '#/definitions/OzPanelConfiguration'
 required:
   - cluster
 example:
