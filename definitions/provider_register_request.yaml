@@ -6,6 +6,11 @@ properties:
     type: string
     description: >
       The name under which the provider should be registered in a zone.
+  token:
+    type: string
+    description: >
+      Registration token obtained from Onezone service. This token identifies
+      Onezone to be used and authorizes the registration request.
   subdomainDelegation:
     type: boolean
     description: >
@@ -34,18 +39,14 @@ properties:
     format: float
     description: >
       The geographical latitude of the storage provider.
-  onezoneDomainName:
-    type: string
-    description: >
-      The domain name of a zone where this storage provider will be registered.
   adminEmail:
     type: string
     description: Email address of the oneprovider administrator.
 required:
   - name
+  - token
   - subdomainDelegation
   - adminEmail
-  - onezoneDomainName
 example:
   name: Provider1
   subdomainDelegation: false
