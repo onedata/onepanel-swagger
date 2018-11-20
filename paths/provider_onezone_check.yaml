@@ -1,7 +1,7 @@
 get:
   operationId: check_onezone
-  summary: Get information about Onezone needed for registration.
-  description: "@fixme"
+  summary: Get pre-register Onezone info
+  description: Get information about Onezone needed for registration.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: onezone_check
