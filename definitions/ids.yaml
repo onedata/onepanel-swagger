@@ -1,9 +1,14 @@
 type: object
-description: List of ids
 properties:
   ids:
     type: array
+    description: List of ids.
     items:
       type: string
 required:
 - ids
+example:
+  ids:
+  - 26cbc2b20f92416eb9f3cba65e50c1d2
+  - 9ad94a9296d145a1a2b894f5fd7f48b0
+  - 95ad2c09508f47198635e46a6ea4d005

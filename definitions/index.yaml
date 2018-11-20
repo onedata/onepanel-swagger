@@ -27,9 +27,6 @@ Error:
 Ids:
   $ref: ./ids.yaml
 
-Clusters:
-  $ref: ./clusters.yaml
-
 ClusterDetails:
   $ref: ./cluster_details.yaml
 

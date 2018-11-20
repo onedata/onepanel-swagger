@@ -29,7 +29,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Cluster id which users should be returned.
+    description: Cluster id.
     type: string
     required: true
   x-code-samples:
