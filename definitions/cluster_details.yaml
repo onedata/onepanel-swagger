@@ -14,15 +14,12 @@ properties:
     type: string
     description: "Type of Onedata component in this cluster. (@fixme)"
     enum: [oneprovider, onezone]
-  users: # async - separate model
-    type: array
-    items:
-      type: string
   proxy:
     type: boolean
-
 required:
 - id
 - domain
 - name
 - online
+- type
+- proxy
