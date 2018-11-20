@@ -21,6 +21,12 @@
 /user/clusters/{id}:
   $ref: ./user_clusters_id.yaml
 
+/user/clusters/{id}/users:
+  $ref: ./user_clusters_id_users.yaml
+
+/user/clusters/{id}/users/{userId}:
+  $ref: ./user_clusters_id_users_userid.yaml
+
 /users:
   $ref: ./users.yaml
 

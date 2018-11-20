@@ -24,6 +24,9 @@ DnsCheckConfiguration:
 Error:
   $ref: ./error.yaml
 
+Ids:
+  $ref: ./ids.yaml
+
 Clusters:
   $ref: ./clusters.yaml
 
@@ -48,11 +51,11 @@ Users:
 UserDetails:
   $ref: ./user_details.yaml
 
-OnezoneUserDetails:
-  $ref: ./user_details.yaml
-
 OnezoneRedirect:
   $ref: ./onezone_redirect.yaml
+
+OnezoneUser:
+  $ref: ./onezone_user.yaml
 
 UserCreateRequest:
   $ref: ./user_create_request.yaml

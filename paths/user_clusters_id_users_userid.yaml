@@ -1,0 +1,44 @@
+get:
+  operationId: get_cluster_user
+  summary: Get info about Onezone user linked to cluster
+  description: "@fixme"
+  x-onedata-version: 3
+  x-onedata-module: rest_cluster_user
+  x-onedata-resource: users
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The user details.
+      schema:
+        $ref: '#/definitions/OnezoneUser'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Given cluster does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster id which users should be returned.
+    type: string
+    required: true
+  - name: userId
+    in: path
+    description: Id of the user.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: >
+      onepanel-rest-cli -u alice:secret getClusterUsers id=b25lcHJvdmlkZXJjbHVzdGVyCg==
+      userId=ALKJSDH77i79ASDKJA-ASDBAS9-87 --host https://op.example.com:9443

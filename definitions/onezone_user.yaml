@@ -1,0 +1,19 @@
+type: object
+description: Describes a user account.
+properties:
+  userId:
+    type: string
+    description: Unique user ID.
+  name:
+    type: string
+    description: The user friendly name of storage resource.
+  login:
+    type: string
+    description: User login
+required:
+- userId
+- name
+example:
+  userId: ALKJSDH77i79ASDKJA-ASDBAS9-87
+  name: Rudolf Lingens
+  login: Rudolf Lingens

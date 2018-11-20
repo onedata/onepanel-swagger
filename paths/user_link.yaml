@@ -15,7 +15,7 @@ get:
     '200':
       description: The configuration information of the user.
       schema:
-        $ref: '#/definitions/OnezoneUserDetails'
+        $ref: '#/definitions/OnezoneUser'
     '401':
       description: Unauthorized request.
     '403':

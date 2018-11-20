@@ -1,0 +1,9 @@
+type: object
+description: List of ids
+properties:
+  ids:
+    type: array
+    items:
+      type: string
+required:
+- ids
