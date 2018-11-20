@@ -48,6 +48,9 @@ Users:
 UserDetails:
   $ref: ./user_details.yaml
 
+RemoteOnezone:
+  $ref: ./remote_onezone.yaml
+
 OnezoneRedirect:
   $ref: ./onezone_redirect.yaml
 

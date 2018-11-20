@@ -1,0 +1,22 @@
+type: object
+description: Information which can be obtained about remote Onezone.
+properties:
+  domain:
+    type: string
+    description: Domain of the Onezone.
+  online:
+    type: boolean
+    description: |
+      True if connection to the Onezone was achieved.
+      If false, fields 'compatible' and 'subdomainDelegationSupported'
+      will not be sent.
+  compatible:
+    type: boolean
+    description: >
+      True if versions of this Oneprovider and the Onezone are compatible.
+  subdomainDelegationSupported:
+    type: boolean
+    description: Whether given Onezone allows subdomain delegation.
+required:
+- domain
+- online

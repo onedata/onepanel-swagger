@@ -127,6 +127,9 @@
 /provider/cluster_ips:
   $ref: ./provider_cluster_ips.yaml
 
+/provider/onezone_check:
+  $ref: ./provider_onezone_check.yaml
+
 # Zone specific resources
 
 /zone/nagios:
