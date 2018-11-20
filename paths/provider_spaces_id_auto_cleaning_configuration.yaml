@@ -39,7 +39,7 @@ patch:
   operationId: configure_space_auto_cleaning
   summary: Configure space auto-cleaning mechanism.
   description: >
-    Returns collection of reports of auto-cleaning for the space.
+    Configures space auto-cleaning mechanism in the space.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: space_auto_cleaning_configuration

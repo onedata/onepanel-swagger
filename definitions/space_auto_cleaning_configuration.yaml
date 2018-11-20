@@ -1,7 +1,7 @@
 type: object
 description: >
   Settings for space auto-cleaning mechanism
-  Setting value to `null` disables given parameter. It will be ignored by auto-cleaning mechanism.
+  Setting enabled to `false` disables given parameter. It will be ignored by auto-cleaning mechanism.
   All presented parameters' ranges are inclusive.
 properties:
   enabled:
@@ -29,6 +29,7 @@ example:
   target: 1073741824
   threshold: 1099511627776
   rules:
+    enabled: True
     maxOpenCount:
       enabled: True
       value: 1000

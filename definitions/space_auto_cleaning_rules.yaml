@@ -6,6 +6,10 @@ description: >
   In that case previous value is used. If the rule is enabled for the first time a default value will be used.
   All rules' values are inclusive.
 properties:
+  enabled:
+    type: boolean
+    description: >
+      Informs whether selective rules should be used by auto-cleaning mechanism.
   maxOpenCount:
     $ref: '#/definitions/SpaceAutoCleaningRuleSetting'
     # TODO VFS-5098
