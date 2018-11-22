@@ -1,6 +1,6 @@
 type: object
 description: >
-  Settings for space auto-cleaning mechanism
+  Settings for space auto-cleaning mechanism.
   Setting enabled to `false` disables given parameter. It will be ignored by auto-cleaning mechanism.
   All presented parameters' ranges are inclusive.
 properties:
