@@ -1,15 +1,15 @@
 type: object
-description: Describes a user account.
+description: Describes user information coming from Onezone.
 properties:
   userId:
     type: string
-    description: Unique user ID.
+    description: Onezone user ID.
   name:
     type: string
-    description: The user friendly name of storage resource.
-  login:
+    description: User name as registered in Onezone.
+  alias:
     type: string
-    description: User login
+    description: Oneozne user login.
 required:
 - userId
 - name

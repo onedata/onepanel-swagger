@@ -1,7 +1,14 @@
 get:
-  operationId: check_onezone
-  summary: Get pre-register Onezone info
-  description: Get information about Onezone needed for registration.
+  operationId: get_onezone_info
+  summary: Get Onezone information
+  description: >
+    Get information about Onezone.
+
+    Before registration this endpoint requires a registration token and returns
+    information about Onezone issuing the token.
+
+    When provider is registered returns information about Onezone
+    at which the provider is registered.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: onezone_check
@@ -13,7 +20,7 @@ get:
     '200':
       description: Information about Onezone.
       schema:
-        $ref: '#/definitions/RemoteOnezone'
+        $ref: '#/definitions/OnezoneInfo'
     '401':
       description: Unauthorized request.
     '403':
@@ -29,7 +36,8 @@ get:
     in: query
     type: string
     description: Provider registration token obtained be the Onezone's user.
-    required: true
+      Required if provider is not registered at Onezone.
+    required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret checkOnezone --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getOnezoneInfo --host https://op.example.com:9443

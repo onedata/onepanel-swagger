@@ -4,6 +4,9 @@ properties:
   domain:
     type: string
     description: Domain of the Onezone.
+  name:
+    type: string
+    description: Name of the Onezone cluster.
   online:
     type: boolean
     description: |
