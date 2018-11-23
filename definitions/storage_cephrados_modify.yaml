@@ -1,6 +1,6 @@
 description: The Ceph storage configuration (uses librados).
 allOf:
-  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/StorageDetailsModify'
   - type: object
     x-discriminator-value: "cephrados"
     properties:

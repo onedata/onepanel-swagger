@@ -1,6 +1,6 @@
 description: The OpenStack Swift configuration.
 allOf:
-  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/StorageDetailsModify'
   - type: object
     x-discriminator-value: swift
     properties:

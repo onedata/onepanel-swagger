@@ -2,15 +2,15 @@ type: object
 description: The cluster storage configuration.
 discriminator: type
 x-onedata-oneof: true
-x-onedata-subclasses: []
-#  - posixModify
-#  - s3Modify
-#  - cephModify
-#  - cephradosModify
-#  - swiftModify
-#  - glusterfsModify
-#  - nulldeviceModify
-#  - webdavModify
+x-onedata-subclasses:
+  - posix_modify
+  - s3_modify
+  - ceph_modify
+  - cephrados_modify
+  - swift_modify
+  - glusterfs_modify
+  - nulldevice_modify
+  - webdav_modify
 properties:
   id:
     type: string

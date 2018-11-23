@@ -93,52 +93,55 @@ ModifyClusterIps:
 StorageDetails:
   $ref: ./storage_details.yaml
 
+StorageDetailsModify:
+  $ref: ./storage_details_modify.yaml
+
 posix:
   $ref: ./storage_posix.yaml
 
-posixModify:
+posix_modify:
   $ref: ./storage_posix_modify.yaml
 
 s3:
   $ref: ./storage_s3.yaml
 
-s3:Modify
-  $ref: ./_modifystorage_s3.yaml
+s3_modify:
+  $ref: ./storage_s3_modify.yaml
 
 ceph:
   $ref: ./storage_ceph.yaml
 
-cephModify:
+ceph_modify:
   $ref: ./storage_ceph_modify.yaml
 
 cephrados:
   $ref: ./storage_cephrados.yaml
 
-cephradosModify:
+cephrados_modify:
   $ref: ./storage_cephrados_modify.yaml
 
 swift:
   $ref: ./storage_swift.yaml
 
-swiftModify:
+swift_modify:
   $ref: ./storage_swift_modify.yaml
 
 glusterfs:
   $ref: ./storage_glusterfs.yaml
 
-glusterfsModify:
+glusterfs_modify:
   $ref: ./storage_glusterfs_modify.yaml
 
 nulldevice:
   $ref: ./storage_nulldevice.yaml
 
-nulldeviceModify:
+nulldevice_modify:
   $ref: ./storage_nulldevice_modify.yaml
 
 webdav:
   $ref: ./storage_webdav.yaml
 
-webdavModify:
+webdav_modify:
   $ref: ./storage_webdav_modify.yaml
 
 StorageCreateRequest:
@@ -150,6 +153,7 @@ StorageModifyRequest:
 StorageImportDetails:
   $ref: ./storage_import_details.yaml
 
+# this is storage sync, not PATCh
 StorageUpdateDetails:
   $ref: ./storage_update_details.yaml
 

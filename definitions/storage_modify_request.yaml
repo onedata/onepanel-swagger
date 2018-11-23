@@ -1,8 +1,15 @@
 type: object
-description: The storage configuration details that can be modified.
-properties:
-  timeout:
-    type: integer
-    description: Storage operation timeout in milliseconds.
+description: >
+  The configuration details required to add storage resources.
+x-onedata-dictionary: true
+x-onedata-dictionary-value-type: storage_details
+# @fixme do not requrie to be a map
+additionalProperties:
+  $ref: '#/definitions/StorageDetailsModify'
 example:
-  timeout: 10000
+  type: s3
+  s3Hostname: s3.example.com
+  iamHostname: iam.example.com
+  bucketName: bucket1.iam.example.com
+  accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
+  secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDK
