@@ -96,32 +96,56 @@ StorageDetails:
 posix:
   $ref: ./storage_posix.yaml
 
+posixModify:
+  $ref: ./storage_posix_modify.yaml
+
 s3:
   $ref: ./storage_s3.yaml
+
+s3:Modify
+  $ref: ./_modifystorage_s3.yaml
 
 ceph:
   $ref: ./storage_ceph.yaml
 
+cephModify:
+  $ref: ./storage_ceph_modify.yaml
+
 cephrados:
   $ref: ./storage_cephrados.yaml
+
+cephradosModify:
+  $ref: ./storage_cephrados_modify.yaml
 
 swift:
   $ref: ./storage_swift.yaml
 
+swiftModify:
+  $ref: ./storage_swift_modify.yaml
+
 glusterfs:
   $ref: ./storage_glusterfs.yaml
+
+glusterfsModify:
+  $ref: ./storage_glusterfs_modify.yaml
 
 nulldevice:
   $ref: ./storage_nulldevice.yaml
 
+nulldeviceModify:
+  $ref: ./storage_nulldevice_modify.yaml
+
 webdav:
   $ref: ./storage_webdav.yaml
+
+webdavModify:
+  $ref: ./storage_webdav_modify.yaml
 
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml
 
 StorageModifyRequest:
-  $ref: ./storage_modify_request.yaml
+  $ref: ./storage_details_modify.yaml
 
 StorageImportDetails:
   $ref: ./storage_import_details.yaml

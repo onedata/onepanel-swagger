@@ -1,0 +1,31 @@
+description: The POSIX storage configuration.
+allOf:
+  - $ref: '#/definitions/StorageDetails'
+  - type: object
+    x-discriminator-value: posix
+    properties:
+      mountPoint:
+        type: string
+        description: >
+          The absolute path to the directory where the POSIX storage is mounted
+          on the cluster nodes.
+      timeout:
+        type: integer
+        description: Storage operation timeout in milliseconds.
+      readonly:
+        type: boolean
+        default: false
+        description: Defines whether storage is readonly.
+      storagePathType:
+        type: string
+        default: "canonical"
+        description: |
+          Determines how the logical file paths will be mapped on the storage.
+          'canonical' paths reflect the logical file names and directory structure,
+          however each rename operation will require renaming the files on the storage.
+          'flat' paths are based on unique file UUID's and do not require on-storage
+          rename when logical file name is changed.
+example:
+  type: POSIX
+  name: SomePosix
+  mountPoint: /mnt/nfs
