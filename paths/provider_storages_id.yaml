@@ -6,9 +6,9 @@ get:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: storage
   tags:
-    - Oneprovider
+  - Oneprovider
   produces:
-    - application/json
+  - application/json
   responses:
     '200':
       description: The details of a selected storage.
@@ -39,15 +39,15 @@ get:
 
 patch:
   operationId: modify_storage
-  summary: Modify storage details
-  description: Modifies basic storage details, such as operation timeout.
+  summary: Modify storage config
+  description: Modifies storage configuration.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: storage
   tags:
-    - Oneprovider
+  - Oneprovider
   consumes:
-    - application/json
+  - application/json
   responses:
     '204':
       description: Storage details have been successfully modified.
@@ -66,7 +66,7 @@ patch:
     in: path
     type: string
     description: >
-      The Id of a storage resource, which details should be modified.
+      The Id of the storage resource which details should be modified.
     required: true
   - name: storageModifyRequest
     in: body
@@ -78,4 +78,6 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443 modifyStorage name=S3 timeout==10000
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
+      modifyStorage id=$STORAGE_ID timeout==10000
+
