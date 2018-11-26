@@ -4,6 +4,9 @@ properties:
   userId:
     type: string
     description: The user Id.
+  username:
+    type: string
+    description: The user name.
   userRole:
     type: string
     x-onedata-datatype: atom
@@ -13,7 +16,9 @@ properties:
       - regular
 required:
   - userId
+  - username
   - userRole
 example:
   userId: i3h2bp4TjPVuOyvXulbW
+  username: admin
   userRole: admin
