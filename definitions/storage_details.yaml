@@ -29,19 +29,6 @@ properties:
     type: boolean
     default: false
     description: Defines whether storage is readonly.
-  type:
-    type: string
-    description: The type of storage.
-    x-discriminator: true
-    enum:
-      - posix
-      - s3
-      - ceph
-      - cephrados
-      - swift
-      - glusterfs
-      - nulldevice
-      - webdav
   lumaEnabled:
     type: boolean
     description: If true LUMA and reverse LUMA services will be enabled.
@@ -52,5 +39,3 @@ properties:
   lumaApiKey:
     type: string
     description: LUMA API Key, must be identical with API Key in external LUMA service.
-required:
-  - type

@@ -2,8 +2,11 @@ description: The WebDAV storage configuration.
 allOf:
   - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: "webdav"
     properties:
+      type:
+        type: string
+        description: The type of storage.
+        x-discriminator-value: webdav
       endpoint:
         type: string
         description: >
@@ -84,6 +87,7 @@ allOf:
           'flat' paths are based on unique file UUID's and do not require on-storage
           rename when logical file name is changed.
     required:
+    - type
     - endpoint
 example:
   type: webdav 
