@@ -148,7 +148,7 @@ StorageCreateRequest:
   $ref: ./storage_create_request.yaml
 
 StorageModifyRequest:
-  $ref: ./storage_details_modify.yaml
+  $ref: ./storage_modify_request.yaml
 
 StorageImportDetails:
   $ref: ./storage_import_details.yaml

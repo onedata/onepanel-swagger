@@ -1,53 +1,46 @@
 description: The Simple Storage Service configuration.
 allOf:
-  - $ref: '#/definitions/StorageDetailsModify'
-  - type: object
-    x-discriminator-value: s3
-    properties:
-      hostname:
-        type: string
-        description: The hostname of a machine where S3 storage is installed.
-      bucketName:
-        type: string
-        description: The storage bucket name.
-      accessKey:
-        type: string
-        description: The access key to the S3 storage.
-      secretKey:
-        type: string
-        description: The secret key to the S3 storage.
-      signatureVersion:
-        type: integer
-        default: 4
-        description: >
-          The version of signature used to sign requests.
-          One of: 2, 4. Default: 4.
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
-      blockSize:
-        type: integer
-        description: Storage block size in bytes.
-      insecure:
-        type: boolean
-        default: false
-        description: >
-          Defines whether storage administrator credentials (accessKey and
-          secretKey) may be used by users without storage accounts to access
-          storage in direct IO mode.
-      readonly:
-        type: boolean
-        default: false
-        description: Defines whether storage is readonly.
-      storagePathType:
-        type: string
-        default: "flat"
-        description: |
-          Determines how the logical file paths will be mapped on the storage.
-          'canonical' paths reflect the logical file names and directory structure,
-          however each rename operation will require renaming the files on the storage.
-          'flat' paths are based on unique file UUID's and do not require on-storage
-          rename when logical file name is changed.
+- $ref: '#/definitions/StorageDetailsModify'
+- type: object
+  properties:
+    type:
+      type: string
+      description: The type of storage.
+      x-discriminator-value: s3
+    hostname:
+      type: string
+      description: The hostname of a machine where S3 storage is installed.
+    bucketName:
+      type: string
+      description: The storage bucket name.
+    accessKey:
+      type: string
+      description: The access key to the S3 storage.
+    secretKey:
+      type: string
+      description: The secret key to the S3 storage.
+    signatureVersion:
+      type: integer
+      default: 4
+      description: >
+        The version of signature used to sign requests.
+        One of: 2, 4. Default: 4.
+    timeout:
+      type: integer
+      description: Storage operation timeout in milliseconds.
+    insecure:
+      type: boolean
+      default: false
+      description: >
+        Defines whether storage administrator credentials (accessKey and
+        secretKey) may be used by users without storage accounts to access
+        storage in direct IO mode.
+    readonly:
+      type: boolean
+      default: false
+      description: Defines whether storage is readonly.
+  required:
+  - type
 example:
   type: s3
   name: SomeS3

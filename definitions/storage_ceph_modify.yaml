@@ -1,47 +1,41 @@
 description: The Ceph storage configuration (uses libradosstriper).
 allOf:
-  - $ref: '#/definitions/StorageDetailsModify'
-  - type: object
-    x-discriminator-value: "ceph"
-    properties:
-      username:
-        type: string
-        description: The username of the Ceph cluster administrator.
-      key:
-        type: string
-        description: The admin key to access the Ceph cluster.
-      monitorHostname:
-        type: string
-        description: The monitor host name.
-      clusterName:
-        type: string
-        description: The Ceph cluster name.
-      poolName:
-        type: string
-        description: The Ceph pool name.
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
-      insecure:
-        type: boolean
-        default: false
-        description: >
-          Defines whether storage administrator credentials (username and key)
-          may be used by users without storage accounts to access storage in
-          direct IO mode.
-      readonly:
-        type: boolean
-        default: false
-        description: Defines whether storage is readonly.
-      storagePathType:
-        type: string
-        default: "flat"
-        description: |
-          Determines how the logical file paths will be mapped on the storage.
-          'canonical' paths reflect the logical file names and directory structure,
-          however each rename operation will require renaming the files on the storage.
-          'flat' paths are based on unique file UUID's and do not require on-storage
-          rename when logical file name is changed.
+- $ref: '#/definitions/StorageDetailsModify'
+- type: object
+  properties:
+    type:
+      type: string
+      description: The type of storage.
+      x-discriminator-value: ceph
+    username:
+      type: string
+      description: The username of the Ceph cluster administrator.
+    key:
+      type: string
+      description: The admin key to access the Ceph cluster.
+    monitorHostname:
+      type: string
+      description: The monitor host name.
+    clusterName:
+      type: string
+      description: The Ceph cluster name.
+    poolName:
+      type: string
+      description: The Ceph pool name.
+    timeout:
+      type: integer
+      description: Storage operation timeout in milliseconds.
+    insecure:
+      type: boolean
+      default: false
+      description: >
+        Defines whether storage administrator credentials (username and key)
+        may be used by users without storage accounts to access storage in
+        direct IO mode.
+    readonly:
+      type: boolean
+      default: false
+      description: Defines whether storage is readonly.
 example:
   type: ceph
   name: SomeCeph
