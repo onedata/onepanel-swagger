@@ -70,7 +70,7 @@
                                 {{^required}}
                                     {{#vendorExtensions}}
                                         {{#x-onedata-default-value}}
-        {{name}} => { {{datatype}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
+        {{name}} => { {{datatype}}, {optional, {{{x-onedata-default-value}}} } }{{#hasMore}},{{/hasMore}}
                                         {{/x-onedata-default-value}}
                                         {{^x-onedata-default-value}}
                                             {{#x-onedata-datatype}}

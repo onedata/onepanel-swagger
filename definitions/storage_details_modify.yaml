@@ -1,6 +1,6 @@
 type: object
-description: The part of storage configuration which can be after
-  storage creation.
+description: The part of storage configuration which can be modified
+  after storage creation.
 discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:

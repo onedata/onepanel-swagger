@@ -15,13 +15,10 @@ allOf:
       timeout:
         type: integer
         description: Storage operation timeout in milliseconds.
-      readonly:
-        type: boolean
-        default: false
-        description: Defines whether storage is readonly.
       storagePathType:
         type: string
-        default: "canonical"
+        default: canonical
+        x-onedata-default-value: '<<"canonical">>'
         description: |
           Determines how the logical file paths will be mapped on the storage.
           'canonical' paths reflect the logical file names and directory structure,

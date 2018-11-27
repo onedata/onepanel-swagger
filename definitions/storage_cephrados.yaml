@@ -42,7 +42,8 @@ allOf:
         description: Defines whether storage is readonly.
       storagePathType:
         type: string
-        default: "flat"
+        default: flat
+        x-onedata-default-value: '<<"flat">>'
         description: |
           Determines how the logical file paths will be mapped on the storage.
           'canonical' paths reflect the logical file names and directory structure,

@@ -45,13 +45,10 @@ allOf:
           Defines whether storage administrator credentials (username and key)
           may be used by users without storage accounts to access storage in
           direct IO mode.
-      readonly:
-        type: boolean
-        default: false
-        description: Defines whether storage is readonly.
       storagePathType:
         type: string
-        default: "canonical"
+        default: canonical
+        x-onedata-default-value: '<<"canonical">>'
         description: |
           Determines how the logical file paths will be mapped on the storage.
           'canonical' paths reflect the logical file names and directory structure,

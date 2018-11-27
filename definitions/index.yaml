@@ -153,7 +153,6 @@ StorageModifyRequest:
 StorageImportDetails:
   $ref: ./storage_import_details.yaml
 
-# this is storage sync, not PATCh
 StorageUpdateDetails:
   $ref: ./storage_update_details.yaml
 
