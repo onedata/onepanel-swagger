@@ -1,5 +1,5 @@
 get:
-  operationId: get_clusters
+  operationId: get_cluster
   summary: Get details of a user's cluster
   description: >
     Lists clusters linked with current user's account.
