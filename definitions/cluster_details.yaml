@@ -1,5 +1,5 @@
 type: object
-description: Details of a user's cluster.
+description: Details of a cluster.
 properties:
   id:
     type: string
@@ -17,9 +17,9 @@ properties:
   proxy:
     type: boolean
 required:
-- id
-- domain
-- name
-- online
-- type
-- proxy
+  - id
+  - domain
+  - name
+  - online
+  - type
+  - proxy

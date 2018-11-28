@@ -1,0 +1,30 @@
+get:
+  operationId: get_current_cluster
+  summary: Get details of this cluster
+  description: >
+    Returns details of this cluster.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel_cluster
+  x-onedata-resource: current_cluster
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Details of the cluster.
+      schema:
+        $ref: '#/definitions/ClusterDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getCurrentCluster --host https://op.example.com:9443
