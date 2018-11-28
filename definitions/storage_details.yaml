@@ -21,6 +21,11 @@ properties:
   name:
     type: string
     description: The name of storage.
+  verificationResult:
+    type: string
+    readOnly: true
+    description: Result of storage verification (reading and writing a file).
+      Returned only on PATCH requests for read/write storages.
   insecure:
     type: boolean
     default: false

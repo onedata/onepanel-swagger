@@ -50,8 +50,12 @@ patch:
   consumes:
   - application/json
   responses:
-    '204':
-      description: Storage details have been successfully modified.
+    '200':
+      description: |
+        The storage resources have been successfully modified.
+        Response contains current storage params and report of file creation test.
+      schema:
+        $ref: '#/definitions/StorageDetails'
     '401':
       description: Unauthorized request.
     '403':
