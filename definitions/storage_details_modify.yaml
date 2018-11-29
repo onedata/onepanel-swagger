@@ -13,9 +13,6 @@ x-onedata-subclasses:
 - nulldevice_modify
 - webdav_modify
 properties:
-  id:
-    type: string
-    description: The ID of storage.
   name:
     type: string
     description: The name of storage.
@@ -30,10 +27,6 @@ properties:
     type: boolean
     default: false
     description: Defines whether storage is readonly.
-  lumaEnabled:
-    type: boolean
-    description: If true LUMA and reverse LUMA services will be enabled.
-    default: false
   lumaUrl:
     type: string
     description: URL of external LUMA service
