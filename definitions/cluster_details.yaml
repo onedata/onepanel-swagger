@@ -3,23 +3,33 @@ description: Details of a cluster.
 properties:
   id:
     type: string
-  domain:
-    type: string
-    description: Domain of the cluster.
-  name:
-    type: string
-  online:
-    type: boolean
   type:
     type: string
     description: "Type of Onedata component in this cluster. (@fixme)"
     enum: [oneprovider, onezone]
+  serviceId:
+    type: string
+    description: >
+      The id of the service hosted on this cluster - depending on the type equal
+      to the provider Id or 'onezone' literal
+    enum: [oneprovider, onezone]
+  name:
+    type: string
+  domain:
+    type: string
+    description: Domain of the cluster.
+  version:
+    type: string
+  online:
+    type: boolean
   proxy:
     type: boolean
 required:
   - id
-  - domain
-  - name
-  - online
   - type
+  - serviceId
+  - name
+  - domain
+  - version
+  - online
   - proxy
