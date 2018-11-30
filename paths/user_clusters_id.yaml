@@ -5,7 +5,7 @@ get:
     Lists clusters linked with current user's account.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
-  x-onedata-resource: users
+  x-onedata-resource: cluster
   x-onedata-noauth: true
   tags:
     - Onepanel

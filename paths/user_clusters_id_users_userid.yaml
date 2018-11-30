@@ -4,7 +4,7 @@ get:
   description: "@fixme"
   x-onedata-version: 3
   x-onedata-module: rest_cluster_user
-  x-onedata-resource: users
+  x-onedata-resource: cluster_user
   tags:
     - Onepanel
   consumes:
@@ -40,5 +40,5 @@ get:
   x-code-samples:
   - lang: Shell
     source: >
-      onepanel-rest-cli -u alice:secret getClusterUsers id=b25lcHJvdmlkZXJjbHVzdGVyCg==
+      onepanel-rest-cli -u alice:secret getClusterUser id=b25lcHJvdmlkZXJjbHVzdGVyCg==
       userId=ALKJSDH77i79ASDKJA-ASDBAS9-87 --host https://op.example.com:9443
