@@ -1,17 +1,20 @@
 type: object
 description: Information which can be obtained about remote Onezone.
 properties:
+  online:
+    type: boolean
+    description: |
+      True if connection to the Onezone was achieved.
+      If false, fields other than 'domain' will not be sent.
+  version:
+    type: string
+    description: Onezone cluster version.
   domain:
     type: string
     description: Domain of the Onezone.
   name:
     type: string
     description: Name of the Onezone cluster.
-  online:
-    type: boolean
-    description: |
-      True if connection to the Onezone was achieved.
-      If false, fields 'compatible' and 'subdomainDelegationSupported' will not be sent.
   compatible:
     type: boolean
     description: >
