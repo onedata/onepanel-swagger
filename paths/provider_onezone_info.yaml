@@ -11,7 +11,7 @@ get:
     at which the provider is registered.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
-  x-onedata-resource: onezone_check
+  x-onedata-resource: onezone_info
   tags:
   - Oneprovider
   produces:

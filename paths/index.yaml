@@ -131,8 +131,8 @@
 /provider/cluster_ips:
   $ref: ./provider_cluster_ips.yaml
 
-/provider/onezone_check:
-  $ref: ./provider_onezone_check.yaml
+/provider/onezone_info:
+  $ref: ./provider_onezone_info.yaml
 
 # Zone specific resources
 
