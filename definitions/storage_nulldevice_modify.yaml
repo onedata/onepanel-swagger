@@ -63,4 +63,3 @@ example:
   filter: "read,write,open"
   simulatedFilesystemParameters: "2-2:2-2:0-3"
   simulatedFilesystemGrowSpeed: 5.0
-  insecure: true

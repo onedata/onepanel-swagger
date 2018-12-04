@@ -45,4 +45,3 @@ example:
   clusterName: CephCluster1
   poolName: data
   insecure: true
-  blockSize: 10485760
