@@ -182,8 +182,8 @@ SpaceAutoCleaningRuleSetting:
 SpaceAutoCleaningStatus:
   $ref: ./space_auto_cleaning_status.yaml
 
-SpaceAutoCleaningReportCollection:
-  $ref: ./space_auto_cleaning_report_collection.yaml
+SpaceAutoCleaningReports:
+  $ref: ./space_auto_cleaning_reports.yaml
 
 SpaceAutoCleaningReport:
   $ref: ./space_auto_cleaning_report.yaml

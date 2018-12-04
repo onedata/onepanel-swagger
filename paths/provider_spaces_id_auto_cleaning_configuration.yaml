@@ -37,7 +37,7 @@ get:
 
 patch:
   operationId: configure_space_auto_cleaning
-  summary: Configure space auto-cleaning mechanism.
+  summary: Configure space auto-cleaning mechanism
   description: >
     Configures space auto-cleaning mechanism in the space.
   x-onedata-version: 3

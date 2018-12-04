@@ -1,9 +1,9 @@
 type: object
-description: The cluster storage resources.
+description: The space auto-cleaning reports.
 properties:
   ids:
     type: array
-    description: The list of Ids of cluster storage resources.
+    description: The list of Ids of space auto-cleaning reports.
     items:
       type: string
 required:
