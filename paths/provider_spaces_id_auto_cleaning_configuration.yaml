@@ -74,5 +74,5 @@ patch:
   x-code-samples:
     - lang: Shell
       source: >
-        cat new_auto_cleaning_config.json | onepanel-rest-cli -u alice:secret --host https://$HOST:9443 \
+        cat new_auto_cleaning_config.json | onepanel-rest-cli -u alice:secret --host https://$HOST:9443
         configureSpaceAutoCleaning id=$SPACE_ID -

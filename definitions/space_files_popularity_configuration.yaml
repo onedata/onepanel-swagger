@@ -12,4 +12,4 @@ required:
   - enabled
 example:
   enabled: true
-  restUrl: https://example.com/api/v3/oneprovider/spaces/example_space_id/indexes/files-popularity?spatial=true&start_range=\[1,0,0,0,0,0\]&end_range=\[null,null,null,null,null,null\]"
+  restUrl: https://example.com/api/v3/oneprovider/spaces/example_space_id/indexes/files-popularity?spatial=true&start_range=\[1,0,0,0,0,0\]&end_range=\[null,null,null,null,null,null\]
