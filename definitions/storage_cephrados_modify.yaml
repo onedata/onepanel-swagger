@@ -27,14 +27,12 @@ allOf:
       description: Storage operation timeout in milliseconds.
     insecure:
       type: boolean
-      default: false
       description: >
         Defines whether storage administrator credentials (username and key)
         may be used by users without storage accounts to access storage in
         direct IO mode.
     readonly:
       type: boolean
-      default: false
       description: Defines whether storage is readonly.
   required:
   - type

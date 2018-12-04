@@ -12,33 +12,28 @@ allOf:
       description: |
         Minimum latency in milliseconds, which should be simulated for
         selected operations.
-      default: 0
     latencyMax:
       type: integer
       description: |
         Maximum latency in milliseconds, which should be simulated for
         selected operations.
-      default: 0
     timeoutProbability:
       type: number
       format: float
       description: |
         Probability (0.0, 1.0), with which an operation should return
         a timeout error.
-      default: 0.0
     filter:
       type: string
       description: |
         Comma-separated list of filesystem operations, for which latency
         and timeout should be simulated. Empty or '*' mean all operations
         will be affected.
-      default: "*"
     timeout:
       type: integer
       description: Storage operation timeout in milliseconds.
     simulatedFilesystemParameters:
       type: string
-      default: ""
       description: |
         Specifies the parameters for a simulated null device filesystem.
         For example `2-2:2-2:0-1` will generate a filesystem tree which has 2
@@ -50,7 +45,6 @@ allOf:
     simulatedFilesystemGrowSpeed:
       type: number
       format: float
-      default: 0.0
       description: |
         Determines the simulated filesystem grow rate. Default 0.0 value
         will cause all the files and directories defined by the
