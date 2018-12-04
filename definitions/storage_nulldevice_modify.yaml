@@ -36,10 +36,6 @@ allOf:
     timeout:
       type: integer
       description: Storage operation timeout in milliseconds.
-    readonly:
-      type: boolean
-      default: false
-      description: Defines whether storage is readonly.
     simulatedFilesystemParameters:
       type: string
       default: ""
