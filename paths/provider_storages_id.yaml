@@ -6,9 +6,9 @@ get:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: storage
   tags:
-  - Oneprovider
+    - Oneprovider
   produces:
-  - application/json
+    - application/json
   responses:
     '200':
       description: The details of a selected storage.
@@ -27,16 +27,17 @@ get:
     '503':
       description: Services needed to fulfill this request are not running.
   parameters:
-  - name: id
-    in: path
-    type: string
-    description: >
-      The Id of a storage resource, which details should be returned.
-    required: true
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage resource, which details should be returned.
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE  getStorageDetails
-      id=$STORAGE_ID --host https://$HOST:9443
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE getStorageDetails
+        id=$STORAGE_ID --host https://$HOST:9443
 
 patch:
   operationId: modify_storage
@@ -46,9 +47,9 @@ patch:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: storage
   tags:
-  - Oneprovider
+    - Oneprovider
   consumes:
-  - application/json
+    - application/json
   responses:
     '200':
       description: |
@@ -67,25 +68,25 @@ patch:
     '503':
       description: Services needed to fulfill this request are not running.
   parameters:
-  - name: id
-    in: path
-    type: string
-    description: >
-      The Id of the storage resource which details should be modified.
-    required: true
-  - name: storageModifyRequest
-    in: body
-    description: >
-      New values for storage configuration parameters which should
-      be changed.
-    schema:
-      $ref: '#/definitions/StorageModifyRequest'
-    required: true
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of the storage resource which details should be modified.
+      required: true
+    - name: storageModifyRequest
+      in: body
+      description: >
+        New values for storage configuration parameters which should
+        be changed.
+      schema:
+        $ref: '#/definitions/StorageModifyRequest'
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: >
-      onepanel-rest-cli id=$STORAGE_ID timeout==10000
-      -u onepanel:$PASSPHRASE --host https://$HOST:9443 modifyStorage
+    - lang: Shell
+      source: >
+        onepanel-rest-cli id=$STORAGE_ID timeout==10000
+        -u onepanel:$PASSPHRASE --host https://$HOST:9443 modifyStorage
 
 delete:
   operationId: remove_storage
@@ -96,9 +97,9 @@ delete:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: storage
   tags:
-  - Oneprovider
+    - Oneprovider
   consumes:
-  - application/json
+    - application/json
   responses:
     '204':
       description: Storage has been succesfully removed.
@@ -106,6 +107,8 @@ delete:
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Storage does not exist.
     '409':
       description: Storage supports a space and cannot be removed.
     '500':
@@ -113,13 +116,13 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: id
-    in: path
-    type: string
-    description: The ID of the storage to remove.
-    required: true
+    - name: id
+      in: path
+      type: string
+      description: The Id of the storage to remove.
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: >
-      onepanel-rest-cli id=$STORAGE_ID removeStorage
-      -u onepanel:$PASSPHRASE --host https://op.example.com:9443
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID
+        removeStorage --host https://op.example.com:9443
