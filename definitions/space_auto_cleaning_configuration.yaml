@@ -36,10 +36,10 @@ example:
     minHoursSinceLastOpen:
       enabled: True
       value: 10
-    lowerFileSizeLimit:
+    minFileSize:
       enabled: True
       value: 1
-    upperFileSizeLimit:
+    maxFileSize:
       enabled: True
       value: 1024
     maxHourlyMovingAverage:

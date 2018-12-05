@@ -23,13 +23,13 @@ properties:
       Files that haven't been opened for longer than or equal to given period [h] may be
       cleaned.
       The default value is `0`.
-  lowerFileSizeLimit:
+  minFileSize:
     $ref: '#/definitions/SpaceAutoCleaningRuleSetting'
     # TODO VFS-5098
     description: >
       Only files which size [b] is greater than given value may be cleaned.
       The default value is `1`.
-  upperFileSizeLimit:
+  maxFileSize:
     $ref: '#/definitions/SpaceAutoCleaningRuleSetting'
     # TODO VFS-5098
     description: >
