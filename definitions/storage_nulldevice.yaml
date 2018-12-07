@@ -6,6 +6,7 @@ allOf:
       type:
         type: string
         description: The type of storage.
+        enum: [nulldevice]
         x-discriminator-value: nulldevice
       latencyMin:
         type: integer

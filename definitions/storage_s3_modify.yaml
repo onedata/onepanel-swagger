@@ -5,7 +5,9 @@ allOf:
   properties:
     type:
       type: string
-      description: The type of storage.
+      description: Type of the modified storage. Must match the type
+        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      enum: [s3]
       x-discriminator-value: s3
     hostname:
       type: string

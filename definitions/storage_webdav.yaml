@@ -6,6 +6,7 @@ allOf:
       type:
         type: string
         description: The type of storage.
+        enum: [webdav]
         x-discriminator-value: webdav
       endpoint:
         type: string

@@ -5,7 +5,9 @@ allOf:
   properties:
     type:
       type: string
-      description: The type of storage.
+      description: Type of the modified storage. Must match the type
+        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      enum: [nulldevice]
       x-discriminator-value: nulldevice
     latencyMin:
       type: integer

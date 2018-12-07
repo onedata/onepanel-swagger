@@ -6,6 +6,7 @@ allOf:
       type:
         type: string
         description: The type of storage.
+        enum: [ceph]
         x-discriminator-value: ceph
       username:
         type: string

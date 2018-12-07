@@ -6,6 +6,7 @@ allOf:
       type:
         type: string
         description: The type of storage.
+        enum: [s3]
         x-discriminator-value: s3
       hostname:
         type: string

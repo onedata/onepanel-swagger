@@ -5,7 +5,9 @@ allOf:
   properties:
     type:
       type: string
-      description: The type of storage.
+      description: Type of the modified storage. Must match the type
+        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      enum: [swift]
       x-discriminator-value: swift
     authUrl:
       type: string

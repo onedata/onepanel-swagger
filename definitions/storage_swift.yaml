@@ -6,6 +6,7 @@ allOf:
       type:
         type: string
         description: The type of storage.
+        enum: [swift]
         x-discriminator-value: swift
       authUrl:
         type: string

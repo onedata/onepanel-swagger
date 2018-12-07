@@ -6,6 +6,7 @@ allOf:
       type:
         type: string
         description: The type of storage.
+        enum: [glusterfs]
         x-discriminator-value: glusterfs
       volume:
         type: string
