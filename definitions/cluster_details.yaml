@@ -11,8 +11,7 @@ properties:
     type: string
     description: >
       The id of the service hosted on this cluster - depending on the type equal
-      to the provider Id or 'onezone' literal
-    enum: [oneprovider, onezone]
+      to the Oneprovider Id or null in case of Onezone cluster
   name:
     type: string
   domain:
