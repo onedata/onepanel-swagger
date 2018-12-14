@@ -30,4 +30,4 @@ delete:
       required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret removeClusterHost discovered=true host=$CLUSTER_HOST --host https://$HOST:9443
+    source: onepanel-rest-cli -u alice:secret removeClusterHost host=$CLUSTER_HOST --host https://$HOST:9443
