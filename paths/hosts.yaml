@@ -71,8 +71,4 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-<<<<<<< HEAD
-    source: onepanel-rest-cli -u alice:secret addClusterHost address==172.17.0.5 --host https://op.example.com:9443
-
-=======
     source: onepanel-rest-cli -u alice:secret createCluster clusterHost=$CLUSTER_HOST cookie==AS2KLJH1231AJSHDKJBC12KS578A3SDA --host https://$HOST:9443
