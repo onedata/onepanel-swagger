@@ -35,7 +35,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderManagerStatus host=mng.example.com --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getProviderManagerStatus host=mng.example.com --host https://$HOST:9443
 
 
 patch:
@@ -80,4 +80,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret startStopProviderManager started=false --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret startStopProviderManager started=false --host https://$HOST:9443

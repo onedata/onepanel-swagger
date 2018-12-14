@@ -14,7 +14,7 @@ x-onedata-subclasses:
 properties:
   id:
     type: string
-    description: The ID of storage.
+    description: The Id of storage.
   name:
     type: string
     description: The name of storage.

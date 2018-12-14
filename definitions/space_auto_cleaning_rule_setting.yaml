@@ -1,0 +1,16 @@
+type: object
+description: >
+  Rule setting for a space auto-cleaning mechanism.
+  Setting field `enabled` to `false` disables the rule.
+properties:
+  enabled:
+    type: boolean
+    description: >
+      Informs whether given setting is enabled.
+  value:
+    type: integer
+    description:
+      Integer value of a given setting.
+example:
+  enabled: True
+  value: 1024

@@ -31,11 +31,11 @@ get:
     in: path
     type: string
     description: >
-      The ID of a storage resource, which details should be returned.
+      The Id of a storage resource, which details should be returned.
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getStorageDetails name=S3 --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getStorageDetails name=S3 --host https://$HOST:9443
 
 patch:
   operationId: modify_storage
@@ -66,7 +66,7 @@ patch:
     in: path
     type: string
     description: >
-      The ID of a storage resource, which details should be modified.
+      The Id of a storage resource, which details should be modified.
     required: true
   - name: storageModifyRequest
     in: body
@@ -78,4 +78,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 modifyStorage name=S3 timeout==10000
+    source: onepanel-rest-cli -u alice:secret --host https://$HOST:9443 modifyStorage name=S3 timeout==10000

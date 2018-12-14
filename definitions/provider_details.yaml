@@ -3,7 +3,7 @@ description: The provider configuration details.
 properties:
   id:
     type: string
-    description: The ID assigned by a zone.
+    description: The Id assigned by a zone.
   name:
     type: string
     description: The name under which the provider has been registered in a zone.

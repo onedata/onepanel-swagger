@@ -29,7 +29,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getZoneConfiguration --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getZoneConfiguration --host https://$HOST:9443
 
 
 post:
@@ -78,4 +78,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat zone_config.json | onepanel-rest-cli -u alice:secret configureZone --host https://op.example.com:9443
+    source: cat zone_config.json | onepanel-rest-cli -u alice:secret configureZone --host https://$HOST:9443
