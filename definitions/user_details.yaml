@@ -3,7 +3,7 @@ description: The user configuration details.
 properties:
   userId:
     type: string
-    description: The user ID.
+    description: The user Id.
   userRole:
     type: string
     x-onedata-datatype: atom

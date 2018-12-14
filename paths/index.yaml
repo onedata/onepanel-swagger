@@ -49,17 +49,23 @@
 /provider/spaces/{id}:
   $ref: ./provider_spaces_id.yaml
 
+/provider/spaces/{id}/auto-cleaning/configuration:
+  $ref: ./provider_spaces_id_auto_cleaning_configuration.yaml
+
+/provider/spaces/{id}/auto-cleaning/reports:
+  $ref: ./provider_spaces_id_auto_cleaning_reports.yaml
+
+/provider/spaces/{id}/auto-cleaning/start:
+  $ref: ./provider_spaces_id_auto_cleaning_start.yaml
+
+/provider/spaces/{id}/auto-cleaning/status:
+  $ref: ./provider_spaces_id_auto_cleaning_status.yaml
+
+/provider/spaces/{id}/files-popularity/configuration:
+  $ref: ./provider_spaces_id_files_popularity_configuration.yaml
+
 /provider/spaces/{id}/sync:
-  $ref: ./provider_space_sync_stats.yaml
-
-/provider/spaces/{id}/auto_cleaning_status:
-  $ref: ./provider_space_auto_cleaning_status.yaml
-
-/provider/spaces/{id}/auto_cleaning_reports:
-  $ref: ./provider_space_auto_cleaning_reports.yaml
-
-/provider/spaces/{id}/start_cleaning:
-  $ref: ./provider_space_start_cleaning.yaml
+  $ref: ./provider_spaces_id_sync_stats.yaml
 
 /provider/storages:
   $ref: ./provider_storages.yaml

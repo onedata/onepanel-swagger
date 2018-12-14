@@ -1,15 +1,15 @@
 type: object
-description: Autocleaning report
+description: Auto-cleaning report
 properties:
   startedAt:
     type: string
-    description: Start time of autocleaning procedure in ISO 8601 format
+    description: Start time of auto-cleaning procedure in ISO 8601 format
   stoppedAt:
     type: string
-    description: Finish time of autocleaning procedure in ISO 8601 format
+    description: Finish time of auto-cleaning procedure in ISO 8601 format
   releasedBytes:
     type: integer
-    description: Number of bytes deleted during autocleaning procedure.
+    description: Number of bytes deleted during auto-cleaning procedure.
   bytesToRelease:
     type: integer
     description: Number of bytes that should be deleted.

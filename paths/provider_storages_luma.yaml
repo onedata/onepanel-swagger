@@ -25,8 +25,8 @@ patch:
     in: path
     type: string
     description: >
-      The ID of a storage resource, which details should be modified.
+      The Id of a storage resource, which details should be modified.
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret --host https://op.example.com:9443 invalidateLumaCache id=HJgs7dfFGV789T1asdG
+    source: onepanel-rest-cli -u alice:secret --host https://$HOST:9443 invalidateLumaCache id=$STORAGE_ID
