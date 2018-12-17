@@ -31,11 +31,11 @@ get:
   - name: id
     in: path
     type: string
-    description: The ID of a space which details should be returned.
+    description: The Id of a space which details should be returned.
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getSpaceDetails id=ASLKDJHAKJSDH --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getSpaceDetails id=$SPACE_ID --host https://$HOST:9443
 
 
 patch:
@@ -52,7 +52,7 @@ patch:
   responses:
     '200':
       description: The space details has been successfully changed.
-        Returns object with ID of the space.
+        Returns object with Id of the space.
       schema:
         $ref: '#/definitions/SpaceId'
     '400':
@@ -75,7 +75,7 @@ patch:
   - name: id
     in: path
     type: string
-    description: The ID of a space which details should be modified.
+    description: The Id of a space which details should be modified.
     required: true
   - name: spaceModifyRequest
     in: body
@@ -115,8 +115,8 @@ delete:
   - name: id
     in: path
     type: string
-    description: The ID of a space to be removed.
+    description: The Id of a space to be removed.
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret revokeSpaceSupport id=ASLKDJHAKJSDH --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret revokeSpaceSupport id=$SPACE_ID --host https://$HOST:9443

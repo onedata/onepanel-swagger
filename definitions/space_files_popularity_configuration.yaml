@@ -1,0 +1,15 @@
+type: object
+description: Settings of files-popularity feature of space
+properties:
+  enabled:
+    type: boolean
+    description: If true, collecting files-popularity mechanism in the space is enabled
+  restUrl:
+    type: string
+    description: >
+      REST endpoint to view files-popularity statistics
+required:
+  - enabled
+example:
+  enabled: true
+  restUrl: https://example.com/api/v3/oneprovider/spaces/example_space_id/indexes/files-popularity?spatial=true&start_range=\[1,0,0,0,0,0\]&end_range=\[null,null,null,null,null,null\]

@@ -3,7 +3,7 @@ description: The user session details.
 properties:
   sessionId:
     type: string
-    description: The session ID.
+    description: The session Id.
   username:
     type: string
     description: The name of a user associated with the session.

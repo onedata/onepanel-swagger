@@ -12,7 +12,7 @@ properties:
   storageId:
     type: string
     description: >
-      The ID of the storage resource where the space data should be stored.
+      The Id of the storage resource where the space data should be stored.
   mountInRoot:
     type: boolean
     default: false

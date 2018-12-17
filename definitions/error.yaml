@@ -12,4 +12,4 @@ required:
   - description
 example:
   error: Invalid Request
-  description: User role must be one of 'admin' or 'regular'.
+  description: Error description

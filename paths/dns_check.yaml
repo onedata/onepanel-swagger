@@ -36,7 +36,7 @@ get:
   parameters:
     - name: forceCheck
       in: query
-      description: If true the DNS check cache is overriden and check is performed
+      description: If true the DNS check cache is overridden and check is performed
         during handling of the request.
       type: boolean
       default: false

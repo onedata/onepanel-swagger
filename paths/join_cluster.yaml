@@ -33,6 +33,3 @@ post:
       schema:
         $ref: '#/definitions/JoinClusterRequest'
       required: true
-  x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret joinCluster clusterHost==cluster.example.com cookie==AS2KLJH1231AJSHDKJBC12KS578A3SDA --host https://op.example.com:9443
