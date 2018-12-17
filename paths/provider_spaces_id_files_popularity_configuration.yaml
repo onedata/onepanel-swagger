@@ -38,8 +38,22 @@ get:
 
 patch:
   operationId: configure_files_popularity
-  summary: Configure files-popularity in the space.
-  description: Enables or disables collecting files-popularity statistics in the space.
+  summary: Configure files-popularity mechanism in the space.
+  description: |
+    Configures the files-popularity mechanism in the space.
+    The mechanism is responsible for collecting file-popularity usage statistics per space support.
+    Creates a view index which can be queried to fetch the least popular files.
+    The view is sorted in an increasing order by the popularity function value.
+    The popularity function is defined as
+
+    ```
+    P(lastOpenHour, avgOpenCountPerDay) = w1 * lastOpenHour + w2 * avgOpenCountPerDay
+    where:
+    * lastOpenHour - parameter which is equal to timestamp (in hours since 01.01.1970) of last open operation on given file
+    * w1 - weight of lastOpenHour parameter
+    * avgOpenCountPerDay - parameter equal to moving average of number of open operations on given file per day. Value is calculated over last 30 days.
+    * w2 - weight of avgOpenCountPerDay parameter
+    ```
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: files_popularity_configuration
