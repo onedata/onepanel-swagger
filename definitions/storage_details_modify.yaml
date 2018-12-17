@@ -25,6 +25,9 @@ properties:
   readonly:
     type: boolean
     description: Defines whether storage is readonly.
+  lumaEnabled:
+    type: boolean
+    description: If true LUMA and reverse LUMA services will be enabled.
   lumaUrl:
     type: string
     description: URL of external LUMA service
