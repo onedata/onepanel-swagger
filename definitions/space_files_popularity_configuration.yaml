@@ -10,16 +10,19 @@ properties:
       Example `curl` command that can be executed to query the files-popularity view in the space.
   lastOpenHourWeight:
     type: number
+    format: float
     description: >
       Weight of `lastOpenHour` parameter.
     default:  1.0
   avgOpenCountPerDayWeight:
     type: number
+    format: float
     description: >
       Weight of `avgOpenCountPerDayWeight` parameter.
     default:  25.0
   maxAvgOpenCountPerDay:
     type: number
+    format: float
     description: >
       Maximal value of average open count per day taken to calculate the value of popularity function.
     default:  100
