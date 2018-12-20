@@ -19,7 +19,7 @@ properties:
     format: float
     description: >
       Weight of `avgOpenCountPerDayWeight` parameter.
-    default:  25.0
+    default:  20.0
   maxAvgOpenCountPerDay:
     type: number
     format: float
@@ -32,5 +32,5 @@ example:
   enabled: true
   restUrl: "curl -sS --tlsv1.2 -k -H 'X-Auth-Token: $TOKEN' -X GET https://$HOST/api/v3/oneprovider/spaces/example_space_id/indexes/file-popularity?limit=10&stale=false"
   lastOpenHourWeight: 1.0
-  avgOpenCountPerDayWeight: 25.0
+  avgOpenCountPerDayWeight: 20.0
   maxAvgOpenCountPerDay:  100
