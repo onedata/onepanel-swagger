@@ -168,7 +168,7 @@ TimeStatsCollection:
   $ref: ./time_stats_collection.yaml
 
 SpaceFilesPopularityConfiguration:
-  $ref: ./space_files_popularity_configuration.yaml
+  $ref: ./space_file_popularity_configuration.yaml
 
 SpaceAutoCleaningConfiguration:
   $ref: ./space_auto_cleaning_configuration.yaml
