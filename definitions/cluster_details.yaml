@@ -5,7 +5,7 @@ properties:
     type: string
   type:
     type: string
-    description: "Type of Onedata component in this cluster. (@fixme)"
+    description: "Type of the cluster"
     enum: [oneprovider, onezone]
   serviceId:
     type: string
@@ -19,6 +19,10 @@ properties:
     description: Domain of the cluster.
   version:
     type: string
+    description: Software version.
+  build:
+    type: string
+    description: Software build identifier.
   online:
     type: boolean
   proxy:
@@ -30,5 +34,6 @@ required:
   - name
   - domain
   - version
+  - build
   - online
   - proxy
