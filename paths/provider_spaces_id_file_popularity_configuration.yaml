@@ -83,7 +83,7 @@ patch:
       type: string
       description: The Id of a space.
       required: true
-    - name: enabled
+    - name: spaceFilePopularityConfiguration
       in: body
       schema:
         $ref: '#/definitions/SpaceFilePopularityConfiguration'
