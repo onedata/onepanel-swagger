@@ -47,7 +47,7 @@ properties:
     # TODO VFS-5098
     description: >
       Files that have moving average of open operations count per day less than given value may be cleaned.
-      The average is calculated in 31 days window.
+      The average is calculated in 30 days window.
       The default value is `9007199254740991 (2^53-1)`.
   maxMonthlyMovingAverage:
     $ref: '#/definitions/SpaceAutoCleaningRuleSetting'
