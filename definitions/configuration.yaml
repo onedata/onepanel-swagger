@@ -1,0 +1,32 @@
+type: object
+description: Public configuration information.
+properties:
+  providerId:
+    type: string
+    description: >
+      This cluster's Oneprovider Id. In Onezone panel this field is omitted.
+  name:
+    type: string
+    description: Name of this cluster.
+  domain:
+    type: string
+    description: Domain of this cluster.
+  onezoneDomain:
+    type: string
+    description: |
+      In oz_panel - the domain of this Onezone cluster, equal to the 'domain' field.
+      In op_panel - the domain of the Onezone where this Oneprovider is registered.
+  version:
+    type: string
+    description: Version of this Onepanel
+  build:
+    type: string
+    description: Build number of this Onepanel
+  deployed:
+    type: boolean
+    default: true
+    description: True when initial cluster deployment is finished
+required:
+  - version
+  - build
+  - deployed

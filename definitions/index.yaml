@@ -1,6 +1,8 @@
 #
 # This file groups the type definitions for Onepanel REST API
 #
+Configuration:
+  $ref: ./configuration.yaml
 
 Cookie:
   $ref: ./cookie.yaml
