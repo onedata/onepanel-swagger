@@ -1,0 +1,36 @@
+get:
+  operationId: get_any_provider
+  summary: Get details of any provider
+  description: >
+    Returns the details of given provider.
+  x-onedata-version: 3
+  x-onedata-module: rest_service
+  x-onedata-resource: any_provider
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: List of cluster ids.
+      schema:
+        $ref: '#/definitions/AnyProviderDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Provider id which details should be returned.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getAnyProvider id=VAiDGZbs3k0FD8jPhyU1 --host https://op.example.com:9443

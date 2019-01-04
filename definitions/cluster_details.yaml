@@ -1,5 +1,6 @@
 type: object
 description: Details of a cluster.
+# @fixme descriptions
 properties:
   id:
     type: string
@@ -12,27 +13,18 @@ properties:
     description: >
       The id of the service hosted on this cluster - depending on the type equal
       to the Oneprovider Id or null in case of Onezone cluster
-  name:
-    type: string
-  domain:
-    type: string
-    description: Domain of the cluster.
   version:
     type: string
     description: Software version.
   build:
     type: string
     description: Software build identifier.
-  online:
-    type: boolean
   proxy:
     type: boolean
 required:
   - id
   - type
   - serviceId
-  - name
-  - domain
   - version
   - build
   - online

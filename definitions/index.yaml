@@ -30,6 +30,9 @@ Ids:
 ClusterDetails:
   $ref: ./cluster_details.yaml
 
+AnyProviderDetails:
+  $ref: ./any_provider_details.yaml
+
 Host:
   $ref: ./host.yaml
 

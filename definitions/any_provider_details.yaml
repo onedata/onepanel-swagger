@@ -1,0 +1,44 @@
+type: object
+description: Oneprovider details.
+properties:
+  id:
+    type: string
+    description: The Id assigned by a zone.
+  name:
+    type: string
+    description: The name under which the provider has been registered in a zone.
+  domain:
+    type: string
+    description: >
+      The fully qualified domain name of the provider or its IP address
+      (only for single-node deployments or clusters with a reverse proxy).
+  geoLongitude:
+    type: number
+    format: float
+    description: The geographical longitude of the provider.
+  geoLatitude:
+    type: number
+    format: float
+    description: The geographical latitude of the provider.
+  cluster:
+    type: string
+    description: The Id of the corresponding cluster record.
+  online:
+    type: boolean
+    description: Indicates if the provider is currently online.
+required:
+  - id
+  - name
+  - domain
+  - geoLongitude
+  - geoLatitude
+  - cluster
+  - online
+example:
+  id: VAiDGZbs3k0FD8jPhyU1
+  name: Provider 1
+  domain: provider.example.com
+  geoLongitude: -24.3776025
+  geoLatitude: -128.3519364
+  cluster: kas90GcjRa9352ndfCxhGyYY9dx
+  online: true
