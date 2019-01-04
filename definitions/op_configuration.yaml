@@ -23,3 +23,10 @@ allOf:
       - serviceType
       - providerId
       - zoneDomain
+example:
+  serviceType: oneprovider
+  providerId: b4ceb5c9ac793e6b8b36c813b9068757
+  zoneDomain: onedata.org
+  build: 155-gdf98e0f
+  version: 18.02.0-rc13,
+  deployed: true

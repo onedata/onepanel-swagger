@@ -16,3 +16,9 @@ allOf:
     required:
       - serviceType
       - zoneDomain
+example:
+  serviceType: onezone
+  zoneDomain: onedata.org
+  build: 155-gdf98e0f
+  version: 18.02.0-rc13
+  deployed: true

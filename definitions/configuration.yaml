@@ -3,8 +3,8 @@ description: Public configuration information.
 discriminator: serviceType
 x-onedata-oneof: true
 x-onedata-subclasses:
-  - OpConfiguration
-  - OzConfiguration
+  - op_configuration
+  - oz_configuration
 properties:
   version:
     type: string
