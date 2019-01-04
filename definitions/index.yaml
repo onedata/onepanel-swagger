@@ -4,6 +4,14 @@
 Configuration:
   $ref: ./configuration.yaml
 
+# lowercase to generate valid erlang function name
+op_configuration:
+  $ref: ./op_configuration.yaml
+
+# lowercase to generate valid erlang function name
+oz_configuration:
+  $ref: ./oz_configuration.yaml
+
 Cookie:
   $ref: ./cookie.yaml
 

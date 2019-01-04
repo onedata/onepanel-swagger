@@ -1,0 +1,18 @@
+type: object
+description: Public configuration information.
+allOf:
+  - $ref: '#/definitions/Configuration'
+  - type: object
+    properties:
+      serviceType:
+        description: Indicates that this is Onezone's panel.
+        type: string
+        enum: [onezone]
+        x-discriminator-value: onezone
+      zoneDomain:
+        type: string
+        description: >
+          The domain of this Onezone cluster. Null before cluster is configured.
+    required:
+      - serviceType
+      - zoneDomain

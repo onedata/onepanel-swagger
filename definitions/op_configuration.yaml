@@ -1,0 +1,25 @@
+type: object
+description: Public configuration information.
+allOf:
+  - $ref: '#/definitions/Configuration'
+  - type: object
+    properties:
+      serviceType:
+        description: Indicates that this is Oneprovider's panel.
+        type: string
+        enum: [oneprovider]
+        x-discriminator-value: oneprovider
+      providerId:
+        type: string
+        description: >
+          This cluster's Oneprovider Id. Null if the Oneprovider is not registered
+          or Oneprovider worker is down.
+      zoneDomain:
+        type: string
+        description: >
+          The domain of the Onezone where this Oneprovider is registered.
+          Null if the Oneprovider is not registered.
+    required:
+      - serviceType
+      - providerId
+      - zoneDomain
