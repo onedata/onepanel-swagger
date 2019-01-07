@@ -1,8 +1,8 @@
 get:
   operationId: get_provider_space_auto_cleaning_report
-  summary: Get the report of a space auto-cleaning run
+  summary: Get the report from a space auto-cleaning run
   description: >
-    Returns the details of a specific auto-cleaning mechanism run.
+    Returns the details of a specific auto-cleaning run.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: space_auto_cleaning_report
@@ -12,7 +12,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The report of a space auto-cleaning run.
+      description: The report from a space auto-cleaning run.
       schema:
         $ref: '#/definitions/SpaceAutoCleaningReport'
     '401':
@@ -32,7 +32,7 @@ get:
     - name: report_id
       in: path
       type: string
-      description: The Id of a auto-cleaning report.
+      description: The Id of an auto-cleaning report.
       required: true
   x-code-samples:
     - lang: Shell

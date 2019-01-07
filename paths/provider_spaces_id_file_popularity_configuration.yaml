@@ -87,7 +87,7 @@ patch:
       in: body
       schema:
         $ref: '#/definitions/SpaceFilePopularityConfiguration'
-      description: Value informing whether collecting file-popularity statistics in the space should be turned on or off.
+      description: Configuration of the file-popularity mechanism in the space.
       required: true
   x-code-samples:
   - lang: Shell

@@ -1,5 +1,5 @@
 type: object
-description: Configuration of file-popularity mechanism in the space.
+description: Configuration of the file-popularity mechanism in the space.
 properties:
   enabled:
     type: boolean

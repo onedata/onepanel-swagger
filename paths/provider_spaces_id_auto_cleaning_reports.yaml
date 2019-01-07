@@ -2,8 +2,8 @@ get:
   operationId: get_provider_space_auto_cleaning_reports
   summary: Get Ids of of the space auto-cleaning reports
   description: >
-    Returns the list of Ids of space auto-cleaning runs' reports.
-    The list is sorted descending by start time of auto-cleaning run (the newest report is first).
+    Returns the list of Ids of space auto-cleaning reports.
+    The list is sorted descending by start time of an auto-cleaning run (the newest report is first).
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: space_auto_cleaning_reports
@@ -33,20 +33,20 @@ get:
     - name: offset
       in: query
       type: integer
-      description: Allows to skip N first reports' Ids.
+      description: Allows to skip N first report Ids.
       required: false
       default: 0
     - name: limit
       in: query
       type: integer
       description: >
-        Allows to limit the number of returned reports' Ids up to N last reports. By default, all reports' Ids will be returned.
+        Allows to limit the number of returned report Ids up to N last reports. By default, all report Ids will be returned.
       required: false
     - name: index
       in: query
       type: string
       description: >
-        Allows to list the reports' Ids starting from the specific report.
+        Allows to list the report Ids starting from the specific report.
       required: false
   x-code-samples:
     - lang: Shell
