@@ -1,5 +1,5 @@
 type: object
-description: Public configuration information.
+description: Public service configuration details
 discriminator: serviceType
 x-onedata-oneof: true
 x-onedata-subclasses:

@@ -1,7 +1,7 @@
 get:
   operationId: get_configuration
   summary: Get public configuration
-  description: Returns public configuration information.
+  description: Returns public configuration details.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: configuration
@@ -12,7 +12,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The configuration info.
+      description: Configuration details.
       schema:
         $ref: '#/definitions/Configuration'
     '500':
