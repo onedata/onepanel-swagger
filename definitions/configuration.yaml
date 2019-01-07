@@ -15,7 +15,7 @@ properties:
   deployed:
     type: boolean
     default: true
-    description: True when initial cluster deployment is finished
+    description: True when cluster deployment is finished
 required:
   - version
   - build

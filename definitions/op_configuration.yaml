@@ -19,6 +19,10 @@ allOf:
         description: >
           The domain of the Onezone where this Oneprovider is registered.
           Null if the Oneprovider is not registered.
+      isRegistered:
+        type: boolean
+        description: >
+          True if the Oneprovider has been registered at a Onezone.
     required:
       - serviceType
       - providerId
@@ -30,3 +34,4 @@ example:
   build: 155-gdf98e0f
   version: 18.02.0-rc13,
   deployed: true
+  isRegistered: true
