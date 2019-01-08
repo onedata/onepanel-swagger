@@ -64,6 +64,9 @@
 /tasks/{id}:
   $ref: ./tasks_id.yaml
 
+/progress:
+  $ref: ./progress.yaml
+
 /web_cert:
   $ref: ./web_cert.yaml
 

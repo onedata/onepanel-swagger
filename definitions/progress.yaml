@@ -1,0 +1,19 @@
+type: object
+description: The panel configuration.
+properties:
+  clusterNodes:
+    type: boolean
+    description: True after user assigned services to cluster nodes and
+      they were deployed.
+  clusterIPs:
+    type: boolean
+    description: True after user confirmed detected external IPs
+      or if interactiveDeployment was disabled.
+  letsencrypt:
+    type: boolean
+    description: True after user decided whether to use Let's Encrypt
+      certificates or if interactiveDeployment was disabled.
+  dnsCheckAcknowledged:
+    type: boolean
+    description: True after user reviewed results of DNS check
+      or if interactiveDeployment was disabled.
