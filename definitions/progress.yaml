@@ -9,11 +9,21 @@ properties:
     type: boolean
     description: True after user confirmed detected external IPs
       or if interactiveDeployment was disabled.
-  letsencrypt:
+  webCertificate:
     type: boolean
     description: True after user decided whether to use Let's Encrypt
       certificates or if interactiveDeployment was disabled.
-  dnsCheckAcknowledged:
+  dnsCheck:
     type: boolean
     description: True after user reviewed results of DNS check
       or if interactiveDeployment was disabled.
+  storageSetup:
+    type: boolean
+    readOnly: true
+    description: True after at least one storage was added to op_worker.
+      Omitted in Onezone panel.
+  isRegistered:
+    type: boolean
+    readOnly: true
+    description: True if the Oneprovider is registered at Onezone.
+      Omitted in Onezone panel.
