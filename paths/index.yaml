@@ -3,6 +3,9 @@
 
 
 # Onepanel common resources
+/configuration:
+  $ref: ./configuration.yaml
+
 /session:
   $ref: ./session.yaml
 
