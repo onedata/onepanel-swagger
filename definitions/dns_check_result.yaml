@@ -3,8 +3,8 @@ description: Describes results obtained from a DNS check. DNS check involves
   querying DNS servers to ensure publicly visible records match expected values.
 properties:
   summary:
-    description: >
-      An interpreation of results obtained from DNS check.
+    description: |
+      An interpretation of results obtained from DNS check.
       Possible values are:
       'unresolvable' - query returned empty results;
       'missing_records' - only some of the expected results were returned;
@@ -17,20 +17,19 @@ properties:
       - bad_records
       - ok
   expected:
-    description: |
-      List of expected query results.
+    description: List of expected query results.
     type: array
     items:
       type: string
   got:
-    description: |
-      List of obtained query results.
+    description: List of obtained query results.
     type: array
     items:
       type: string
   recommended:
     description: List of suggested DNS records to set at your DNS provider
       to fulfill this check.
+
       Each record is provided in the format of BIND server.
     type: array
     items:

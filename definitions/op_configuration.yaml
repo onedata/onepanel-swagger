@@ -1,0 +1,37 @@
+type: object
+description: Public Oneprovider configuration details
+allOf:
+  - $ref: '#/definitions/Configuration'
+  - type: object
+    properties:
+      serviceType:
+        description: Indicates that this is Oneprovider's panel.
+        type: string
+        enum: [oneprovider]
+        x-discriminator-value: oneprovider
+      providerId:
+        type: string
+        description: >
+          This cluster's Oneprovider Id. Null if the Oneprovider is not registered
+          or Oneprovider worker is down.
+      zoneDomain:
+        type: string
+        description: >
+          The domain of the Onezone where this Oneprovider is registered.
+          Null if the Oneprovider is not registered.
+      isRegistered:
+        type: boolean
+        description: >
+          True if the Oneprovider has been registered at a Onezone.
+    required:
+      - serviceType
+      - providerId
+      - zoneDomain
+example:
+  serviceType: oneprovider
+  providerId: b4ceb5c9ac793e6b8b36c813b9068757
+  zoneDomain: onedata.org
+  build: 155-gdf98e0f
+  version: 18.02.0-rc13,
+  deployed: true
+  isRegistered: true

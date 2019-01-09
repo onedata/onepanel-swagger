@@ -1,6 +1,16 @@
 #
 # This file groups the type definitions for Onepanel REST API
 #
+Configuration:
+  $ref: ./configuration.yaml
+
+# lowercase to generate valid erlang function name
+op_configuration:
+  $ref: ./op_configuration.yaml
+
+# lowercase to generate valid erlang function name
+oz_configuration:
+  $ref: ./oz_configuration.yaml
 
 DnsCheck:
   $ref: ./dns_check.yaml

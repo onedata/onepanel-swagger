@@ -2,8 +2,11 @@ description: The Ceph storage configuration (uses librados).
 allOf:
   - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: "cephrados"
     properties:
+      type:
+        type: string
+        description: The type of storage.
+        x-discriminator-value: cephrados
       username:
         type: string
         description: The username of the Ceph cluster administrator.
@@ -47,6 +50,7 @@ allOf:
           'flat' paths are based on unique file UUID's and do not require on-storage
           rename when logical file name is changed.
     required:
+    - type
     - username
     - key
     - monitorHostname
