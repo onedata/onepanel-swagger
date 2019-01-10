@@ -1,6 +1,6 @@
 get:
   operationId: get_provider_space_auto_cleaning_status
-  summary: Get status of space auto-cleaning
+  summary: Get status of space auto-cleaning mechanism
   description: >
     Returns status of current process of auto-cleaning for the space.
   x-onedata-version: 3

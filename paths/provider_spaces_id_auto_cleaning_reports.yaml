@@ -1,20 +1,21 @@
 get:
   operationId: get_provider_space_auto_cleaning_reports
-  summary: Get reports of space auto-cleaning
+  summary: Get Ids of of the space auto-cleaning reports
   description: >
-    Returns collection of reports of auto-cleaning for the space.
+    Returns the list of Ids of space auto-cleaning reports.
+    The list is sorted descending by start time of an auto-cleaning run (the newest report is first).
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_auto_cleaning_reports_collection
+  x-onedata-resource: space_auto_cleaning_reports
   tags:
     - Oneprovider
   produces:
     - application/json
   responses:
     '200':
-      description: Collection of space auto-cleaning reports
+      description: The list of Ids of space auto-cleaning reports.
       schema:
-        $ref: '#/definitions/SpaceAutoCleaningReportCollection'
+        $ref: '#/definitions/SpaceAutoCleaningReports'
     '401':
       description: Unauthorized request.
     '403':
@@ -29,14 +30,26 @@ get:
       type: string
       description: The Id of a space
       required: true
-    - name: started_after
+    - name: offset
+      in: query
+      type: integer
+      description: Allows to skip N first report Ids.
+      required: false
+      default: 0
+    - name: limit
+      in: query
+      type: integer
+      description: >
+        Allows to limit the number of returned report Ids up to N last reports. By default, all report Ids will be returned.
+      required: false
+    - name: index
       in: query
       type: string
-      description: Fetch only reports that started after this date (ISO 8601)
-      required: true
+      description: >
+        Allows to list the report Ids starting from the specific report.
+      required: false
   x-code-samples:
     - lang: Shell
       source: >
         onepanel-rest-cli -u alice:secret --host https://$HOST:9443
-        getProviderSpaceAutoCleaningReports id=$SPACE_ID
-        started_after="2017-10-20T21:39:37"
+        getProviderSpaceAutoCleaningReports id=$SPACE_ID offset=5 limit=10 index=1234148561abcdef

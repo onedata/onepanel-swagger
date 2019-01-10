@@ -14,9 +14,8 @@ properties:
       - inProgress
     description: Describes update algorithm run status.
   stats:
-    allOf:
-      - $ref: '#/definitions/TimeStatsCollection'
     description: Collection of statistics for requested metrics.
+    $ref: '#/definitions/TimeStatsCollection'
 required:
   - importStatus
 example:
