@@ -6,6 +6,10 @@ x-onedata-subclasses:
   - op_configuration
   - oz_configuration
 properties:
+  clusterId:
+    type: string
+    description: The Id of cluster recod for this cluster.
+      Null if the cluster is not registered or worker is offline.
   version:
     type: string
     description: Version of this Onepanel
@@ -17,6 +21,7 @@ properties:
     default: true
     description: True when cluster deployment is finished
 required:
+  - clusterId
   - version
   - build
   - deployed
