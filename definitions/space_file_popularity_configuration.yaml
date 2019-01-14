@@ -26,8 +26,6 @@ properties:
     description: >
       Maximal value of average open count per day taken to calculate the value of popularity function.
     default:  100
-required:
-  - enabled
 example:
   enabled: true
   exampleQuery: "curl -sS -k -H 'X-Auth-Token: $TOKEN' -X GET https://$HOST/api/v3/oneprovider/spaces/example_space_id/indexes/file-popularity?limit=10&stale=false"
