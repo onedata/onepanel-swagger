@@ -189,8 +189,8 @@ TimeStats:
 TimeStatsCollection:
   $ref: ./time_stats_collection.yaml
 
-SpaceFilesPopularityConfiguration:
-  $ref: ./space_files_popularity_configuration.yaml
+SpaceFilePopularityConfiguration:
+  $ref: ./space_file_popularity_configuration.yaml
 
 SpaceAutoCleaningConfiguration:
   $ref: ./space_auto_cleaning_configuration.yaml
@@ -204,8 +204,8 @@ SpaceAutoCleaningRuleSetting:
 SpaceAutoCleaningStatus:
   $ref: ./space_auto_cleaning_status.yaml
 
-SpaceAutoCleaningReportCollection:
-  $ref: ./space_auto_cleaning_report_collection.yaml
+SpaceAutoCleaningReports:
+  $ref: ./space_auto_cleaning_reports.yaml
 
 SpaceAutoCleaningReport:
   $ref: ./space_auto_cleaning_report.yaml
