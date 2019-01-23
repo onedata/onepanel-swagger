@@ -42,9 +42,6 @@ HostAddRequest:
 JoinClusterRequest:
   $ref: ./join_cluster_request.yaml
 
-SessionDetails:
-  $ref: ./session_details.yaml
-
 Users:
   $ref: ./users.yaml
 

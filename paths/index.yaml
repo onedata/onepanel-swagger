@@ -10,9 +10,6 @@
 /cluster:
   $ref: ./cluster.yaml
 
-/session:
-  $ref: ./session.yaml
-
 /user:
   $ref: ./user.yaml
 
