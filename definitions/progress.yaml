@@ -5,7 +5,7 @@ properties:
     type: boolean
     description: True after user assigned services to cluster nodes and
       they were deployed.
-  clusterIPs:
+  clusterIps:
     type: boolean
     description: True after user confirmed detected external IPs
       or if interactiveDeployment was disabled.

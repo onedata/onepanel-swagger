@@ -3,7 +3,7 @@ get:
   summary: Get deployment progress
   description: Returns status of deployment steps.
   x-onedata-version: 3
-  x-onedata-module: rest_service
+  x-onedata-module: rest_onepanel
   x-onedata-resource: progress
   tags:
     - Onepanel
