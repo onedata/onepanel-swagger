@@ -159,6 +159,9 @@ ProviderModifyRequest:
 Progress:
   $ref: ./progress.yaml
 
+ProgressModify:
+  $ref: ./progress_modify.yaml
+
 ServiceStatus:
   $ref: ./service_status.yaml
 
