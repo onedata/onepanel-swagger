@@ -13,9 +13,6 @@
 /user:
   $ref: ./user.yaml
 
-/user/link:
-  $ref: ./user_link.yaml
-
 /user/clusters:
   $ref: ./user_clusters.yaml
 
@@ -66,9 +63,6 @@
 
 /web_cert:
   $ref: ./web_cert.yaml
-
-/onezone_login:
-  $ref: ./onezone_login.yaml
 
 # Provider specific resources
 /provider:

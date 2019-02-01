@@ -4,8 +4,8 @@ get:
   description: >
     Returns the details of given provider.
   x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: any_provider
+  x-onedata-module: rest_onepanel_cluster
+  x-onedata-resource: remote_provider
   tags:
     - Onepanel
   consumes:
@@ -28,9 +28,10 @@ get:
   parameters:
   - name: id
     in: path
-    description: Provider id which details should be returned.
+    description: Provider Id which details should be returned.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getAnyProvider id=VAiDGZbs3k0FD8jPhyU1 --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getAnyProvider
+      id=VAiDGZbs3k0FD8jPhyU1 --host https://$HOST:9443
