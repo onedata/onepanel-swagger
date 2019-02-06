@@ -1,6 +1,6 @@
 get:
-  operationId: get_any_provider
-  summary: Get details of any provider
+  operationId: get_remote_provider
+  summary: Get details of a provider in another cluster.
   description: >
     Returns the details of given provider.
   x-onedata-version: 3
@@ -14,7 +14,7 @@ get:
     '200':
       description: List of cluster ids.
       schema:
-        $ref: '#/definitions/AnyProviderDetails'
+        $ref: '#/definitions/RemoteProviderDetails'
     '400':
       description: Invalid request.
       schema:
@@ -33,5 +33,5 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getAnyProvider
+    source: onepanel-rest-cli -u alice:secret getRemoteProvider
       id=VAiDGZbs3k0FD8jPhyU1 --host https://$HOST:9443
