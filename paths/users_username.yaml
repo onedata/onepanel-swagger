@@ -12,7 +12,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The configuration information of the user.
+      description: User details.
       schema:
         $ref: '#/definitions/UserDetails'
     '401':

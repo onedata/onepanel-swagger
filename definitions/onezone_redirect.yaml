@@ -1,8 +1,0 @@
-type: object
-description: Contains URL used for redirecting to Onezone login page.
-properties:
-  url:
-    type: string
-    description: The redirection URL.
-required:
-- url

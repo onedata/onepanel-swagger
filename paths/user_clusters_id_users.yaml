@@ -1,7 +1,7 @@
 get:
   operationId: get_cluster_users
-  summary: List Onezone users linked to a cluster
-  description: "@fixme"
+  summary: List users belonging to a cluster.
+  description: Lists Ids of user belonging to given cluster.
   x-onedata-version: 3
   x-onedata-module: rest_cluster_users
   x-onedata-resource: cluster_users
@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: List of user ids.
+      description: List of user Ids.
       schema:
         $ref: '#/definitions/Ids'
     '400':
@@ -34,4 +34,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getClusterUsers id=b25lcHJvdmlkZXJjbHVzdGVyCg== --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getClusterUsers id=b25lcHJvdmlkZXJjbHVzdGVyCg== --host https://$HOST:9443

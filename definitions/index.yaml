@@ -51,9 +51,6 @@ UserDetails:
 OnezoneInfo:
   $ref: ./onezone_info.yaml
 
-OnezoneRedirect:
-  $ref: ./onezone_redirect.yaml
-
 OnezoneUser:
   $ref: ./onezone_user.yaml
 

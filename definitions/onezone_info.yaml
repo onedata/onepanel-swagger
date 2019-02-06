@@ -17,8 +17,8 @@ properties:
     description: Name of the Onezone cluster.
   compatible:
     type: boolean
-    description: >
-      True if versions of this Oneprovider and the Onezone are compatible.
+    description: True if versions of this Oneprovider
+      and the Onezone are compatible.
   subdomainDelegationSupported:
     type: boolean
     description: Whether given Onezone allows subdomain delegation.

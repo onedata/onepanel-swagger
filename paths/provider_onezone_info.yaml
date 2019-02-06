@@ -29,8 +29,6 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-    '503':
-      description: Services needed to fulfill this request are not running.
   parameters:
   - name: token
     in: query
@@ -40,4 +38,4 @@ get:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getOnezoneInfo --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getOnezoneInfo --host https://$HOST:9443

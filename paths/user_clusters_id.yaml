@@ -13,7 +13,7 @@ get:
     - application/json
   responses:
     '200':
-      description: List of cluster ids.
+      description: List of cluster Ids.
       schema:
         $ref: '#/definitions/ClusterDetails'
     '400':
@@ -34,4 +34,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getCluster --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getCluster --host https://$HOST:9443

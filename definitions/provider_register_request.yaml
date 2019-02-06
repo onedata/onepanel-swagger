@@ -9,7 +9,7 @@ properties:
   token:
     type: string
     description: >
-      Registration token obtained from Onezone service. This token identifies
+      Registration token obtained from Onezone. This token identifies
       Onezone to be used and authorizes the registration request.
   subdomainDelegation:
     type: boolean
@@ -41,7 +41,7 @@ properties:
       The geographical latitude of the storage provider.
   adminEmail:
     type: string
-    description: Email address of the oneprovider administrator.
+    description: Email address of the Oneprovider administrator.
 required:
   - name
   - token
@@ -49,8 +49,8 @@ required:
   - adminEmail
 example:
   name: Provider1
+  token: "bWFjYXJvb25mcm9tb25lem9uZQo="
   subdomainDelegation: false
   domain: provider.example.com
   geoLongitude: -24.3776025
   geoLatitude: -128.3519364
-  onezoneDomainName: onezone2.example.com

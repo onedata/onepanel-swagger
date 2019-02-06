@@ -1,7 +1,8 @@
 get:
   operationId: get_cluster_user
-  summary: Get info about Onezone user linked to cluster
-  description: "@fixme"
+  summary: Get remote cluster's user info
+  description: Returns information about user belonging to
+    another of current user's clusters.
   x-onedata-version: 3
   x-onedata-module: rest_cluster_user
   x-onedata-resource: cluster_user
@@ -29,7 +30,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Cluster id which users should be returned.
+    description: Cluster Id
     type: string
     required: true
   - name: userId
@@ -41,4 +42,4 @@ get:
   - lang: Shell
     source: >
       onepanel-rest-cli -u alice:secret getClusterUser id=b25lcHJvdmlkZXJjbHVzdGVyCg==
-      userId=ALKJSDH77i79ASDKJA-ASDBAS9-87 --host https://op.example.com:9443
+      userId=ALKJSDH77i79ASDKJA-ASDBAS9-87 --host https://$HOST:9443

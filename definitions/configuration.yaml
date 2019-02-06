@@ -8,8 +8,8 @@ x-onedata-subclasses:
 properties:
   clusterId:
     type: string
-    description: The Id of cluster recod for this cluster.
-      Null if the cluster is not registered or worker is offline.
+    description: The Id of cluster record for this cluster.
+      Null if the cluster is not registered.
   version:
     type: string
     description: Version of this Onepanel

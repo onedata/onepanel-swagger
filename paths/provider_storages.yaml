@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The provider storage resources IDs.
+      description: The provider storage resources Ids.
       schema:
         $ref: '#/definitions/ProviderStorages'
     '401':

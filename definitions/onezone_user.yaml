@@ -11,8 +11,8 @@ properties:
     type: string
     description: Oneozne user login.
 required:
-- userId
-- name
+  - userId
+  - name
 example:
   userId: ALKJSDH77i79ASDKJA-ASDBAS9-87
   name: Rudolf Lingens

@@ -1,5 +1,5 @@
 type: object
-description: The panel configuration.
+description: Progress marks which can be modified by the GUI.
 properties:
   clusterIps:
     type: boolean

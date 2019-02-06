@@ -13,7 +13,7 @@ properties:
       token:
         type: string
         description: >
-          Registration token obtained from Onezone service. This token identifies
+          Registration token obtained from Onezone. This token identifies
           Onezone to be used and authorizes the registration request.
       name:
         type: string
