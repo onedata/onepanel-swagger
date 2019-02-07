@@ -4,7 +4,7 @@ get:
   description: Returns information about user belonging to
     another of current user's clusters.
   x-onedata-version: 3
-  x-onedata-module: rest_cluster_user
+  x-onedata-module: rest_clusters
   x-onedata-resource: cluster_user
   tags:
     - Onepanel

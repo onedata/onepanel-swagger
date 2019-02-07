@@ -4,7 +4,7 @@ get:
   description: >
     Returns details of this cluster.
   x-onedata-version: 3
-  x-onedata-module: rest_onepanel_cluster
+  x-onedata-module: rest_clusters
   x-onedata-resource: current_cluster
   tags:
     - Onepanel

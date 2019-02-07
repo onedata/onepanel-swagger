@@ -5,7 +5,7 @@ get:
     Returns the details of given provider. Only users belonging to that Oneprovider's
     cluster can fetch its details.
   x-onedata-version: 3
-  x-onedata-module: rest_onepanel_cluster
+  x-onedata-module: rest_clusters
   x-onedata-resource: remote_provider
   tags:
     - Onepanel

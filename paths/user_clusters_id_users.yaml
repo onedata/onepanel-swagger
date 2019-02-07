@@ -3,7 +3,7 @@ get:
   summary: List users belonging to a cluster.
   description: Lists Ids of user belonging to given cluster.
   x-onedata-version: 3
-  x-onedata-module: rest_cluster_users
+  x-onedata-module: rest_clusters
   x-onedata-resource: cluster_users
   tags:
     - Onepanel
