@@ -6,7 +6,6 @@ get:
   x-onedata-version: 3
   x-onedata-module: rest_clusters
   x-onedata-resource: cluster
-  x-onedata-noauth: true
   tags:
     - Onepanel
   consumes:
