@@ -9,8 +9,8 @@ properties:
       they were deployed.
   clusterIps:
     type: boolean
-    description: True after user confirmed detected external IPs
-      or if interactiveDeployment was disabled.
+    description: True after provided public IPs of cluster nodes or confirmed
+      autodetected defaults. Also true if interactiveDeployment was disabled.
   webCertificate:
     type: boolean
     description: True after user decided whether to use Let's Encrypt

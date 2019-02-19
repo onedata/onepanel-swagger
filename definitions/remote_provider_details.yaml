@@ -1,5 +1,5 @@
 type: object
-description: Oneprovider details.
+description: Information about another Oneprovider.
 properties:
   id:
     type: string
@@ -9,8 +9,7 @@ properties:
     description: The name under which the Oneprovider has been registered in Onezone.
   domain:
     type: string
-    description: >
-      The fully qualified domain name of the Oneprovider.
+    description: The fully qualified domain name of the Oneprovider.
   geoLongitude:
     type: number
     format: float

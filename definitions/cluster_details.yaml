@@ -1,17 +1,17 @@
 type: object
 description: Details of a cluster.
-# @fixme descriptions
 properties:
   id:
     type: string
+    description: Id of the cluster record
   type:
     type: string
-    description: "Type of the cluster"
+    description: Type of the cluster
     enum: [oneprovider, onezone]
   serviceId:
     type: string
     description: >
-      The id of the service hosted on this cluster - depending on the type equal
+      The Id of the service hosted on this cluster - depending on the type equal
       to the Oneprovider Id or null in case of Onezone cluster
   version:
     type: string
