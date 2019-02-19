@@ -25,8 +25,8 @@ get:
     '503':
       description: Services needed to fulfill this request are not running.
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getStorages --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret getStorages --host https://$HOST:9443
 
 
 post:
@@ -59,14 +59,14 @@ post:
     '503':
       description: Services needed to fulfill this request are not running.
   parameters:
-  - name: storageCreateRequest
-    in: body
-    description: >
-      The configuration details of storage resources to be added to the provider
-      deployment.
-    schema:
-      $ref: '#/definitions/StorageCreateRequest'
-    required: true
+    - name: storageCreateRequest
+      in: body
+      description: >
+        The configuration details of storage resources to be added to the provider
+        deployment.
+      schema:
+        $ref: '#/definitions/StorageCreateRequest'
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: cat storages.json | onepanel-rest-cli -u alice:secret addStorage --host https://$HOST:9443
+    - lang: Shell
+      source: cat storages.json | onepanel-rest-cli -u alice:secret addStorage --host https://$HOST:9443

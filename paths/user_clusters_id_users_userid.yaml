@@ -28,18 +28,18 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: id
-    in: path
-    description: Cluster Id
-    type: string
-    required: true
-  - name: userId
-    in: path
-    description: Id of the user.
-    type: string
-    required: true
+    - name: id
+      in: path
+      description: Cluster Id
+      type: string
+      required: true
+    - name: userId
+      in: path
+      description: Id of the user.
+      type: string
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: >
-      onepanel-rest-cli -u alice:secret getClusterUser id=b25lcHJvdmlkZXJjbHVzdGVyCg==
-      userId=ALKJSDH77i79ASDKJA-ASDBAS9-87 --host https://$HOST:9443
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u alice:secret getClusterUser id=b25lcHJvdmlkZXJjbHVzdGVyCg==
+        userId=ALKJSDH77i79ASDKJA-ASDBAS9-87 --host https://$HOST:9443

@@ -31,8 +31,8 @@ get:
       schema:
         $ref: '#/definitions/Error'
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getClusterHosts --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret getClusterHosts --host https://$HOST:9443
 
 
 post:
@@ -70,5 +70,5 @@ post:
         $ref: '#/definitions/HostAddRequest'
       required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret addClusterHost address==$HOSTNAME --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret addClusterHost address==$HOSTNAME --host https://$HOST:9443

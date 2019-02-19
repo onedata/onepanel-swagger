@@ -23,5 +23,5 @@ properties:
     type: boolean
     description: Whether given Onezone allows subdomain delegation.
 required:
-- domain
-- online
+  - domain
+  - online

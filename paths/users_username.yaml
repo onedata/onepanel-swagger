@@ -26,14 +26,14 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: username
-    in: path
-    description: The name of the user whose details should be returned.
-    type: string
-    required: true
+    - name: username
+      in: path
+      description: The name of the user whose details should be returned.
+      type: string
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getUser username==bob --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret getUser username==bob --host https://$HOST:9443
 
 
 patch:
@@ -66,19 +66,19 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: username
-    in: path
-    description: The user name.
-    type: string
-    required: true
-  - name: userModifyRequest
-    in: body
-    schema:
-      $ref: '#/definitions/UserModifyRequest'
-    required: true
+    - name: username
+      in: path
+      description: The user name.
+      type: string
+      required: true
+    - name: userModifyRequest
+      in: body
+      schema:
+        $ref: '#/definitions/UserModifyRequest'
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret modifyUser password==new_secret --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret modifyUser password==new_secret --host https://$HOST:9443
 
 
 delete:
@@ -105,11 +105,11 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: username
-    in: path
-    description: The name of the user to be removed.
-    type: string
-    required: true
+    - name: username
+      in: path
+      description: The name of the user to be removed.
+      type: string
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret removeUser username==bob --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret removeUser username==bob --host https://$HOST:9443

@@ -13,9 +13,9 @@ get:
   x-onedata-module: rest_oneprovider
   x-onedata-resource: onezone_info
   tags:
-  - Oneprovider
+    - Oneprovider
   produces:
-  - application/json
+    - application/json
   responses:
     '200':
       description: Information about Onezone.
@@ -30,12 +30,12 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: token
-    in: query
-    type: string
-    description: Provider registration token obtained be the Onezone's user.
-      Required if provider is not registered at Onezone.
-    required: false
+    - name: token
+      in: query
+      type: string
+      description: Provider registration token obtained be the Onezone's user.
+        Required if provider is not registered at Onezone.
+      required: false
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getOnezoneInfo --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret getOnezoneInfo --host https://$HOST:9443

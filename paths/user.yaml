@@ -26,8 +26,8 @@ get:
       schema:
         $ref: '#/definitions/Error'
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getCurrentUser --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret getCurrentUser --host https://$HOST:9443
 
 
 patch:
@@ -60,14 +60,14 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: userModifyRequest
-    in: body
-    schema:
-      $ref: '#/definitions/UserModifyRequest'
-    required: true
+    - name: userModifyRequest
+      in: body
+      schema:
+        $ref: '#/definitions/UserModifyRequest'
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret modifyCurrentUser password==new_secret --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret modifyCurrentUser password==new_secret --host https://$HOST:9443
 
 
 delete:
@@ -92,6 +92,6 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret removeCurrentUser --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret removeCurrentUser --host https://$HOST:9443
 
