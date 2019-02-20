@@ -12,6 +12,9 @@ x-onedata-subclasses:
   - nulldevice
   - webdav
 properties:
+  type:
+    type: string
+    description: The type of storage.
   id:
     type: string
     description: The Id of storage.
