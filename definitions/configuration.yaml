@@ -6,6 +6,9 @@ x-onedata-subclasses:
   - op_configuration
   - oz_configuration
 properties:
+  serviceType:
+    description: Indicates whether this is Onezone's or Oneprovider's panel.
+    type: string
   version:
     type: string
     description: Version of this Onepanel
