@@ -79,6 +79,18 @@ allOf:
             assumes that the WebDAV server has no upload limit.
         default: 0
         x-onedata-default-value: 0
+      fileMode:
+        type: string
+        description: >
+          Defines the file permissions, which files imported from WebDAV storage will have
+          in Onedata. Values should be provided in octal format e.g. `0644`.
+        default: 0644
+      dirMode:
+        type: string
+        description: >
+          Defines the directory mode which directories imported from WebDAV storage will
+          have in Onedata. Values should be provided in octal format e.g. `0775`.
+        default: 0775
       timeout:
         type: integer
         description: Storage operation timeout in milliseconds.
