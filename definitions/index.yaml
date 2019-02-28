@@ -12,6 +12,9 @@ op_configuration:
 oz_configuration:
   $ref: ./oz_configuration.yaml
 
+VersionInfo:
+  $ref: ./version_info.yaml
+
 DnsCheck:
   $ref: ./dns_check.yaml
 

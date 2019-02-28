@@ -12,13 +12,11 @@ properties:
     type: string
     description: >
       The Id of the service hosted on this cluster - depending on the type equal
-      to the Oneprovider Id or null in case of Onezone cluster
-  version:
-    type: string
-    description: Software version.
-  build:
-    type: string
-    description: Software build identifier.
+      to the Oneprovider Id or "onezone" in case of Onezone cluster
+  workerVersion:
+    $ref: '#/definitions/VersionInfo'
+  onepanelVersion:
+    $ref: '#/definitions/VersionInfo'
   proxy:
     type: boolean
     description: >
@@ -28,6 +26,6 @@ required:
   - id
   - type
   - serviceId
-  - version
-  - build
+  - workerVersion
+  - onepanelVersion
   - proxy

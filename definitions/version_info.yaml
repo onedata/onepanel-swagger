@@ -1,0 +1,20 @@
+type: object
+description: Service version info.
+properties:
+  release:
+    type: string
+    description: Release version.
+  build:
+    type: string
+    description: Build number.
+  gui:
+    type: string
+    description: GUI version indicated by a SHA256 hash.
+required:
+  - release
+  - build
+  - gui
+example:
+  release: 18.02.1
+  build: 1-gfabf02d
+  gui: 68e7e1472adb719ddf2d88908775091dfb10e5d0b916f06125ea1af4056044e3
