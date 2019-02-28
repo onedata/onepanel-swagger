@@ -17,7 +17,7 @@ properties:
     $ref: '#/definitions/VersionInfo'
   onepanelVersion:
     $ref: '#/definitions/VersionInfo'
-  proxy:
+  onepanelProxy:
     type: boolean
     description: >
       Is Onepanel proxy enabled - if so, onepanel GUI is served on cluster's
@@ -28,4 +28,4 @@ required:
   - serviceId
   - workerVersion
   - onepanelVersion
-  - proxy
+  - onepanelProxy
