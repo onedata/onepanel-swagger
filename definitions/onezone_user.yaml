@@ -9,7 +9,7 @@ properties:
     description: User name as registered in Onezone.
   alias:
     type: string
-    description: Oneozne user login.
+    description: Onezone user login.
 required:
   - userId
   - name

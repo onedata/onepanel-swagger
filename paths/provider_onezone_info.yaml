@@ -2,12 +2,12 @@ get:
   operationId: get_onezone_info
   summary: Get Onezone information
   description: >
-    Get information about Onezone.
+    Get information about a Onezone.
 
     Before registration this endpoint requires a registration token and returns
-    information about Onezone issuing the token.
+    information about the Onezone issuing the token.
 
-    When provider is registered returns information about Onezone
+    When provider is registered returns information about the Onezone
     at which the provider is registered.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
