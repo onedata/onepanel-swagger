@@ -12,11 +12,11 @@ allOf:
       zoneDomain:
         type: string
         description: >
-          The domain of this Onezone cluster. Null before cluster is configured.
+          The domain of this Onezone cluster. `null` before cluster is configured.
       zoneName:
         type: string
         description: >
-          The name of this Onezone cluster. Null before cluster is configured.
+          The name of this Onezone cluster. `null` before cluster is configured.
     required:
       - serviceType
       - zoneDomain
