@@ -5,7 +5,7 @@ properties:
     type: boolean
     default: true
     description: >
-      Indicates that interactive deployment is performed.
+      Indicates that interactive deployment is being performed.
 
       If false, users entering GUI will not be asked to complete the configuration.
       In that case default values will be used, available for change later
@@ -21,7 +21,7 @@ properties:
         type: string
         description: The user password.
     required:
-    - password
-    - login
+      - password
+      - login
 required:
-- admin
+  - admin

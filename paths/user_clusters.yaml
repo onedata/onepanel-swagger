@@ -2,7 +2,7 @@ get:
   operationId: get_clusters
   summary: List user's clusters
   description: >
-    Lists clusters linked with current user's account.
+    Lists clusters to which current user belongs.
   x-onedata-version: 3
   x-onedata-module: rest_clusters
   x-onedata-resource: clusters
