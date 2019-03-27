@@ -4,10 +4,12 @@ properties:
   hostname:
     type: string
     description: Hostname of the node.
-  componentType:
+  clusterType:
     type: string
-    description: Type of Onedata component managed by this onepanel.
-    enum: [oneprovider, onezone]
+    description: Type of Onedata cluster managed by this onepanel.
+    enum:
+      - oneprovider
+      - onezone
 required:
 - hostname
-- componentType
+- clusterType
