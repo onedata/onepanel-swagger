@@ -1,7 +1,7 @@
 get:
   operationId: get_progress
   summary: Get deployment progress
-  description: Returns status of deployment steps.
+  description: Returns deployment markers state.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: progress
@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The progress marks.
+      description: The progress markers.
       schema:
         $ref: '#/definitions/Progress'
     '400':
@@ -29,8 +29,8 @@ get:
 
 patch:
   operationId: modify_progress
-  summary: Modify progress marks
-  description: Adds or removes completed deployment steps.
+  summary: Modify progress markers
+  description: Sets or unsets markers for completed deployment stages.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: progress

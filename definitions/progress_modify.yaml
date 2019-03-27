@@ -1,5 +1,5 @@
 type: object
-description: Progress marks which can be modified by the GUI.
+description: Progress markers which can be set or unset by the GUI.
 properties:
   clusterIps:
     type: boolean
