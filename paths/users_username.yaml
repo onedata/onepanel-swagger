@@ -33,7 +33,7 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret getUser username==bob --host https://$HOST:9443
+      source: onepanel-rest-cli -u alice:secret getUser username=bob --host https://$HOST:9443
 
 
 patch:
@@ -78,7 +78,9 @@ patch:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret modifyUser password==new_secret --host https://$HOST:9443
+      source: onepanel-rest-cli -u alice:alices_secret modifyUser
+        newPassword==new_bobs_secret currentPassword==alices_secret username=bob
+        --host https://$HOST:9443
 
 
 delete:
@@ -112,4 +114,4 @@ delete:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret removeUser username==bob --host https://$HOST:9443
+      source: onepanel-rest-cli -u alice:secret removeUser username=bob --host https://$HOST:9443
