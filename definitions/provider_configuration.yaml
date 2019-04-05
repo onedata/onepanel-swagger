@@ -10,6 +10,11 @@ properties:
       register:
         type: boolean
         description: Defines whether the provider should be registered in a zone.
+      token:
+        type: string
+        description: >
+          Registration token obtained from Onezone. This token identifies
+          Onezone to be used and authorizes the registration request.
       name:
         type: string
         description: The name under which the provider will be registered in a zone.
@@ -54,17 +59,8 @@ properties:
       - register
       - name
       - adminEmail
-  onezone:
-    type: object
-    description: The zone custom configuration.
-    properties:
-      domainName:
-        description: The domain name of a zone where provider will be registered.
-        type: string
-    required:
-      - domainName
   onepanel:
-    $ref: '#/definitions/PanelConfiguration'
+    $ref: '#/definitions/OpPanelConfiguration'
 required:
   - cluster
 example:
@@ -89,6 +85,7 @@ example:
         mountPoint: "/volumes/storage"
   oneprovider:
     register: true
+    token: "bWFjYXJvb25mcm9tb25lem9uZQo="
     name: "example"
     subdomainDelegation: false,
     letsEncryptEnabled: false,
@@ -96,5 +93,3 @@ example:
     adminEmail: "admin@example.eu"
     geoLongitude: -24.3776025
     geoLatitude: -128.3519364
-  onezone:
-    domainName: "node1.onezone.onedata.example.com"

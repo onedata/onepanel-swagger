@@ -1,0 +1,15 @@
+type: object
+description: Progress markers which can be set or unset by the GUI.
+properties:
+  clusterIps:
+    type: boolean
+    description: True after user confirmed detected external IPs
+      or if interactiveDeployment was disabled.
+  webCertificate:
+    type: boolean
+    description: True after user decided whether to use Let's Encrypt
+      certificates or if interactiveDeployment was disabled.
+  dnsCheck:
+    type: boolean
+    description: True after user reviewed results of DNS check
+      or if interactiveDeployment was disabled.

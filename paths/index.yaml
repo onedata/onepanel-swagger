@@ -3,11 +3,24 @@
 
 
 # Onepanel common resources
+
 /configuration:
   $ref: ./configuration.yaml
 
-/session:
-  $ref: ./session.yaml
+/cluster:
+  $ref: ./cluster.yaml
+
+/user:
+  $ref: ./user.yaml
+
+/user/clusters:
+  $ref: ./user_clusters.yaml
+
+/user/clusters/{id}:
+  $ref: ./user_clusters_id.yaml
+
+/providers/{id}:
+  $ref: ./providers_id.yaml
 
 /users:
   $ref: ./users.yaml
@@ -38,6 +51,9 @@
 
 /tasks/{id}:
   $ref: ./tasks_id.yaml
+
+/progress:
+  $ref: ./progress.yaml
 
 /web_cert:
   $ref: ./web_cert.yaml
@@ -108,6 +124,9 @@
 
 /provider/cluster_ips:
   $ref: ./provider_cluster_ips.yaml
+
+/provider/onezone_info:
+  $ref: ./provider_onezone_info.yaml
 
 # Zone specific resources
 

@@ -1,0 +1,38 @@
+get:
+  operationId: get_remote_provider
+  summary: Get details of a remote Oneprovider.
+  description: >
+    Returns the details of given provider. Only users belonging to that Oneprovider's
+    cluster can fetch its details.
+  x-onedata-version: 3
+  x-onedata-module: rest_clusters
+  x-onedata-resource: remote_provider
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The Oneprovider details.
+      schema:
+        $ref: '#/definitions/RemoteProviderDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Id of requested Oneprovider.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret getRemoteProvider
+        id=VAiDGZbs3k0FD8jPhyU1 --host https://$HOST:9443

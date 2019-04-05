@@ -1,11 +1,11 @@
 get:
-  operationId: get_user
-  summary: Get Onepanel user details
+  operationId: get_current_user
+  summary: Get Onepanel user details of currently logged in user.
   description: >
-    Returns the configuration information of the Onepanel user.
+    Returns the configuration information of the Onepanel user performing the query.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
-  x-onedata-resource: user
+  x-onedata-resource: current_user
   tags:
     - Onepanel
   produces:
@@ -25,25 +25,19 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-    - name: username
-      in: path
-      description: The name of the user whose details should be returned.
-      type: string
-      required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret getUser username=bob --host https://$HOST:9443
+      source: onepanel-rest-cli -u alice:secret getCurrentUser --host https://$HOST:9443
 
 
 patch:
-  operationId: modify_user
-  summary: Modify Onepanel user details
+  operationId: modify_current_user
+  summary: Modify Onepanel user details of currently logged in user.
   description: >
     Modifies the Onepanel user password.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
-  x-onedata-resource: user
+  x-onedata-resource: current_user
   tags:
     - Onepanel
   consumes:
@@ -66,11 +60,6 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: username
-      in: path
-      description: The user name.
-      type: string
-      required: true
     - name: userModifyRequest
       in: body
       schema:
@@ -78,19 +67,17 @@ patch:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:alices_secret modifyUser
-        newPassword==new_bobs_secret currentPassword==alices_secret username=bob
-        --host https://$HOST:9443
+      source: onepanel-rest-cli -u alice:secret modifyCurrentUser password==new_secret --host https://$HOST:9443
 
 
 delete:
-  operationId: remove_user
-  summary: Remove Onepanel user
+  operationId: remove_current_user
+  summary: Remove the currently logged in Onepanel user
   description: >
     Removes the Onepanel user account.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel_user
-  x-onedata-resource: user
+  x-onedata-resource: current_user
   tags:
     - Onepanel
   responses:
@@ -100,18 +87,11 @@ delete:
       description: Unauthorized request.
     '403':
       description: Forbidden request.
-    '404':
-      description: User account not found.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-    - name: username
-      in: path
-      description: The name of the user to be removed.
-      type: string
-      required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret removeUser username=bob --host https://$HOST:9443
+      source: onepanel-rest-cli -u alice:secret removeCurrentUser --host https://$HOST:9443
+

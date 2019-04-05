@@ -28,15 +28,15 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: role
-    in: query
-    description: If present, query returns only users with specified role.
-    type: string
-    enum: [admin, regular]
-    required: false
+    - name: role
+      in: query
+      description: If present, query returns only users with specified role.
+      type: string
+      enum: [admin, regular]
+      required: false
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getUsers role=admin --host https://op.example.com:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret getUsers role=admin --host https://$HOST:9443
 
 post:
   operationId: add_user
@@ -64,14 +64,14 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: userCreateRequest
-    in: body
-    description: The user configuration details.
-    schema:
-      $ref: '#/definitions/UserCreateRequest'
-    required: true
+    - name: userCreateRequest
+      in: body
+      description: The user configuration details.
+      schema:
+        $ref: '#/definitions/UserCreateRequest'
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret addUser username==bob password==secret userRole==regular --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret addUser username==bob password==secret userRole==regular --host https://$HOST:9443
 
 

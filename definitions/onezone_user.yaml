@@ -1,0 +1,19 @@
+type: object
+description: Describes user information coming from Onezone.
+properties:
+  userId:
+    type: string
+    description: Onezone user ID.
+  name:
+    type: string
+    description: User name as registered in Onezone.
+  alias:
+    type: string
+    description: Onezone user login.
+required:
+  - userId
+  - name
+example:
+  userId: ALKJSDH77i79ASDKJA-ASDBAS9-87
+  name: Rudolf Lingens
+  alias: Rudolf Lingens

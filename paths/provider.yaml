@@ -51,6 +51,8 @@ post:
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '409':
+      description: Provider already registered.
     '500':
       description: Internal server error.
       schema:

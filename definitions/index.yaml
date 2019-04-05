@@ -12,6 +12,9 @@ op_configuration:
 oz_configuration:
   $ref: ./oz_configuration.yaml
 
+VersionInfo:
+  $ref: ./version_info.yaml
+
 DnsCheck:
   $ref: ./dns_check.yaml
 
@@ -24,6 +27,15 @@ DnsCheckConfiguration:
 Error:
   $ref: ./error.yaml
 
+Ids:
+  $ref: ./ids.yaml
+
+ClusterDetails:
+  $ref: ./cluster_details.yaml
+
+RemoteProviderDetails:
+  $ref: ./remote_provider_details.yaml
+
 Host:
   $ref: ./host.yaml
 
@@ -33,14 +45,17 @@ HostAddRequest:
 JoinClusterRequest:
   $ref: ./join_cluster_request.yaml
 
-SessionDetails:
-  $ref: ./session_details.yaml
-
 Users:
   $ref: ./users.yaml
 
 UserDetails:
   $ref: ./user_details.yaml
+
+OnezoneInfo:
+  $ref: ./onezone_info.yaml
+
+OnezoneUser:
+  $ref: ./onezone_user.yaml
 
 UserCreateRequest:
   $ref: ./user_create_request.yaml
@@ -48,8 +63,11 @@ UserCreateRequest:
 UserModifyRequest:
   $ref: ./user_modify_request.yaml
 
-PanelConfiguration:
-  $ref: ./panel_configuration.yaml
+OzPanelConfiguration:
+  $ref: ./oz_panel_configuration.yaml
+
+OpPanelConfiguration:
+  $ref: ./op_panel_configuration.yaml
 
 ClusterWorkers:
   $ref: ./cluster_workers.yaml
@@ -137,6 +155,12 @@ ProviderRegisterRequest:
 
 ProviderModifyRequest:
   $ref: ./provider_modify_request.yaml
+
+Progress:
+  $ref: ./progress.yaml
+
+ProgressModify:
+  $ref: ./progress_modify.yaml
 
 ServiceStatus:
   $ref: ./service_status.yaml
