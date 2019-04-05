@@ -18,10 +18,10 @@ get:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
-    '404':
-      description: Session not found.
     '500':
       description: Internal server error.
       schema:
@@ -45,6 +45,8 @@ patch:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
