@@ -10,6 +10,12 @@
 /cluster:
   $ref: ./cluster.yaml
 
+/cluster/invite_user_token:
+  $ref: ./cluster_invite_user_token.yaml
+
+/cluster/invite_group_token:
+  $ref: ./cluster_invite_group_token.yaml
+
 /user:
   $ref: ./user.yaml
 

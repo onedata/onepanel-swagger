@@ -30,6 +30,9 @@ Error:
 Ids:
   $ref: ./ids.yaml
 
+Token:
+  $ref: ./token.yaml
+
 ClusterDetails:
   $ref: ./cluster_details.yaml
 
