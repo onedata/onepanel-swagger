@@ -36,8 +36,8 @@ Token:
 ClusterDetails:
   $ref: ./cluster_details.yaml
 
-ClusterMembers:
-  $ref: ./cluster_members.yaml
+ClusterMembersSummary:
+  $ref: ./cluster_members_summary.yaml
 
 RemoteProviderDetails:
   $ref: ./remote_provider_details.yaml

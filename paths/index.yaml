@@ -13,8 +13,8 @@
 /cluster/invite_user_token:
   $ref: ./cluster_invite_user_token.yaml
 
-/cluster/members:
-  $ref: ./cluster_members.yaml
+/cluster/members_summary:
+  $ref: ./cluster_members_summary.yaml
 
 /user:
   $ref: ./user.yaml
