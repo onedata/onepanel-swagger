@@ -1,0 +1,16 @@
+type: object
+description: Summary of cluster members, listing number of direct
+  and effective users and groups.
+properties:
+  usersCount:
+    type: integer
+    description: Number of users belonging directly to the cluster.
+  effectiveUsersCount:
+    type: integer
+    description: Number of users belonging directly and indirectly to the cluster.
+  groupsCount:
+    type: integer
+    description: Number of groups belonging directly to the cluster.
+  effectiveGroupsCount:
+    type: integer
+    description: Number of groups belonging directly and indirectly to the cluster.
