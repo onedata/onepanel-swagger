@@ -14,6 +14,24 @@ properties:
     enum:
       - admin
       - regular
+  clusterPrivileges:
+    type: array
+    description: List of cluster privileges held by the user.
+      This field is returned only to a Onezone user fetching
+      information about himself.
+    items:
+      type: string
+      enum:
+        - cluster_view
+        - cluster_update
+        - cluster_delete
+        - cluster_view_privileges
+        - cluster_set_privileges
+        - cluster_add_user
+        - cluster_remove_user
+        - cluster_add_group
+        - cluster_remove_group
+
 required:
   - userId
   - username
@@ -22,3 +40,4 @@ example:
   userId: i3h2bp4TjPVuOyvXulbW
   username: admin
   userRole: admin
+  clusterPrivileges: [cluster_update]
