@@ -61,8 +61,8 @@
 /progress:
   $ref: ./progress.yaml
 
-/password:
-  $ref: ./password.yaml
+/root_password:
+  $ref: ./root_password.yaml
 
 /web_cert:
   $ref: ./web_cert.yaml
