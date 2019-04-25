@@ -42,6 +42,9 @@ ClusterMembersSummary:
 RemoteProviderDetails:
   $ref: ./remote_provider_details.yaml
 
+RootPassword:
+  $ref: ./root_password.yaml
+
 Host:
   $ref: ./host.yaml
 
