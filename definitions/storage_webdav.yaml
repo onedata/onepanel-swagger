@@ -70,8 +70,8 @@ allOf:
         type: integer
         description: >
             Defines the maximum number of parallel connections for a single WebDAV storage.
-        default: 10
-        x-onedata-default-value: 10
+        default: 25
+        x-onedata-default-value: 25
       maximumUploadSize:
         type: integer
         description: >
