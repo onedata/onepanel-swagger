@@ -60,7 +60,7 @@ properties:
       - name
       - adminEmail
   onepanel:
-    $ref: '#/definitions/OpPanelConfiguration'
+    $ref: '#/definitions/PanelConfiguration'
 required:
   - cluster
 example:

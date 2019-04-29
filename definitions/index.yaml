@@ -75,11 +75,9 @@ UserCreateRequest:
 UserModifyRequest:
   $ref: ./user_modify_request.yaml
 
-OzPanelConfiguration:
-  $ref: ./oz_panel_configuration.yaml
 
-OpPanelConfiguration:
-  $ref: ./op_panel_configuration.yaml
+PanelConfiguration:
+  $ref: ./panel_configuration.yaml
 
 ClusterWorkers:
   $ref: ./cluster_workers.yaml
