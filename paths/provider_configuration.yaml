@@ -5,7 +5,6 @@ get:
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_oneprovider
-  x-onedata-noauth: true
   tags:
     - Oneprovider
   produces:
@@ -41,7 +40,6 @@ post:
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_oneprovider
-  x-onedata-noauth: true
   tags:
     - Oneprovider
   consumes:
