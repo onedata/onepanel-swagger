@@ -4,8 +4,8 @@ get:
   description: >
     Returns the configuration information of the Onezone user.
   x-onedata-version: 3
-  x-onedata-module: rest_onezone
-  x-onedata-resource: user
+  x-onedata-module: rest_users
+  x-onedata-resource: onezone_user
   tags:
     - Onezone
   produces:
@@ -43,10 +43,10 @@ patch:
   description: >
     Sets new password for a Onezone user using Basic authentication.
   x-onedata-version: 3
-  x-onedata-module: rest_onezone
-  x-onedata-resource: user
+  x-onedata-module: rest_users
+  x-onedata-resource: onezone_user
   tags:
-    - Onepanel
+    - Onezone
   consumes:
     - application/json
   responses:

@@ -4,7 +4,7 @@ get:
   description: >
     Returns the configuration information of the Onepanel user performing the query.
   x-onedata-version: 3
-  x-onedata-module: rest_onepanel_user
+  x-onedata-module: rest_users
   x-onedata-resource: current_user
   tags:
     - Onepanel

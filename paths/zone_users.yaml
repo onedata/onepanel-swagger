@@ -4,8 +4,8 @@ post:
   description: Creates a new Onezone user account with Basic (login and password)
     authentication enabled.
   x-onedata-version: 3
-  x-onedata-module: rest_onezone
-  x-onedata-resource: users
+  x-onedata-module: rest_users
+  x-onedata-resource: onezone_users
   tags:
     - Onezone
   consumes:
