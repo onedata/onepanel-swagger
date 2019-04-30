@@ -42,11 +42,11 @@ ClusterMembersSummary:
 RemoteProviderDetails:
   $ref: ./remote_provider_details.yaml
 
-RootPasswordChangeRequest:
-  $ref: ./root_password_change_request.yaml
+EmergencyPassphraseChangeRequest:
+  $ref: ./emergency_passphrase_change_request.yaml
 
-RootPasswordStatus:
-  $ref: ./root_password_status.yaml
+EmergencyPassphraseStatus:
+  $ref: ./emergency_passphrase_status.yaml
 
 Host:
   $ref: ./host.yaml
