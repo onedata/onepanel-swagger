@@ -1,0 +1,21 @@
+type: object
+description: The new Onezone user account details
+properties:
+  username:
+    type: string
+  password:
+    type: string
+  groups:
+    description: Group Ids.
+    type: array
+    x-onedata-default-value: "[]"
+    default: []
+    items:
+      type: string
+required:
+  - username
+  - password
+example:
+  username: "admin"
+  password: "somePassword"
+  groups: ["admins"]

@@ -7,18 +7,9 @@ properties:
   username:
     type: string
     description: The user name.
-  userRole:
-    type: string
-    x-onedata-datatype: atom
-    description: The user role, one of `admin` or `regular`.
-    enum:
-      - admin
-      - regular
   clusterPrivileges:
     type: array
     description: List of cluster privileges held by the user.
-      This field is returned only to a Onezone user fetching
-      information about himself.
     items:
       type: string
       enum:
@@ -39,5 +30,4 @@ required:
 example:
   userId: i3h2bp4TjPVuOyvXulbW
   username: admin
-  userRole: admin
   clusterPrivileges: [cluster_update]

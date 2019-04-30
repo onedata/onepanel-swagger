@@ -30,26 +30,11 @@ properties:
         $ref: '#/definitions/ZonePolicies'
       users:
         type: array
-        description: Onezone users to be created.
+        description: List of Onezone user specifications.
         x-onedata-default-value: "[]"
         default: []
         items:
-          type: object
-          properties:
-            username:
-              type: string
-            password:
-              type: string
-            groups:
-              description: Group Ids.
-              type: array
-              x-onedata-default-value: "[]"
-              default: []
-              items:
-                type: string
-          required:
-            - username
-            - password
+          $ref: '#/definitions/OnezoneUserCreateRequest'
   onepanel:
     $ref: '#/definitions/PanelConfiguration'
 required:

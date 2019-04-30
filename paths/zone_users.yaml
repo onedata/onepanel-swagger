@@ -1,0 +1,36 @@
+post:
+  operationId: add_onezone_user
+  summary: Create Onezone user
+  description: Creates a new Onezone user account with Basic (login and password)
+    authentication enabled.
+  x-onedata-version: 3
+  x-onedata-module: rest_onezone
+  x-onedata-resource: users
+  tags:
+    - Onezone
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The user account has been successfully created.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: userCreateRequest
+      in: body
+      description: The user configuration details.
+      schema:
+        $ref: '#/definitions/OnezoneUserCreateRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u alice:secret addOnezoneUser
+        username==bob password==secret --host https://$HOST:9443

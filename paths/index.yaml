@@ -28,11 +28,8 @@
 /providers/{id}:
   $ref: ./providers_id.yaml
 
-/users:
-  $ref: ./users.yaml
-
-/users/{username}:
-  $ref: ./users_username.yaml
+/users/{id}:
+  $ref: ./zone_users_id.yaml
 
 /cookie:
   $ref: ./cookie.yaml
@@ -138,6 +135,12 @@
   $ref: ./provider_onezone_info.yaml
 
 # Zone specific resources
+
+/zone/users:
+  $ref: ./zone_users.yaml
+
+/zone/users/{id}:
+  $ref: ./zone_users_id.yaml
 
 /zone/nagios:
   $ref: ./zone_nagios.yaml

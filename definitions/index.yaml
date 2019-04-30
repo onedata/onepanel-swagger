@@ -57,24 +57,20 @@ HostAddRequest:
 JoinClusterRequest:
   $ref: ./join_cluster_request.yaml
 
-Users:
-  $ref: ./users.yaml
-
-UserDetails:
-  $ref: ./user_details.yaml
-
 OnezoneInfo:
   $ref: ./onezone_info.yaml
 
 OnezoneUser:
   $ref: ./onezone_user.yaml
 
-UserCreateRequest:
-  $ref: ./user_create_request.yaml
+OnezoneUserCreateRequest:
+  $ref: ./onezone_user_create_request.yaml
 
-UserModifyRequest:
-  $ref: ./user_modify_request.yaml
+UserDetails:
+  $ref: ./user_details.yaml
 
+PasswordChangeRequest:
+  $ref: ./password_change_request.yaml
 
 PanelConfiguration:
   $ref: ./panel_configuration.yaml
