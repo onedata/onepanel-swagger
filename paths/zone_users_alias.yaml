@@ -26,14 +26,14 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: id
+    - name: alias
       in: path
-      description: User Id.
+      description: Alias of the user to be described.
       type: string
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret getOnezoneUser id=$USER_ID
+      source: onepanel-rest-cli -u alice:secret getOnezoneUser alias=bob
         --host https://$HOST:9443
 
 
@@ -67,9 +67,9 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: id
+    - name: alias
       in: path
-      description: Id of the user whose password is changed.
+      description: Alias of the user whose password is changed.
       type: string
       required: true
     - name: PasswordChangeRequest
@@ -79,5 +79,5 @@ patch:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u admin:password changeUserPassword id=$USER_ID
-        newPassword==password_to_be_set --host https://$HOST:9443
+      source: onepanel-rest-cli -u admin:password changeUserPassword id=bob
+        newPassword==new_bobs_password --host https://$HOST:9443
