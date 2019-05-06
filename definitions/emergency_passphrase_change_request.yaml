@@ -5,5 +5,8 @@ properties:
     description: New passphrase to be set.
     type: string
   currentPassphrase:
-    description: Currently set passphrase.
+    description: Currently set passphrase. Not required if the passphrae
+      is set for the first time.
     type: string
+required:
+  - newPassphrase
