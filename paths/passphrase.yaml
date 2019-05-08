@@ -36,7 +36,7 @@ put:
   operationId: set_emergency_passphrase
   summary: Set emergency passphrase
   description: Sets passphrase which can be used to access
-    the Onepanel REST api and emergency Onepanel gui.
+    the Onepanel REST API and emergency Onepanel GUI.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: emergency_passphrase
