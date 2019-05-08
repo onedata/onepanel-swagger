@@ -6,7 +6,8 @@ properties:
   password:
     type: string
   groups:
-    description: Group Ids.
+    description: Ids of Onezone groups to which the user should be added.
+      The groups must exist in Onezone.
     type: array
     x-onedata-default-value: "[]"
     default: []

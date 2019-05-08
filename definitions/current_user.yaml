@@ -1,5 +1,5 @@
 type: object
-description: The user configuration details.
+description: Information about the authenticated user.
 properties:
   userId:
     type: string
@@ -9,7 +9,8 @@ properties:
     description: The user name.
   clusterPrivileges:
     type: array
-    description: List of cluster privileges held by the user.
+    description: >
+      List of cluster privileges held by the user in the current cluster.
     items:
       type: string
       enum:

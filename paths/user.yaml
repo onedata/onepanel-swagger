@@ -14,13 +14,13 @@ get:
     '200':
       description: User details.
       schema:
-        $ref: '#/definitions/UserDetails'
+        $ref: '#/definitions/CurrentUser'
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: The user does not exist.
+      description: Authenticated client is not a Onezone user.
     '500':
       description: Internal server error.
       schema:

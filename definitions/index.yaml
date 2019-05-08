@@ -66,8 +66,8 @@ OnezoneUser:
 OnezoneUserCreateRequest:
   $ref: ./onezone_user_create_request.yaml
 
-UserDetails:
-  $ref: ./user_details.yaml
+CurrentUser:
+  $ref: ./current_user.yaml
 
 PasswordChangeRequest:
   $ref: ./password_change_request.yaml
