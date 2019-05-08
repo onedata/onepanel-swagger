@@ -55,8 +55,8 @@
 /progress:
   $ref: ./progress.yaml
 
-/passphrase:
-  $ref: ./passphrase.yaml
+/emergency_passphrase:
+  $ref: ./emergency_passphrase.yaml
 
 /web_cert:
   $ref: ./web_cert.yaml
