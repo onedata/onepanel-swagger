@@ -69,4 +69,5 @@ put:
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u admin:oldPassphrase setEmergencyPassphrase
-        passphrase==newPassphrase --host https://$HOST:9443
+        currentPassphrase==oldPassphrase newPassphrase==someNewPassphrase
+        --host https://$HOST:9443
