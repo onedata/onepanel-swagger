@@ -20,7 +20,7 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: Authenticated client is not a Onezone user.
+      description: Request client is not a Onezone member.
     '500':
       description: Internal server error.
       schema:

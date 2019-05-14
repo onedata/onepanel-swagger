@@ -21,6 +21,8 @@ get:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
+    '404':
+      description: Request client is not member of cluster with given Id.
     '500':
       description: Internal server error.
       schema:
