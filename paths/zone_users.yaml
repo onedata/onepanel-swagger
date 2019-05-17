@@ -33,7 +33,7 @@ get:
 post:
   operationId: add_onezone_user
   summary: Create Onezone user
-  description: Creates a new Onezone user account with Basic (login and password)
+  description: Creates a new Onezone user account with Basic (username & password)
     authentication enabled.
   x-onedata-version: 3
   x-onedata-module: rest_users
