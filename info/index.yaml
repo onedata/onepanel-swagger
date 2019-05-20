@@ -85,7 +85,7 @@ description: |
     * **admin** - Onepanel administrator, there can be multiple administrators
       and all have equal rights in terms of Onedata deployment management,
     * **regular** - this role allows manual creation of user accounts, using
-      which users can login to Onezone service using HTTP Basic authentication
+      which users can log in to Onezone service using HTTP Basic authentication
       without OpenID. This role makes sense only on Onepanel which manages
       Onezone deployment.
 

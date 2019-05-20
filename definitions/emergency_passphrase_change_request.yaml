@@ -1,5 +1,6 @@
 type: object
-description: Emergency passphrase to set and old passphrase to authenticate the change.
+description: Emergency passphrase to set and
+  old passphrase to authorize the change.
 properties:
   newPassphrase:
     description: New passphrase to be set.
