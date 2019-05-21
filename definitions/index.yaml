@@ -42,6 +42,12 @@ ClusterMembersSummary:
 RemoteProviderDetails:
   $ref: ./remote_provider_details.yaml
 
+EmergencyPassphraseChangeRequest:
+  $ref: ./emergency_passphrase_change_request.yaml
+
+EmergencyPassphraseStatus:
+  $ref: ./emergency_passphrase_status.yaml
+
 Host:
   $ref: ./host.yaml
 
@@ -51,29 +57,23 @@ HostAddRequest:
 JoinClusterRequest:
   $ref: ./join_cluster_request.yaml
 
-Users:
-  $ref: ./users.yaml
-
-UserDetails:
-  $ref: ./user_details.yaml
-
 OnezoneInfo:
   $ref: ./onezone_info.yaml
 
 OnezoneUser:
   $ref: ./onezone_user.yaml
 
-UserCreateRequest:
-  $ref: ./user_create_request.yaml
+OnezoneUserCreateRequest:
+  $ref: ./onezone_user_create_request.yaml
 
-UserModifyRequest:
-  $ref: ./user_modify_request.yaml
+CurrentUser:
+  $ref: ./current_user.yaml
 
-OzPanelConfiguration:
-  $ref: ./oz_panel_configuration.yaml
+PasswordChangeRequest:
+  $ref: ./password_change_request.yaml
 
-OpPanelConfiguration:
-  $ref: ./op_panel_configuration.yaml
+PanelConfiguration:
+  $ref: ./panel_configuration.yaml
 
 ClusterWorkers:
   $ref: ./cluster_workers.yaml

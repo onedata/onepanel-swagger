@@ -22,6 +22,8 @@ get:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
+    '404':
+      description: Request client is not member of given Oneprovider's cluster.
     '500':
       description: Internal server error.
       schema:
