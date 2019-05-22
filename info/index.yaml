@@ -78,19 +78,28 @@ description: |
 
   ## Authentication
 
-  Onepanel supports only HTTP basic authentication, i.e. using `username` and
-  `password`, which were set when creating users.
+  Requests to the Onepanel API can be authenticated using the Onepanel
+  emergency passphrase. It should be provided in a Basic authentication header
+  with username `onepanel`. For curl users this means
+  ```bash
+  curl -u onepanel:TheEmergencyPassphrase
+  ```
 
-  Onepanel users can have 2 roles:
-    * **admin** - Onepanel administrator, there can be multiple administrators
-      and all have equal rights in terms of Onedata deployment management,
-    * **regular** - this role allows manual creation of user accounts, using
-      which users can log in to Onezone service using HTTP Basic authentication
-      without OpenID. This role makes sense only on Onepanel which manages
-      Onezone deployment.
+  The passphrase can also be sent without any username, as the only
+  content of base64-encoded string in Basic authorization header, e.g.
+  ```bash
+  $ echo -n TheEmergencyPassphrase | base64
+  VGhlRW1lcmdlbmN5UGFzc3BocmFzZQ==
+  $ curl -H 'authorization: Basic VGhlRW1lcmdlbmN5UGFzc3BocmFzZQ=='
+  ```
 
-  The first user account which is created in Onepanel is always an `admin`
-  account.
+  The passphrase is set during deployment. Can be changed in the Onepanel GUI
+  or with an API request:
+  ```bash
+  curl -X PUT 'https://$HOST:9443/api/v3/onepanel/emergency_passphrase' \
+  -u onepanel:TheEmergencyPassphrase -H 'Content-Type: application/json' \
+  -d '{"currentPassphrase": "TheEmergencyPassphrase", "newPassphrase": "TheNewPassphrase"}'
+  ```
 
   ## API structure
 
@@ -112,23 +121,16 @@ description: |
 
   Below are some example requests to Onepanel using cURL:
 
-  **Create new user**
-  ```bash
-  curl -X POST -k -vvv -H "content-type: application/json" \
-  -d '{"username": "admin", "password": "Password1", "userRole": "admin"}' \
-  https://172.17.0.6:9443/api/v3/onepanel/users
-  ```
-
   **Add storage resource to provider**
   ```bash
-  curl -X PUT -u admin:Password1 -k -vvv -H "content-type: application/json" \
+  curl -X POST -u admin:Password1 -k -vvv -H "content-type: application/json" \
   -d '{"NFS": {"type": "posix", "mountPoint": "/mnt/vfs"}}' \
   https://172.17.0.4:9443/api/v3/onepanel/provider/storages
   ```
 
   **Add a new Onezone worker**
   ```bash
-  curl -X PUT -u admin:Password1 -k -vvv -H "content-type: application/json" \
+  curl -X POST -u admin:Password1 -k -vvv -H "content-type: application/json" \
   -d '{"hosts": ["node1.p1.1.dev"]}' \
   https://172.17.0.4:9443/api/v3/onepanel/zone/workers
   ```
