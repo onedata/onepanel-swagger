@@ -123,14 +123,14 @@ description: |
 
   **Add storage resource to provider**
   ```bash
-  curl -X POST -u admin:Password1 -k -vvv -H "content-type: application/json" \
+  curl -X POST -u onepanel:Passphrase1 -k -vvv -H "content-type: application/json" \
   -d '{"NFS": {"type": "posix", "mountPoint": "/mnt/vfs"}}' \
   https://172.17.0.4:9443/api/v3/onepanel/provider/storages
   ```
 
   **Add a new Onezone worker**
   ```bash
-  curl -X POST -u admin:Password1 -k -vvv -H "content-type: application/json" \
+  curl -X POST -u onepanel:Passphrase1 -k -vvv -H "content-type: application/json" \
   -d '{"hosts": ["node1.p1.1.dev"]}' \
   https://172.17.0.4:9443/api/v3/onepanel/zone/workers
   ```

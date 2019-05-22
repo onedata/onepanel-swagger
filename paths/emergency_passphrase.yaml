@@ -68,6 +68,6 @@ put:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u admin:oldPassphrase setEmergencyPassphrase
+      source: onepanel-rest-cli -u onepanel:oldPassphrase setEmergencyPassphrase
         currentPassphrase==oldPassphrase newPassphrase==someNewPassphrase
         --host https://$HOST:9443

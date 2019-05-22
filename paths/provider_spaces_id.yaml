@@ -35,7 +35,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getSpaceDetails id=$SPACE_ID --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getSpaceDetails id=$SPACE_ID --host https://$HOST:9443
 
 
 patch:
@@ -119,4 +119,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret revokeSpaceSupport id=$SPACE_ID --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE revokeSpaceSupport id=$SPACE_ID --host https://$HOST:9443

@@ -36,5 +36,5 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret getRemoteProvider
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getRemoteProvider
         id=VAiDGZbs3k0FD8jPhyU1 --host https://$HOST:9443

@@ -24,7 +24,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderClusterIps --host https://example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderClusterIps --host https://example.com:9443
 
 patch:
   operationId: modify_provider_cluster_ips
@@ -64,4 +64,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_config.json | onepanel-rest-cli -u alice:secret modifyProviderClusterIps --host https://example.com:9443
+    source: cat provider_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProviderClusterIps --host https://example.com:9443

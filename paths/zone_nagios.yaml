@@ -24,4 +24,4 @@ get:
       description: The service is stopped and cannot be queried for nagios report.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getZoneNagiosReport --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneNagiosReport --host https://$HOST:9443

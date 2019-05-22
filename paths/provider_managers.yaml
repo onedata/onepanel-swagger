@@ -28,7 +28,7 @@ get:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderManagersStatus --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderManagersStatus --host https://$HOST:9443
 
 
 post:
@@ -72,7 +72,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat mng_hosts.json | onepanel-rest-cli -u alice:secret -ct json addProviderManagers --host https://$HOST:9443
+    source: cat mng_hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE -ct json addProviderManagers --host https://$HOST:9443
 
 
 patch:
@@ -109,4 +109,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret startStopProviderManagers started=false --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderManagers started=false --host https://$HOST:9443

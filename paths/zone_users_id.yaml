@@ -33,7 +33,7 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret getOnezoneUser id=$USER_ID
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnezoneUser id=$USER_ID
         --host https://$HOST:9443
 
 
@@ -79,5 +79,5 @@ patch:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u admin:password changeUserPassword id=$USER_ID
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE changeUserPassword id=$USER_ID
         newPassword==someNewPassword --host https://$HOST:9443
