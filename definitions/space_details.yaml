@@ -3,7 +3,7 @@ description: The space details.
 properties:
   id:
     type: string
-    description: The ID of the space.
+    description: The Id of the space.
   name:
     type: string
     description: The name of the space.
@@ -33,9 +33,13 @@ properties:
     $ref: '#/definitions/StorageImportDetails'
   storageUpdate:
     $ref: '#/definitions/StorageUpdateDetails'
+  spaceOccupancy:
+    type: integer
+    description: Amount of storage [b] used by data from given space on that storage.
 required:
   - id
   - name
   - storageId
   - localStorages
   - supportingProviders
+  - spaceOccupancy

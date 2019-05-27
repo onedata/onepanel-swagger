@@ -3,6 +3,9 @@
 
 
 # Onepanel common resources
+/configuration:
+  $ref: ./configuration.yaml
+
 /session:
   $ref: ./session.yaml
 
@@ -15,6 +18,12 @@
 /cookie:
   $ref: ./cookie.yaml
 
+/dns_check:
+  $ref: ./dns_check.yaml
+
+/dns_check/configuration:
+  $ref: ./dns_check_configuration.yaml
+
 /hosts:
   $ref: ./hosts.yaml
 
@@ -23,6 +32,9 @@
 
 /tasks/{id}:
   $ref: ./tasks_id.yaml
+
+/web_cert:
+  $ref: ./web_cert.yaml
 
 # Provider specific resources
 /provider:
@@ -40,14 +52,35 @@
 /provider/spaces/{id}:
   $ref: ./provider_spaces_id.yaml
 
+/provider/spaces/{id}/auto-cleaning/configuration:
+  $ref: ./provider_spaces_id_auto_cleaning_configuration.yaml
+
+/provider/spaces/{id}/auto-cleaning/reports:
+  $ref: ./provider_spaces_id_auto_cleaning_reports.yaml
+
+/provider/spaces/{id}/auto-cleaning/reports/{report_id}:
+  $ref: ./provider_spaces_id_auto_cleaning_reports_report_id.yaml
+
+/provider/spaces/{id}/auto-cleaning/start:
+  $ref: ./provider_spaces_id_auto_cleaning_start.yaml
+
+/provider/spaces/{id}/auto-cleaning/status:
+  $ref: ./provider_spaces_id_auto_cleaning_status.yaml
+
+/provider/spaces/{id}/file-popularity/configuration:
+  $ref: ./provider_spaces_id_file_popularity_configuration.yaml
+
 /provider/spaces/{id}/sync:
-  $ref: ./provider_space_sync_stats.yaml
+  $ref: ./provider_spaces_id_sync_stats.yaml
 
 /provider/storages:
   $ref: ./provider_storages.yaml
 
 /provider/storages/{id}:
   $ref: ./provider_storages_id.yaml
+
+/provider/storages/{id}/invalidate_luma:
+  $ref: ./provider_storages_luma.yaml
 
 /provider/databases:
   $ref: ./provider_databases.yaml
@@ -67,7 +100,11 @@
 /provider/workers/{host}:
   $ref: ./provider_workers_host.yaml
 
+/provider/cluster_ips:
+  $ref: ./provider_cluster_ips.yaml
+
 # Zone specific resources
+
 /zone/nagios:
   $ref: ./zone_nagios.yaml
 
@@ -91,3 +128,9 @@
 
 /zone/workers/{host}:
   $ref: ./zone_workers_host.yaml
+
+/zone/cluster_ips:
+  $ref: ./zone_cluster_ips.yaml
+
+/zone/policies:
+  $ref: ./zone_policies.yaml

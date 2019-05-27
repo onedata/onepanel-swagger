@@ -1,0 +1,34 @@
+type: object
+description: Configuration of the file-popularity mechanism in the space.
+properties:
+  enabled:
+    type: boolean
+    description: If true, collecting file-popularity mechanism in the space is enabled
+  exampleQuery:
+    type: string
+    description: >
+      Example `curl` command that can be executed to query the file-popularity view in the space.
+  lastOpenHourWeight:
+    type: number
+    format: float
+    description: >
+      Weight of `lastOpenHour` parameter.
+    default:  1.0
+  avgOpenCountPerDayWeight:
+    type: number
+    format: float
+    description: >
+      Weight of `avgOpenCountPerDayWeight` parameter.
+    default:  20.0
+  maxAvgOpenCountPerDay:
+    type: number
+    format: float
+    description: >
+      Maximal value of average open count per day taken to calculate the value of popularity function.
+    default:  100
+example:
+  enabled: true
+  exampleQuery: "curl -sS -k -H 'X-Auth-Token: $TOKEN' -X GET https://$HOST/api/v3/oneprovider/spaces/example_space_id/indexes/file-popularity?limit=10&stale=false"
+  lastOpenHourWeight: 1.0
+  avgOpenCountPerDayWeight: 20.0
+  maxAvgOpenCountPerDay:  100

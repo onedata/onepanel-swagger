@@ -5,13 +5,14 @@ SWAGGER_AGGREGATOR_IMAGE    ?= docker.onedata.org/swagger-aggregator:1.5.0
 SWAGGER_CLI_IMAGE           ?= docker.onedata.org/swagger-cli:1.5.0
 SWAGGER_BOOTPRINT_IMAGE     ?= docker.onedata.org/swagger-bootprint:1.5.0
 SWAGGER_MARKDOWN_IMAGE      ?= docker.onedata.org/swagger-gitbook:1.4.1
-SWAGGER_COWBOY_SERVER_IMAGE ?= docker.onedata.org/swagger-codegen:2.3.0-cowboy
+SWAGGER_COWBOY_SERVER_IMAGE ?= docker.onedata.org/swagger-codegen:2.3.1-cowboy
 SWAGGER_PYTHON_CLIENT_IMAGE ?= docker.onedata.org/swagger-codegen:2.2.2-1b1767e
 SWAGGER_JS_CLIENT_IMAGE     ?= docker.onedata.org/swagger-codegen:VFS-3144
 SWAGGER_BASH_CLIENT_IMAGE   ?= docker.onedata.org/swagger-codegen:ID-2fc8126ac8
 SWAGGER_REDOC_IMAGE         ?= docker.onedata.org/swagger-redoc:1.0.0
 
 BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
+COMMIT_MESSAGE = $(shell git log -1 --pretty=format:%s)
 
 .PHONY : all swagger.json
 all : cowboy-server python-client bash-client doc-static doc-markdown
@@ -41,23 +42,22 @@ python-client: validate
 bash-client: validate
 	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger -t ${SWAGGER_BASH_CLIENT_IMAGE} generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json
 
-javascript-client:
+javascript-client: validate
 	docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_JS_CLIENT_IMAGE}  generate -i ./swagger.json -l javascript -o ./generated/javascript/ -c ./javascript-config.json
 
-javascript-update-repo: javascript-client
+javascript-update-repo: clean javascript-client
 	rm -rf generated/javascript-git
-	git clone ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git generated/javascript-git
-	# Commit&push the changes to the client repository
-	- cd generated/javascript-git && \
-	git checkout ${BRANCH} && \
-	cp -R ../javascript . && \
-    git add -A . && \
-    git config user.email "bamboo@onedata.org" && \
-    git config user.name "Bamboo Agent" && \
-    git commit -a -m "Auto update" && \
-    git push origin ${BRANCH} && \
-    cd ../.. && \
-    rm -rf generated/javascript-git
+	git clone ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git generated/javascript-git && \
+	cd generated/javascript-git && \
+	( ( git checkout ${BRANCH} && ( git pull || exit 1 ) ) || git checkout -b ${BRANCH} ) && \
+	cp -R ../javascript/* . && \
+	git add -A . && \
+	git config user.email "bamboo@onedata.org" && \
+	git config user.name "Bamboo Agent" && \
+	( ( git status --porcelain && git commit -a -m "Auto update: ${COMMIT_MESSAGE}" ) || echo "nothing to commit" ) && \
+	git push -u origin ${BRANCH} && \
+	cd ../.. && \
+	rm -rf generated/javascript-git
 
 doc-static: validate
 	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger -t ${SWAGGER_BOOTPRINT_IMAGE} swagger ./swagger.json generated/static

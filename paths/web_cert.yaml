@@ -1,0 +1,69 @@
+get:
+  operationId: get_web_cert
+  summary: Get information about SSL certificates configuration and status.
+  description: >
+    Returns information about SSL certificate status and renewal configuration.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: web_cert
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of the certificate.
+      schema:
+        $ref: '#/definitions/WebCert'
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Cluster hosts are not configured.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getWebCert --host https://$HOST:9443
+
+
+patch:
+  operationId: modify_web_cert
+  summary: Modify SSL certificate configuration
+  description: >
+    Modifies configuration regarding certificate management.
+    Allows enabling or disabling certificate autorenewal using Let's Encrypt service.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: web_cert
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Certificate configuration has been successfully modified.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/ServiceError'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: WebCertModifyRequest
+      in: body
+      description: >
+        New values for certificate management configuration.
+      schema:
+        $ref: '#/definitions/WebCertModifyRequest'
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret modifyWebCert letsEncrypt==true --host https://example.com:9443

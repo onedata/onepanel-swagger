@@ -24,14 +24,11 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderSpaceSyncStats --host https://op.example.com:9443
   parameters:
   - name: id
     in: path
     type: string
-    description: The ID of a space for which sync stats should be returned.
+    description: The Id of a space for which sync stats should be returned.
     required: true
   - name: period
     in: query
@@ -47,3 +44,9 @@ get:
     description: Specify which statistic metrics should be returned - strings delimited with comma
     type: string
     required: false
+  x-code-samples:
+  - lang: Shell
+    source: >
+      onepanel-rest-cli -u alice:secret --host https://$HOST:9443
+      getProviderSpaceSyncStats id=$SPACE_ID
+      started_after="2017-10-20T21:39:37"

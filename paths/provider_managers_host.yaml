@@ -35,14 +35,14 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderManagerStatus host=mng.example.com --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getProviderManagerStatus host=mng.example.com --host https://$HOST:9443
 
 
 patch:
   operationId: start_stop_provider_manager
   summary: Start/stop provider cluster manager
   description: >
-    Starts or stops cluster manager service on the selected hosts in the local 
+    Starts or stops cluster manager service on the selected hosts in the local
     deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -73,11 +73,11 @@ patch:
   - name: started
     in: query
     description: >
-      Defines the intended state of the cluster manager service. The service 
+      Defines the intended state of the cluster manager service. The service
       will be started or stopped in order to match the requested state.
     type: boolean
     default: true
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret startStopProviderManager started=false --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret startStopProviderManager started=false --host https://$HOST:9443

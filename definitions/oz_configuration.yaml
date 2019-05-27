@@ -1,0 +1,29 @@
+type: object
+description: Public Onezone configuration details
+allOf:
+  - $ref: '#/definitions/Configuration'
+  - type: object
+    properties:
+      serviceType:
+        description: Indicates that this is Onezone's panel.
+        type: string
+        enum: [onezone]
+        x-discriminator-value: onezone
+      zoneDomain:
+        type: string
+        description: >
+          The domain of this Onezone cluster. Null before cluster is configured.
+      zoneName:
+        type: string
+        description: >
+          The name of this Onezone cluster. Null before cluster is configured.
+    required:
+      - serviceType
+      - zoneDomain
+example:
+  serviceType: onezone
+  zoneDomain: onedata.org
+  zoneName: OnedataZone
+  build: 155-gdf98e0f
+  version: 18.02.1
+  deployed: true

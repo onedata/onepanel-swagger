@@ -19,6 +19,8 @@ get:
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Cluster is not fully deployed.
     '500':
       description: Internal server error.
       schema:
@@ -60,6 +62,8 @@ post:
         $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
+    '409':
+      description: Cluster already deployed.
     '500':
       description: Internal server error.
       schema:

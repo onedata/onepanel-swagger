@@ -3,9 +3,11 @@ description: The provider cluster configuration.
 properties:
   domainName:
     type: string
+    default: ""
     description: >
-      The name of a domain common for all services in the cluster. Together with
+      Hostname suffix common for all services in the cluster. Together with
       a node hostname constitutes a fully qualified domain name (FQDN) of the node.
+      May be skipped to allow unrelated hostnames for each node.
   nodes:
     type: object
     description: The collection of nodes aliases associated with nodes properties.
@@ -15,6 +17,9 @@ properties:
         hostname:
           type: string
           description: The name of a host.
+        externalIp:
+          type: string
+          description: External IP of the node.
       required:
         - hostname
   databases:
@@ -26,7 +31,6 @@ properties:
   storages:
     $ref: '#/definitions/StorageCreateRequest'
 required:
-  - domainName
   - nodes
   - databases
   - managers

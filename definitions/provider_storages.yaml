@@ -3,7 +3,7 @@ description: The cluster storage resources.
 properties:
   ids:
     type: array
-    description: The list of IDs of cluster storage resources.
+    description: The list of Ids of cluster storage resources.
     items:
       type: string
 required:

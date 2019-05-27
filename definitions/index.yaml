@@ -1,9 +1,28 @@
 #
 # This file groups the type definitions for Onepanel REST API
 #
+Configuration:
+  $ref: ./configuration.yaml
+
+# lowercase to generate valid erlang function name
+op_configuration:
+  $ref: ./op_configuration.yaml
+
+# lowercase to generate valid erlang function name
+oz_configuration:
+  $ref: ./oz_configuration.yaml
 
 Cookie:
   $ref: ./cookie.yaml
+
+DnsCheck:
+  $ref: ./dns_check.yaml
+
+DnsCheckResult:
+  $ref: ./dns_check_result.yaml
+
+DnsCheckConfiguration:
+  $ref: ./dns_check_configuration.yaml
 
 Error:
   $ref: ./error.yaml
@@ -32,6 +51,12 @@ ClusterManagers:
 ClusterDatabases:
   $ref: ./cluster_databases.yaml
 
+ClusterIps:
+  $ref: ./cluster_ips.yaml
+
+ModifyClusterIps:
+  $ref: ./modify_cluster_ips.yaml
+
 StorageDetails:
   $ref: ./storage_details.yaml
 
@@ -44,11 +69,20 @@ s3:
 ceph:
   $ref: ./storage_ceph.yaml
 
+cephrados:
+  $ref: ./storage_cephrados.yaml
+
 swift:
   $ref: ./storage_swift.yaml
 
 glusterfs:
   $ref: ./storage_glusterfs.yaml
+
+nulldevice:
+  $ref: ./storage_nulldevice.yaml
+
+webdav:
+  $ref: ./storage_webdav.yaml
 
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml
@@ -142,3 +176,36 @@ TimeStats:
 
 TimeStatsCollection:
   $ref: ./time_stats_collection.yaml
+
+SpaceFilePopularityConfiguration:
+  $ref: ./space_file_popularity_configuration.yaml
+
+SpaceAutoCleaningConfiguration:
+  $ref: ./space_auto_cleaning_configuration.yaml
+
+SpaceAutoCleaningRules:
+  $ref: ./space_auto_cleaning_rules.yaml
+
+SpaceAutoCleaningRuleSetting:
+  $ref: ./space_auto_cleaning_rule_setting.yaml
+
+SpaceAutoCleaningStatus:
+  $ref: ./space_auto_cleaning_status.yaml
+
+SpaceAutoCleaningReports:
+  $ref: ./space_auto_cleaning_reports.yaml
+
+SpaceAutoCleaningReport:
+  $ref: ./space_auto_cleaning_report.yaml
+
+SpaceId:
+  $ref: ./space_id.yaml
+
+WebCert:
+  $ref: ./web_cert.yaml
+
+WebCertModifyRequest:
+  $ref: ./web_cert_modify_request.yaml
+
+ZonePolicies:
+  $ref: ./zone_policies.yaml

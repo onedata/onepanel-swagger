@@ -20,6 +20,8 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: The service is stopped and cannot be queried for nagios report.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderNagiosReport --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getProviderNagiosReport --host https://$HOST:9443

@@ -1,9 +1,12 @@
-description: The Ceph storage configuration.
+description: The Ceph storage configuration (uses libradosstriper).
 allOf:
   - $ref: '#/definitions/StorageDetails'
   - type: object
-    x-discriminator-value: "ceph"
     properties:
+      type:
+        type: string
+        description: The type of storage.
+        x-discriminator-value: ceph
       username:
         type: string
         description: The username of the Ceph cluster administrator.
@@ -33,7 +36,17 @@ allOf:
         type: boolean
         default: false
         description: Defines whether storage is readonly.
+      storagePathType:
+        type: string
+        default: "flat"
+        description: |
+          Determines how the logical file paths will be mapped on the storage.
+          'canonical' paths reflect the logical file names and directory structure,
+          however each rename operation will require renaming the files on the storage.
+          'flat' paths are based on unique file UUID's and do not require on-storage
+          rename when logical file name is changed.
     required:
+    - type
     - username
     - key
     - monitorHostname

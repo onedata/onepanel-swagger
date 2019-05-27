@@ -1,0 +1,14 @@
+type: object
+description: The space auto-cleaning reports.
+properties:
+  ids:
+    type: array
+    description: The list of Ids of space auto-cleaning reports.
+    items:
+      type: string
+required:
+  - ids
+example:
+  ids:
+    - x7It3cpgNgLZ8RwOrOoW
+    - Q1boCClpCS5mUNhM7YCy

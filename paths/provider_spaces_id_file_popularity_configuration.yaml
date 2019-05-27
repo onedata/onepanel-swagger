@@ -1,0 +1,94 @@
+get:
+  operationId: get_file_popularity_configuration
+  summary: Get file-popularity configuration
+  description: >
+    Returns configuration of file-popularity mechanism in the space specified by space Id in the path.
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: file_popularity_configuration
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The file-popularity configuration.
+      schema:
+        $ref: '#/definitions/SpaceFilePopularityConfiguration'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Space does not exist or is not supported by the provider.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    type: string
+    description: The Id of a space of which file-popularity configuration should be returned.
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getFilePopularityConfiguration id=$SPACE_ID --host https://$HOST:9443
+
+
+patch:
+  operationId: configure_file_popularity
+  summary: Configure file-popularity mechanism in the space.
+  description: |
+    Configures the file-popularity mechanism in the space.
+    The mechanism is responsible for collecting file-popularity usage statistics per space support.
+    Creates a view index which can be queried to fetch the least popular files.
+    The view is sorted in an increasing order by the popularity function value.
+    The popularity function is defined as
+
+    ```
+    P(lastOpenHour, avgOpenCountPerDay) = w1 * lastOpenHour + w2 * min(avgOpenCountPerDay, MAX_AVG_OPEN_COUNT_PER_DAY)
+    where:
+    * lastOpenHour - parameter which is equal to timestamp (in hours since 01.01.1970) of last open operation on given file
+    * w1 - weight of lastOpenHour parameter
+    * avgOpenCountPerDay - parameter equal to moving average of number of open operations on given file per day. Value is calculated over last 30 days.
+    * w2 - weight of avgOpenCountPerDay parameter
+    * MAX_AVG_OPEN_COUNT_PER_DAY - upper boundary for avgOpenCountPerDay parameter
+    ```
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: file_popularity_configuration
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: file-popularity configuration has been changed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The Id of a space.
+      required: true
+    - name: spaceFilePopularityConfiguration
+      in: body
+      schema:
+        $ref: '#/definitions/SpaceFilePopularityConfiguration'
+      description: Configuration of the file-popularity mechanism in the space.
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret configureFilePopularity --host https://$HOST:9443 enabled:=true

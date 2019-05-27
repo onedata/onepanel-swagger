@@ -55,10 +55,10 @@
         %% {{description}}
                         {{/description}}
                         {{#vendorExtensions}}
-                            {{#x-discriminator}}
-        {{name}} => {equal, <<"{{classname}}">>}{{#hasMore}},{{/hasMore}}
-                            {{/x-discriminator}}
-                            {{^x-discriminator}}
+                            {{#x-discriminator-value}}
+        {{name}} => {equal, <<"{{x-discriminator-value}}">>}{{#hasMore}},{{/hasMore}}
+                            {{/x-discriminator-value}}
+                            {{^x-discriminator-value}}
                                 {{#required}}
                                     {{#x-onedata-datatype}}
         {{name}} => {{x-onedata-datatype}}{{#hasMore}},{{/hasMore}}
@@ -82,7 +82,7 @@
                                         {{/x-onedata-default-value}}
                                     {{/vendorExtensions}}
                                 {{/required}}
-                            {{/x-discriminator}}
+                            {{/x-discriminator-value}}
                         {{/vendorExtensions}}
                     {{/vars}}
     }.
