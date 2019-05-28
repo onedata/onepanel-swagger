@@ -96,7 +96,7 @@ description: |
 
   ### Passphrase authentication
 
-  The token authentication requires functional Onezone to succeed.
+  The token authentication dependes on the Onezone service.
   In special cases - during Onezone deployment or its outage -
   it is necessary to use the local **emergency passphrase**.
 
@@ -106,15 +106,13 @@ description: |
   curl -u onepanel:TheEmergencyPassphrase
   ```
 
-  The passphrase can also be sent without any username, as the only
+  The passphrase can also be sent without any username, as the whole
   content of base64-encoded string in Basic authorization header, e.g.
   ```bash
-  $ echo -n TheEmergencyPassphrase | base64
-  VGhlRW1lcmdlbmN5UGFzc3BocmFzZQ==
-  $ curl -H 'authorization: Basic VGhlRW1lcmdlbmN5UGFzc3BocmFzZQ=='
+  curl -H "Authorization: Basic $(echo -n TheEmergencyPassphrase | base64)"
   ```
 
-  The passphrase is set during deployment. Can be changed in the Onepanel GUI
+  The passphrase is set during deployment. It can be changed in the Onepanel GUI
   or with an API request:
   ```bash
   curl -X PUT 'https://$HOST:9443/api/v3/onepanel/emergency_passphrase' \
