@@ -28,21 +28,21 @@ get:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster manager service status should be 
+      The name of a host for which cluster manager service status should be
       returned.
     in: path
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getZoneManagerStatus host=mng.example.com started=true --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret getZoneManagerStatus host=mng.example.com started=true --host https://$HOST:9443
 
 
 patch:
   operationId: start_stop_zone_manager
   summary: Start/stop zone cluster manager
   description: >
-    Starts or stops cluster manager service on the selected hosts in the local 
+    Starts or stops cluster manager service on the selected hosts in the local
     deployment.
   x-onedata-version: 3
   x-onedata-module: rest_service
@@ -66,7 +66,7 @@ patch:
   parameters:
   - name: host
     description: >
-      The name of a host for which cluster manager service status should be 
+      The name of a host for which cluster manager service status should be
       changed.
     in: path
     type: string
@@ -74,11 +74,11 @@ patch:
   - name: started
     in: query
     description: >
-      Defines the intended state of the cluster manager service. The service 
+      Defines the intended state of the cluster manager service. The service
       will be started or stopped in order to match the requested state.
     type: boolean
     default: true
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret startStopZoneManager host=mng.example.com started=true --host https://op.example.com:9443
+    source: onepanel-rest-cli -u alice:secret startStopZoneManager host=mng.example.com started=true --host https://$HOST:9443

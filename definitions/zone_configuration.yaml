@@ -1,18 +1,33 @@
 type: object
-description: The zone deployment configuration.
+description: The Onezone deployment configuration.
 properties:
   cluster:
     $ref: '#/definitions/ZoneClusterConfiguration'
   onezone:
     type: object
-    description: The zone custom configuration.
+    description: The Onezone custom configuration.
     properties:
       domainName:
-        description: The name of a HTTP domain.
+        description: The domain of Onezone cluster.
         type: string
       name:
-        description: The name of a zone.
+        description: The Onezone cluster name.
         type: string
+      letsEncryptEnabled:
+        type: boolean
+        default: false
+        description: >
+          If enabled the zone will use Let's Encrypt service to obtain SSL certificates.
+          Otherwise certificates must be manually provided.
+
+          By enabling this option you agree to the Let's Encrypt Subscriber Agreement.
+      builtInDnsServer:
+        type: boolean
+        description: >
+          If true, DNS check will verify that control of DNS zone for Onezone's
+          domain was delegated to the DNS server built into Onezone service.
+      policies:
+        $ref: '#/definitions/ZonePolicies'
   onepanel:
     $ref: '#/definitions/PanelConfiguration'
 required:
@@ -36,3 +51,4 @@ example:
   onezone:
     domainName: "example.com"
     name: "example"
+    letsEncryptEnabled: true

@@ -1,6 +1,10 @@
 type: object
 description: The space configuration details that can be modified.
 properties:
+  size:
+    type: integer
+    description: >
+      The storage space size in bytes that provider is willing to assign to the space.
   storageImport:
     $ref: '#/definitions/StorageImportDetails'
   storageUpdate:

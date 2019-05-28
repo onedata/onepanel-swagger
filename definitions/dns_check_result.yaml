@@ -1,0 +1,56 @@
+type: object
+description: Describes results obtained from a DNS check. DNS check involves
+  querying DNS servers to ensure publicly visible records match expected values.
+properties:
+  summary:
+    description: |
+      An interpretation of results obtained from DNS check.
+      Possible values are:
+      'unresolvable' - query returned empty results;
+      'missing_records' - only some of the expected results were returned;
+      'bad_records' - none of the expected results were returned;
+      'ok' - all of expected values were present in obtained results.
+    type: string
+    enum:
+      - unresolvable
+      - missing_records
+      - bad_records
+      - ok
+  expected:
+    description: List of expected query results.
+    type: array
+    items:
+      type: string
+  got:
+    description: List of obtained query results.
+    type: array
+    items:
+      type: string
+  recommended:
+    description: List of suggested DNS records to set at your DNS provider
+      to fulfill this check.
+
+      Each record is provided in the format of BIND server.
+    type: array
+    items:
+      type: string
+required:
+  - summary
+  - expected
+  - got
+  - recommended
+example:
+  missing_records:
+    description: Returned when only some of the expected values coule be obtaind.
+    value:
+      summary: missing_records
+      expected: ["149.156.11.33", "149.156.11.34"]
+      got: ["149.156.11.33"]
+      recommended: ["onedata.org. IN A 149.156.11.33", "onedata.org. IN A 149.156.11.35"]
+  bad_records:
+    description: Returned when none of the expected values coule be obtaind.
+    value:
+      summary: bad_records
+      expected: ["149.156.11.33"]
+      got: ["10.11.12.13"]
+      recommended: ["onedata.org. IN A 149.156.1l.33"]

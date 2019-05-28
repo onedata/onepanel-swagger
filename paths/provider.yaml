@@ -44,7 +44,7 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/Error'
+        $ref: '#/definitions/ServiceError'
     '401':
       description: Unauthorized request.
     '403':
@@ -79,6 +79,10 @@ patch:
   responses:
     '204':
       description: Provider details has been successfully modified.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/ServiceError'
     '401':
       description: Unauthorized request.
     '403':

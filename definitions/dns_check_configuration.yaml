@@ -1,0 +1,25 @@
+type: object
+description: Configuration of the 'dns_check' method calls.
+properties:
+  dnsServers:
+    type: array
+    items:
+      type: string
+    description: A collection of IP addresses for DNS servers used in checking DNS.
+      If empty, local system configuration will be used.
+  builtInDnsServer:
+    type: boolean
+    description: >
+      If true, DNS check will verify that control of DNS zone for Onezone's
+      domain was delegated to the DNS server built into Onezone service.
+
+      This option is available only in Onezone service.
+  dnsCheckAcknowledged:
+    type: boolean
+    description: >
+      Flag indicating that user completed the DNS check step during
+      interactive deployment.
+example:
+  builtInDnsServer: false
+  dnsServers: ["8.8.8.8", "8.8.4.4.", "1.1.1.1"]
+  dnsCheckAcknowledged: true

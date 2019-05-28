@@ -26,18 +26,15 @@ WORK_DIRECTORY=$PWD
 
 declare -A releases
 
-#
-# Maps branch names to release names
-#
-#releases["release/3.0.0-rc9"]="3.0.0-rc9"
-#releases["release/3.0.0-rc10"]="3.0.0-rc10"
-#releases["release/3.0.0-rc11"]="3.0.0-rc11"
-#releases["release/3.0.0-rc12"]="3.0.0-rc12"
-releases["release/3.0.0-rc14"]="3.0.0-rc14"
-releases["release/3.0.0-rc15"]="3.0.0-rc15"
-releases["release/17.06.0-rc2"]="17.06.0-rc2"
-releases["develop"]="3.0.0-dev"
-releases["release/future"]="3.0.0-dev"
+if [ $TARGET_BRANCH == "develop" ]; then
+    releases[$TARGET_BRANCH]="18.02.0-dev"
+elif [ $TARGET_BRANCH == "release/*" ]; then
+    releases[$TARGET_BRANCH]=$( echo $TARGET_BRANCH | sed "s/release\/\(.*\)/\1/p" -n )
+elif [ $TARGET_BRANCH == "master" ]; then
+    exit 0
+else
+    releases[$TARGET_BRANCH]=$TARGET_BRANCH
+fi
 
 # Checkout the client repository which should be updated
 git clone \

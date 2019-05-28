@@ -1,0 +1,52 @@
+type: object
+description: >
+  Settings for space auto-cleaning mechanism.
+  Setting enabled to `false` disables given parameter. It will be ignored by auto-cleaning mechanism.
+  All presented parameters' ranges are inclusive.
+properties:
+  enabled:
+    type: boolean
+    description: If true, auto-cleaning mechanism is enabled in the space.
+  threshold:
+    type: integer
+    description: >
+      Amount of data [b], which should trigger the auto-cleaning in the space.
+      Only replicas maintained by this storage provider will be removed.  This
+      parameter is required to enable auto-cleaning.
+  target:
+    type: integer
+    description: >
+      Amount of data [b], at which the auto-cleaning process should stop. This
+      parameter is required to enable auto-cleaning.
+  rules:
+    description: >
+      Rules used to select certain list of file replicas that can be evicted
+      by auto-cleaning mechanism.
+    $ref: '#/definitions/SpaceAutoCleaningRules'
+
+example:
+  enabled: True
+  target: 1073741824
+  threshold: 1099511627776
+  rules:
+    enabled: True
+    maxOpenCount:
+      enabled: True
+      value: 1000
+    minHoursSinceLastOpen:
+      enabled: True
+      value: 10
+    minFileSize:
+      enabled: True
+      value: 1
+    maxFileSize:
+      enabled: True
+      value: 1024
+    maxHourlyMovingAverage:
+      enabled: True
+      value: 10
+    maxDailyMovingAverage:
+      enabled: False
+      value: 100
+    maxMonthlyMovingAverage:
+      enabled: False
