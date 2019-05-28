@@ -78,8 +78,29 @@ description: |
 
   ## Authentication
 
-  Requests to the Onepanel API can be authenticated using the Onepanel
-  emergency passphrase. It should be provided in a Basic authentication header
+  ### Token authentication
+
+  The recommended, safest way of authenticating requests to Onepanel API is using
+  the **Onedata access tokens**. The token should be present in one of
+  `X-Auth-Token`, `Macaroon` or `Authorization: Bearer` headers.
+  See [Onezone documentation](/#/home/api/latest/onezone?anchor=section/Overview/Authentication-and-authorization)
+  for detailed explanation of the token concepts.
+
+  Curl examples:
+  ```bash
+  curl -H 'X-Auth-Token: $TOKEN' https://$HOST:9443/api/v3/onepanel/...
+  curl -H 'Macaroon: $TOKEN' https://$HOST:9443/api/v3/onepanel/...
+  curl -H 'Authorization: Bearer $TOKEN' https://$HOST:9443/api/v3/onepanel/...
+  ```
+
+
+  ### Passphrase authentication
+
+  The token authentication requires functional Onezone to succeed.
+  In special cases - during Onezone deployment or its outage -
+  it is necessary to use the local **emergency passphrase**.
+
+  The passphrase should be provided in a Basic authentication header
   with username `onepanel`. For curl users this means
   ```bash
   curl -u onepanel:TheEmergencyPassphrase
