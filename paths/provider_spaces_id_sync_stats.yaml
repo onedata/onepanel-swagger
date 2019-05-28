@@ -49,6 +49,6 @@ get:
   x-code-samples:
   - lang: Shell
     source: >
-      onepanel-rest-cli -u alice:secret --host https://$HOST:9443
+      onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
       getProviderSpaceSyncStats id=$SPACE_ID
       started_after="2017-10-20T21:39:37"

@@ -61,5 +61,5 @@ patch:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u alice:secret modifyProgress dnsCheck==true
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProgress dnsCheck==true
         --host https://$HOST:9443

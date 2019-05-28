@@ -30,7 +30,7 @@ get:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getZoneManagersStatus --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneManagersStatus --host https://$HOST:9443
 
 
 post:
@@ -75,7 +75,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat hosts.json | onepanel-rest-cli -u alice:secret addZoneManagers --host https://$HOST:9443
+    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addZoneManagers --host https://$HOST:9443
 
 
 patch:
@@ -112,4 +112,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret startStopZoneManagers started=true --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneManagers started=true --host https://$HOST:9443
