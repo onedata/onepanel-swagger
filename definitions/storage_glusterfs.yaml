@@ -36,9 +36,6 @@ allOf:
           Volume specific GlusterFS translator options, in the format:
             TRANSLATOR1.OPTION1=VALUE1;TRANSLATOR2.OPTION2=VALUE2;...
         default: ""
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
       insecure:
         type: boolean
         default: false

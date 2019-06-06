@@ -22,6 +22,9 @@ properties:
       Defines whether storage administrator credentials (username and key)
       may be used by users without storage accounts to access storage in
       direct IO mode.
+  timeout:
+    type: integer
+    description: Storage operation timeout in milliseconds.
   readonly:
     type: boolean
     description: Defines whether storage is readonly.

@@ -25,7 +25,7 @@ properties:
     type: boolean
     readOnly: true
     description: Result of storage verification (reading and writing a file).
-      Returned only on PATCH requests for read/write storages.
+      Returned only on PATCH requests for read-write storages.
   insecure:
     type: boolean
     default: false
@@ -33,6 +33,9 @@ properties:
       Defines whether storage administrator credentials (username and key)
       may be used by users without storage accounts to access storage in
       direct IO mode.
+  timeout:
+    type: integer
+    description: Storage operation timeout in milliseconds.
   readonly:
     type: boolean
     default: false

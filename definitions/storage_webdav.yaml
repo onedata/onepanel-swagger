@@ -92,9 +92,6 @@ allOf:
           Defines the directory mode which directories imported from WebDAV storage will
           have in Onedata. Values should be provided in octal format e.g. `0775`.
         default: 0775
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
       insecure:
         type: boolean
         default: false

@@ -34,9 +34,6 @@ allOf:
             and timeout should be simulated. Empty or '*' mean all operations
             will be affected.
         default: "*"
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
       storagePathType:
         type: string
         default: canonical

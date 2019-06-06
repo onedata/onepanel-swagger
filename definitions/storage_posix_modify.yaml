@@ -14,9 +14,6 @@ allOf:
       description: >
         The absolute path to the directory where the POSIX storage is mounted
         on the cluster nodes.
-    timeout:
-      type: integer
-      description: Storage operation timeout in milliseconds.
     readonly:
       type: boolean
       description: Defines whether storage is readonly.
