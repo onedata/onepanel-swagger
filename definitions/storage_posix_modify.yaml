@@ -14,9 +14,6 @@ allOf:
       description: >
         The absolute path to the directory where the POSIX storage is mounted
         on the cluster nodes.
-    readonly:
-      type: boolean
-      description: Defines whether storage is readonly.
   required:
   - type
 example:

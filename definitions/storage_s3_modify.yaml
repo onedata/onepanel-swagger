@@ -33,9 +33,6 @@ allOf:
         Defines whether storage administrator credentials (accessKey and
         secretKey) may be used by users without storage accounts to access
         storage in direct IO mode.
-    readonly:
-      type: boolean
-      description: Defines whether storage is readonly.
   required:
   - type
 example:
