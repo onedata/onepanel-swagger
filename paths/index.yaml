@@ -110,6 +110,9 @@
 /provider/storages/{id}/invalidate_luma:
   $ref: ./provider_storages_luma.yaml
 
+/provider/storages/{id}/qos_parameters:
+  $ref: ./provider_storages_id_qos_parameters.yaml
+
 /provider/databases:
   $ref: ./provider_databases.yaml
 

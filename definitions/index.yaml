@@ -195,6 +195,9 @@ Progress:
 ProgressModify:
   $ref: ./progress_modify.yaml
 
+QosParametersChangeRequest:
+  $ref: ./qos_parameters_change_request.yaml
+
 ServiceStatus:
   $ref: ./service_status.yaml
 
