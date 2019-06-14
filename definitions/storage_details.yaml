@@ -43,3 +43,12 @@ properties:
   lumaApiKey:
     type: string
     description: LUMA API Key, must be identical with API Key in external LUMA service.
+  qosParameters:
+    description: Map with key-value pairs used for describing QoS requirements.
+    type: object
+    x-onedata-default-value: "#{}"
+    default: {}
+    x-onedata-dictionary: true
+    x-onedata-dictionary-value-type: string
+    additionalProperties:
+      type: string
