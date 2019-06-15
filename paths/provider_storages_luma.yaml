@@ -20,6 +20,8 @@ patch:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
   - name: id
     in: path
@@ -29,4 +31,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret --host https://$HOST:9443 invalidateLumaCache id=$STORAGE_ID
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443 invalidateLumaCache id=$STORAGE_ID

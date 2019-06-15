@@ -1,0 +1,83 @@
+get:
+  operationId: get_onezone_user
+  summary: Get Onezone user details
+  description: >
+    Returns the configuration information of the Onezone user.
+  x-onedata-version: 3
+  x-onedata-module: rest_users
+  x-onedata-resource: onezone_user
+  tags:
+    - Onezone
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Oneozne user details.
+      schema:
+        $ref: '#/definitions/OnezoneUser'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: The user does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Id of the user to be described.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnezoneUser id=$USER_ID
+        --host https://$HOST:9443
+
+
+patch:
+  operationId: change_user_password
+  summary: Set password for Onezone user
+  description: >
+    Sets new password for a Onezone user using Basic authentication.
+  x-onedata-version: 3
+  x-onedata-module: rest_users
+  x-onedata-resource: onezone_user
+  tags:
+    - Onezone
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The user password has been successfully changed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: The user does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Id of the user whose password is changed.
+      type: string
+      required: true
+    - name: PasswordChangeRequest
+      in: body
+      schema:
+        $ref: '#/definitions/PasswordChangeRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE changeUserPassword id=$USER_ID
+        newPassword==someNewPassword --host https://$HOST:9443

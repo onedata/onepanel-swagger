@@ -1,0 +1,15 @@
+type: object
+description: Details of a onepanel node.
+properties:
+  hostname:
+    type: string
+    description: Hostname of the node.
+  clusterType:
+    type: string
+    description: Type of Onedata cluster managed by this onepanel.
+    enum:
+      - oneprovider
+      - onezone
+required:
+- hostname
+- clusterType

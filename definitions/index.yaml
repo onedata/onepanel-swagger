@@ -12,8 +12,8 @@ op_configuration:
 oz_configuration:
   $ref: ./oz_configuration.yaml
 
-Cookie:
-  $ref: ./cookie.yaml
+VersionInfo:
+  $ref: ./version_info.yaml
 
 DnsCheck:
   $ref: ./dns_check.yaml
@@ -27,17 +27,50 @@ DnsCheckConfiguration:
 Error:
   $ref: ./error.yaml
 
-SessionDetails:
-  $ref: ./session_details.yaml
+Ids:
+  $ref: ./ids.yaml
 
-UserDetails:
-  $ref: ./user_details.yaml
+Token:
+  $ref: ./token.yaml
 
-UserCreateRequest:
-  $ref: ./user_create_request.yaml
+ClusterDetails:
+  $ref: ./cluster_details.yaml
 
-UserModifyRequest:
-  $ref: ./user_modify_request.yaml
+ClusterMembersSummary:
+  $ref: ./cluster_members_summary.yaml
+
+RemoteProviderDetails:
+  $ref: ./remote_provider_details.yaml
+
+EmergencyPassphraseChangeRequest:
+  $ref: ./emergency_passphrase_change_request.yaml
+
+EmergencyPassphraseStatus:
+  $ref: ./emergency_passphrase_status.yaml
+
+Host:
+  $ref: ./host.yaml
+
+HostAddRequest:
+  $ref: ./host_add_request.yaml
+
+JoinClusterRequest:
+  $ref: ./join_cluster_request.yaml
+
+OnezoneInfo:
+  $ref: ./onezone_info.yaml
+
+OnezoneUser:
+  $ref: ./onezone_user.yaml
+
+OnezoneUserCreateRequest:
+  $ref: ./onezone_user_create_request.yaml
+
+CurrentUser:
+  $ref: ./current_user.yaml
+
+PasswordChangeRequest:
+  $ref: ./password_change_request.yaml
 
 PanelConfiguration:
   $ref: ./panel_configuration.yaml
@@ -129,6 +162,12 @@ ProviderRegisterRequest:
 ProviderModifyRequest:
   $ref: ./provider_modify_request.yaml
 
+Progress:
+  $ref: ./progress.yaml
+
+ProgressModify:
+  $ref: ./progress_modify.yaml
+
 ServiceStatus:
   $ref: ./service_status.yaml
 
@@ -152,6 +191,9 @@ ManagerHosts:
 
 WorkerHosts:
   $ref: ./worker_hosts.yaml
+
+Node:
+  $ref: ./node.yaml
 
 ClusterConfigurationDetails:
   $ref: ./cluster_configuration_details.yaml

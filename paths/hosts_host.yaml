@@ -3,8 +3,7 @@ delete:
   summary: Remove host from cluster
   description: >
     Removes a node from the administrative cluster. This operation removes all
-    user and configuration data from the host. It also removes the host from each
-    service cluster it belonged to.
+    user and configuration data from the host.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: host
@@ -13,6 +12,8 @@ delete:
   responses:
     '204':
       description: Node has been successfully removed from the cluster.
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
@@ -29,4 +30,4 @@ delete:
       required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret removeClusterHost discovered=true host=$CLUSTER_HOST --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE removeClusterHost host=$CLUSTER_HOST --host https://$HOST:9443

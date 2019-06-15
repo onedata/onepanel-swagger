@@ -1,0 +1,73 @@
+get:
+  operationId: get_emergency_passphrase_status
+  summary: Get emergency passphrase status
+  description: Returns information whether emergency passphrase is set.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: emergency_passphrase
+  x-onedata-noauth: true
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The passphrase status
+      schema:
+        $ref: '#/definitions/EmergencyPassphraseStatus'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli getEmergencyPassphraseStatus --host https://$HOST:9443
+
+
+put:
+  operationId: set_emergency_passphrase
+  summary: Set emergency passphrase
+  description: Sets passphrase which can be used to access
+    the Onepanel REST API and emergency Onepanel GUI.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: emergency_passphrase
+  x-onedata-noauth: true
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Changes successfully saved.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: EmergencyPassphrase
+      in: body
+      schema:
+        $ref: '#/definitions/EmergencyPassphraseChangeRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:oldPassphrase setEmergencyPassphrase
+        currentPassphrase==oldPassphrase newPassphrase==someNewPassphrase
+        --host https://$HOST:9443

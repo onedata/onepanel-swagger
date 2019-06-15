@@ -22,9 +22,11 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderSpaces --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderSpaces --host https://$HOST:9443
 
 
 post:
@@ -58,6 +60,8 @@ post:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
   - name: spaceSupportRequest
     in: body
@@ -68,4 +72,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret supportSpace token==ASDKJASKJDHKAJSHD size:=1073741824 --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE supportSpace token==ASDKJASKJDHKAJSHD size:=1073741824 --host https://$HOST:9443

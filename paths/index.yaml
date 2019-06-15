@@ -3,17 +3,30 @@
 
 
 # Onepanel common resources
+
 /configuration:
   $ref: ./configuration.yaml
 
-/session:
-  $ref: ./session.yaml
+/cluster:
+  $ref: ./cluster.yaml
 
-/users:
-  $ref: ./users.yaml
+/cluster/invite_user_token:
+  $ref: ./cluster_invite_user_token.yaml
 
-/users/{username}:
-  $ref: ./users_username.yaml
+/cluster/members_summary:
+  $ref: ./cluster_members_summary.yaml
+
+/user:
+  $ref: ./user.yaml
+
+/user/clusters:
+  $ref: ./user_clusters.yaml
+
+/user/clusters/{id}:
+  $ref: ./user_clusters_id.yaml
+
+/providers/{id}:
+  $ref: ./providers_id.yaml
 
 /cookie:
   $ref: ./cookie.yaml
@@ -24,6 +37,12 @@
 /dns_check/configuration:
   $ref: ./dns_check_configuration.yaml
 
+/join_cluster:
+  $ref: ./join_cluster.yaml
+
+/node:
+  $ref: ./node.yaml
+
 /hosts:
   $ref: ./hosts.yaml
 
@@ -32,6 +51,12 @@
 
 /tasks/{id}:
   $ref: ./tasks_id.yaml
+
+/progress:
+  $ref: ./progress.yaml
+
+/emergency_passphrase:
+  $ref: ./emergency_passphrase.yaml
 
 /web_cert:
   $ref: ./web_cert.yaml
@@ -103,7 +128,16 @@
 /provider/cluster_ips:
   $ref: ./provider_cluster_ips.yaml
 
+/provider/onezone_info:
+  $ref: ./provider_onezone_info.yaml
+
 # Zone specific resources
+
+/zone/users:
+  $ref: ./zone_users.yaml
+
+/zone/users/{id}:
+  $ref: ./zone_users_id.yaml
 
 /zone/nagios:
   $ref: ./zone_nagios.yaml

@@ -8,7 +8,7 @@ properties:
     description: The provider custom configuration.
     properties:
       name:
-        description: The name of a provider. Null if not registered.
+        description: The name of a provider. `null` if not registered.
         type: string
       configured:
         description: True if all steps of cluster deployment and configuration have been performed.

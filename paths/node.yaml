@@ -1,0 +1,31 @@
+get:
+  operationId: get_node
+  summary: Get information about current onepanel node.
+  description: >
+    Returns information about current onepanel node.
+
+    This request can be executed by unauthorized users only if there
+    are no admin users in the system.
+  x-onedata-version: 3
+  x-onedata-module: rest_onepanel
+  x-onedata-resource: node
+  x-onedata-noauth: true
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of this onepanel node.
+      schema:
+        $ref: '#/definitions/Node'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getHostname --host https://$HOST:9443
+

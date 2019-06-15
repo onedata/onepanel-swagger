@@ -1,0 +1,32 @@
+get:
+  operationId: get_current_user
+  summary: Get Onepanel user details of currently logged in user.
+  description: >
+    Returns the configuration information of the Onepanel user performing the query.
+  x-onedata-version: 3
+  x-onedata-module: rest_users
+  x-onedata-resource: current_user
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: User details.
+      schema:
+        $ref: '#/definitions/CurrentUser'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Request client is not a Onezone member.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli getCurrentUser --host https://$HOST:9443
+        -H "x-auth-token: $TOKEN"

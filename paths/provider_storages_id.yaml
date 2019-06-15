@@ -24,6 +24,8 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
   - name: id
     in: path
@@ -33,7 +35,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getStorageDetails name=S3 --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getStorageDetails name=S3 --host https://$HOST:9443
 
 patch:
   operationId: modify_storage
@@ -57,6 +59,8 @@ patch:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
   - name: id
     in: path
@@ -74,4 +78,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret --host https://$HOST:9443 modifyStorage name=S3 timeout==10000
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443 modifyStorage name=S3 timeout==10000

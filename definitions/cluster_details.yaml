@@ -1,0 +1,31 @@
+type: object
+description: Details of a cluster.
+properties:
+  id:
+    type: string
+    description: Id of the cluster record
+  type:
+    type: string
+    description: Type of the cluster
+    enum: [oneprovider, onezone]
+  serviceId:
+    type: string
+    description: >
+      The Id of the service hosted on this cluster - depending on the type equal
+      to the Oneprovider Id or "onezone" in case of Onezone cluster
+  workerVersion:
+    $ref: '#/definitions/VersionInfo'
+  onepanelVersion:
+    $ref: '#/definitions/VersionInfo'
+  onepanelProxy:
+    type: boolean
+    description: >
+      Is Onepanel proxy enabled - if so, onepanel GUI is served on cluster's
+      domain at port 443 (rather than 9443).
+required:
+  - id
+  - type
+  - serviceId
+  - workerVersion
+  - onepanelVersion
+  - onepanelProxy

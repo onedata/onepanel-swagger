@@ -1,0 +1,13 @@
+type: object
+description: Emergency passphrase to set and
+  old passphrase to authorize the change.
+properties:
+  newPassphrase:
+    description: New passphrase to be set.
+    type: string
+  currentPassphrase:
+    description: Currently set passphrase. Not required when setting
+      the passphrase for the first time.
+    type: string
+required:
+  - newPassphrase

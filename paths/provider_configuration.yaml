@@ -5,7 +5,6 @@ get:
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_oneprovider
-  x-onedata-noauth: true
   tags:
     - Oneprovider
   produces:
@@ -27,7 +26,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getProviderConfiguration --host https://example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderConfiguration --host https://example.com:9443
 
 post:
   operationId: configure_provider
@@ -41,7 +40,6 @@ post:
   x-onedata-version: 3
   x-onedata-module: rest_service
   x-onedata-resource: service_oneprovider
-  x-onedata-noauth: true
   tags:
     - Oneprovider
   consumes:
@@ -77,4 +75,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_config.json | onepanel-rest-cli -u alice:secret configureProvider --host https://example.com:9443
+    source: cat provider_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE configureProvider --host https://example.com:9443

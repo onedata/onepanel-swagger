@@ -1,14 +1,8 @@
 get:
   operationId: get_cluster_hosts
-  summary: Get cluster or discovered hosts
+  summary: Get cluster hosts
   description: >
-    Returns the list of administrative cluster hosts. It is also possible to
-    return the list of hosts that have been discovered using multicast
-    advertisment.
-
-    In order to retrieve discovered hosts set the `discovered` query string to
-    `true`. This request can be executed by unauthorized users only if there
-    are no admin users in the system.
+    Returns the list of administrative cluster hosts.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: hosts
@@ -21,54 +15,48 @@ get:
       description: The list of administrative cluster hosts.
       schema:
         type: array
-        description: List of cluster or discovered hosts.
+        description: List of cluster hosts.
         items:
           type: string
         example:
           - host1.example.org
           - host2.example.org
           - host3.example.org
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-    - name: discovered
-      in: query
-      description: Defines whether to return cluster or discovered hosts.
-      type: boolean
-      default: false
-      required: false
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getClusterHosts discovered=true --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getClusterHosts --host https://$HOST:9443
 
 
 post:
-  operationId: create_cluster
-  summary: Create or join cluster
+  operationId: add_cluster_host
+  summary: Adds given host to the cluster
   description: >
-    Initializes administrative cluster or if `clusterHost` parameter has been
-    provided in the query string adds this host to an existing cluster.
-
-    In both cases the host handling this request has to be newly started or
-    removed from previous cluster. It cannot contain any configuration data.
-
-    This request can be executed by unauthorized users as long as there are no
-    admin users.
+    Adds given host to the current cluster. The host can be specified
+    by any address by which it is reachable.
+    Upon success returns proper hostname used to address the new host in cluster
+    management.
   x-onedata-version: 3
   x-onedata-module: rest_onepanel
   x-onedata-resource: hosts
-  x-onedata-noauth: true
   tags:
     - Onepanel
   consumes:
     - application/json
   responses:
-    '204':
-      description: Cluster has been successfully initialized or extended.
+    '200':
+      description: Host added.
+      schema:
+        $ref: '#/definitions/Host'
+    '401':
+      description: Unauthorized request.
     '403':
       description: Forbidden request.
     '500':
@@ -76,16 +64,11 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: clusterHost
-      in: query
-      description: Hostname of an existing cluster node.
-      type: string
-      required: false
-    - name: cookie
+    - name: HostAddRequest
       in: body
-      description: The cookie used for cluster authentication.
       schema:
-        $ref: '#/definitions/Cookie'
+        $ref: '#/definitions/HostAddRequest'
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u alice:secret createCluster clusterHost=$CLUSTER_HOST cookie==AS2KLJH1231AJSHDKJBC12KS578A3SDA --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE addClusterHost address==$HOSTNAME --host https://$HOST:9443
