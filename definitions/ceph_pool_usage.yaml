@@ -1,0 +1,13 @@
+type: object
+description: Space usage of a single Ceph pool.
+properties:
+  used:
+    type: integer
+    description: Total size of objects in the pool in bytes.
+  maxAvailable:
+    type: integer
+    description: Projected size of data which can yet be written to the pool in bytes.
+      See 'Checking a Cluster’s Usage Stats' in the Ceph documentation.
+required:
+- used
+- max_available

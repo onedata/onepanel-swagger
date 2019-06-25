@@ -1,0 +1,8 @@
+type: object
+description: "fixme"
+properties:
+  pools:
+    type: array
+    description: List of Ceph pools.
+    items:
+      $ref: "#/definitions/CephPool"

@@ -1,0 +1,36 @@
+get:
+  operationId: get_block_devices
+  summary: Get block devices for Ceph OSD
+  description: "" # @fixmme
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: block_devices
+  tags:
+  - Oneprovider
+  produces:
+  - application/json
+  responses:
+    '200':
+      description: "" # @fixme
+      schema:
+        $ref: '#/definitions/BlockDevices'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Host is not in the cluster.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+
+  parameters:
+  - name: host
+    in: query
+    description: Host for which block devices should be returned.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getBlockDevices --host https://op.example.com:9443

@@ -1,0 +1,68 @@
+get:
+  operationId: get_ceph_osd
+  summary: Get ceph OSD
+  description: "" # @fixmme
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: service_ceph_osd
+  tags:
+  - Oneprovider
+  produces:
+  - application/json
+  responses:
+    '200':
+      description: "" # @fixme
+      schema:
+        $ref: '#/definitions/CephOsd' # @fixme separate model may be needed
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph cluster not deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  parameters:
+  - name: id
+    description: "@fixme"
+    in: path
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getCephOsd --host https://op.example.com:9443
+
+delete:
+  operationId: remove_ceph_osd
+  summary: Purge Ceph OSD.
+  description: "@fixme"
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: service_ceph_osd
+  tags:
+  - Oneprovider
+  responses:
+    '204':
+      description: OSD has been removed.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running
+  parameters:
+  - name: id
+    description: "@fixme"
+    in: path
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret removeCephOSD --host https://example.com:9443
+

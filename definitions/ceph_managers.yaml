@@ -1,0 +1,8 @@
+type: object
+description: "fixme"
+properties:
+  managers:
+    type: array
+    description: "List of Ceph Manager configurations"
+    items:
+      $ref: "#/definitions/CephManager"

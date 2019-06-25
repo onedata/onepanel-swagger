@@ -1,0 +1,26 @@
+get:
+  operationId: get_next_osd_id
+  summary: "@fixme"
+  description: "@fixme"
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: next_osd_id
+  tags:
+  - Oneprovider
+  produces:
+  - application/json
+  responses:
+    '200':
+      description: "" # @fixme
+      schema:
+        type: integer
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Host is not in the cluster.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'

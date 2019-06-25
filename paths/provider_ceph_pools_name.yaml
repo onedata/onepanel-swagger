@@ -1,0 +1,36 @@
+get:
+  operationId: get_ceph_pool
+  summary: Get details of a Ceph pool.
+  description: "@fixme"
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: ceph_pool
+  tags:
+  - Oneprovider
+  produces:
+  - application/json
+  responses:
+    '200':
+      description: "@fixme"
+      schema:
+        $ref: '#/definitions/CephPool'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: "" # @fixme
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  parameters:
+  - name: name
+    description: The name of the pool to describe.
+    in: path
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getCephPool name=$POOL_NAME --host
+      https://op.example.com:9443

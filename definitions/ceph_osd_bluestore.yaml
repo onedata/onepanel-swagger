@@ -1,0 +1,31 @@
+description: "@fixme"
+allOf:
+  - $ref: '#/definitions/CephOsd'
+  - type: object
+    x-discriminator-value: bluestore
+    properties:
+      type:
+        description: "@fixme"
+        type: string
+        enum: [bluestore]
+        x-discriminator-value: bluestore
+        x-discriminator: true
+      device:
+        type: string
+        description: >
+          Specifies block device to be ERASED and FORMATTED for use with ceph.
+      dbDevice:
+        type: string
+        description: >
+          Specifies block device to be ERASED and FORMATTED for use with
+          ceph database. Must be a faster storage than
+          the main device, otherwise use just the main storage.
+      walDevice:
+        type: string
+        description: >
+          Specifies block device to be ERASED
+          and FORMATTED for use with ceph Write Ahead Log. Must be a faster storage than
+          the main device, otherwise use just the main storage.
+    required:
+      - type
+      - device

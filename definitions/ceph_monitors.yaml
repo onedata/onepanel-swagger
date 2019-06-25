@@ -1,0 +1,8 @@
+type: object
+description: "fixme"
+properties:
+  monitors:
+    type: array
+    description: "List of Ceph Monitor specifications"
+    items:
+      $ref: "#/definitions/CephMonitor"

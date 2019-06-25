@@ -1,0 +1,18 @@
+type: object
+description: The cluster storage configuration.
+discriminator: type
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - bluestore
+  - filestore
+properties:
+  host:
+    type: string
+    # @fixme if reused in /provider/configuration - keep the node aliases in mind
+    description: Host on which given osd should be deployed
+  id:
+    type: integer
+    description: Id of the OSD. OSD ids should be contiguous integers starting at 0.
+required:
+  - host
+  - id

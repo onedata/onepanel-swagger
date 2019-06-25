@@ -1,0 +1,18 @@
+type: object
+description: "@fixme"
+properties:
+  level:
+    type: string
+    description: "@fixme"
+    enum:
+      - ok
+      - warning
+      - error
+  messages:
+    type: array
+    description: "@fixme"
+    items:
+      type: string
+required:
+- level
+- messages

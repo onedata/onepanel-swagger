@@ -1,0 +1,7 @@
+description: Describes whole of ceph configuration.
+allOf:
+- $ref: "#/definitions/CephGlobalParams"
+- $ref: "#/definitions/CephOsds"
+- $ref: "#/definitions/CephMonitors"
+- $ref: "#/definitions/CephManagers"
+- $ref: "#/definitions/CephPools"

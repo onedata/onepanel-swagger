@@ -1,0 +1,39 @@
+type: object
+description: "@fixme"
+properties:
+  block_devices:
+    type: array
+    description: "@fixme"
+    items:
+      type: object
+      properties:
+        host:
+          type: string
+          description: Host on which the device is available
+        path:
+          type: string
+        size:
+          type: integer
+          description: Device size in bytes.
+        mounted:
+          type: boolean
+          description: Attempt to detect whether a device or its child
+            is already mounted.
+      required:
+      - host
+      - path
+      - size
+      - mounted
+required:
+- block_devices
+example:
+  block_devices:
+    - name: sda
+      size: 10000000000
+      mounted: false
+    - name: sdb
+      size: 20000000000
+      mounted: true
+    - name: sr0
+      size: 1073741312
+      mounted: false

@@ -1,0 +1,9 @@
+type: object
+description: "Ceph Manager specification."
+properties:
+  host:
+    type: string
+    description: Host on which given mgr should be deployed
+  id:
+    type: string
+    description: Manager identifier. Be default the hostname is used.

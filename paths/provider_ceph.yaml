@@ -1,0 +1,76 @@
+get:
+  operationId: get_ceph_params
+  summary: Get global params
+  description: "@fixme"
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: service_ceph
+  tags:
+  - Oneprovider
+  consumes:
+  - application/json
+  - application/x-yaml
+  responses:
+    '200':
+      description: The Ceph cluster configuration details.
+      schema:
+        $ref: '#/definitions/CephGlobalParams'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph cluster not deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getCephParams --host https://example.com:9443
+
+post:
+  operationId: configure_ceph
+  summary: Configure Ceph cluster
+  description: Configures Ceph services. Any services and pools
+    specified in the request are deployed.
+    This request IS NOT idempotent.
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: service_ceph
+  tags:
+  - Oneprovider
+  consumes:
+  - application/json
+  - application/x-yaml
+  responses:
+    '201':
+      description: Deployment process successfully started.
+      headers:
+        Location:
+          type: string
+          description: >
+            The path to the task resource, which can be queried to check
+            operation status.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: cephCluster
+    in: body
+    description: The Ceph cluster specification.
+    schema:
+      $ref: '#/definitions/CephCluster'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat ceph_config.json | onepanel-rest-cli -u alice:secret configureCeph --host https://example.com:9443

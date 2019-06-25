@@ -1,0 +1,58 @@
+description: The Ceph storage configuration (uses librados). # fixme
+allOf:
+  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/CephPool'
+  - type: object
+    properties:
+      type:
+        type: string
+        description: The type of storage.
+        x-discriminator-value: embeddedceph
+      name:
+        type: string
+        description: Name of the storage and corresponding Ceph pool.
+      insecure:
+        type: boolean
+        default: true
+        x-onedata-default-value: true
+        description: >
+          Defines whether storage administrator credentials (username and key)
+          may be used by users without storage accounts to access storage in
+          direct IO mode.
+      blockSize:
+        type: integer
+        description: Storage block size in bytes.
+        default: 4194304
+      readonly:
+        type: boolean
+        description: Defines whether storage is readonly.
+        default: false
+      lumaEnabled:
+        type: boolean
+        description: If true LUMA and reverse LUMA services will be enabled.
+        default: false
+      lumaUrl:
+        type: string
+        description: URL of external LUMA service
+      lumaApiKey:
+        type: string
+        description: LUMA API Key, must be identical with API Key in external LUMA service.
+      timeout:
+        type: integer
+        description: Storage operation timeout in milliseconds.
+      storagePathType:
+        type: string
+        default: flat
+        x-onedata-default-value: '<<"flat">>'
+        description: |
+          Determines how the logical file paths will be mapped on the storage.
+          'canonical' paths reflect the logical file names and directory structure,
+          however each rename operation will require renaming the files on the storage.
+          'flat' paths are based on unique file UUID's and do not require on-storage
+          rename when logical file name is changed.
+example:
+  type: cephrados
+  name: myceph
+  copiesNumber: 2
+  readonly: false
+  blockSize: 10485760

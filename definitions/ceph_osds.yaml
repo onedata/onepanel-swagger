@@ -1,0 +1,8 @@
+type: object
+description: "fixme"
+properties:
+  osds:
+    type: array
+    description: "List of Ceph OSD specifications."
+    items:
+      $ref: "#/definitions/CephOsd"

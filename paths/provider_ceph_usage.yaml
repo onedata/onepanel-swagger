@@ -1,0 +1,30 @@
+get:
+  operationId: get_ceph_usage
+  summary: Get Ceph storage space usage.
+  description: "@fixme"
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: ceph_usage
+  tags:
+  - Oneprovider
+  produces:
+  - application/json
+  responses:
+    '200':
+      description: "@fixme"
+      schema:
+        $ref: '#/definitions/CephUsage'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: "" # @fixme
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getCephUsage --host https://op.example.com:9443
+

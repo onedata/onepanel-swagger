@@ -1,0 +1,35 @@
+get:
+  operationId: get_ceph_pool_usage
+  summary: Get space usage details for specific pool.
+  description: "@fixme"
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: ceph_pool_usage
+  tags:
+  - Oneprovider
+  produces:
+  - application/json
+  responses:
+    '200':
+      description: "@fixme"
+      schema:
+        $ref: '#/definitions/CephPoolUsage'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: "" # @fixme
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  parameters:
+  - name: name
+    description: The name of the pool for usage check.
+    in: path
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getCephPoolUsage name=onedata --host https://op.example.com:9443

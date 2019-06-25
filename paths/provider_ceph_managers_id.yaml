@@ -1,0 +1,67 @@
+get:
+  operationId: get_ceph_manager
+  summary: Get ceph manager
+  description: "" # @fixmme
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: service_ceph_manager
+  tags:
+  - Oneprovider
+  produces:
+  - application/json
+  responses:
+    '200':
+      description: "" # @fixme
+      schema:
+        $ref: '#/definitions/CephManager'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph Manager with given id does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  parameters:
+  - name: id
+    description: "@fixme"
+    in: path
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret getCephManager --host https://op.example.com:9443
+
+delete:
+  operationId: remove_ceph_manager
+  summary: Purge Ceph manager.
+  description: "@fixme"
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: service_ceph_manager
+  tags:
+  - Oneprovider
+  responses:
+    '204':
+      description: Manager has been removed.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph Manager with given id does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    description: "@fixme"
+    in: path
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u alice:secret removeCephManager --host https://example.com:9443
