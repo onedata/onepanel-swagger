@@ -1,8 +1,8 @@
-version: 18.02.1
+version: 18.02.2
 title: Onepanel
 x-bash-codegen-description: |
   This is the RESTful API definition of **Onepanel** component of Onedata data
-  management system [http://www.onedata.org].
+  management system [http://onedata.org].
 
   This API allows control and configuration of local Onedata deployment,
   in particular full control over the **Onezone** and **Oneprovider** services
@@ -36,7 +36,7 @@ description: |
   # Overview
 
   This is the RESTful API definition of **Onepanel** component of Onedata data
-  management system [onedata.org](http://www.onedata.org).
+  management system [onedata.org](http://onedata.org).
 
   > This API is defined using [Swagger](http://swagger.io/), the JSON
   specification can be used to automatically generate client libraries -
