@@ -87,5 +87,19 @@ bash-packages:
 		cp generated/bash/onepanel-rest-cli "packages/bash/$$release_branch/";\
 		cp generated/bash/_onepanel-rest-cli "packages/bash/$$release_branch/";\
 		cp generated/bash/onepanel-rest-cli.bash-completion "packages/bash/$$release_branch/";\
-	done
+	done;\
+    custom_releases=( develop );\
+    for release_branch in $${custom_releases[@]}; do\
+        echo "#################################################";\
+        echo " Building Bash client release: $$release_branch";\
+        echo "#################################################";\
+        git checkout $$release_branch;\
+        rm -rf generated;\
+        docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_AGGREGATOR_IMAGE};\
+        docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_BASH_CLIENT_IMAGE} generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json;\
+        mkdir -p "packages/bash/$$release_branch";\
+        cp generated/bash/onepanel-rest-cli "packages/bash/$$release_branch/";\
+        cp generated/bash/_onepanel-rest-cli "packages/bash/$$release_branch/";\
+        cp generated/bash/onepanel-rest-cli.bash-completion "packages/bash/$$release_branch/";\
+    done
 	@git checkout master
