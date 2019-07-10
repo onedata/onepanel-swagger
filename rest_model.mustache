@@ -64,20 +64,35 @@
         {{name}} => {{x-onedata-datatype}}{{#hasMore}},{{/hasMore}}
                                     {{/x-onedata-datatype}}
                                     {{^x-onedata-datatype}}
+                                        {{#isEnum}}
+        {{name}} => {oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}}, {{/-last}}{{/values}} {{/allowableValues}}]}{{#hasMore}},{{/hasMore}}
+                                        {{/isEnum}}
+                                        {{^isEnum}}
         {{name}} => {{datatype}}{{#hasMore}},{{/hasMore}}
+                                        {{/isEnum}}
                                     {{/x-onedata-datatype}}
                                 {{/required}}
                                 {{^required}}
                                     {{#vendorExtensions}}
                                         {{#x-onedata-default-value}}
+                                            {{#isEnum}}
+        {{name}} => { {oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}}, {{/-last}}{{/values}} {{/allowableValues}}]}, {optional, {{x-onedata-default-value}} }}{{#hasMore}},{{/hasMore}}
+                                            {{/isEnum}}
+                                            {{^isEnum}}
         {{name}} => { {{datatype}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
+                                            {{/isEnum}}
                                         {{/x-onedata-default-value}}
                                         {{^x-onedata-default-value}}
                                             {{#x-onedata-datatype}}
         {{name}} => { {{x-onedata-datatype}}, optional }{{#hasMore}},{{/hasMore}}
                                             {{/x-onedata-datatype}}
                                             {{^x-onedata-datatype}}
+                                                {{#isEnum}}
+        {{name}} => { {oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}}, {{/-last}}{{/values}}{{/allowableValues}}]},optional }{{#hasMore}},{{/hasMore}}
+                                                {{/isEnum}}
+                                                {{^isEnum}}
         {{name}} => { {{datatype}}, optional }{{#hasMore}},{{/hasMore}}
+                                                {{/isEnum}}
                                             {{/x-onedata-datatype}}
                                         {{/x-onedata-default-value}}
                                     {{/vendorExtensions}}
