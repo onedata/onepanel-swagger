@@ -38,7 +38,7 @@ fi
 
 # Checkout the client repository which should be updated
 git clone \
-    ssh://git@git.plgrid.pl:7999/vfs/${SERVICE}-${LANGUAGE}-client.git \
+    ssh://git@git.onedata.org:7999/vfs/${SERVICE}-${LANGUAGE}-client.git \
     ${TARGET_DIRECTORY}
 
 rm -rf packages
