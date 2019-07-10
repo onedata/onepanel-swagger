@@ -6,6 +6,7 @@ allOf:
       type:
         type: string
         description: The type of storage.
+        enum: [cephrados]
         x-discriminator-value: cephrados
       username:
         type: string
@@ -22,9 +23,6 @@ allOf:
       poolName:
         type: string
         description: The Ceph pool name.
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
       blockSize:
         type: integer
         description: Storage block size in bytes.
@@ -36,13 +34,10 @@ allOf:
           Defines whether storage administrator credentials (username and key)
           may be used by users without storage accounts to access storage in
           direct IO mode.
-      readonly:
-        type: boolean
-        default: false
-        description: Defines whether storage is readonly.
       storagePathType:
         type: string
-        default: "flat"
+        default: flat
+        x-onedata-default-value: '<<"flat">>'
         description: |
           Determines how the logical file paths will be mapped on the storage.
           'canonical' paths reflect the logical file names and directory structure,

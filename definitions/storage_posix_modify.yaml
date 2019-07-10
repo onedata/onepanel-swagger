@@ -1,0 +1,21 @@
+description: The POSIX storage configuration.
+allOf:
+- $ref: '#/definitions/StorageDetailsModify'
+- type: object
+  properties:
+    type:
+      type: string
+      description: Type of the modified storage. Must match the type
+        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      enum: [posix]
+      x-discriminator-value: posix
+    mountPoint:
+      type: string
+      description: >
+        The absolute path to the directory where the POSIX storage is mounted
+        on the cluster nodes.
+  required:
+  - type
+example:
+  type: posix
+  timeout: 500

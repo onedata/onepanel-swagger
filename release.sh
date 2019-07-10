@@ -55,7 +55,7 @@ REPO_NAME=onedata-documentation
 
 TMP_DIR=$(mktemp -d)
 git_c="git -C $TMP_DIR"
-$git_c clone  --single-branch -b $DOC_BRANCH ssh://git@git.plgrid.pl:7999/vfs/${REPO_NAME}.git ${TMP_DIR}
+$git_c clone  --single-branch -b $DOC_BRANCH ssh://git@git.onedata.org:7999/vfs/${REPO_NAME}.git ${TMP_DIR}
 
 SRC_GITBOOK=generated/gitbook
 PATH_IN_GITBOOK=${TMP_DIR}/doc/advanced/rest/${API_REPO_NAME}

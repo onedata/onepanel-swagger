@@ -47,7 +47,7 @@ javascript-client: validate
 
 javascript-update-repo: clean javascript-client
 	rm -rf generated/javascript-git
-	git clone ssh://git@git.plgrid.pl:7999/vfs/onepanel-javascript-client.git generated/javascript-git && \
+	git clone ssh://git@git.onedata.org:7999/vfs/onepanel-javascript-client.git generated/javascript-git && \
 	cd generated/javascript-git && \
 	( ( git checkout ${BRANCH} && ( git pull || exit 1 ) ) || git checkout -b ${BRANCH} ) && \
 	cp -R ../javascript/* . && \
