@@ -219,6 +219,9 @@ TimeStats:
 TimeStatsCollection:
   $ref: ./time_stats_collection.yaml
 
+TransfersMock:
+  $ref: ./transfers_mock.yaml
+
 SpaceFilePopularityConfiguration:
   $ref: ./space_file_popularity_configuration.yaml
 
