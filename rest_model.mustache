@@ -65,7 +65,7 @@
                                     {{/x-onedata-datatype}}
                                     {{^x-onedata-datatype}}
                                         {{#isEnum}}
-        {{name}} => {oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}}, {{/-last}}{{/values}} {{/allowableValues}}]}{{#hasMore}},{{/hasMore}}
+        {{name}} => {{#items}}[{{/items}}{oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}},{{/-last}}{{/values}} {{/allowableValues}}]}{{#hasMore}},{{/hasMore}}{{#items}}]{{/items}}
                                         {{/isEnum}}
                                         {{^isEnum}}
         {{name}} => {{datatype}}{{#hasMore}},{{/hasMore}}
@@ -76,7 +76,7 @@
                                     {{#vendorExtensions}}
                                         {{#x-onedata-default-value}}
                                             {{#isEnum}}
-        {{name}} => { {oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}}, {{/-last}}{{/values}} {{/allowableValues}}]}, {optional, {{x-onedata-default-value}} }}{{#hasMore}},{{/hasMore}}
+        {{name}} => { {{#items}}[{{/items}}{oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}}, {{/-last}}{{/values}} {{/allowableValues}}]}{{#items}}]{{/items}}, {optional, {{x-onedata-default-value}} }}{{#hasMore}},{{/hasMore}}
                                             {{/isEnum}}
                                             {{^isEnum}}
         {{name}} => { {{datatype}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
@@ -88,7 +88,7 @@
                                             {{/x-onedata-datatype}}
                                             {{^x-onedata-datatype}}
                                                 {{#isEnum}}
-        {{name}} => { {oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}}, {{/-last}}{{/values}}{{/allowableValues}}]},optional }{{#hasMore}},{{/hasMore}}
+        {{name}} => { {{#items}}[{{/items}}{oneof, [{{#allowableValues}}{{#values}}{equal, <<"{{.}}">>}{{^-last}}, {{/-last}}{{/values}}{{/allowableValues}}]}{{#items}}]{{/items}},optional }{{#hasMore}},{{/hasMore}}
                                                 {{/isEnum}}
                                                 {{^isEnum}}
         {{name}} => { {{datatype}}, optional }{{#hasMore}},{{/hasMore}}
