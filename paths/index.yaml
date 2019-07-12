@@ -131,6 +131,9 @@
 /provider/onezone_info:
   $ref: ./provider_onezone_info.yaml
 
+/provider/debug/transfers_mock:
+  $ref: ./provider_transfers_mock.yaml
+
 # Zone specific resources
 
 /zone/users:

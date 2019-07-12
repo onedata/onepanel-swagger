@@ -2,7 +2,7 @@ get:
   operationId: get_zone_policies
   summary: Get Onezone policies.
   description: >
-    Returns restrictions placed on Onezone functionality such as registering
+    Returns restrictions placed on Onezone operations such as registering
     Oneproviders.
   x-onedata-version: 3
   x-onedata-module: rest_onezone

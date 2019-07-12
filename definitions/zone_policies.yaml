@@ -1,6 +1,15 @@
 type: object
 description: State of Onezone operation policies.
 properties:
+  oneproviderRegistration:
+    type: string
+    enum: [open, restricted]
+    description: |
+      Indicates policy enforced during provider registration. Possible options are:
+      open - anyone can acquire a registration token and register a new Oneprovider
+      restricted - requires an administrative privilege 'oz_providers_invite'
+                   to generate a Oneprovider registration token. The token
+                   can be issued for someone else.
   subdomainDelegation:
     type: boolean
     description: If true, Oneproviders are allowed to request subdomains

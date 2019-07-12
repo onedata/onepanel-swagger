@@ -1,0 +1,9 @@
+type: object
+description: State of transfers mock.
+properties:
+  transfersMock:
+    type: boolean
+    description: If true, transfers are marked as successful without
+      actually transmiting any data.
+example:
+  transfersMock: true

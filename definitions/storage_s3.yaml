@@ -23,6 +23,7 @@ allOf:
       signatureVersion:
         type: integer
         default: 4
+        enum: [2, 4]
         description: >
           The version of signature used to sign requests.
           One of: 2, 4. Default: 4.
