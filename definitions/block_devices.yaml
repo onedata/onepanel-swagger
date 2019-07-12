@@ -1,5 +1,5 @@
 type: object
-description: "@fixme"
+description: List of block device descriptions.
 properties:
   block_devices:
     type: array
@@ -17,8 +17,8 @@ properties:
           description: Device size in bytes.
         mounted:
           type: boolean
-          description: Attempt to detect whether a device or its child
-            is already mounted.
+          description: Result of heuristic attempt to detect whether a device
+            or any of its children is mounted.
       required:
       - host
       - path

@@ -7,12 +7,14 @@ properties:
     readOnly: true
   copiesNumber:
     type: integer
+    minimum: 1
     description: Desired number of object replicas in the pool.
       When below this number the pool still may be used in 'degraded' mode.
-    default: 2 if there are 2 or more OSDs, 1 otherwise
+      Defaults to `2` if there are at least 2 OSDs, `1` otherwise.
   minCopiesNumber:
     type: integer
+    minimum: 1
     description: Minimum number of object replicas in the pool. Below this
       threshold any I/O for the pool is disabled.
-      Must be lower or equal to 'copiesNumber'.
-    default: 2 if there are 2 or more OSDs, 1 otherwise
+      Must be lower or equal to 'copiesNumber'. Defaults to `2` if there
+      are at least 2 OSDs, `1` otherwise.

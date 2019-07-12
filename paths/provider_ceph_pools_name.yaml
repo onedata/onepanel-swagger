@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_pool
   summary: Get details of a Ceph pool.
-  description: "@fixme"
+  description: Returns object describng single Ceph pool specified by name.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: ceph_pool
@@ -11,7 +11,7 @@ get:
   - application/json
   responses:
     '200':
-      description: "@fixme"
+      description: The pool details
       schema:
         $ref: '#/definitions/CephPool'
     '401':
@@ -19,7 +19,7 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: "" # @fixme
+      description: Pool with given name does not exist
     '500':
       description: Internal server error.
       schema:

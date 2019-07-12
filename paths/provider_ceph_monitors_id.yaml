@@ -1,6 +1,6 @@
 get:
   operationId: get_ceph_monitor
-  summary: Get ceph monitor
+  summary: Get Ceph monitor
   description: "" # @fixmme
   x-onedata-version: 3
   x-onedata-module: rest_ceph

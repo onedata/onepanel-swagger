@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_monitors
-  summary: Get Ceph monitor
-  description: "" # @fixmme
+  summary: List Ceph monitors
+  description: Returns object with a list of Ceph monitor instances.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_monitor
@@ -11,7 +11,7 @@ get:
   - application/json
   responses:
     '200':
-      description: "" # @fixme
+      description: The Ceph monitors list.
       schema:
         $ref: '#/definitions/CephMonitors'
     '401':
