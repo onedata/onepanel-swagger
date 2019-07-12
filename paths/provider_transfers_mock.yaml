@@ -33,7 +33,7 @@ patch:
   summary: Modify transfers mock
   description: >
     Toggle transfers mock. When enabled, all transfers finish successfully
-    without actually transferring data. WARNING: this is a debugging functionality
+    without actually transferring data. WARNING: this is a debugging feature
     disrupting normal Oneprovider operation.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
