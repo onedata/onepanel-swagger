@@ -1,0 +1,39 @@
+description: The Ceph storage configuration (uses libradosstriper).
+allOf:
+- $ref: '#/definitions/StorageDetailsModify'
+- type: object
+  properties:
+    type:
+      type: string
+      description: Type of the modified storage. Must match the type
+        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      enum: [ceph]
+      x-discriminator-value: ceph
+    username:
+      type: string
+      description: The username of the Ceph cluster administrator.
+    key:
+      type: string
+      description: The admin key to access the Ceph cluster.
+    monitorHostname:
+      type: string
+      description: The monitor host name.
+    clusterName:
+      type: string
+      description: The Ceph cluster name.
+    poolName:
+      type: string
+      description: The Ceph pool name.
+    insecure:
+      type: boolean
+      description: >
+        Defines whether storage administrator credentials (username and key)
+        may be used by users without storage accounts to access storage in
+        direct IO mode.
+  required:
+  - type
+example:
+  type: ceph
+  username: user1
+  key: LKJASHD6876ASDBJHV65765ASD
+  insecure: true

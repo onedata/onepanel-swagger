@@ -1,8 +1,17 @@
 type: object
-description: The storage configuration details that can be modified.
-properties:
-  timeout:
-    type: integer
-    description: Storage operation timeout in milliseconds.
+description: The storage parameters to be changed. Should be a single-valued
+  dictionary with storage name as the key and parameters to be changed
+  as the value.
+  If changing the storage name, use old name as dictionary key and provide
+  new name among the changed params.
+
+# TODO VFS-5117 make it a single object instead of dictionary
+# after adjusting Onepanel parser to handle top-level polymorphism
+x-onedata-dictionary: true
+x-onedata-dictionary-value-type: storage_details_modify
+additionalProperties:
+  $ref: '#/definitions/StorageDetailsModify'
 example:
-  timeout: 10000
+  s3storage:
+    type: s3
+    accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD

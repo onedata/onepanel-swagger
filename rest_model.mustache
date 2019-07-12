@@ -36,7 +36,7 @@
 -spec {{classname}}_model() -> {oneof, Oneof :: list()}.
             {{/x-onedata-oneof}}
             {{^x-onedata-oneof}}
--spec {{classname}}_model() -> maps:map().
+-spec {{classname}}_model() -> map().
             {{/x-onedata-oneof}}
         {{/vendorExtensions}}
 {{classname}}_model() ->
@@ -76,10 +76,10 @@
                                     {{#vendorExtensions}}
                                         {{#x-onedata-default-value}}
                                             {{#isEnum}}
-        {{name}} => { {{> enum}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
+        {{name}} => { {{> enum}}, {optional, {{{x-onedata-default-value}}} } }{{#hasMore}},{{/hasMore}}
                                             {{/isEnum}}
                                             {{^isEnum}}
-        {{name}} => { {{datatype}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
+        {{name}} => { {{datatype}}, {optional, {{{x-onedata-default-value}}} } }{{#hasMore}},{{/hasMore}}
                                             {{/isEnum}}
                                         {{/x-onedata-default-value}}
                                         {{^x-onedata-default-value}}
