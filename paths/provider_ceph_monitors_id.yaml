@@ -11,7 +11,7 @@ get:
   - application/json
   responses:
     '200':
-      description: "" # @fixme
+      description: "Ceph Monitor specification"
       schema:
         $ref: '#/definitions/CephMonitor'
     '401':
@@ -26,7 +26,7 @@ get:
         $ref: '#/definitions/ServiceError'
   parameters:
   - name: id
-    description: "@fixme"
+    description: Id of the Ceph Monitor to describe.
     in: path
     type: string
     required: true
@@ -37,7 +37,7 @@ get:
 delete:
   operationId: remove_ceph_monitor
   summary: Purge Ceph monitor.
-  description: "@fixme"
+  description: Removes the Ceph Monitor daemon.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_monitor
@@ -58,7 +58,7 @@ delete:
         $ref: '#/definitions/Error'
   parameters:
   - name: id
-    description: "@fixme"
+    description: Id of the Ceph Monitor to be removed.
     in: path
     type: string
     required: true

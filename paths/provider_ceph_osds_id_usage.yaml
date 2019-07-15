@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_osd_usage
   summary: Get space usage details for specific osd.
-  description: "@fixme"
+  description: Returns data usage statistics of given Ceph OSD.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: ceph_osd_usage
@@ -11,7 +11,7 @@ get:
   - application/json
   responses:
     '200':
-      description: "@fixme"
+      description: The data usage information
       schema:
         $ref: '#/definitions/DataUsage'
     '401':
@@ -19,7 +19,7 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: "" # @fixme
+      description: OSD does not exist.
     '500':
       description: Internal server error.
       schema:
