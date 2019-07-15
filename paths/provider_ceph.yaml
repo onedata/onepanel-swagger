@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_params
   summary: Get global params
-  description: "@fixme"
+  description: Returns Ceph settings global to the Ceph cluster.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph

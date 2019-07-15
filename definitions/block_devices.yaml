@@ -3,7 +3,7 @@ description: List of block device descriptions.
 properties:
   block_devices:
     type: array
-    description: "@fixme"
+    description: List of available block devices.
     items:
       type: object
       properties:

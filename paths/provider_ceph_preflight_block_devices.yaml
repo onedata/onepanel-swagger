@@ -2,7 +2,7 @@ get:
   operationId: get_block_devices
   summary: Get block devices for Ceph OSD
   description: Lists block devices available at a given host. This list can be
-    used to choose device to be formatted for use by Ceph Bluestore OSD
+    used to choose device to be formatted for use by Ceph Bluestore OSD.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: block_devices

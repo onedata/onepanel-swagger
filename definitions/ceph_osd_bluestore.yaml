@@ -1,11 +1,14 @@
-description: "@fixme"
+description: OSDBLUESTORE
 allOf:
   - $ref: '#/definitions/CephOsd'
   - type: object
     x-discriminator-value: bluestore
     properties:
       type:
-        description: "@fixme"
+        description: |
+          Type of the OSD. Available types are:
+          - filestore - stores all files on an existing filesystem
+          - bluestore - formats a raw block device to store the data
         type: string
         enum: [bluestore]
         x-discriminator-value: bluestore
@@ -13,19 +16,22 @@ allOf:
       device:
         type: string
         description: >
-          Specifies block device to be ERASED and FORMATTED for use with ceph.
+          Specifies block device to be ERASED and FORMATTED for use as the main
+          data store of this OSD.
       dbDevice:
         type: string
         description: >
-          Specifies block device to be ERASED and FORMATTED for use with
-          ceph database. Must be a faster storage than
-          the main device, otherwise use just the main storage.
+          Specifies block device to be ERASED and FORMATTED to be used for
+          this OSD's database. It should be used when a storage faster than
+          "device" is available, otherwise it is sufficient to specify just
+          the "device".
       walDevice:
         type: string
         description: >
-          Specifies block device to be ERASED
-          and FORMATTED for use with ceph Write Ahead Log. Must be a faster storage than
-          the main device, otherwise use just the main storage.
+          Specifies block device to be ERASED and FORMATTED for use
+          as the Write Ahead Log. It should be used when a storage faster than
+          "device" is available, otherwise it is sufficient to specify just
+          the "device".
     required:
       - type
       - device

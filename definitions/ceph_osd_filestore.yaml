@@ -1,18 +1,21 @@
-description: "@fixme"
+description: OSDFILESTORE
 allOf:
   - $ref: '#/definitions/CephOsd'
   - type: object
     x-discriminator-value: filestore
     properties:
       type:
-        description: "@fixme"
+        description: |
+          Type of the OSD. Available types are:
+          - filestore - stores all files on an existing filesystem
+          - bluestore - formats a raw block device to store the data
         type: string
         enum: [filestore]
         x-discriminator-value: filestore
         x-discriminator: true
       path:
         type: string
-        description: Relevant for plain filestore. If omitted, default location
-          based on OSD id will be used.
+        description: Path were OSD will store the data.
+          If omitted, default location based on OSD id will be used.
     required:
       - type

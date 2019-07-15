@@ -1,5 +1,5 @@
 type: object
-description: "fixme"
+description: Object containing a list of Ceph pools.
 properties:
   pools:
     type: array

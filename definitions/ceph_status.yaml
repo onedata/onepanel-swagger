@@ -1,16 +1,16 @@
 type: object
-description: "@fixme"
+description: Status report of the Ceph cluster.
 properties:
   level:
     type: string
-    description: "@fixme"
+    description: General health status.
     enum:
       - ok
       - warning
       - error
   messages:
     type: array
-    description: "@fixme"
+    description: List of Ceph status messages.
     items:
       type: string
 required:

@@ -8,11 +8,11 @@ x-onedata-subclasses:
 properties:
   host:
     type: string
-    # @fixme if reused in /provider/configuration - keep the node aliases in mind
-    description: Host on which given osd should be deployed
-  id:
+    description: Host on which given OSD should be deployed. It must be the full
+      host name and not an "alias" as used in OneprovIder cluster deployment.
+  Id:
     type: integer
-    description: Id of the OSD. OSD ids should be contiguous integers starting at 0.
+    description: Id of the OSD. OSD Ids should be contiguous integers starting at 0.
 required:
   - host
-  - id
+  - Id
