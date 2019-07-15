@@ -32,5 +32,5 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getCephPool name=$POOL_NAME --host
-      https://op.example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephPool name=$POOL_NAME --host
+      https://$HOST:9443

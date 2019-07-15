@@ -26,7 +26,7 @@ get:
       description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneClusterIps --host https://example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneClusterIps --host https://$HOST:9443
 
 patch:
   operationId: modify_zone_cluster_ips
@@ -64,4 +64,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat zone_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyZoneClusterIps --host https://example.com:9443
+    source: cat zone_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyZoneClusterIps --host https://$HOST:9443

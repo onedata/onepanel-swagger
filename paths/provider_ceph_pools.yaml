@@ -26,4 +26,4 @@ get:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getCephPools --host https://op.example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephPools --host https://$HOST:9443

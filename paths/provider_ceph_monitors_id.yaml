@@ -32,7 +32,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getCephMonitor --host https://op.example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephMonitor --host https://$HOST:9443
 
 delete:
   operationId: remove_ceph_monitor
@@ -64,4 +64,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret removeCephMonitor --host https://example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE removeCephMonitor --host https://$HOST:9443

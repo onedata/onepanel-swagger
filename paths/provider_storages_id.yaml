@@ -125,4 +125,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID
-        removeStorage --host https://op.example.com:9443
+        removeStorage --host https://$HOST:9443

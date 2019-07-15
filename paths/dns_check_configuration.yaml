@@ -27,7 +27,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getDnsCheckConfiguration --host https://example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getDnsCheckConfiguration --host https://$HOST:9443
 
 patch:
   operationId: modify_dns_check_configuration
@@ -66,5 +66,5 @@ patch:
   - lang: Shell
     source: >
       echo '{"dnsServers": ["8.8.8.8", "8.8.4.4"]}' |
-      onepanel-rest-cli -u onepanel:$PASSPHRASE modifyDnsCheckConfiguration --host https://example.com:9443
+      onepanel-rest-cli -u onepanel:$PASSPHRASE modifyDnsCheckConfiguration --host https://$HOST:9443
 

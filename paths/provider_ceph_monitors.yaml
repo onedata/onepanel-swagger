@@ -26,7 +26,7 @@ get:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u alice:secret getCephMonitors --host https://op.example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephMonitors --host https://$HOST:9443
 
 
 post:
@@ -72,5 +72,5 @@ post:
   - lang: Shell
     source: >
       echo '{"host": "n1.op.example.com"}' |
-      onepanel-rest-cli -u alice:secret addCephMonitors --host https://op.example.com:9443
+      onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$HOST:9443
 

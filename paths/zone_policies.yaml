@@ -26,7 +26,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZonePolicies --host https://oz.example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZonePolicies --host https://$HOST:9443
 
 
 patch:
@@ -68,4 +68,4 @@ patch:
       required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyZonePolicies subdomainDelegation==true --host https://oz.example.org:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyZonePolicies subdomainDelegation==true --host https://$HOST:9443
