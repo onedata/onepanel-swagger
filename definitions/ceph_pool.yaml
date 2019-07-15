@@ -16,5 +16,5 @@ properties:
     minimum: 1
     description: Minimum number of object replicas in the pool. Below this
       threshold any I/O for the pool is disabled.
-      Must be lower or equal to 'copiesNumber'. Defaults to `2` if there
-      are at least 2 OSDs, `1` otherwise.
+      Must be lower or equal to 'copiesNumber'. Defaults to `min(2, copiesNumber)`
+      if there are at least 2 OSDs, `1` otherwise.

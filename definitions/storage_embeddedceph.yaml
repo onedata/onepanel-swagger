@@ -8,9 +8,6 @@ allOf:
         type: string
         description: The type of storage.
         x-discriminator-value: embeddedceph
-      name:
-        type: string
-        description: Name of the storage and corresponding Ceph pool.
       insecure:
         type: boolean
         default: true
