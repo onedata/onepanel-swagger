@@ -4,7 +4,7 @@ get:
   description: Returns object containing list of Ceph pool details.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
-  x-onedata-resource: ceph_pool
+  x-onedata-resource: ceph_pools
   tags:
   - Oneprovider
   produces:
