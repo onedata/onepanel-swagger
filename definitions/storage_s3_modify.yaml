@@ -27,6 +27,23 @@ allOf:
         The version of signature used to sign requests.
         One of: 2, 4. Default: 4.
       enum: [2, 4]
+    maximumCanonicalObjectSize:
+      type: integer
+      description: >
+        Defines the maximum size for objects, which can be modified on the S3
+        storage in `canonical` path mode. In this mode, entire file needs to be
+        downloaded to memory, modified and uploaded back, which is impractical
+        for large files (default 64 MiB).
+    fileMode:
+      type: string
+      description: >
+        Defines the file permissions, which files imported from S3 storage will have
+        in Onedata. Values should be provided in octal format e.g. `0644`.
+    dirMode:
+      type: string
+      description: >
+        Defines the directory mode which directories imported from S3 storage will
+        have in Onedata. Values should be provided in octal format e.g. `0775`.
     insecure:
       type: boolean
       description: >
