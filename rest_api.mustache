@@ -40,6 +40,9 @@ routes() ->
             version = {{#vendorExtensions}}{{x-onedata-version}}{{/vendorExtensions}},
             module = {{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}},
             resource = {{#vendorExtensions}}{{x-onedata-resource}}{{/vendorExtensions}},
+        {{#hasProduces}}
+            produces = [{{#produces}}<<"{{{mediaType}}}">>{{#hasMore}}, {{/hasMore}}{{/produces}}],
+        {{/hasProduces}}
             methods = [#rmethod{
                 type = '{{httpMethod}}',
         {{#hasBodyParam}}
@@ -79,7 +82,7 @@ routes() ->
             {{#x-onedata-noauth}}
                 noauth = true,
             {{/x-onedata-noauth}}
-        {{/vendorExtensions}} 
+        {{/vendorExtensions}}
             }]
         }}{{#hasMore}},{{/hasMore}}
 
