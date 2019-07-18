@@ -30,7 +30,32 @@ allOf:
         enum: [2, 4]
       blockSize:
         type: integer
-        description: Storage block size in bytes.
+        description: >
+          Storage block size in bytes. In case the block size is `0` and
+          `canonical` path type is selected, each file is stored in a single
+          S3 object. This value must be set to `0` to enable data import from
+          an existing S3 bucket.
+      maximumCanonicalObjectSize:
+        type: integer
+        description: >
+          Defines the maximum size for objects, which can be modified on the S3
+          storage in `canonical` path mode. In this mode, entire file needs to be
+          downloaded to memory, modified and uploaded back, which is impractical
+          for large files (default 64 MiB).
+        default: 67108864
+        x-onedata-default-value: 67108864
+      fileMode:
+        type: string
+        description: >
+          Defines the file permissions, which files imported from S3 storage will have
+          in Onedata. Values should be provided in octal format e.g. `0644`.
+        default: "0644"
+      dirMode:
+        type: string
+        description: >
+          Defines the directory mode which directories imported from S3 storage will
+          have in Onedata. Values should be provided in octal format e.g. `0775`.
+        default: "0775"
       insecure:
         type: boolean
         default: false
