@@ -9,10 +9,10 @@ properties:
   host:
     type: string
     description: Host on which given OSD should be deployed. It must be the full
-      host name and not an "alias" as used in OneprovIder cluster deployment.
-  Id:
+      host name and not an "alias" as used in Oneprovider cluster deployment.
+  id:
     type: integer
-    description: Id of the OSD. OSD Ids should be contiguous integers starting at 0.
+    description: Id of the OSD. OSD Ids should be continous integers starting at 0.
 required:
   - host
-  - Id
+  - id
