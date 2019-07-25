@@ -1,7 +1,7 @@
 type: object
 description: List of block device descriptions.
 properties:
-  block_devices:
+  blockDevices:
     type: array
     description: List of available block devices.
     items:
