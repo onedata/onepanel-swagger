@@ -20,20 +20,20 @@ properties:
           description: Result of heuristic attempt to detect whether a device
             or any of its children is mounted.
       required:
-      - host
-      - path
-      - size
-      - mounted
+        - host
+        - path
+        - size
+        - mounted
 required:
-- block_devices
+  - block_devices
 example:
   block_devices:
-    - name: sda
+    - path: /dev/sda
       size: 10000000000
       mounted: false
-    - name: sdb
+    - path: /dev/sdb
       size: 20000000000
       mounted: true
-    - name: sr0
+    - path: /dev/sr0
       size: 1073741312
       mounted: false
