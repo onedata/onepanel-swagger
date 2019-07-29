@@ -62,7 +62,7 @@ post:
       schema:
         $ref: '#/definitions/ServiceError'
   parameters:
-    - name: serviceHosts
+    - name: CephMonitors
       in: body
       description: List of Ceph Monitor specifications.
       schema:

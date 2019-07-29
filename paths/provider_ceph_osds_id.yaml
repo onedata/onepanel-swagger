@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_osd
-  summary: Get ceph OSD
-  description: "" # @fixmme
+  summary: Get Ceph OSD
+  description: Returns details of a Ceph OSD instance.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_osd

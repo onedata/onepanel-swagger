@@ -63,7 +63,7 @@ post:
       schema:
         $ref: '#/definitions/ServiceError'
   parameters:
-    - name: osds
+    - name: CephOsds
       in: body
       description: "List of OSD specifications"
       schema:
