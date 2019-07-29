@@ -62,16 +62,14 @@ post:
       schema:
         $ref: '#/definitions/ServiceError'
   parameters:
-    - name: serviceHosts
+    - name: CephManagers
       in: body
       description: >
-        The service hosts configuration where managers should be deployed.
+        Object with list of Ceph Manager configurations.
       schema:
         $ref: '#/definitions/CephManagers'
       required: true
   x-code-samples:
     - lang: Shell
       source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$HOST:9443
-
-  # @fixme maybe allow global start/stop
 

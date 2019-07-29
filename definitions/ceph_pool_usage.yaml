@@ -6,8 +6,8 @@ properties:
     description: Total size of objects in the pool in bytes.
   maxAvailable:
     type: integer
-    description: Projected size of data which can yet be written to the pool in bytes.
-      See 'Checking a Cluster’s Usage Stats' in the Ceph documentation.
+    description: Projected size in bytes of data which may be written to the poool.
+      See "Checking a Cluster’s Usage Stats' in the Ceph documentation.
 required:
   - used
   - max_available
