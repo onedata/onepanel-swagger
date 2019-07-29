@@ -12,8 +12,6 @@ properties:
       If not specified it will be autodetected.
   id:
     type: string
-    # fixme inconsitent with 'host' description regarding multiple on a host
     description: Monitor identifier. Be default the hostname is used.
-      Must be specified if more than one monitor is deployed on a host.
 required:
   - host
