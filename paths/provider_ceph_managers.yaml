@@ -1,10 +1,10 @@
 get:
   operationId: get_ceph_managers
-  summary: Get ceph manager
-  description: "" # @fixmme
+  summary: List Ceph Managers
+  description: Returns object with a list of Ceph Manager instances.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_manager
+  x-onedata-resource: service_ceph_managers
   tags:
   - Oneprovider
   produces:
@@ -35,7 +35,7 @@ post:
   description: Deploys ceph manager services on given hosts.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_manager
+  x-onedata-resource: service_ceph_managers
   tags:
   - Oneprovider
   consumes:

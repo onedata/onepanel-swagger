@@ -1,4 +1,5 @@
-description: OSDFILESTORE
+description: Filestore OSD specification. Filestore means OSD is backed by
+  a folder on an existing filesystem.
 allOf:
   - $ref: '#/definitions/CephOsd'
   - type: object

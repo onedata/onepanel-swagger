@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_monitor
-  summary: Get Ceph monitor
-  description: "" # @fixmme
+  summary: Get Ceph Monitor
+  description: Returns details of a Ceph Monitor instance.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_monitor
@@ -36,7 +36,7 @@ get:
 
 delete:
   operationId: remove_ceph_monitor
-  summary: Purge Ceph monitor.
+  summary: Purge Ceph Monitor.
   description: Removes the Ceph Monitor daemon.
   x-onedata-version: 3
   x-onedata-module: rest_ceph

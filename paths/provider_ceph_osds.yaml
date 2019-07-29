@@ -5,7 +5,7 @@ get:
     Return list of Ceph OSD configurations.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_osd
+  x-onedata-resource: service_ceph_osds
   tags:
   - Oneprovider
   produces:
@@ -36,7 +36,7 @@ post:
   description: Deploys Ceph OSD services in the cluster.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_osd
+  x-onedata-resource: service_ceph_osds
   tags:
   - Oneprovider
   consumes:

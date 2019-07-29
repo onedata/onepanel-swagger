@@ -1,4 +1,5 @@
-description: OSDBLUESTORE
+description: Bluestore OSD specification. Bluestore means OSD is backed by
+  a whole block device formatted to its needs.
 allOf:
   - $ref: '#/definitions/CephOsd'
   - type: object

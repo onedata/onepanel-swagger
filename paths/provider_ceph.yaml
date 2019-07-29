@@ -1,6 +1,6 @@
 get:
   operationId: get_ceph_params
-  summary: Get global params
+  summary: Get global Ceph params
   description: Returns Ceph settings global to the Ceph cluster.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
