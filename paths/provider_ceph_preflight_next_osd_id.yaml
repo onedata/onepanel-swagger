@@ -7,9 +7,9 @@ get:
   x-onedata-module: rest_ceph
   x-onedata-resource: next_osd_id
   tags:
-  - Oneprovider
+    - Oneprovider
   produces:
-  - application/json
+    - application/json
   responses:
     '200':
       description: The recommended Id.

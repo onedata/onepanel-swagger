@@ -14,5 +14,5 @@ properties:
     items:
       type: string
 required:
-- level
-- messages
+  - level
+  - messages

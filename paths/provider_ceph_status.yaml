@@ -6,9 +6,9 @@ get:
   x-onedata-module: rest_ceph
   x-onedata-resource: ceph_status
   tags:
-  - Oneprovider
+    - Oneprovider
   produces:
-  - application/json
+    - application/json
   responses:
     '200':
       description: Ceph status report
@@ -25,5 +25,5 @@ get:
       schema:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephStatus --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephStatus --host https://$HOST:9443

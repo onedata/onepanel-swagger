@@ -7,9 +7,9 @@ get:
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_osds
   tags:
-  - Oneprovider
+    - Oneprovider
   produces:
-  - application/json
+    - application/json
   responses:
     '200':
       description: List of OSDs
@@ -26,8 +26,8 @@ get:
       schema:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephOsds --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephOsds --host https://$HOST:9443
 
 
 post:
@@ -38,9 +38,9 @@ post:
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_osds
   tags:
-  - Oneprovider
+    - Oneprovider
   consumes:
-  - application/json
+    - application/json
   responses:
     '204':
       description: Deployment process successfully started.
@@ -63,14 +63,14 @@ post:
       schema:
         $ref: '#/definitions/ServiceError'
   parameters:
-  - name: osds
-    in: body
-    description: "List of OSD specifications"
-    schema:
-      $ref: '#/definitions/CephOsds'
-    required: true
+    - name: osds
+      in: body
+      description: "List of OSD specifications"
+      schema:
+        $ref: '#/definitions/CephOsds'
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: >
-      echo '[{"host": "n1.op.example.com", "type": "filestore"}]' |
-      onepanel-rest-cli -u onepanel:$PASSPHRASE addCephOsds --host https://$HOST:9443
+    - lang: Shell
+      source: >
+        echo '[{"host": "n1.op.example.com", "type": "filestore"}]' |
+        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephOsds --host https://$HOST:9443

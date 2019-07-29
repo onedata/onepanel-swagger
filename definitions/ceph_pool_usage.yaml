@@ -9,5 +9,5 @@ properties:
     description: Projected size of data which can yet be written to the pool in bytes.
       See 'Checking a Cluster’s Usage Stats' in the Ceph documentation.
 required:
-- used
-- max_available
+  - used
+  - max_available

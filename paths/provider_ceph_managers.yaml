@@ -6,9 +6,9 @@ get:
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_managers
   tags:
-  - Oneprovider
+    - Oneprovider
   produces:
-  - application/json
+    - application/json
   responses:
     '200':
       description: Object containing a list of Ceph Manager Daemons.
@@ -25,8 +25,8 @@ get:
       schema:
         $ref: '#/definitions/ServiceError'
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephMonitors --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephMonitors --host https://$HOST:9443
 
 
 post:
@@ -37,9 +37,9 @@ post:
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_managers
   tags:
-  - Oneprovider
+    - Oneprovider
   consumes:
-  - application/json
+    - application/json
   responses:
     '204':
       description: Deployment process successfully started.
@@ -62,16 +62,16 @@ post:
       schema:
         $ref: '#/definitions/ServiceError'
   parameters:
-  - name: serviceHosts
-    in: body
-    description: >
-      The service hosts configuration where managers should be deployed.
-    schema:
-      $ref: '#/definitions/CephManagers'
-    required: true
+    - name: serviceHosts
+      in: body
+      description: >
+        The service hosts configuration where managers should be deployed.
+      schema:
+        $ref: '#/definitions/CephManagers'
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$HOST:9443
+    - lang: Shell
+      source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$HOST:9443
 
   # @fixme maybe allow global start/stop
 

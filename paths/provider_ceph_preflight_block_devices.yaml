@@ -7,9 +7,9 @@ get:
   x-onedata-module: rest_ceph
   x-onedata-resource: block_devices
   tags:
-  - Oneprovider
+    - Oneprovider
   produces:
-  - application/json
+    - application/json
   responses:
     '200':
       description: The block devices description
@@ -27,11 +27,11 @@ get:
         $ref: '#/definitions/ServiceError'
 
   parameters:
-  - name: host
-    in: query
-    description: Host for which block devices should be returned.
-    type: string
-    required: true
+    - name: host
+      in: query
+      description: Host for which block devices should be returned.
+      type: string
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getBlockDevices --host https://$HOST:9443
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getBlockDevices --host https://$HOST:9443

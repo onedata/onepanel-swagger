@@ -14,6 +14,6 @@ properties:
     additionalProperties:
       $ref: '#/definitions/CephPoolUsage'
 required:
-- total
-- osds
-- pools
+  - total
+  - osds
+  - pools
