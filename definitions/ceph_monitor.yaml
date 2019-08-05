@@ -1,5 +1,5 @@
 type: object
-description: Ceph Monitor specification.
+description: Ceph monitor specification.
 properties:
   host:
     type: string

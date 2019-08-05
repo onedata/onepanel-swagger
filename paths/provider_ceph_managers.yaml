@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_managers
-  summary: List Ceph Managers
-  description: Returns object with a list of Ceph Manager instances.
+  summary: List Ceph managers
+  description: Returns object with a list of Ceph manager instances.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_managers
@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Object containing a list of Ceph Manager Daemons.
+      description: Object containing a list of Ceph manager daemons.
       schema:
         $ref: '#/definitions/CephManagers'
     '401':
@@ -32,7 +32,7 @@ get:
 post:
   operationId: add_ceph_managers
   summary: Add managers to ceph cluster
-  description: Deploys ceph manager services on given hosts.
+  description: Deploys Ceph manager services on given hosts.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_managers
@@ -65,7 +65,7 @@ post:
     - name: CephManagers
       in: body
       description: >
-        Object with list of Ceph Manager configurations.
+        Object with list of Ceph manager configurations.
       schema:
         $ref: '#/definitions/CephManagers'
       required: true

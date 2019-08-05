@@ -1,6 +1,6 @@
 get:
   operationId: get_ceph_osd_usage
-  summary: Get storage space usage details for specific osd.
+  summary: Get storage space usage details for specific OSD.
   description: Returns storage space usage statistics of given Ceph OSD.
   x-onedata-version: 3
   x-onedata-module: rest_ceph

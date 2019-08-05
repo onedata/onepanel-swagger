@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_monitors
-  summary: List Ceph Monitors
-  description: Returns object with a list of Ceph Monitor instances.
+  summary: List Ceph monitors
+  description: Returns object with a list of Ceph monitor instances.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_monitors
@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The Ceph Monitors list.
+      description: The Ceph monitors list.
       schema:
         $ref: '#/definitions/CephMonitors'
     '401':
@@ -32,7 +32,7 @@ get:
 post:
   operationId: add_ceph_monitors
   summary: Add monitors to Ceph cluster
-  description: Deploys Ceph Monitor services on given hosts.
+  description: Deploys Ceph monitor services on given hosts.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_monitors
@@ -64,7 +64,7 @@ post:
   parameters:
     - name: CephMonitors
       in: body
-      description: List of Ceph Monitor specifications.
+      description: List of Ceph monitor specifications.
       schema:
         $ref: '#/definitions/CephMonitors'
       required: true

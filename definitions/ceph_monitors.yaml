@@ -1,8 +1,8 @@
 type: object
-description: Object containing a list of Ceph Monitor Daemons.
+description: Object containing a list of Ceph monitor daemons.
 properties:
   monitors:
     type: array
-    description: List of Ceph Monitor specifications.
+    description: List of Ceph monitor specifications.
     items:
       $ref: "#/definitions/CephMonitor"

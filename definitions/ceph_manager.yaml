@@ -1,5 +1,5 @@
 type: object
-description: Ceph Manager specification.
+description: Ceph manager specification.
 properties:
   host:
     type: string

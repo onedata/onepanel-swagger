@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_manager
-  summary: Get ceph manager
-  description: Returns Ceph Manager Daemon configuration.
+  summary: Get Ceph manager
+  description: Returns Ceph manager configuration.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: service_ceph_manager
@@ -19,14 +19,14 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: Ceph Manager with given id does not exist.
+      description: Ceph manager with given id does not exist.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/ServiceError'
   parameters:
     - name: id
-      description: Id of the Ceph Manager to be described.
+      description: Id of the Ceph manager to be described.
       in: path
       type: string
       required: true

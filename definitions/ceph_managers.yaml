@@ -1,8 +1,8 @@
 type: object
-description: Object containing a list of Ceph Manager Daemons.
+description: Object containing a list of Ceph manager daemons.
 properties:
   managers:
     type: array
-    description: List of Ceph Manager configurations.
+    description: List of Ceph manager configurations.
     items:
       $ref: "#/definitions/CephManager"

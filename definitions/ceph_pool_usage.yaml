@@ -7,7 +7,7 @@ properties:
   maxAvailable:
     type: integer
     description: Projected size in bytes of data which may be written to the poool.
-      See "Checking a Cluster’s Usage Stats' in the Ceph documentation.
+      See "Checking a Cluster’s Usage Stats" in the Ceph documentation.
 required:
   - used
   - max_available
