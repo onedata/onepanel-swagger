@@ -12,7 +12,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Information about the cluster
+      description: Information about the cluster.
       schema:
         $ref: '#/definitions/ClusterDetails'
     '400':

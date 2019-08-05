@@ -27,7 +27,7 @@ properties:
     description: If true LUMA and reverse LUMA services will be enabled.
   lumaUrl:
     type: string
-    description: URL of external LUMA service
+    description: URL of external LUMA service.
   lumaApiKey:
     type: string
     description: LUMA API Key, must be identical with API Key in external LUMA service.

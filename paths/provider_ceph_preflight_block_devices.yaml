@@ -12,7 +12,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The block devices description
+      description: The block devices description.
       schema:
         $ref: '#/definitions/BlockDevices'
     '401':

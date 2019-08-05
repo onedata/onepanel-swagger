@@ -1,5 +1,5 @@
 type: object
-description: Details of host added to cluster
+description: Details of host added to cluster.
 properties:
   address:
     type: string

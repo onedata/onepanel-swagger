@@ -1,9 +1,9 @@
 type: object
-description: "Ceph Monitor specification"
+description: Ceph Monitor specification.
 properties:
   host:
     type: string
-    description: Host on which given mon should be deployed.
+    description: Host on which given Monitor should be deployed.
       There may be only one monitor per host. Attempts at creating additional
       monitors at the same host will be skipped.
   ip:

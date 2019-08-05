@@ -3,7 +3,7 @@ description: Describes a Ceph pool.
 properties:
   name:
     type: string
-    description: Name of the pool
+    description: Name of the pool.
     readOnly: true
   copiesNumber:
     type: integer

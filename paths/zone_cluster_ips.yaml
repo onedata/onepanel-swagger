@@ -1,7 +1,7 @@
 get:
   operationId: get_zone_cluster_ips
   summary: Get zone cluster nodes IPs
-  description: Returns IPs of nodes in zone cluster
+  description: Returns IPs of nodes in zone cluster.
   x-onedata-version: 3
   x-onedata-module: rest_onezone
   x-onedata-resource: cluster_ips

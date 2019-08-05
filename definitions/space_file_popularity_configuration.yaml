@@ -3,7 +3,7 @@ description: Configuration of the file-popularity mechanism in the space.
 properties:
   enabled:
     type: boolean
-    description: If true, collecting file-popularity mechanism in the space is enabled
+    description: If true, collecting file-popularity mechanism in the space is enabled.
   exampleQuery:
     type: string
     description: >

@@ -3,6 +3,6 @@ description: Object containing a list of Ceph Monitor Daemons.
 properties:
   monitors:
     type: array
-    description: "List of Ceph Monitor specifications"
+    description: List of Ceph Monitor specifications.
     items:
       $ref: "#/definitions/CephMonitor"

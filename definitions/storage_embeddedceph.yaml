@@ -31,7 +31,7 @@ allOf:
         default: false
       lumaUrl:
         type: string
-        description: URL of external LUMA service
+        description: URL of external LUMA service.
       lumaApiKey:
         type: string
         description: LUMA API Key, must be identical with API Key in external LUMA service.

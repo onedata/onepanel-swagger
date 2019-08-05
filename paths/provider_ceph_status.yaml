@@ -1,7 +1,7 @@
 get:
   operationId: get_ceph_status
   summary: Get Ceph cluster health
-  description: Returns Ceph cluster health
+  description: Returns Ceph cluster health.
   x-onedata-version: 3
   x-onedata-module: rest_ceph
   x-onedata-resource: ceph_status
@@ -11,7 +11,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Ceph status report
+      description: Ceph status report.
       schema:
         $ref: '#/definitions/CephStatus'
     '401':
@@ -19,7 +19,7 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: Ceph cluster is not deployed
+      description: Ceph cluster is not deployed.
     '500':
       description: Internal server error.
       schema:

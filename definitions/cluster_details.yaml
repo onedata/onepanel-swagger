@@ -3,10 +3,10 @@ description: Details of a cluster.
 properties:
   id:
     type: string
-    description: Id of the cluster record
+    description: Id of the cluster record.
   type:
     type: string
-    description: Type of the cluster
+    description: Type of the cluster.
     enum: [oneprovider, onezone]
   serviceId:
     type: string

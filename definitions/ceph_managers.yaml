@@ -3,6 +3,6 @@ description: Object containing a list of Ceph Manager Daemons.
 properties:
   managers:
     type: array
-    description: "List of Ceph Manager configurations"
+    description: List of Ceph Manager configurations.
     items:
       $ref: "#/definitions/CephManager"

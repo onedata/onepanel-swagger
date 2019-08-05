@@ -9,7 +9,7 @@ properties:
       properties:
         host:
           type: string
-          description: Host on which the device is available
+          description: Host on which the device is available.
         path:
           type: string
         size:

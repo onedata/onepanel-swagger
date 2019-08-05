@@ -1,5 +1,5 @@
 type: object
-description: Public Onezone configuration details
+description: Public Onezone configuration details.
 allOf:
   - $ref: '#/definitions/Configuration'
   - type: object

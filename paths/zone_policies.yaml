@@ -44,7 +44,7 @@ patch:
     - application/json
   responses:
     '204':
-      description: Policies have been successfully modified
+      description: Policies have been successfully modified.
     '400':
       description: Invalid request.
       schema:

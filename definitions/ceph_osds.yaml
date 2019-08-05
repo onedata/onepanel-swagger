@@ -3,6 +3,6 @@ description: Object containing a list of Ceph OSD specifications.
 properties:
   osds:
     type: array
-    description: "List of Ceph OSD specifications."
+    description: List of Ceph OSD specifications.
     items:
       $ref: "#/definitions/CephOsd"

@@ -1,5 +1,5 @@
 type: object
-description: Public Oneprovider configuration details
+description: Public Oneprovider configuration details.
 allOf:
   - $ref: '#/definitions/Configuration'
   - type: object

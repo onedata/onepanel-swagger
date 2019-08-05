@@ -12,7 +12,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The passphrase status
+      description: The passphrase status.
       schema:
         $ref: '#/definitions/EmergencyPassphraseStatus'
     '400':

@@ -1,7 +1,7 @@
 get:
   operationId: get_provider_cluster_ips
   summary: Get provider cluster nodes IPs
-  description: Returns IPs of nodes in provider cluster
+  description: Returns IPs of nodes in provider cluster.
   x-onedata-version: 3
   x-onedata-module: rest_oneprovider
   x-onedata-resource: cluster_ips
