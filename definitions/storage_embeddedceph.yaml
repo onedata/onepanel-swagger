@@ -21,23 +21,6 @@ allOf:
         type: integer
         description: Storage block size in bytes.
         default: 4194304
-      readonly:
-        type: boolean
-        description: Defines whether storage is readonly.
-        default: false
-      lumaEnabled:
-        type: boolean
-        description: If true LUMA and reverse LUMA services will be enabled.
-        default: false
-      lumaUrl:
-        type: string
-        description: URL of external LUMA service.
-      lumaApiKey:
-        type: string
-        description: LUMA API Key, must be identical with API Key in external LUMA service.
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
       storagePathType:
         type: string
         default: flat
@@ -49,7 +32,7 @@ allOf:
           'flat' paths are based on unique file UUID's and do not require on-storage
           rename when logical file name is changed.
 example:
-  type: cephrados
+  type: embeddedceph
   name: myceph
   copiesNumber: 2
   readonly: false

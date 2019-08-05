@@ -1,0 +1,13 @@
+description: Modifiable fields of a Ceph storage backed by a local pool.
+allOf:
+  - $ref: '#/definitions/StorageDetailsModify'
+  - $ref: '#/definitions/CephPool'
+  - type: object
+    properties:
+      type:
+        type: string
+        description: The type of storage.
+        x-discriminator-value: embeddedceph
+example:
+  type: embeddedceph
+  copiesNumber: 3
