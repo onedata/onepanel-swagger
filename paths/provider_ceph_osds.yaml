@@ -72,5 +72,5 @@ post:
   x-code-samples:
     - lang: Shell
       source: >
-        echo '[{"host": "n1.op.example.com", "type": "filestore"}]' |
+        echo '{"osds": [{"host": "n1.op.example.com", "type": "filestore"}]}' |
         onepanel-rest-cli -u onepanel:$PASSPHRASE addCephOsds --host https://$HOST:9443

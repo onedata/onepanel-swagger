@@ -71,6 +71,6 @@ post:
   x-code-samples:
     - lang: Shell
       source: >
-        echo '{"host": "n1.op.example.com"}' |
+        echo '{"monitors": [{"host": "n1.op.example.com"}]}' |
         onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$HOST:9443
 

@@ -71,5 +71,7 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$HOST:9443
+      source: >
+        echo '{"managers": [{"host": "n1.op.example.com"}]}' |
+        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephManagers --host https://$HOST:9443
 
