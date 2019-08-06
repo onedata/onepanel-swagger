@@ -7,9 +7,8 @@ get:
   x-onedata-resource: service_ceph
   tags:
     - Oneprovider
-  consumes:
+  produces:
     - application/json
-    - application/x-yaml
   responses:
     '200':
       description: The Ceph cluster configuration details.

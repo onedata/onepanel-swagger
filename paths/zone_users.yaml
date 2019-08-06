@@ -8,7 +8,7 @@ get:
   x-onedata-resource: onezone_users
   tags:
     - Onezone
-  consumes:
+  produces:
     - application/json
   responses:
     '200':

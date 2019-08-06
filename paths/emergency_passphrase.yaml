@@ -8,7 +8,7 @@ get:
   x-onedata-noauth: true
   tags:
     - Onepanel
-  consumes:
+  produces:
     - application/json
   responses:
     '200':

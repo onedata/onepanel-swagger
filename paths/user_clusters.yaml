@@ -8,7 +8,7 @@ get:
   x-onedata-resource: clusters
   tags:
     - Onepanel
-  consumes:
+  produces:
     - application/json
   responses:
     '200':
