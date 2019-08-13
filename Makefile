@@ -54,6 +54,7 @@ javascript-update-repo: clean javascript-client
 	git clone ssh://git@git.onedata.org:7999/vfs/onepanel-javascript-client.git generated/javascript-git && \
 	cd generated/javascript-git && \
 	( ( git checkout ${BRANCH} && ( git pull || exit 1 ) ) || git checkout -b ${BRANCH} ) && \
+	git rm -r * && \
 	cp -R ../javascript/* . && \
 	git add -A . && \
 	git config user.email "bamboo@onedata.org" && \
