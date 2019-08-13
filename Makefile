@@ -11,7 +11,11 @@ SWAGGER_JS_CLIENT_IMAGE     ?= docker.onedata.org/swagger-codegen:VFS-3144
 SWAGGER_BASH_CLIENT_IMAGE   ?= docker.onedata.org/swagger-codegen:ID-2fc8126ac8
 SWAGGER_REDOC_IMAGE         ?= docker.onedata.org/swagger-redoc:1.0.0
 
-BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
+ifndef BRANCH
+	# BRANCH should always be passed in case of git detached state. This is only a fallback.
+	BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
+endif
+
 COMMIT_MESSAGE = $(shell git log -1 --pretty=format:%s)
 
 .PHONY : all swagger.json
