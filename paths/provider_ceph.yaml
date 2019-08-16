@@ -53,6 +53,14 @@ post:
           description: >
             The path to the task resource, which can be queried to check
             operation status.
+    '204':
+      description: Ceph cluster extension succesfully started.
+      headers:
+        Location:
+          type: string
+          description: >
+            The path to the task resource, which can be queried to check
+            operation status.
     '400':
       description: Invalid request.
       schema:
