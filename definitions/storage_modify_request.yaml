@@ -8,7 +8,7 @@ description: The storage parameters to be changed. Should be a single-valued
 # TODO VFS-5117 make it a single object instead of dictionary
 # after adjusting Onepanel parser to handle top-level polymorphism
 x-onedata-dictionary: true
-x-onedata-dictionary-value-type: storage_details_modify
+x-onedata-dictionary-value-type: storage_modify_details
 additionalProperties:
   $ref: '#/definitions/StorageModifyDetails'
 example:
