@@ -13,7 +13,7 @@ get:
     '200':
       description: The details of a selected storage.
       schema:
-        $ref: '#/definitions/StorageDetails'
+        $ref: '#/definitions/StorageGetDetails'
     '401':
       description: Unauthorized request.
     '403':
@@ -56,7 +56,7 @@ patch:
         The storage resources have been successfully modified.
         Response contains current storage params and report of file creation test.
       schema:
-        $ref: '#/definitions/StorageDetails'
+        $ref: '#/definitions/StorageModifyDetails'
     '401':
       description: Unauthorized request.
     '403':

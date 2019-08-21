@@ -10,7 +10,7 @@ properties:
   storageId:
     type: string
     description: >
-      Id of StorageDetails that supports this space on provider that is
+      Id of storage that supports this space on provider that is
       associated with this panel.
   localStorages:
     type: array

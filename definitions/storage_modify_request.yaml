@@ -10,7 +10,7 @@ description: The storage parameters to be changed. Should be a single-valued
 x-onedata-dictionary: true
 x-onedata-dictionary-value-type: storage_details_modify
 additionalProperties:
-  $ref: '#/definitions/StorageDetailsModify'
+  $ref: '#/definitions/StorageModifyDetails'
 example:
   s3storage:
     type: s3

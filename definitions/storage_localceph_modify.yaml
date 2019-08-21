@@ -1,6 +1,6 @@
 description: Modifiable fields of a Ceph storage backed by a local pool.
 allOf:
-  - $ref: '#/definitions/StorageDetailsModify'
+  - $ref: '#/definitions/StorageModifyDetails'
   - $ref: '#/definitions/CephPool'
   - type: object
     properties:

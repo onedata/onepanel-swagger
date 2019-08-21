@@ -1,3 +1,7 @@
+# This model is separate from StorageGetDetails in order to specify differing
+# set of subclasses. This prevents creation of some storage types,
+# while preserving their models for use in GET in existing deployments.
+
 type: object
 description: The cluster storage configuration.
 discriminator: type
@@ -16,17 +20,6 @@ properties:
   type:
     type: string
     description: The type of storage.
-  id:
-    type: string
-    description: The Id of storage.
-  name:
-    type: string
-    description: The name of storage.
-  verificationPassed:
-    type: boolean
-    readOnly: true
-    description: Result of storage verification (reading and writing a file).
-      Returned only on PATCH requests for read-write storages.
   timeout:
     type: integer
     description: Storage operation timeout in milliseconds.

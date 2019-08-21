@@ -96,11 +96,14 @@ ClusterIps:
 ModifyClusterIps:
   $ref: ./modify_cluster_ips.yaml
 
-StorageDetails:
-  $ref: ./storage_details.yaml
+StorageCreateDetails:
+  $ref: ./storage_create_details.yaml
 
-StorageDetailsModify:
-  $ref: ./storage_details_modify.yaml
+StorageGetDetails:
+  $ref: ./storage_get_details.yaml
+
+StorageModifyDetails:
+  $ref: ./storage_modify_details.yaml
 
 Posix:
   $ref: ./storage_posix.yaml
