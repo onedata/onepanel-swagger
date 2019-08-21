@@ -1,6 +1,5 @@
 description: The Ceph storage configuration (uses libradosstriper).
 allOf:
-  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
   - type: object
     properties:
