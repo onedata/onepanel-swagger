@@ -7,11 +7,11 @@ allOf:
       type:
         type: string
         description: The type of storage.
-        x-discriminator-value: embeddedceph
+        x-discriminator-value: localceph
       name:
         type: string
         readOnly: true
         description: Name of the storage and corresponding Ceph pool.
 example:
-  type: embeddedceph
+  type: localceph
   copiesNumber: 3

@@ -8,7 +8,7 @@ allOf:
       type:
         type: string
         description: The type of storage.
-        x-discriminator-value: embeddedceph
+        x-discriminator-value: localceph
       insecure:
         type: boolean
         default: true
@@ -32,7 +32,7 @@ allOf:
           'flat' paths are based on unique file UUID's and do not require on-storage
           rename when logical file name is changed.
 example:
-  type: embeddedceph
+  type: localceph
   name: myceph
   copiesNumber: 2
   readonly: false
