@@ -50,6 +50,7 @@ javascript-client: validate
 	docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_JS_CLIENT_IMAGE}  generate -i ./swagger.json -l javascript -o ./generated/javascript/ -c ./javascript-config.json
 
 javascript-update-repo: clean javascript-client
+	if [ "${BRANCH}" = "HEAD" ]; then exit 1; fi
 	rm -rf generated/javascript-git
 	git clone ssh://git@git.onedata.org:7999/vfs/onepanel-javascript-client.git generated/javascript-git && \
 	cd generated/javascript-git && \
