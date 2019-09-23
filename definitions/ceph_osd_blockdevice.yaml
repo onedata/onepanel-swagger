@@ -1,18 +1,18 @@
-description: Bluestore OSD specification. Bluestore means OSD is backed by
+description: Blockdevice OSD specification. Blockdevice means OSD is backed by
   a whole block device formatted to its needs.
 allOf:
   - $ref: '#/definitions/CephOsd'
   - type: object
-    x-discriminator-value: bluestore
+    x-discriminator-value: blockdevice
     properties:
       type:
         description: |
           Type of the OSD. Available types are:
-          - bluestore - formats a raw block device to store the data
+          - blockdevice - formats a raw block device to store the data
           - loopdevice - stores data in a file mounted as loop device
         type: string
-        enum: [bluestore]
-        x-discriminator-value: bluestore
+        enum: [blockdevice]
+        x-discriminator-value: blockdevice
         x-discriminator: true
       device:
         type: string
@@ -37,7 +37,7 @@ allOf:
       - type
       - device
 example:
-  type: bluestore
+  type: blockdevice
   host: node1.example.com
   uuid: b816e26e-5890-4ffe-ba6b-929f45b2ebfb
   device: /dev/sdb

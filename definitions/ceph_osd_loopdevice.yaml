@@ -1,4 +1,4 @@
-description: Loopdevice OSD specification. This is a Bluestore OSD
+description: Loopdevice OSD specification. This is a Blockdevice OSD
   backed by a loopdevice backed by a file in given directory.
 allOf:
   - $ref: '#/definitions/CephOsd'
@@ -8,7 +8,7 @@ allOf:
       type:
         description: |
           Type of the OSD. Available types are:
-          - bluestore - formats a raw block device to store the data
+          - blockdevice - formats a raw block device to store the data
           - loopdevice - stores data in a file mounted as loop device
         type: string
         enum: [loopdevice]

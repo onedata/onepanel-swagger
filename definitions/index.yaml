@@ -180,8 +180,8 @@ CephMonitors:
 CephOsd:
   $ref: ./ceph_osd.yaml
 
-bluestore:
-  $ref: ./ceph_osd_bluestore.yaml
+blockdevice:
+  $ref: ./ceph_osd_blockdevice.yaml
 
 loopdevice:
   $ref: ./ceph_osd_loopdevice.yaml

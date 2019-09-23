@@ -3,7 +3,7 @@ description: The cluster storage configuration.
 discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:
-  - bluestore
+  - blockdevice
   - loopdevice
 properties:
   host:
