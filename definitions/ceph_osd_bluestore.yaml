@@ -8,8 +8,8 @@ allOf:
       type:
         description: |
           Type of the OSD. Available types are:
-          - filestore - stores all files on an existing filesystem
           - bluestore - formats a raw block device to store the data
+          - loopdevice - stores data in a file mounted as loop device
         type: string
         enum: [bluestore]
         x-discriminator-value: bluestore
@@ -36,3 +36,8 @@ allOf:
     required:
       - type
       - device
+example:
+  type: bluestore
+  host: node1.example.com
+  uuid: b816e26e-5890-4ffe-ba6b-929f45b2ebfb
+  device: /dev/sdb

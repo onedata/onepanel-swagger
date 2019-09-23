@@ -7,6 +7,12 @@ properties:
     items:
       type: object
       properties:
+        type:
+          type: string
+          description: Device type, as returned by lsblk.
+          enum:
+            - disk
+            - part
         host:
           type: string
           description: Host on which the device is available.

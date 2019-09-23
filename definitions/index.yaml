@@ -183,8 +183,8 @@ CephOsd:
 bluestore:
   $ref: ./ceph_osd_bluestore.yaml
 
-filestore:
-  $ref: ./ceph_osd_filestore.yaml
+loopdevice:
+  $ref: ./ceph_osd_loopdevice.yaml
 
 CephOsds:
   $ref: ./ceph_osds.yaml
