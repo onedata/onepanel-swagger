@@ -116,9 +116,6 @@
 /provider/ceph/preflight/block_devices:
   $ref: ./provider_ceph_preflight_block_devices.yaml
 
-/provider/ceph/preflight/next_osd_id:
-  $ref: ./provider_ceph_preflight_next_osd_id.yaml
-
 /provider/spaces:
   $ref: ./provider_spaces.yaml
 
