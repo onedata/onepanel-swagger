@@ -174,3 +174,6 @@
 
 /zone/policies:
   $ref: ./zone_policies.yaml
+
+/zone/gui_message/{id}:
+  $ref: ./zone_gui_message_id.yaml
