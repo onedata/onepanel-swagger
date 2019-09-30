@@ -27,19 +27,20 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: id
+    - &parameter-id
+      name: id
       in: path
       type: string
       required: true
-      description: &id-description |
+      description: |
         Possible values are:
-          - cookie_consent - for the contents of cookie consent popup
+          - cookie_consent_notification - for the contents of cookie consent popup
           - privacy_policy - for the privacy policy
           - signin_notification - for the message displayed on the Onezone sign in screen
-      enum: &id-values
-        - signin_notification
+      enum:
+        - cookie_consent_notification
         - privacy_policy
-        - cookie_consent
+        - signin_notification
 
 patch:
   operationId: modify_gui_message
@@ -68,17 +69,12 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
+    - *parameter-id
     - name: MessageChange
       in: body
       schema:
         $ref: '#/definitions/GuiMessage'
       required: true
-    - name: id
-      in: path
-      type: string
-      required: true
-      description: *id-description
-      enum: *id-values
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyGuiMessage
