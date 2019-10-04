@@ -27,6 +27,9 @@ DnsCheckConfiguration:
 Error:
   $ref: ./error.yaml
 
+GuiMessage:
+  $ref: ./gui_message.yaml
+
 Ids:
   $ref: ./ids.yaml
 
