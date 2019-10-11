@@ -42,7 +42,7 @@ patch:
   description: |
     Configures the file-popularity mechanism in the space.
     The mechanism is responsible for collecting file-popularity usage statistics per space support.
-    Creates a view index which can be queried to fetch the least popular files.
+    Creates a view which can be queried to fetch the least popular files.
     The view is sorted in an increasing order by the popularity function value.
     The popularity function is defined as
 
