@@ -22,14 +22,14 @@ required:
 example:
   cluster:
     master: "node1.oneprovider.onedata.example.com"
-    manager:
+    managers:
       mainHost: "node1.oneprovider.onedata.example.com"
       hosts:
         - "node1.oneprovider.onedata.example.com"
-    worker:
+    workers:
       hosts:
         - "node1.oneprovider.onedata.example.com"
-    database:
+    databases:
       hosts:
         - "node1.oneprovider.onedata.example.com"
   oneprovider:
