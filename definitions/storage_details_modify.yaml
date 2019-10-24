@@ -32,7 +32,7 @@ properties:
     type: string
     description: LUMA API Key, must be identical with API Key in external LUMA service.
   qosParameters:
-    description: Map with key-value pairs used for describing QoS requirements.
+    description: Map with key-value pairs used for describing storage QoS parameters.
       Overrides all previously set parameters.
     type: object
     x-onedata-dictionary: true
