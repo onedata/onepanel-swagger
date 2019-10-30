@@ -1,5 +1,5 @@
 type: object
-description: The new Onezone user account details
+description: The new Onezone user account details.
 properties:
   username:
     type: string

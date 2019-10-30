@@ -15,6 +15,12 @@ oz_configuration:
 VersionInfo:
   $ref: ./version_info.yaml
 
+BlockDevices:
+  $ref: ./block_devices.yaml
+
+DataUsage:
+  $ref: ./data_usage.yaml
+
 DnsCheck:
   $ref: ./dns_check.yaml
 
@@ -93,17 +99,26 @@ ClusterIps:
 ModifyClusterIps:
   $ref: ./modify_cluster_ips.yaml
 
-StorageDetails:
-  $ref: ./storage_details.yaml
+StorageCreateDetails:
+  $ref: ./storage_create_details.yaml
 
-StorageDetailsModify:
-  $ref: ./storage_details_modify.yaml
+StorageGetDetails:
+  $ref: ./storage_get_details.yaml
+
+StorageModifyDetails:
+  $ref: ./storage_modify_details.yaml
 
 Posix:
   $ref: ./storage_posix.yaml
 
 PosixModify:
   $ref: ./storage_posix_modify.yaml
+
+Localceph:
+  $ref: ./storage_localceph.yaml
+
+LocalcephModify:
+  $ref: ./storage_localceph_modify.yaml
 
 S3:
   $ref: ./storage_s3.yaml
@@ -146,6 +161,51 @@ Webdav:
 
 WebdavModify:
   $ref: ./storage_webdav_modify.yaml
+
+CephCluster:
+  $ref: ./ceph_cluster.yaml
+
+CephGlobalParams:
+  $ref: ./ceph_global_params.yaml
+
+CephManager:
+  $ref: ./ceph_manager.yaml
+
+CephManagers:
+  $ref: ./ceph_managers.yaml
+
+CephMonitor:
+  $ref: ./ceph_monitor.yaml
+
+CephMonitors:
+  $ref: ./ceph_monitors.yaml
+
+CephOsd:
+  $ref: ./ceph_osd.yaml
+
+blockdevice:
+  $ref: ./ceph_osd_blockdevice.yaml
+
+loopdevice:
+  $ref: ./ceph_osd_loopdevice.yaml
+
+CephOsds:
+  $ref: ./ceph_osds.yaml
+
+CephUsage:
+  $ref: ./ceph_usage.yaml
+
+CephPoolUsage:
+  $ref: ./ceph_pool_usage.yaml
+
+CephPool:
+  $ref: ./ceph_pool.yaml
+
+CephPools:
+  $ref: ./ceph_pools.yaml
+
+CephStatus:
+  $ref: ./ceph_status.yaml
 
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml

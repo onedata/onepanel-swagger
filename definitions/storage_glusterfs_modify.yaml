@@ -1,6 +1,6 @@
 description: The GlusterFS storage configuration.
 allOf:
-- $ref: '#/definitions/StorageDetailsModify'
+- $ref: '#/definitions/StorageModifyDetails'
 - type: object
   properties:
     type:

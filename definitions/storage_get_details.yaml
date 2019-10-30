@@ -1,3 +1,9 @@
+# While this model has different set of subclasses from StorageCreateDetails,
+# both models are listed in "allOf" in the subclasses.
+# By listing StorageCreateDetails there first and marking all fields as
+# readOnly in this StorageGetDetails model, fields unique to GET
+# are prevented from appearing in the generated Erlang code.
+
 type: object
 description: The cluster storage configuration.
 discriminator: type
@@ -7,6 +13,7 @@ x-onedata-subclasses:
   - s3
   - ceph
   - cephrados
+  - localceph
   - swift
   - glusterfs
   - nulldevice
@@ -14,12 +21,15 @@ x-onedata-subclasses:
 properties:
   type:
     type: string
+    readOnly: true
     description: The type of storage.
   id:
     type: string
+    readOnly: true
     description: The Id of storage.
   name:
     type: string
+    readOnly: true
     description: The name of storage.
   verificationPassed:
     type: boolean
@@ -28,18 +38,23 @@ properties:
       Returned only on PATCH requests for read-write storages.
   timeout:
     type: integer
+    readOnly: true
     description: Storage operation timeout in milliseconds.
   readonly:
     type: boolean
+    readOnly: true
     default: false
     description: Defines whether storage is readonly.
   lumaEnabled:
     type: boolean
+    readOnly: true
     description: If true LUMA and reverse LUMA services will be enabled.
     default: false
   lumaUrl:
     type: string
-    description: URL of external LUMA service
+    readOnly: true
+    description: URL of external LUMA service.
   lumaApiKey:
     type: string
+    readOnly: true
     description: LUMA API Key, must be identical with API Key in external LUMA service.

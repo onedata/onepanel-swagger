@@ -4,14 +4,15 @@ description: The part of storage configuration which can be modified
 discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:
-- posix_modify
-- s3_modify
-- ceph_modify
-- cephrados_modify
-- swift_modify
-- glusterfs_modify
-- nulldevice_modify
-- webdav_modify
+  - posix_modify
+  - s3_modify
+  - ceph_modify
+  - cephrados_modify
+  - localceph_modify
+  - swift_modify
+  - glusterfs_modify
+  - nulldevice_modify
+  - webdav_modify
 properties:
   name:
     type: string
@@ -27,7 +28,7 @@ properties:
     description: If true LUMA and reverse LUMA services will be enabled.
   lumaUrl:
     type: string
-    description: URL of external LUMA service
+    description: URL of external LUMA service.
   lumaApiKey:
     type: string
     description: LUMA API Key, must be identical with API Key in external LUMA service.

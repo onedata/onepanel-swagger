@@ -74,6 +74,48 @@
 /provider/configuration:
   $ref: ./provider_configuration.yaml
 
+/provider/ceph/:
+  $ref: ./provider_ceph.yaml
+
+/provider/ceph/osds:
+  $ref: ./provider_ceph_osds.yaml
+
+/provider/ceph/osds/{id}:
+  $ref: ./provider_ceph_osds_id.yaml
+
+/provider/ceph/osds/{id}/usage:
+  $ref: ./provider_ceph_osds_id_usage.yaml
+
+/provider/ceph/managers:
+  $ref: ./provider_ceph_managers.yaml
+
+/provider/ceph/managers/{id}:
+  $ref: ./provider_ceph_managers_id.yaml
+
+/provider/ceph/monitors:
+  $ref: ./provider_ceph_monitors.yaml
+
+/provider/ceph/monitors/{id}:
+  $ref: ./provider_ceph_monitors_id.yaml
+
+/provider/ceph/status:
+  $ref: ./provider_ceph_status.yaml
+
+/provider/ceph/usage:
+  $ref: ./provider_ceph_usage.yaml
+
+/provider/ceph/pools:
+  $ref: ./provider_ceph_pools.yaml
+
+/provider/ceph/pools/{name}:
+  $ref: ./provider_ceph_pools_name.yaml
+
+/provider/ceph/pools/{name}/usage:
+  $ref: ./provider_ceph_pools_name_usage.yaml
+
+/provider/ceph/preflight/block_devices:
+  $ref: ./provider_ceph_preflight_block_devices.yaml
+
 /provider/spaces:
   $ref: ./provider_spaces.yaml
 

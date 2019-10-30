@@ -51,6 +51,7 @@
                 {{^x-onedata-dictionary-value-type}}
     #{
                     {{#vars}}
+                        {{^isReadOnly}}
                         {{#description}}
         %% {{description}}
                         {{/description}}
@@ -99,6 +100,7 @@
                                 {{/required}}
                             {{/x-discriminator-value}}
                         {{/vendorExtensions}}
+                        {{/isReadOnly}}
                     {{/vars}}
     }.
                 {{/x-onedata-dictionary-value-type}}

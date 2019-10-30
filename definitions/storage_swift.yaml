@@ -1,6 +1,7 @@
 description: The OpenStack Swift configuration.
 allOf:
-  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
+  - $ref: '#/definitions/StorageGetDetails'
   - type: object
     properties:
       type:

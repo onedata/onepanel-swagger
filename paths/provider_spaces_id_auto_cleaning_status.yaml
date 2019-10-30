@@ -29,7 +29,7 @@ get:
     - name: id
       in: path
       type: string
-      description: The Id of a space
+      description: The Id of a space.
       required: true
   x-code-samples:
   - lang: Shell
