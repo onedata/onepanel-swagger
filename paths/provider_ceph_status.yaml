@@ -1,0 +1,29 @@
+get:
+  operationId: get_ceph_status
+  summary: Get Ceph cluster health
+  description: Returns Ceph cluster health.
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: ceph_status
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Ceph status report.
+      schema:
+        $ref: '#/definitions/CephStatus'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph cluster is not deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephStatus --host https://$HOST:9443

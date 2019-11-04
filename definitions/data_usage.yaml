@@ -1,0 +1,16 @@
+type: object
+description: Describes storage space usage level.
+properties:
+  total:
+    type: integer
+    description: Total space (used and available) in bytes.
+  used:
+    type: integer
+    description: Total used space in bytes.
+  available:
+    type: integer
+    description: Total available space in bytes.
+required:
+- total
+- used
+- available

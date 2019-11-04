@@ -14,6 +14,9 @@ properties:
     description: The list of operation steps that have been executed successfully.
     items:
       type: string
+  totalSteps:
+    type: integer
+    description: Total number of steps to be executed.
   error:
     description: The name of an error type.
     type: string
@@ -35,7 +38,9 @@ properties:
 required:
   - status
   - steps
+  - totalSteps
 example:
   status: running
   steps:
     - configuring
+  totalSteps: 3

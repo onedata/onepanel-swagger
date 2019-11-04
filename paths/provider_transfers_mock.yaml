@@ -44,7 +44,7 @@ patch:
     - application/json
   responses:
     '204':
-      description: Mock has been successfully set
+      description: Mock has been successfully set.
     '400':
       description: Invalid request.
       schema:

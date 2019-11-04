@@ -1,0 +1,10 @@
+type: object
+description: Ceph manager specification.
+properties:
+  host:
+    type: string
+    description: Host on which given manager should be deployed.
+  id:
+    type: string
+    readOnly: true
+    description: Manager identifier. Equal to the hostname.

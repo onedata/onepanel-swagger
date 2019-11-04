@@ -1,0 +1,76 @@
+get:
+  operationId: get_ceph_monitors
+  summary: List Ceph monitors
+  description: Returns object with a list of Ceph monitor instances.
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: service_ceph_monitors
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The Ceph monitors list.
+      schema:
+        $ref: '#/definitions/CephMonitors'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph cluster not deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephMonitors --host https://$HOST:9443
+
+
+post:
+  operationId: add_ceph_monitors
+  summary: Add monitors to Ceph cluster
+  description: Deploys Ceph monitor services on given hosts.
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: service_ceph_monitors
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Deployment process successfully started.
+      headers:
+        Location:
+          type: string
+          description: >
+            The path to the task resource, which can be queried to check
+            operation status.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  parameters:
+    - name: CephMonitors
+      in: body
+      description: List of Ceph monitor specifications.
+      schema:
+        $ref: '#/definitions/CephMonitors'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        echo '{"monitors": [{"host": "n1.op.example.com"}]}' |
+        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$HOST:9443
+
