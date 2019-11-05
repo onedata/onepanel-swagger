@@ -11,9 +11,9 @@ properties:
       - deleteCount
   lastValueDate:
     type: string
-    description: Date of last measurement value in this object in ISO 8601 format
+    description: Date of last measurement value in this object in ISO 8601 format.
   period:
-    description: Predefined time period for which the statistics were fetched
+    description: Predefined time period for which the statistics were fetched.
     type: string
     enum:
       - minute

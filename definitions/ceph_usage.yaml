@@ -1,0 +1,19 @@
+type: object
+description: Summary of storage space usage in the ceph cluster.
+properties:
+  total:
+    $ref: '#/definitions/DataUsage'
+  osds:
+    type: object
+    description: Dictionary of OSDs with associated usage data.
+    additionalProperties:
+      $ref: '#/definitions/DataUsage'
+  pools:
+    type: object
+    description: Dictionary of pools with associated usage data.
+    additionalProperties:
+      $ref: '#/definitions/CephPoolUsage'
+required:
+  - total
+  - osds
+  - pools

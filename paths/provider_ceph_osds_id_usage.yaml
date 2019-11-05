@@ -1,0 +1,35 @@
+get:
+  operationId: get_ceph_osd_usage
+  summary: Get storage space usage details for specific OSD.
+  description: Returns storage space usage statistics of given Ceph OSD.
+  x-onedata-version: 3
+  x-onedata-module: rest_ceph
+  x-onedata-resource: ceph_osd_usage
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The storage space usage information.
+      schema:
+        $ref: '#/definitions/DataUsage'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: OSD does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/ServiceError'
+  parameters:
+    - name: id
+      description: The id of the OSD for usage check.
+      in: path
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephOsdUsage id=3 --host https://$HOST:9443

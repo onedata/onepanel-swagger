@@ -2,9 +2,9 @@ type: object
 description: >
   The configuration details required to add storage resources.
 x-onedata-dictionary: true
-x-onedata-dictionary-value-type: storage_details
+x-onedata-dictionary-value-type: storage_create_details
 additionalProperties:
-  $ref: '#/definitions/StorageDetails'
+  $ref: '#/definitions/StorageCreateDetails'
 example:
   s3:
     type: s3

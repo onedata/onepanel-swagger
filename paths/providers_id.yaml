@@ -9,7 +9,7 @@ get:
   x-onedata-resource: remote_provider
   tags:
     - Onepanel
-  consumes:
+  produces:
     - application/json
   responses:
     '200':

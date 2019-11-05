@@ -43,4 +43,4 @@ get:
       required: false
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE checkDns --host https://example.com:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE checkDns --host https://$HOST:9443

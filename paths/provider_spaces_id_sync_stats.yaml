@@ -34,7 +34,7 @@ get:
     required: true
   - name: period
     in: query
-    description: Predefined time period for which the statistics should be fetched
+    description: Predefined time period for which the statistics should be fetched.
     type: string
     enum:
       - minute
@@ -43,7 +43,7 @@ get:
     required: false
   - name: metrics
     in: query
-    description: Specify which statistic metrics should be returned - strings delimited with comma
+    description: Specify which statistic metrics should be returned - strings delimited with comma.
     type: string
     required: false
   x-code-samples:

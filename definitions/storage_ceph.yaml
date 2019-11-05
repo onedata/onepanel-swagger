@@ -1,6 +1,6 @@
 description: The Ceph storage configuration (uses libradosstriper).
 allOf:
-  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/StorageGetDetails'
   - type: object
     properties:
       type:
@@ -16,7 +16,7 @@ allOf:
         description: The admin key to access the Ceph cluster.
       monitorHostname:
         type: string
-        description: The monitor host name.
+        description: The monitor hostname.
       clusterName:
         type: string
         description: The Ceph cluster name.
