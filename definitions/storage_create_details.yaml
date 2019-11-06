@@ -45,3 +45,8 @@ properties:
     x-onedata-dictionary-value-type: string
     additionalProperties:
       type: string
+  mountInRoot:
+    type: boolean
+    default: false
+    description: >
+      Defines whether space will be mounted in / or /{SpaceId}/ path.

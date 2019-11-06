@@ -58,3 +58,8 @@ properties:
     type: string
     readOnly: true
     description: LUMA API Key, must be identical with API Key in external LUMA service.
+  mountInRoot:
+    type: boolean
+    readOnly: true
+    default: false
+    description: Defines whether space will be mounted in / or /{SpaceId}/ path.
