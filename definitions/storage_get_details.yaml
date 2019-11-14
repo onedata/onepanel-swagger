@@ -58,8 +58,17 @@ properties:
     type: string
     readOnly: true
     description: LUMA API Key, must be identical with API Key in external LUMA service.
-  mountInRoot:
+  qosParameters:
+    type: object
+    x-onedata-dictionary: true
+    x-onedata-dictionary-value-type: string
+    additionalProperties:
+      type: string
+    readOnly: true
+    description: Map with key-value pairs used for describing storage QoS parameters.
+      Overrides all previously set parameters.
+  importedStorage:
     type: boolean
     readOnly: true
     default: false
-    description: Defines whether space will be mounted in / or /{SpaceId}/ path.
+    description: Defines whether storage contains existing data to be imported.
