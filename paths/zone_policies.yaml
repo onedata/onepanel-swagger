@@ -48,7 +48,7 @@ patch:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/ServiceError'
+        $ref: '#/definitions/Error'
     '401':
       description: Unauthorized request.
     '403':

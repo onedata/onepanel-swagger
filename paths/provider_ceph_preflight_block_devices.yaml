@@ -24,7 +24,7 @@ get:
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/ServiceError'
+        $ref: '#/definitions/Error'
   parameters:
     - name: host
       in: query

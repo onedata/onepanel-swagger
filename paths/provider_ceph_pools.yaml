@@ -23,7 +23,7 @@ get:
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/ServiceError'
+        $ref: '#/definitions/Error'
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephPools --host https://$HOST:9443

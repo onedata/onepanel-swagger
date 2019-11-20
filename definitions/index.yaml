@@ -264,9 +264,6 @@ ServiceStatus:
 ServiceStatusHost:
   $ref: ./service_status_host.yaml
 
-ServiceError:
-  $ref: ./service_error.yaml
-
 ServiceHosts:
   $ref: ./service_hosts.yaml
 

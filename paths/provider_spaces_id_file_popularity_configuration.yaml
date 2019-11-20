@@ -82,7 +82,7 @@ patch:
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/ServiceError'
+        $ref: '#/definitions/Error'
   parameters:
     - name: id
       in: path
