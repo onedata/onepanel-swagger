@@ -2,14 +2,30 @@ type: object
 description: The generic error model for REST requests.
 properties:
   error:
-    description: The name of an error type.
-    type: string
-  description:
-    description: The detailed error description.
-    type: string
+    type: object
+    description: Object describing an error.
+    properties:
+      id:
+        type: string
+        description: String identifying the error type. Does not change between
+          error instances.
+      description:
+        type: string
+        description: Human readable error description. May contain information
+          specific to given error instance.
+      details:
+        type: object
+        x-onedata-datatype: "#{}"
+        description: Details about the error instance. The object schema is
+          specific to each error type.
+    required:
+      - id
+      - description
 required:
   - error
-  - description
 example:
-  error: Invalid Request
-  description: Error description
+  error:
+    id: badValueString
+    details:
+      key: name
+    description: 'Bad value: provided "name" must be a string.'

@@ -23,7 +23,7 @@ get:
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/ServiceError'
+        $ref: '#/definitions/Error'
   parameters:
     - name: name
       description: The name of the pool to describe.

@@ -3,4 +3,4 @@
 detect enum defined in a type: integer field}}
 {{! "items" indicates enum specifies the array items }}
 {{#items}}
-    [{{/items}}{oneof, [{{#allowableValues}}{{#values}} {equal, <<"{{.}}">>} {{^-last}},{{/-last}} {{/values}}{{/allowableValues}}]} {{#items}}]{{/items}}
+    [{{/items}}{enum, {{#x-onedata-datatype}}{{x-onedata-dataype}}{{/x-onedata-datatype}}{{^x-onedata-datatype}}{{datatype}}{{/x-onedata-datatype}}, [{{#allowableValues}}{{#values}}<<"{{.}}">>{{^-last}}, {{/-last}}{{/values}}{{/allowableValues}}]} {{#items}}]{{/items}}
