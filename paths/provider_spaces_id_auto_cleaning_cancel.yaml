@@ -11,7 +11,7 @@ post:
     - application/json
   responses:
     '204':
-      description: Cleaning of given space has been cancelled
+      description: Cleaning of given space has been cancelled.
     '400':
       description: Invalid request.
       schema:
