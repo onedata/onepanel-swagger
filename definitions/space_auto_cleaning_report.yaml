@@ -1,28 +1,37 @@
 type: object
-description: Report from an auto-cleaning run.
+description: Report from a auto-cleaning run.
 properties:
   id:
     type: string
-    description: Id of an auto-cleaning report.
+    description: Id of a auto-cleaning report.
   index:
       type: string
       description: >
-        Index of an auto-cleaning report. It can be used to list report Ids starting from given report.
+        Index of a auto-cleaning report. It can be used to list report Ids starting from given report.
   startedAt:
     type: string
-    description: Start time of an auto-cleaning run in ISO 8601 format.
+    description: Start time of a auto-cleaning run in ISO 8601 format.
   stoppedAt:
     type: string
-    description: Finish time of an auto-cleaning run in ISO 8601 format.
+    description: Finish time of a auto-cleaning run in ISO 8601 format.
   releasedBytes:
     type: integer
-    description: Number of bytes deleted during an auto-cleaning run.
+    description: Number of bytes deleted during a auto-cleaning run.
   bytesToRelease:
     type: integer
     description: Number of bytes that should be deleted.
   filesNumber:
     type: integer
     description: Number of deleted files.
+  status:
+    type: string
+    description: Status of a auto-cleaning run.
+    enum:
+      - active
+      - cancelling
+      - completed
+      - failed
+      - cancelled
 required:
   - id
   - index
@@ -31,6 +40,7 @@ required:
   - releasedBytes
   - bytesToRelease
   - filesNumber
+  - status
 example:
   id: asdfhLfgPDGSDFASDHgI
   index: 1290736458asdfhL
@@ -39,3 +49,4 @@ example:
   releasedBytes: 60000
   bytesToRelease: 500
   filesNumber: 10
+  status: completed

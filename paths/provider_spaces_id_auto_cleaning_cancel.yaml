@@ -1,0 +1,37 @@
+post:
+  operationId: cancel_auto_cleaning
+  summary: Cancels space auto-cleaning
+  description: Cancels current run of auto-cleaning mechanism for given space.
+  x-onedata-version: 3
+  x-onedata-module: rest_oneprovider
+  x-onedata-resource: space_auto_cleaning_cancel
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Cleaning of given space has been cancelled
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The Id of a space.
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE cancelAutoCleaning --host https://$HOST:9443

@@ -134,6 +134,9 @@
 /provider/spaces/{id}/auto-cleaning/start:
   $ref: ./provider_spaces_id_auto_cleaning_start.yaml
 
+/provider/spaces/{id}/auto-cleaning/cancel:
+  $ref: ./provider_spaces_id_auto_cleaning_cancel.yaml
+
 /provider/spaces/{id}/auto-cleaning/status:
   $ref: ./provider_spaces_id_auto_cleaning_status.yaml
 
