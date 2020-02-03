@@ -2,7 +2,7 @@
 %%% This file has been automatically generated from Swagger
 %%% specification - DO NOT EDIT!
 %%%
-%%% @copyright (C) 2016 ACK CYFRONET AGH
+%%% @copyright (C) 2020 ACK CYFRONET AGH
 %%% This software is released under the MIT license cited i
 %%% in 'LICENSE.txt'.
 %%% @end
@@ -10,8 +10,8 @@
 %%% @doc REST API definitions for {{#operations}}{{classVarName}}{{/operations}}.
 %%% @end
 %%%--------------------------------------------------------------------
--module({{#operations}}{{classVarName}}_api{{/operations}}).
--author("Krzysztof Trzepla").
+-module({{#operations}}{{classVarName}}_rest_routes{{/operations}}).
+-author("Wojciech Geisler").
 
 -include("http/rest.hrl").
 
@@ -28,64 +28,69 @@
 %% @end
 %%--------------------------------------------------------------------
 -spec routes() ->
-    [{Path :: binary(), Module :: module(), State :: rest_handler:state()}].
-routes() -> 
+    [{Path :: binary(), #rest_req{}}].
+routes() ->
     [
 {{#operations}}
     {{#operation}}
+    {{#vendorExtensions}}
     {{#summary}}
         %% {{{summary}}}
     {{/summary}}
-        {<<"{{basePathWithoutHost}}{{path}}">>, rest_handler, #rstate{
-            version = {{#vendorExtensions}}{{x-onedata-version}}{{/vendorExtensions}},
-            module = {{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}},
-            resource = {{#vendorExtensions}}{{x-onedata-resource}}{{/vendorExtensions}},
+        {<<"{{path}}">>, #rest_req{
+            method = '{{httpMethod}}',
+            {{#x-onedata-gri}}
+            b_gri = #b_gri{
+                type = {{type}},
+                id = {{{id}}}{{^id}}undefined{{/id}},
+                aspect = {{{aspect}}},
+                scope = {{{scope}}}{{^scope}}private{{/scope}}
+            },
+            {{/x-onedata-gri}}
         {{#hasProduces}}
             produces = [{{#produces}}<<"{{{mediaType}}}">>{{#hasMore}}, {{/hasMore}}{{/produces}}],
         {{/hasProduces}}
-            methods = [#rmethod{
-                type = '{{httpMethod}}',
-        {{#hasBodyParam}}
-            {{#bodyParam}}
-                {{#description}}
+    {{#hasBodyParam}}
+        {{#bodyParam}}
+            {{#description}}
+            %% {{description}}
+            {{/description}}
+            {{! always put the rest_model invocation in brackets,
+                for cases when there are query params to be added inline }}
+            data_spec = (rest_model:{{dataType}}_model()){{#hasQueryParams}}#{ {{/hasQueryParams}}{{^hasQueryParams}},{{/hasQueryParams}}
+        {{/bodyParam}}
+    {{/hasBodyParam}}
+    {{#hasQueryParams}}
+        {{! if there is a body spec, query parameters spec is added to the map }}
+            {{^hasBodyParam}}
+            data_spec = #{
+            {{/hasBodyParam}}
+            {{#queryParams}}
+            {{#description}}
                 %% {{description}}
-                {{/description}}
-                args_spec = rest_model:{{dataType}}_model(),
-            {{/bodyParam}}
-        {{/hasBodyParam}}
-        {{#hasQueryParams}}
-            params_spec = #{
-                {{#queryParams}}
-                    {{#description}}
-                        %% {{description}}
-                    {{/description}}
-                    {{#required}}
-                        {{paramName}} => {{dataType}}{{#hasMore}},{{/hasMore}}
-                    {{/required}}
-                    {{^required}}
-                        {{#defaultValue}}
-                            {{#x-onedata-default-value}}
-                        {{paramName}} => { {{dataType}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
-                            {{/x-onedata-default-value}}
-                            {{^x-onedata-default-value}}
-                        {{paramName}} => { {{dataType}}, {optional, {{defaultValue}} } }{{#hasMore}},{{/hasMore}}
-                            {{/x-onedata-default-value}}
-                        {{/defaultValue}}
-                        {{^defaultValue}}
-                        {{paramName}} => { {{dataType}}, optional }{{#hasMore}},{{/hasMore}}
-                        {{/defaultValue}}
-                    {{/required}}
-                {{/queryParams}}
+            {{/description}}
+            {{#required}}
+                {{paramName}} => {{dataType}}{{#hasMore}},{{/hasMore}}
+            {{/required}}
+            {{^required}}
+                {{#defaultValue}}
+                    {{#x-onedata-default-value}}
+                {{paramName}} => { {{dataType}}, {optional, {{x-onedata-default-value}} } }{{#hasMore}},{{/hasMore}}
+                    {{/x-onedata-default-value}}
+                    {{^x-onedata-default-value}}
+                {{paramName}} => { {{dataType}}, {optional, {{defaultValue}} } }{{#hasMore}},{{/hasMore}}
+                    {{/x-onedata-default-value}}
+                {{/defaultValue}}
+                {{^defaultValue}}
+                {{paramName}} => { {{dataType}}, optional }{{#hasMore}},{{/hasMore}}
+                {{/defaultValue}}
+            {{/required}}
+            {{/queryParams}}
             },
         {{/hasQueryParams}}
-        {{#vendorExtensions}}
-            {{#x-onedata-noauth}}
-                noauth = true,
-            {{/x-onedata-noauth}}
-        {{/vendorExtensions}}
-            }]
         }}{{#hasMore}},{{/hasMore}}
 
+    {{/vendorExtensions}}
     {{/operation}}
 {{/operations}}
     ].
