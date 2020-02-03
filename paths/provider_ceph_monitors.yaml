@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_monitors
   summary: List Ceph monitors
   description: Returns object with a list of Ceph monitor instances.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_monitors
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: monitors
   tags:
     - Oneprovider
   produces:
@@ -33,22 +33,16 @@ post:
   operationId: add_ceph_monitors
   summary: Add monitors to Ceph cluster
   description: Deploys Ceph monitor services on given hosts.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_monitors
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: monitors
   tags:
     - Oneprovider
   consumes:
     - application/json
   responses:
-    '204':
-      description: Deployment process successfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check
-            operation status.
+    '202':
+      $ref: '#/responses/TaskStarted'
     '400':
       description: Invalid request.
       schema:

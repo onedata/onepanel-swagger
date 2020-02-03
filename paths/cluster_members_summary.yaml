@@ -4,9 +4,9 @@ get:
   description: >
     Returns aggregated counts of users and groups
     belonging to this cluster.
-  x-onedata-version: 3
-  x-onedata-module: rest_clusters
-  x-onedata-resource: current_cluster_members_summary
+  x-onedata-gri:
+    type: onp_cluster
+    aspect: current_cluster_members_summary
   tags:
     - Onepanel
   produces:

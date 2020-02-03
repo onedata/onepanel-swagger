@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_managers
   summary: List Ceph managers
   description: Returns object with a list of Ceph manager instances.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_managers
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: managers
   tags:
     - Oneprovider
   produces:
@@ -33,22 +33,16 @@ post:
   operationId: add_ceph_managers
   summary: Add managers to ceph cluster
   description: Deploys Ceph manager services on given hosts.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_managers
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: managers
   tags:
     - Oneprovider
   consumes:
     - application/json
   responses:
-    '204':
-      description: Deployment process successfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check
-            operation status.
+    '202':
+      $ref: '#/responses/TaskStarted'
     '400':
       description: Invalid request.
       schema:
@@ -64,8 +58,7 @@ post:
   parameters:
     - name: CephManagers
       in: body
-      description: >
-        Object with list of Ceph manager configurations.
+      description: Object with a list of Ceph manager configurations.
       schema:
         $ref: '#/definitions/CephManagers'
       required: true

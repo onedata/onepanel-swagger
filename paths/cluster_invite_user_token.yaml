@@ -4,9 +4,9 @@ post:
   description: >
     Returns a token which can be used to add a Onezone user
     as a member of this cluster.
-  x-onedata-version: 3
-  x-onedata-module: rest_clusters
-  x-onedata-resource: invite_user_token
+  x-onedata-gri:
+    type: onp_cluster
+    aspect: invite_user_token
   tags:
     - Onepanel
   consumes:

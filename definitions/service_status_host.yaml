@@ -1,13 +1,7 @@
-type: object
+type: string
 description: The service status.
-properties:
-  status:
-    type: string
-    description: The service status.
-    enum:
-      - healthy
-      - unhealthy
-      - stopped
-      - missing
-required:
-  - status
+enum:
+  - healthy
+  - unhealthy
+  - stopped
+  - missing

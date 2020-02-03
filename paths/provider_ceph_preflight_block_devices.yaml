@@ -3,9 +3,9 @@ get:
   summary: Get block devices for Ceph OSD
   description: Lists block devices available at given host. This list can be
     used to choose device to be formatted for use by Ceph Blockdevice OSD.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: block_devices
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: block_devices
   tags:
     - Oneprovider
   produces:

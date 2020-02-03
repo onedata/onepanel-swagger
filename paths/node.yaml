@@ -3,13 +3,9 @@ get:
   summary: Get information about current onepanel node.
   description: >
     Returns information about current onepanel node.
-
-    This request can be executed by unauthorized users only if there
-    are no admin users in the system.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: node
-  x-onedata-noauth: true
+  x-onedata-gri:
+    type: onp_host
+    aspect: instance
   tags:
     - Onepanel
   produces:

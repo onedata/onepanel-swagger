@@ -3,9 +3,9 @@ get:
   summary: List user's clusters
   description: >
     Lists clusters to which current user belongs.
-  x-onedata-version: 3
-  x-onedata-module: rest_clusters
-  x-onedata-resource: clusters
+  x-onedata-gri:
+    type: onp_user
+    aspect: current_user_clusters
   tags:
     - Onepanel
   produces:

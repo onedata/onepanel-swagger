@@ -2,9 +2,10 @@ get:
   operationId: get_provider_database_status
   summary: Get provider database status
   description: Returns status of database service on the selected host.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
+  x-onedata-gri:
+    type: onp_service
+    id: ?BINDING(host)
+    aspect: '{host_status, <<"couchbase">>}'
   tags:
     - Oneprovider
   produces:
@@ -41,9 +42,10 @@ patch:
   summary: Start/stop provider database
   description: >
     Starts or stops database service on the selected hosts in the local deployment.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
+  x-onedata-gri:
+    type: onp_service
+    id: ?BINDING(host)
+    aspect: '{start_stop, <<"couchbase">>}'
   tags:
     - Oneprovider
   responses:

@@ -3,9 +3,10 @@ get:
   summary: Get space auto-cleaning configuration
   description: >
     Returns configuration of auto-cleaning mechanism in the space specified by space Id in the path.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_auto_cleaning_configuration
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: auto_cleaning_configuration
   tags:
     - Oneprovider
   produces:
@@ -40,9 +41,10 @@ patch:
   summary: Configure space auto-cleaning mechanism
   description: >
     Configures space auto-cleaning mechanism in the space.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_auto_cleaning_configuration
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: auto_cleaning_configuration
   tags:
     - Oneprovider
   produces:

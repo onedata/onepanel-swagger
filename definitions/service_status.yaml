@@ -1,12 +1,11 @@
 type: object
-description: The generic model for service status.
-properties:
-  hosts:
-    type: object
-    description: |
-      The collection of hosts with associated service status, for each host
-      where given service has been deployed.
-    additionalProperties:
-      $ref: '#/definitions/ServiceStatusHost'
-required:
-  - hosts
+description: |
+  The collection of hosts with associated service status, for each host
+  where given service has been deployed.
+x-onedata-dictionary: true
+x-onedata-dictionary-value-type: service_status_host
+additionalProperties:
+  $ref: '#/definitions/ServiceStatusHost'
+example:
+  "node1.oneprovider.onedata.example.com": "healthy"
+  "node2.oneprovider.onedata.example.com": "stopped"

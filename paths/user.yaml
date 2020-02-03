@@ -3,9 +3,9 @@ get:
   summary: Get Onepanel user details of currently logged in user.
   description: >
     Returns the configuration information of the Onepanel user performing the query.
-  x-onedata-version: 3
-  x-onedata-module: rest_users
-  x-onedata-resource: current_user
+  x-onedata-gri:
+    type: onp_user
+    aspect: current_user
   tags:
     - Onepanel
   produces:

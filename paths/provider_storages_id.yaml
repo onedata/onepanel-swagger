@@ -2,9 +2,10 @@ get:
   operationId: get_storage_details
   summary: Get storage details
   description: Returns the details of the selected storage.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: storage
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: instance
   tags:
     - Oneprovider
   produces:
@@ -43,9 +44,10 @@ patch:
   operationId: modify_storage
   summary: Modify storage config
   description: Modifies storage configuration.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: storage
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: instance
   tags:
     - Oneprovider
   consumes:
@@ -93,9 +95,10 @@ delete:
   summary: Remove storage
   description: Removes storage from the cluster. Only storage not supporting
     any spaces can be removed.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: storage
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: instance
   tags:
     - Oneprovider
   consumes:

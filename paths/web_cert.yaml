@@ -3,9 +3,9 @@ get:
   summary: Get information about SSL certificates configuration and status.
   description: >
     Returns information about SSL certificate status and renewal configuration.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: web_cert
+  x-onedata-gri:
+    type: onp_panel
+    aspect: web_cert
   tags:
     - Onepanel
   produces:
@@ -34,9 +34,9 @@ patch:
   description: >
     Modifies configuration regarding certificate management.
     Allows enabling or disabling certificate autorenewal using Let's Encrypt service.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: web_cert
+  x-onedata-gri:
+    type: onp_panel
+    aspect: web_cert
   tags:
     - Onepanel
   consumes:

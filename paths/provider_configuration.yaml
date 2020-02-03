@@ -2,9 +2,9 @@ get:
   operationId: get_provider_configuration
   summary: Get provider cluster configuration
   description: Returns the provider cluster configuration.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_oneprovider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: cluster
   tags:
     - Oneprovider
   produces:
@@ -37,23 +37,17 @@ post:
     and registers in the zone.
 
     This request can be executed unauthorized as long as there are no admin users.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_oneprovider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: cluster
   tags:
     - Oneprovider
   consumes:
     - application/json
     - application/x-yaml
   responses:
-    '201':
-      description: Deployment process successfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check
-            operation status.
+    '202':
+      $ref: '#/responses/TaskStarted'
     '400':
       description: Invalid request.
       schema:

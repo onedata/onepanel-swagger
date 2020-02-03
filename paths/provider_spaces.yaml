@@ -2,9 +2,10 @@ get:
   operationId: get_provider_spaces
   summary: Get provider spaces
   description: Returns the list of spaces supported by the provider.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: spaces
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: list
   tags:
     - Oneprovider
   produces:
@@ -34,20 +35,18 @@ post:
   summary: Support space
   description: >
     Supports an existing space.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: spaces
+  x-onedata-gri:
+    type: onp_space
+    aspect: support
   tags:
     - Oneprovider
   consumes:
     - application/json
   responses:
-    '204':
-      description: The spaces has been successfully supported.
-      headers:
-        Location:
-          type: string
-          description: The path to the supported space resource.
+    '201':
+      description: Created space support relation.
+      schema:
+        $ref: '#/definitions/Id'
     '400':
       description: Invalid request.
       schema:

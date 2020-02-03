@@ -2,7 +2,7 @@ get:
   operationId: check_dns
   summary: Check correctness of DNS entries for the cluster's domain.
   description: >
-    Returns results of the last DNS check, verifying validity
+    Returns results of the last DNS check, verifying the validity
     of DNS configuration for cluster's domain.
     Unless 'forceCheck' flag is set, the results may be cached.
 
@@ -11,9 +11,9 @@ get:
 
     Settings used for the check, ie. DNS servers used can be modified
     using the dns_check/configuration endpoint.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: dns_check
+  x-onedata-gri:
+    type: onp_panel
+    aspect: dns_check
   tags:
     - Onepanel
   produces:

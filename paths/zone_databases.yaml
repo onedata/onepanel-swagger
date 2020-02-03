@@ -3,9 +3,9 @@ get:
   summary: Get zone databases status
   description: >
     Returns status of database service on each host where it has been deployed.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{all_hosts_status, <<"couchbase">>}'
   tags:
     - Onezone
   produces:
@@ -35,21 +35,16 @@ post:
   operationId: add_zone_databases
   summary: Add zone databases
   description: Deploys a database service on provided hosts.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
+  x-onedata-gri:
+    type: onp_service
+    aspect: couchbase_instances
   tags:
     - Onezone
   consumes:
     - application/json
   responses:
-    '204':
-      description: Deployment process successfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check operation status.
+    '202':
+      $ref: '#/responses/TaskStarted'
     '400':
       description: Invalid request.
       schema:
@@ -80,9 +75,9 @@ patch:
   summary: Start/stop zone databases
   description: >
     Starts or stops database service on all hosts in the local deployment.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_couchbase
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{start_stop_all, <<"couchbase">>}'
   tags:
     - Onezone
   responses:

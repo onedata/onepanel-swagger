@@ -3,9 +3,10 @@ get:
   summary: Get the report from a space auto-cleaning run
   description: >
     Returns the details of a specific auto-cleaning run.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_auto_cleaning_report
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: "{auto_cleaning_report, ?BINDING(report_id)}"
   tags:
     - Oneprovider
   produces:

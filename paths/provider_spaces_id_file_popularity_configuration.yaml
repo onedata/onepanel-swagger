@@ -3,9 +3,10 @@ get:
   summary: Get file-popularity configuration
   description: >
     Returns configuration of file-popularity mechanism in the space specified by space Id in the path.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: file_popularity_configuration
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: file_popularity_configuration
   tags:
     - Oneprovider
   produces:
@@ -55,22 +56,17 @@ patch:
     * w2 - weight of avgOpenCountPerDay parameter
     * MAX_AVG_OPEN_COUNT_PER_DAY - upper boundary for avgOpenCountPerDay parameter
     ```
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: file_popularity_configuration
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: file_popularity_configuration
   tags:
     - Oneprovider
   consumes:
     - application/json
   responses:
-    '201':
-      description: Configuration process successfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check
-            operation status.
+    '202':
+      $ref: '#/responses/TaskStarted'
     '400':
       description: Invalid request.
       schema:

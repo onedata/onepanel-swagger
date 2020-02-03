@@ -2,9 +2,9 @@ get:
   operationId: get_storages
   summary: Get storages
   description: Returns the list of provider storage resources and their details.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: storages
+  x-onedata-gri:
+    type: onp_storage
+    aspect: list
   tags:
     - Oneprovider
   produces:
@@ -33,9 +33,9 @@ post:
   operationId: add_storage
   summary: Add storage
   description: Adds additional storage resources to the provider.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: storages
+  x-onedata-gri:
+    type: onp_storage
+    aspect: instances
   tags:
     - Oneprovider
   consumes:

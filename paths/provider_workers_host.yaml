@@ -2,9 +2,10 @@ get:
   operationId: get_provider_worker_status
   summary: Get provider cluster worker status
   description: Returns status of cluster worker service on the selected host.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_op_worker
+  x-onedata-gri:
+    type: onp_service
+    id: ?BINDING(host)
+    aspect: '{host_status, <<"op_worker">>}'
   tags:
     - Oneprovider
   produces:
@@ -44,9 +45,10 @@ patch:
   description: >
     Starts or stops cluster worker service on the selected host in the
     local deployment.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_op_worker
+  x-onedata-gri:
+    type: onp_service
+    id: ?BINDING(host)
+    aspect: '{start_stop, <<"op_worker">>}'
   tags:
     - Oneprovider
   responses:

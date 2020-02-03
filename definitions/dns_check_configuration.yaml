@@ -3,6 +3,7 @@ description: Configuration of the 'dns_check' method calls.
 properties:
   dnsServers:
     type: array
+    x-onedata-datatype: "[ip4]"
     items:
       type: string
     description: A collection of IP addresses for DNS servers used in checking DNS.

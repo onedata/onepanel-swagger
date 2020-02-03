@@ -3,9 +3,10 @@ get:
   summary: Get Onezone user details
   description: >
     Returns the configuration information of the Onezone user.
-  x-onedata-version: 3
-  x-onedata-module: rest_users
-  x-onedata-resource: onezone_user
+  x-onedata-gri:
+    type: onp_user
+    id: ?BINDING(id)
+    aspect: instance
   tags:
     - Onezone
   produces:
@@ -41,10 +42,11 @@ patch:
   operationId: change_user_password
   summary: Set password for Onezone user
   description: >
-    Sets new password for a Onezone user using Basic authentication.
-  x-onedata-version: 3
-  x-onedata-module: rest_users
-  x-onedata-resource: onezone_user
+    Sets a new password for a Onezone user using Basic authentication.
+  x-onedata-gri:
+    type: onp_user
+    id: ?BINDING(id)
+    aspect: instance
   tags:
     - Onezone
   consumes:

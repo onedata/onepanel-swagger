@@ -3,9 +3,10 @@ get:
   summary: Get details of a user's cluster
   description: >
     Returns details of the specified cluster.
-  x-onedata-version: 3
-  x-onedata-module: rest_clusters
-  x-onedata-resource: cluster
+  x-onedata-gri:
+    type: onp_cluster
+    id: ?BINDING(id)
+    aspect: instance
   tags:
     - Onepanel
   produces:

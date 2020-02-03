@@ -2,9 +2,9 @@ get:
   operationId: get_provider_nagios_report
   summary: Get provider nagios report
   description: Returns the provider nagios report.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: nagios
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{nagios, <<"op_worker">>}'
   tags:
     - Oneprovider
   produces:

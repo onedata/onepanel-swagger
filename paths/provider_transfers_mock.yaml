@@ -3,9 +3,9 @@ get:
   summary: Get transfers mock status
   description: >
     Returns information whether transfers mocking is enabled.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: transfers_mock
+  x-onedata-gri:
+    type: onp_provider
+    aspect: transfers_mock
   tags:
     - Oneprovider
   produces:
@@ -35,9 +35,9 @@ patch:
     Toggle transfers mock. When enabled, all transfers finish successfully
     without actually transferring data. WARNING: this is a debugging feature
     disrupting normal Oneprovider operation.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: transfers_mock
+  x-onedata-gri:
+    type: onp_provider
+    aspect: transfers_mock
   tags:
     - Oneprovider
   consumes:

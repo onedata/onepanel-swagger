@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_usage
   summary: Get Ceph storage space usage.
   description: Returns summary of storage space usage in the Ceph cluster.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: ceph_usage
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: usage
   tags:
     - Oneprovider
   produces:

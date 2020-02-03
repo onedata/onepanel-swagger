@@ -3,9 +3,9 @@ get:
   summary: List Onezone users
   description: >
     List Ids of Onezone users.
-  x-onedata-version: 3
-  x-onedata-module: rest_users
-  x-onedata-resource: onezone_users
+  x-onedata-gri:
+    type: onp_user
+    aspect: list
   tags:
     - Onezone
   produces:
@@ -35,16 +35,16 @@ post:
   summary: Create Onezone user
   description: Creates a new Onezone user account with Basic (username & password)
     authentication enabled.
-  x-onedata-version: 3
-  x-onedata-module: rest_users
-  x-onedata-resource: onezone_users
+  x-onedata-gri:
+    type: onp_user
+    aspect: instance
   tags:
     - Onezone
   consumes:
     - application/json
   responses:
-    '204':
-      description: The user account has been successfully created.
+    '201':
+      $ref: '#/responses/Created'
     '400':
       description: Invalid request.
       schema:
