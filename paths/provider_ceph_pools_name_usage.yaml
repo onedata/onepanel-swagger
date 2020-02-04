@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_pool_usage
   summary: Get storage space usage details for specific pool.
   description: Returns storage space usage statistics of given Ceph pool.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: ceph_pool_usage
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: "{pool_usage, ?BINDING(name)}"
   tags:
     - Oneprovider
   produces:

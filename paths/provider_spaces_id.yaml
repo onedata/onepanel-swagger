@@ -3,9 +3,10 @@ get:
   summary: Get space details
   description: >
     Returns details of space specified by space Id in the path.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: instance
   tags:
     - Oneprovider
   produces:
@@ -42,19 +43,17 @@ patch:
   operationId: modify_space
   summary: Modify space details
   description: Modifies the space import/update strategies.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: support
   tags:
     - Oneprovider
   consumes:
     - application/json
   responses:
-    '200':
+    '204':
       description: The space details has been successfully changed.
-        Returns object with Id of the space.
-      schema:
-        $ref: '#/definitions/SpaceId'
     '400':
       description: Invalid request.
       schema:
@@ -91,9 +90,10 @@ delete:
     Allows provider to revoke storage support for a specific space. Users with
     access to this space will no longer be able to store data on the resources
     of this provider.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: support
   tags:
     - Oneprovider
   responses:

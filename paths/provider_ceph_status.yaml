@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_status
   summary: Get Ceph cluster health
   description: Returns Ceph cluster health.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: ceph_status
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: status
   tags:
     - Oneprovider
   produces:

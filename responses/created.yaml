@@ -1,0 +1,7 @@
+description: Resource successfully created.
+schema:
+  $ref: "#/definitions/Id"
+headers:
+  Location:
+    type: string
+    description: The path of the created resource.

@@ -2,9 +2,10 @@ get:
   operationId: get_provider_manager_status
   summary: Get provider cluster manager status
   description: Returns status of cluster manager service on the selected host.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_cluster_manager
+  x-onedata-gri:
+    type: onp_service
+    id: ?BINDING(host)
+    aspect: '{host_status, <<"cluster_manager">>}'
   tags:
     - Oneprovider
   produces:
@@ -44,9 +45,10 @@ patch:
   description: >
     Starts or stops cluster manager service on the selected hosts in the local
     deployment.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_cluster_manager
+  x-onedata-gri:
+    type: onp_service
+    id: ?BINDING(host)
+    aspect: '{start_stop, <<"cluster_manager">>}'
   tags:
     - Oneprovider
   responses:

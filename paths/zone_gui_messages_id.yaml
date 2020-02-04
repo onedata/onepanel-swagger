@@ -2,9 +2,9 @@ get:
   operationId: get_gui_message
   summary: Get settings of a Onezone GUI message.
   description: Returns settings of a message displayed in Onezone GUI.
-  x-onedata-version: 3
-  x-onedata-module: rest_onezone
-  x-onedata-resource: gui_message
+  x-onedata-gri:
+    type: onp_zone
+    aspect: "{gui_message, ?BINDING(id)}"
   tags:
     - Onezone
   produces:
@@ -46,9 +46,9 @@ patch:
   operationId: modify_gui_message
   summary: Modify settings of a Onezone GUI message.
   description: Enables, disables or modifies a message displayed in Onezone GUI.
-  x-onedata-version: 3
-  x-onedata-module: rest_onezone
-  x-onedata-resource: gui_message
+  x-onedata-gri:
+    type: onp_zone
+    aspect: "{gui_message, ?BINDING(id)}"
   tags:
     - Onezone
   consumes:

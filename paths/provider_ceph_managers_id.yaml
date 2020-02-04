@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_manager
   summary: Get Ceph manager
   description: Returns Ceph manager configuration.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_manager
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: "{manager, ?BINDING(id)}"
   tags:
     - Oneprovider
   produces:

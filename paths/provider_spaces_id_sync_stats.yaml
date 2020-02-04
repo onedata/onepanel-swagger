@@ -4,9 +4,10 @@ get:
   description: >
     Returns requested statistics of storage synchronization for given space
     on this provider.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_sync_stats
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: sync_statistics
   tags:
     - Oneprovider
   produces:

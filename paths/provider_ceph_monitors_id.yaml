@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_monitor
   summary: Get Ceph monitor
   description: Returns details of a Ceph monitor instance.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph_monitor
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: "{monitor, ?BINDING(id)}"
   tags:
     - Oneprovider
   produces:

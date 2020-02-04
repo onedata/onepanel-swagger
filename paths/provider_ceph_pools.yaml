@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_pools
   summary: List Ceph pools
   description: Returns object containing list of Ceph pool details.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: ceph_pools
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: pools
   tags:
     - Oneprovider
   produces:

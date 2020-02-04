@@ -3,9 +3,9 @@ get:
   summary: Return settings used when performing the DNS check.
   description: >
     Returns servers queried to check DNS configuration correctness.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: dns_check_configuration
+  x-onedata-gri:
+    type: onp_panel
+    aspect: dns_check_configuration
   tags:
     - Onepanel
   produces:
@@ -34,9 +34,9 @@ patch:
   summary: Configure dns check
   description: >
     Informs what DNS servers to use for checking external DNS records validity.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: dns_check_configuration
+  x-onedata-gri:
+    type: onp_panel
+    aspect: dns_check_configuration
   tags:
     - Onepanel
   consumes:

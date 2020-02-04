@@ -1,0 +1,9 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Resource Id.
+required:
+  - id
+example:
+  id: 26cbc2b20f92416eb9f3cba65e50c1d2

@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_params
   summary: Get global Ceph params
   description: Returns settings global for the Ceph cluster.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: global_params
   tags:
     - Oneprovider
   produces:
@@ -36,31 +36,17 @@ post:
   description: Configures Ceph services. Any services and pools
     specified in the request are deployed.
     This request IS NOT idempotent.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: service_ceph
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: cluster
   tags:
     - Oneprovider
   consumes:
     - application/json
     - application/x-yaml
   responses:
-    '201':
-      description: Deployment process successfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check
-            operation status.
-    '204':
-      description: Ceph cluster extension succesfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check
-            operation status.
+    '202':
+      $ref: '#/responses/TaskStarted'
     '400':
       description: Invalid request.
       schema:

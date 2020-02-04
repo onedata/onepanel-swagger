@@ -2,16 +2,14 @@ post:
   operationId: join_cluster
   summary: Join existing cluster
   description: >
-    Adds this host to adminstrative cluster.
+    Adds this host to administrative cluster.
 
     The host handling this request has to be newly started or
-    removed from previous cluster. It cannot contain any configured user
-    accounts or other configuration data. Therefore this request does not
-    need authorization.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: cluster
-  x-onedata-noauth: true
+    removed from previous cluster. It cannot have emergency passphrase or other
+    configuration data set. Therefore this request does not need authorization.
+  x-onedata-gri:
+    type: onp_host
+    aspect: join_cluster
   tags:
     - Onepanel
   consumes:

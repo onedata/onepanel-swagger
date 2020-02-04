@@ -4,14 +4,14 @@ get:
   description: >
     Get information about a Onezone.
 
-    Before registration this endpoint requires a registration token and returns
-    information about the Onezone issuing the token.
+    Before registration, this endpoint requires a registration token and returns
+    information about the Onezone which issued the token.
 
-    When provider is registered returns information about the Onezone
+    If the Oneprovider is registered, returns information about the Onezone
     at which the provider is registered.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: onezone_info
+  x-onedata-gri:
+    type: onp_zone
+    aspect: instance
   tags:
     - Oneprovider
   produces:

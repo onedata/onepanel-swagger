@@ -2,16 +2,29 @@ post:
   operationId: trigger_auto_cleaning
   summary: Triggers space auto-cleaning
   description: Triggers one run of auto-cleaning mechanism for given space.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_auto_cleaning_start
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: start_auto_cleaning
   tags:
     - Oneprovider
   consumes:
     - application/json
   responses:
-    '204':
+    '202':
       description: Cleaning of given space has started.
+      schema:
+        type: object
+        properties:
+          reportId:
+            type: string
+      headers:
+        Location:
+          type: string
+          description: Path of the cleaning report for the started run.
+    '204':
+      description: No action taken. Auto-cleaning is already running
+        or there are no files to be cleaned.
     '400':
       description: Invalid request.
       schema:

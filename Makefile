@@ -37,7 +37,7 @@ validate: swagger.json
 	fi
 
 cowboy-server: validate
-	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger -t ${SWAGGER_COWBOY_SERVER_IMAGE} generate -i ./swagger.json -l cowboy -o ./generated/cowboy
+	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger -t ${SWAGGER_COWBOY_SERVER_IMAGE} generate -i ./swagger.json -l cowboy -o ./generated/cowboy -DapiFileNameSuffix="_rest_routes"
 	./fix_generated.py
 
 python-client: validate

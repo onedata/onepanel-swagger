@@ -3,9 +3,9 @@ get:
   summary: Get cluster hosts
   description: >
     Returns the list of administrative cluster hosts.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: hosts
+  x-onedata-gri:
+    type: onp_host
+    aspect: list
   tags:
     - Onepanel
   produces:
@@ -43,9 +43,9 @@ post:
     by any address by which it is reachable.
     Upon success returns proper hostname used to address the new host in cluster
     management.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: hosts
+  x-onedata-gri:
+    type: onp_host
+    aspect: instance
   tags:
     - Onepanel
   consumes:

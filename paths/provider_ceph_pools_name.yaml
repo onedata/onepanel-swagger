@@ -2,9 +2,9 @@ get:
   operationId: get_ceph_pool
   summary: Get details of a Ceph pool.
   description: Returns object describng single Ceph pool specified by name.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: ceph_pool
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: "{pool, ?BINDING(name)}"
   tags:
     - Oneprovider
   produces:
@@ -40,9 +40,9 @@ patch:
   operationId: modify_ceph_pool
   summary: Modify pool params
   description: Modifies the pool redundancy settings.
-  x-onedata-version: 3
-  x-onedata-module: rest_ceph
-  x-onedata-resource: ceph_pool
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: "{pool, ?BINDING(name)}"
   tags:
     - Oneprovider
   consumes:

@@ -3,9 +3,9 @@ get:
   summary: Get zone cluster workers status
   description: >
     Returns status of cluster worker service on each host where it has been deployed.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_oz_worker
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{all_hosts_status, <<"oz_worker">>}'
   tags:
     - Onezone
   produces:
@@ -36,22 +36,16 @@ post:
   operationId: add_zone_workers
   summary: Add zone cluster workers
   description: Deploys a cluster worker service on provided hosts.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_oz_worker
+  x-onedata-gri:
+    type: onp_service
+    aspect: oz_worker_instances
   tags:
     - Onezone
   consumes:
     - application/json
   responses:
-    '204':
-      description: Deployment process successfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check
-            operation status.
+    '202':
+      $ref: '#/responses/TaskStarted'
     '400':
       description: Invalid request.
       schema:
@@ -81,9 +75,9 @@ patch:
   summary: Start/stop zone cluster workers
   description: >
     Starts or stops cluster worker service on all hosts in the local deployment.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_oz_worker
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{start_stop_all, <<"oz_worker">>}'
   tags:
     - Onezone
   responses:

@@ -2,9 +2,10 @@ get:
   operationId: get_provider_cluster_ips
   summary: Get provider cluster nodes IPs
   description: Returns IPs of nodes in provider cluster.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: cluster_ips
+  x-onedata-gri:
+    type: onp_host
+    id: undefined
+    aspect: external_ips
   tags:
     - Oneprovider
   produces:
@@ -32,9 +33,10 @@ patch:
   description: >
     Informs cluster nodes about external IPs which can be used to access them
     by other providers.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: cluster_ips
+  x-onedata-gri:
+    type: onp_host
+    id: undefined
+    aspect: external_ips
   tags:
     - Oneprovider
   consumes:

@@ -4,9 +4,10 @@ delete:
   description: >
     Removes a node from the administrative cluster. This operation removes all
     user and configuration data from the host.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: host
+  x-onedata-gri:
+    type: onp_host
+    id: ?BINDING(host)
+    aspect: instance
   tags:
     - Onepanel
   responses:

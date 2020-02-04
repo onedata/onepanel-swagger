@@ -4,9 +4,10 @@ get:
   description: >
     Returns the list of Ids of space auto-cleaning reports.
     The list is sorted descending by start time of an auto-cleaning run (the newest report is first).
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: space_auto_cleaning_reports
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: auto_cleaning_reports_list
   tags:
     - Oneprovider
   produces:

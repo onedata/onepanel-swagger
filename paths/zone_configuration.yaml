@@ -2,9 +2,9 @@ get:
   operationId: get_zone_configuration
   summary: Get zone cluster configuration
   description: Returns the zone cluster configuration.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_onezone
+  x-onedata-gri:
+    type: onp_zone
+    aspect: cluster
   tags:
     - Onezone
   produces:
@@ -40,23 +40,17 @@ post:
 
     This request can be executed by unauthorized users as long as there are no
     admin users in the system.
-  x-onedata-version: 3
-  x-onedata-module: rest_service
-  x-onedata-resource: service_onezone
+  x-onedata-gri:
+    type: onp_zone
+    aspect: cluster
   tags:
     - Onezone
   consumes:
     - application/json
     - application/x-yaml
   responses:
-    '201':
-      description: Deployment process successfully started.
-      headers:
-        Location:
-          type: string
-          description: >
-            The path to the task resource, which can be queried to check
-            operation status.
+    '202':
+      $ref: '#/responses/TaskStarted'
     '400':
       description: Invalid request - cluster already deployed.
       schema:
