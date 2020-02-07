@@ -35,10 +35,14 @@ properties:
         default: []
         items:
           $ref: '#/definitions/OnezoneUserCreateRequest'
+    required:
+      - domainName
+      - name
   onepanel:
     $ref: '#/definitions/PanelConfiguration'
 required:
   - cluster
+  - onezone
 example:
   cluster:
     domainName: "onezone.onedata.example.com"
