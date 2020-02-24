@@ -1,8 +1,8 @@
 post:
   operationId: create_invite_token
-  summary: Create invite token
+  summary: Create node invite token
   description: >
-    Creates invite token.
+    Creates node invite token.
 
     The token can be used by other nodes to [join cluster](#operation/join_cluster).
   x-onedata-gri:
