@@ -40,8 +40,8 @@
 /dns_check/configuration:
   $ref: ./dns_check/configuration.yaml
 
-/invite_token:
-  $ref: ./invite_token.yaml
+/invite_tokens:
+  $ref: ./invite_tokens.yaml
 
 /join_cluster:
   $ref: ./join_cluster.yaml
