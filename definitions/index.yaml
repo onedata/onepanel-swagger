@@ -45,6 +45,9 @@ Ids:
 Token:
   $ref: ./token.yaml
 
+InviteToken:
+  $ref: ./invite_token.yaml
+
 ClusterDetails:
   $ref: ./cluster_details.yaml
 
@@ -65,9 +68,6 @@ Host:
 
 HostAddRequest:
   $ref: ./host_add_request.yaml
-
-JoinClusterRequest:
-  $ref: ./join_cluster_request.yaml
 
 OnezoneInfo:
   $ref: ./onezone_info.yaml

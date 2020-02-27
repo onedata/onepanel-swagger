@@ -1,0 +1,9 @@
+type: object
+description: An invite token.
+properties:
+  inviteToken:
+    type: string
+required:
+  - inviteToken
+example:
+  inviteToken: AS2KLJH1231AJSHDKJBC12KS578A3SDA

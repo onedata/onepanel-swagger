@@ -26,8 +26,11 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: JoinClusterRequest
+    - name: InviteToken
       in: body
       schema:
-        $ref: '#/definitions/JoinClusterRequest'
+        $ref: '#/definitions/InviteToken'
       required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli joinCluster inviteToken==$INVITE_TOKEN --host https://$HOST:9443
