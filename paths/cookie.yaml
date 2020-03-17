@@ -5,9 +5,9 @@ get:
     Returns cookie of a cluster this host belongs to. The cookie is a character
     sequence that is common for all the cluster nodes. The cookies are used for
     authentication between distributed Erlang Onedata processes.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: cookie
+  x-onedata-gri:
+    type: onp_panel
+    aspect: cookie
   tags:
     - Onepanel
   produces:

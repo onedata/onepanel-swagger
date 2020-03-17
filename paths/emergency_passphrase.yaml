@@ -2,10 +2,9 @@ get:
   operationId: get_emergency_passphrase_status
   summary: Get emergency passphrase status
   description: Returns information whether emergency passphrase is set.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: emergency_passphrase
-  x-onedata-noauth: true
+  x-onedata-gri:
+    type: onp_panel
+    aspect: emergency_passphrase
   tags:
     - Onepanel
   produces:
@@ -35,12 +34,14 @@ get:
 put:
   operationId: set_emergency_passphrase
   summary: Set emergency passphrase
-  description: Sets passphrase which can be used to access
+  description: >
+    Sets passphrase which can be used to access
     the Onepanel REST API and emergency Onepanel GUI.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: emergency_passphrase
-  x-onedata-noauth: true
+
+    May be invoked without credentials when no passphrase is set.
+  x-onedata-gri:
+    type: onp_panel
+    aspect: emergency_passphrase
   tags:
     - Onepanel
   consumes:

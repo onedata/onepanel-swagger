@@ -1,0 +1,7 @@
+type: object
+description: Object providing task Id of the started task.
+properties:
+  taskId:
+    type: string
+example:
+  taskId: aAyV_mtGINPFuLxkqdn4oGeW2JlRmxIw8YKaUZnWDK8

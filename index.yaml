@@ -6,6 +6,8 @@ paths:
   $ref: ./paths/index.yaml
 definitions:
   $ref: ./definitions/index.yaml
+responses:
+  $ref: ./responses/index.yaml
 tags:
   - name: Onepanel
     description: Common Onepanel resources and operations

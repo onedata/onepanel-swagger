@@ -1,0 +1,41 @@
+get:
+  operationId: get_cluster
+  summary: Get details of a user's cluster
+  description: >
+    Returns details of the specified cluster.
+  x-onedata-gri:
+    type: onp_cluster
+    id: ?BINDING(id)
+    aspect: instance
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about the cluster.
+      schema:
+        $ref: '#/definitions/ClusterDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Request client is not member of cluster with given Id.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Cluster Id which details should be returned.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli getCluster --host https://$HOST:9443
+        -H "x-auth-token: $TOKEN"

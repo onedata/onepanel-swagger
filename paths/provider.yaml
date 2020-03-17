@@ -2,9 +2,10 @@ get:
   operationId: get_provider
   summary: Get provider details
   description: Returns the basic configuration information of the provider.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: provider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: instance
+    scope: private
   tags:
     - Oneprovider
   produces:
@@ -33,9 +34,9 @@ post:
   operationId: add_provider
   summary: Register provider
   description: Registers provider in the zone.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: provider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: instance
   tags:
     - Oneprovider
   consumes:
@@ -75,9 +76,9 @@ patch:
   operationId: modify_provider
   summary: Modify provider details
   description: Modifies basic provider details in the zone.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: provider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: instance
   tags:
     - Oneprovider
   consumes:
@@ -117,9 +118,9 @@ delete:
   operationId: remove_provider
   summary: Unregister provider
   description: Unregisters provider from the zone.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: provider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: instance
   tags:
     - Oneprovider
   responses:

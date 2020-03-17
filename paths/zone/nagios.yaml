@@ -1,0 +1,27 @@
+get:
+  operationId: get_zone_nagios_report
+  summary: Get zone nagios report
+  description: Returns the zone nagios report.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{nagios, <<"oz_worker">>}'
+  tags:
+    - Onezone
+  produces:
+    - text/xml
+  responses:
+    '200':
+      description: The zone nagios report.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: The service is stopped and cannot be queried for nagios report.
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneNagiosReport --host https://$HOST:9443

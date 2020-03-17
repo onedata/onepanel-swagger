@@ -14,22 +14,22 @@
   $ref: ./cluster.yaml
 
 /cluster/invite_user_token:
-  $ref: ./cluster_invite_user_token.yaml
+  $ref: ./cluster/invite_user_token.yaml
 
 /cluster/members_summary:
-  $ref: ./cluster_members_summary.yaml
+  $ref: ./cluster/members_summary.yaml
 
 /user:
   $ref: ./user.yaml
 
 /user/clusters:
-  $ref: ./user_clusters.yaml
+  $ref: ./user/clusters.yaml
 
 /user/clusters/{id}:
-  $ref: ./user_clusters_id.yaml
+  $ref: ./user/clusters/id.yaml
 
 /providers/{id}:
-  $ref: ./providers_id.yaml
+  $ref: ./providers/id.yaml
 
 /cookie:
   $ref: ./cookie.yaml
@@ -38,7 +38,10 @@
   $ref: ./dns_check.yaml
 
 /dns_check/configuration:
-  $ref: ./dns_check_configuration.yaml
+  $ref: ./dns_check/configuration.yaml
+
+/invite_tokens:
+  $ref: ./invite_tokens.yaml
 
 /join_cluster:
   $ref: ./join_cluster.yaml
@@ -50,10 +53,10 @@
   $ref: ./hosts.yaml
 
 /hosts/{host}:
-  $ref: ./hosts_host.yaml
+  $ref: ./hosts/host.yaml
 
 /tasks/{id}:
-  $ref: ./tasks_id.yaml
+  $ref: ./tasks/id.yaml
 
 /progress:
   $ref: ./progress.yaml
@@ -69,156 +72,156 @@
   $ref: ./provider.yaml
 
 /provider/nagios:
-  $ref: ./provider_nagios.yaml
+  $ref: ./provider/nagios.yaml
 
 /provider/configuration:
-  $ref: ./provider_configuration.yaml
+  $ref: ./provider/configuration.yaml
 
-/provider/ceph/:
-  $ref: ./provider_ceph.yaml
+/provider/ceph:
+  $ref: ./provider/ceph.yaml
 
 /provider/ceph/osds:
-  $ref: ./provider_ceph_osds.yaml
+  $ref: ./provider/ceph/osds.yaml
 
 /provider/ceph/osds/{id}:
-  $ref: ./provider_ceph_osds_id.yaml
+  $ref: ./provider/ceph/osds/id.yaml
 
 /provider/ceph/osds/{id}/usage:
-  $ref: ./provider_ceph_osds_id_usage.yaml
+  $ref: ./provider/ceph/osds/id/usage.yaml
 
 /provider/ceph/managers:
-  $ref: ./provider_ceph_managers.yaml
+  $ref: ./provider/ceph/managers.yaml
 
 /provider/ceph/managers/{id}:
-  $ref: ./provider_ceph_managers_id.yaml
+  $ref: ./provider/ceph/managers/id.yaml
 
 /provider/ceph/monitors:
-  $ref: ./provider_ceph_monitors.yaml
+  $ref: ./provider/ceph/monitors.yaml
 
 /provider/ceph/monitors/{id}:
-  $ref: ./provider_ceph_monitors_id.yaml
+  $ref: ./provider/ceph/monitors/id.yaml
 
 /provider/ceph/status:
-  $ref: ./provider_ceph_status.yaml
+  $ref: ./provider/ceph/status.yaml
 
 /provider/ceph/usage:
-  $ref: ./provider_ceph_usage.yaml
+  $ref: ./provider/ceph/usage.yaml
 
 /provider/ceph/pools:
-  $ref: ./provider_ceph_pools.yaml
+  $ref: ./provider/ceph/pools.yaml
 
 /provider/ceph/pools/{name}:
-  $ref: ./provider_ceph_pools_name.yaml
+  $ref: ./provider/ceph/pools/name.yaml
 
 /provider/ceph/pools/{name}/usage:
-  $ref: ./provider_ceph_pools_name_usage.yaml
+  $ref: ./provider/ceph/pools/name/usage.yaml
 
 /provider/ceph/preflight/block_devices:
-  $ref: ./provider_ceph_preflight_block_devices.yaml
+  $ref: ./provider/ceph/preflight/block_devices.yaml
 
 /provider/spaces:
-  $ref: ./provider_spaces.yaml
+  $ref: ./provider/spaces.yaml
 
 /provider/spaces/{id}:
-  $ref: ./provider_spaces_id.yaml
+  $ref: ./provider/spaces/id.yaml
 
 /provider/spaces/{id}/auto-cleaning/configuration:
-  $ref: ./provider_spaces_id_auto_cleaning_configuration.yaml
+  $ref: ./provider/spaces/id/auto-cleaning/configuration.yaml
 
 /provider/spaces/{id}/auto-cleaning/reports:
-  $ref: ./provider_spaces_id_auto_cleaning_reports.yaml
+  $ref: ./provider/spaces/id/auto-cleaning/reports.yaml
 
 /provider/spaces/{id}/auto-cleaning/reports/{report_id}:
-  $ref: ./provider_spaces_id_auto_cleaning_reports_report_id.yaml
+  $ref: ./provider/spaces/id/auto-cleaning/reports/report_id.yaml
 
 /provider/spaces/{id}/auto-cleaning/start:
-  $ref: ./provider_spaces_id_auto_cleaning_start.yaml
+  $ref: ./provider/spaces/id/auto-cleaning/start.yaml
 
 /provider/spaces/{id}/auto-cleaning/cancel:
-  $ref: ./provider_spaces_id_auto_cleaning_cancel.yaml
+  $ref: ./provider/spaces/id/auto-cleaning/cancel.yaml
 
 /provider/spaces/{id}/auto-cleaning/status:
-  $ref: ./provider_spaces_id_auto_cleaning_status.yaml
+  $ref: ./provider/spaces/id/auto-cleaning/status.yaml
 
 /provider/spaces/{id}/file-popularity/configuration:
-  $ref: ./provider_spaces_id_file_popularity_configuration.yaml
+  $ref: ./provider/spaces/id/file-popularity/configuration.yaml
 
 /provider/spaces/{id}/sync:
-  $ref: ./provider_spaces_id_sync_stats.yaml
+  $ref: ./provider/spaces/id/sync.yaml
 
 /provider/storages:
-  $ref: ./provider_storages.yaml
+  $ref: ./provider/storages.yaml
 
 /provider/storages/{id}:
-  $ref: ./provider_storages_id.yaml
+  $ref: ./provider/storages/id.yaml
 
 /provider/storages/{id}/invalidate_luma:
-  $ref: ./provider_storages_luma.yaml
+  $ref: ./provider/storages/id/invalidate_luma.yaml
 
 /provider/databases:
-  $ref: ./provider_databases.yaml
+  $ref: ./provider/databases.yaml
 
 /provider/databases/{host}:
-  $ref: ./provider_databases_host.yaml
+  $ref: ./provider/databases/host.yaml
 
 /provider/managers:
-  $ref: ./provider_managers.yaml
+  $ref: ./provider/managers.yaml
 
 /provider/managers/{host}:
-  $ref: ./provider_managers_host.yaml
+  $ref: ./provider/managers/host.yaml
 
 /provider/workers:
-  $ref: ./provider_workers.yaml
+  $ref: ./provider/workers.yaml
 
 /provider/workers/{host}:
-  $ref: ./provider_workers_host.yaml
+  $ref: ./provider/workers/host.yaml
 
 /provider/cluster_ips:
-  $ref: ./provider_cluster_ips.yaml
+  $ref: ./provider/cluster_ips.yaml
 
 /provider/onezone_info:
-  $ref: ./provider_onezone_info.yaml
+  $ref: ./provider/onezone_info.yaml
 
 /provider/debug/transfers_mock:
-  $ref: ./provider_transfers_mock.yaml
+  $ref: ./provider/debug/transfers_mock.yaml
 
 # Zone specific resources
 
 /zone/users:
-  $ref: ./zone_users.yaml
+  $ref: ./zone/users.yaml
 
 /zone/users/{id}:
-  $ref: ./zone_users_id.yaml
+  $ref: ./zone/users/id.yaml
 
 /zone/nagios:
-  $ref: ./zone_nagios.yaml
+  $ref: ./zone/nagios.yaml
 
 /zone/configuration:
-  $ref: ./zone_configuration.yaml
+  $ref: ./zone/configuration.yaml
 
 /zone/databases:
-  $ref: ./zone_databases.yaml
+  $ref: ./zone/databases.yaml
 
 /zone/databases/{host}:
-  $ref: ./zone_databases_host.yaml
+  $ref: ./zone/databases/host.yaml
 
 /zone/managers:
-  $ref: ./zone_managers.yaml
+  $ref: ./zone/managers.yaml
 
 /zone/managers/{host}:
-  $ref: ./zone_managers_host.yaml
+  $ref: ./zone/managers/host.yaml
 
 /zone/workers:
-  $ref: ./zone_workers.yaml
+  $ref: ./zone/workers.yaml
 
 /zone/workers/{host}:
-  $ref: ./zone_workers_host.yaml
+  $ref: ./zone/workers/host.yaml
 
 /zone/cluster_ips:
-  $ref: ./zone_cluster_ips.yaml
+  $ref: ./zone/cluster_ips.yaml
 
 /zone/policies:
-  $ref: ./zone_policies.yaml
+  $ref: ./zone/policies.yaml
 
 /zone/gui_messages/{id}:
-  $ref: ./zone_gui_messages_id.yaml
+  $ref: ./zone/gui_messages/id.yaml

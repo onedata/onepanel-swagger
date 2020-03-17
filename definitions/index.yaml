@@ -36,11 +36,17 @@ Error:
 GuiMessage:
   $ref: ./gui_message.yaml
 
+Id:
+  $ref: ./id.yaml
+
 Ids:
   $ref: ./ids.yaml
 
 Token:
   $ref: ./token.yaml
+
+InviteToken:
+  $ref: ./invite_token.yaml
 
 ClusterDetails:
   $ref: ./cluster_details.yaml
@@ -62,9 +68,6 @@ Host:
 
 HostAddRequest:
   $ref: ./host_add_request.yaml
-
-JoinClusterRequest:
-  $ref: ./join_cluster_request.yaml
 
 OnezoneInfo:
   $ref: ./onezone_info.yaml
@@ -285,6 +288,9 @@ Node:
 ClusterConfigurationDetails:
   $ref: ./cluster_configuration_details.yaml
 
+TaskId:
+  $ref: ./task_id.yaml
+
 TaskStatus:
   $ref: ./task_status.yaml
 
@@ -329,9 +335,6 @@ SpaceAutoCleaningReports:
 
 SpaceAutoCleaningReport:
   $ref: ./space_auto_cleaning_report.yaml
-
-SpaceId:
-  $ref: ./space_id.yaml
 
 WebCert:
   $ref: ./web_cert.yaml

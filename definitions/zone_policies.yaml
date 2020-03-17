@@ -20,7 +20,7 @@ properties:
     description: >
       When this value is true, GUI packages uploaded by services operating under
       Onezone or by harvester admins are checked against known
-      SHA-256 check-sums using the compatibility registry. Setting this value
+      SHA-256 checksums using the compatibility registry. Setting this value
       to false disables the verification.
 
       WARNING: disabling GUI package verification poses a severe security
