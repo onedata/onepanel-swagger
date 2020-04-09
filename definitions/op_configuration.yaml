@@ -32,6 +32,6 @@ example:
   providerId: b4ceb5c9ac793e6b8b36c813b9068757
   zoneDomain: onedata.org
   build: 155-gdf98e0f
-  version: 19.02.1
+  version: 20.02.0-beta3
   deployed: true
   isRegistered: true
