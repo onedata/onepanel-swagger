@@ -23,13 +23,6 @@ allOf:
       poolName:
         type: string
         description: The Ceph pool name.
-      insecure:
-        type: boolean
-        default: false
-        description: >
-          Defines whether storage administrator credentials (username and key)
-          may be used by users without storage accounts to access storage in
-          direct IO mode.
       storagePathType:
         type: string
         default: flat
@@ -55,4 +48,3 @@ example:
   monitorHostname: test.example.com
   clusterName: CephCluster1
   poolName: data
-  insecure: true

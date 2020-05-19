@@ -27,13 +27,6 @@ allOf:
       blockSize:
         type: integer
         description: Storage block size in bytes.
-      insecure:
-        type: boolean
-        default: false
-        description: >
-          Defines whether storage administrator credentials (username and
-          password) may be used by users without storage accounts to access
-          storage in direct IO mode.
       storagePathType:
         type: string
         default: flat
@@ -59,4 +52,3 @@ example:
   containerName: Container1
   username: user
   password: p@$$w0rd
-  insecure: true

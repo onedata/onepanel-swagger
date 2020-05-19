@@ -20,12 +20,18 @@ properties:
   timeout:
     type: integer
     description: Storage operation timeout in milliseconds.
-  readonly:
+  skipStorageDetection:
     type: boolean
-    description: Defines whether storage is readonly.
-  lumaEnabled:
-    type: boolean
-    description: If true LUMA and reverse LUMA services will be enabled.
+    description: >
+      If true, detecting whether storage is directly accessible by the Oneclient will not be performed.
+      This option should be set to true on readonly storages.
+  lumaMode:
+    type: string
+    description: TODO
+    enum:
+      - no_luma
+      - embedded_luma
+      - external_luma
   lumaUrl:
     type: string
     description: URL of external LUMA service.

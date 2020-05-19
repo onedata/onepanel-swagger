@@ -24,12 +24,6 @@ allOf:
     password:
       type: string
       description: The Keystone authentication password.
-    insecure:
-      type: boolean
-      description: >
-        Defines whether storage administrator credentials (username and
-        password) may be used by users without storage accounts to access
-        storage in direct IO mode.
   required:
   - type
 example:
@@ -40,4 +34,3 @@ example:
   containerName: Container1
   username: user
   password: p@$$w0rd
-  insecure: true

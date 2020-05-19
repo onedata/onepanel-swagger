@@ -57,13 +57,6 @@ allOf:
           Defines the directory mode which directories imported from S3 storage will
           have in Onedata. Values should be provided in octal format e.g. `0775`.
         default: "0775"
-      insecure:
-        type: boolean
-        default: false
-        description: >
-          Defines whether storage administrator credentials (accessKey and
-          secretKey) may be used by users without storage accounts to access
-          storage in direct IO mode.
       storagePathType:
         type: string
         default: flat

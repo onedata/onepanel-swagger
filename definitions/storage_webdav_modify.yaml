@@ -64,12 +64,6 @@ allOf:
       description: >
         Defines the directory mode which directories imported from WebDAV storage will
         have in Onedata. Values should be provided in octal format e.g. `0775`.
-    insecure:
-      type: boolean
-      description: >
-        Defines whether storage administrator credentials (username and key)
-        may be used by users without storage accounts to access storage in
-        direct IO mode.
   required:
   - type
 example:
@@ -82,4 +76,3 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  insecure: true
