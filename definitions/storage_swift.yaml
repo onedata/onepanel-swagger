@@ -2,6 +2,7 @@ description: The OpenStack Swift configuration.
 allOf:
   - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/SwiftCredentials'
   - type: object
     properties:
       type:
@@ -18,12 +19,6 @@ allOf:
       containerName:
         type: string
         description: The name of the Swift storage container.
-      username:
-        type: string
-        description: The Keystone authentication username.
-      password:
-        type: string
-        description: The Keystone authentication password.
       blockSize:
         type: integer
         description: Storage block size in bytes.
@@ -42,8 +37,6 @@ allOf:
     - authUrl
     - tenantName
     - containerName
-    - username
-    - password
 example:
   type: swift
   name: SomeSwift

@@ -1,0 +1,10 @@
+type: object
+description: Mapping that will be stored in LUMA DB.
+properties:
+  onedata:
+    $ref: '#/definitions/LumaOnedataUser'
+  storage:
+    $ref: '#/definitions/LumaStorageUser'
+required:
+  - onedata
+  - storage

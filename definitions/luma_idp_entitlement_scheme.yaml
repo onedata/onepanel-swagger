@@ -1,0 +1,20 @@
+description: Credentials scheme that stores the Id of a group in an external identity provider.
+allOf:
+  - $ref: '#/definitions/LumaOnedataGroup'
+  - type: object
+    properties:
+      mappingScheme:
+        type: string
+        description: Name of scheme used to represent group identity.
+        enum: [idpEntitlement]
+        x-discriminator-value: idpEntitlement
+      idp:
+        type: string
+        description: The id of an external identity provider.
+      idpEntitlement:
+        type: string
+        description: The id of the group understood by the external identity provider.
+    required:
+      - mappingScheme
+      - idp
+      - idpEntitlement

@@ -1,0 +1,147 @@
+get:
+  operationId: get_local_feed_luma_acl_group_to_onedata_group_mapping
+  summary: Get mapping of ACL group from LUMA DB with local feed.
+  description: >
+    Returns mapping of ACL group on the specific storage to Onedata group
+    The mapping is stored in LUMA DB with local feed.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{local_feed_luma_acl_group_to_onedata_group_mapping, ?BINDING(groupname)}"
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Mapping of ACL group to Onedata group.
+      schema:
+        $ref: '#/definitions/LumaOnedataGroup'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Support does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which default storage credentials should be returned.
+      required: true
+    - name: groupname
+      in: path
+      type: integer
+      description: >
+        The ACL name of the group on the storage.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE getLocalFeedLumaAclGroupToOnedataGroupMapping
+        id=$STORAGE_ID groupname=$ACL_GROUP --host https://$HOST:9443
+
+put:
+  operationId: set_local_feed_luma_acl_group_to_onedata_group_mapping
+  summary: Set mapping of ACL group in LUMA DB with local feed.
+  description: >
+    Sets mapping of ACL group on the specific storage to Onedata group.
+    The mapping will be stored in LUMA DB with local feed.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{local_feed_luma_acl_group_to_onedata_group_mapping, ?BINDING(groupname)}"
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The mapping was successfully set in LUMA DB.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which default storage credentials should be set.
+      required: true
+    - name: groupname
+      in: path
+      type: integer
+      description: >
+        The ACL name of the group on the storage.
+      required: true
+    - name: lumaOnedataGroup
+      in: body
+      description: Credentials identifying group in the Onedata system.
+      schema:
+        $ref: '#/definitions/LumaOnedataGroup'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        cat group_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
+        setLocalFeedLumaAclGroupToOnedataGroupMapping id=$STORAGE_ID groupname=$ACL_GROUP
+
+delete:
+  operationId: remove_local_feed_luma_acl_group_to_onedata_group_mapping
+  summary: Remove mapping of ACL group from LUMA DB with local feed.
+  description: >
+    Removes mapping of ACL group on the specific storage to Onedata group.
+    The mapping will be removed from LUMA DB with local feed.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{local_feed_luma_acl_group_to_onedata_group_mapping, ?BINDING(groupname)}"
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The mapping was successfully deleted from LUMA DB.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Storage does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which default storage credentials should be removed.
+      required: true
+    - name: groupname
+      in: path
+      type: integer
+      description: >
+        The ACL name of the group on the storage.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID groupname=$ACL_GROUP
+        removeLocalFeedLumaAclGroupToOnedataGroupMapping --host https://$HOST:9443

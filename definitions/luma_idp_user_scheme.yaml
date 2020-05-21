@@ -1,0 +1,20 @@
+description: Credentials scheme that stores the Id of a user in an external identity provider.
+allOf:
+  - $ref: '#/definitions/LumaOnedataUser'
+  - type: object
+    properties:
+      mappingScheme:
+        type: string
+        description: Name of scheme used to represent user identity.
+        enum: [idpUser]
+        x-discriminator-value: idpUser
+      idp:
+        type: string
+        description: The id of an external identity provider.
+      subjectId:
+        type: string
+        description: The id of the user understood by the external identity provider.
+    required:
+      - mappingScheme
+      - idp
+      - subjectId

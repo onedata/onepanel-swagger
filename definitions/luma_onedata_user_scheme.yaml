@@ -1,0 +1,16 @@
+description: Credentials scheme that stores the Id of a user in the Onedata system.
+allOf:
+  - $ref: '#/definitions/LumaOnedataUser'
+  - type: object
+    properties:
+      mappingScheme:
+        type: string
+        description: Name of scheme used to represent user identity.
+        enum: [onedataUser]
+        x-discriminator-value: onedataUser
+      onedataUserId:
+        type: string
+        description: The id of user in Onedata system.
+    required:
+      - mappingScheme
+      - onedataUserId

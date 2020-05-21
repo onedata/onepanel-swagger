@@ -2,6 +2,7 @@ description: The Simple Storage Service configuration.
 allOf:
   - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/S3Credentials'
   - type: object
     properties:
       type:
@@ -15,16 +16,9 @@ allOf:
       bucketName:
         type: string
         description: The storage bucket name.
-      accessKey:
-        type: string
-        description: The access key to the S3 storage.
-      secretKey:
-        type: string
-        description: The secret key to the S3 storage.
       signatureVersion:
         type: integer
         default: 4
-        enum: [2, 4]
         description: >
           The version of signature used to sign requests.
           One of: 2, 4. Default: 4.
@@ -71,8 +65,6 @@ allOf:
     - type
     - hostname
     - bucketName
-    - accessKey
-    - secretKey
 example:
   type: s3
   name: SomeS3

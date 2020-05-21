@@ -1,6 +1,8 @@
 description: The Ceph storage configuration (uses libradosstriper).
 allOf:
+  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/CephCredentials'
   - type: object
     properties:
       type:
@@ -8,12 +10,6 @@ allOf:
         description: The type of storage.
         enum: [ceph]
         x-discriminator-value: ceph
-      username:
-        type: string
-        description: The username of the Ceph cluster administrator.
-      key:
-        type: string
-        description: The admin key to access the Ceph cluster.
       monitorHostname:
         type: string
         description: The monitor hostname.
@@ -35,8 +31,6 @@ allOf:
           rename when logical file name is changed.
     required:
     - type
-    - username
-    - key
     - monitorHostname
     - clusterName
     - poolName

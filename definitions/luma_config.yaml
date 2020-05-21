@@ -1,0 +1,25 @@
+type: object
+description: Configuration of Local User Mapping database (LUMA DB).
+properties:
+  lumaFeed:
+    type: string
+    description: Type of feed for LUMA DB.
+    enum:
+      - auto
+      - local
+      - external
+  lumaUrl:
+    type: string
+    description: >
+      URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
+  lumaApiKey:
+    type: string
+    description: >
+      API key checked by external service used as feed for LUMA DB.
+      Relevant only if lumaFeed equals `external`.
+required:
+  - lumaFeed
+example:
+  lumaFeed: external
+  lumaUrl:  "http://example.external.luma.feed.com:8080"
+  lumaApiKey:  ASDF79SADA2Sa

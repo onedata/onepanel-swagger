@@ -1,0 +1,95 @@
+get:
+  operationId: get_luma_display_credentials
+  summary: Get LUMA display credentials
+  description: >
+    Returns default display credentials for the space support that are stored in LUMA DB.
+    These are POSIX credentials (UID & GID) which are returned in getattr response.
+    They are used to present file owners in the result of ls operation in Oneclient.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{luma_display_credentials, ?BINDING(space_id)}"
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Default display credentials for given space support.
+      schema:
+        $ref: '#/definitions/PosixCompatibleCredentials'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Support does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which default display credentials should be returned.
+      required: true
+    - name: space_id
+      in: path
+      type: string
+      description: >
+        The Id of a space constituting space support for which default display credentials should be returned.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE getLumaDisplayCredentials
+        id=$STORAGE_ID space_id=$SPACE_ID --host https://$HOST:9443
+
+delete:
+  operationId: remove_luma_display_credentials
+  summary: Remove LUMA default display credentials
+  description: >
+    Removes default display credentials for space supported by POSIX-compatible storage in LUMA DB.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{luma_display_credentials, ?BINDING(space_id)}"
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Default display credentials has been succesfully removed from LUMA DB.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Support does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which default display credentials should be removed.
+      required: true
+    - name: space_id
+      in: path
+      type: string
+      description: >
+        The Id of a space constituting space support for which default display credentials should be removed.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID space_id=$SPACE_ID
+        removeLumaDisplayCredentials --host https://$HOST:9443

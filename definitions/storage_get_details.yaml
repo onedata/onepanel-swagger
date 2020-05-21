@@ -43,36 +43,37 @@ properties:
   skipStorageDetection:
     type: boolean
     readOnly: true
-    default: false
     description: >
       If true, detecting whether storage is directly accessible by the Oneclient will not be performed.
       This option should be set to true on readonly storages.
-  lumaMode:
+  lumaFeed:
     type: string
-    description: TODO
     readOnly: true
+    description: Type of feed for Local User Mapping (LUMA) database.
     enum:
-      - no_luma
-      - embedded_luma
-      - external_luma
-    default: no_luma
+      - auto
+      - local
+      - external
   lumaUrl:
     type: string
     readOnly: true
-    description: URL of external LUMA service.
+    description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
   lumaApiKey:
     type: string
     readOnly: true
-    description: LUMA API Key, must be identical with API Key in external LUMA service.
+    description: >
+      API key checked by external service used as feed for LUMA DB.
+      Relevant only if lumaFeed equals `external`.
   qosParameters:
+    description: Map with key-value pairs used for describing storage QoS parameters.
     type: object
+    x-onedata-default-value: "#{}"
+    default: {}
     x-onedata-dictionary: true
     x-onedata-dictionary-value-type: string
     additionalProperties:
       type: string
     readOnly: true
-    description: Map with key-value pairs used for describing storage QoS parameters.
-      Overrides all previously set parameters.
   importedStorage:
     type: boolean
     readOnly: true

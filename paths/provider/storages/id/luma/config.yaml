@@ -1,0 +1,37 @@
+get:
+  operationId: get_luma_config
+  summary: Get LUMA DB configuration
+  description: >
+    Returns configuration of Local User Mapping database (LUMA DB) for the storage.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: luma_configuration
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The LUMA configuration.
+      schema:
+        $ref: '#/definitions/LumaConfig'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Space does not exist or is not supported by the provider.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The Id of a storage for which LUMA DB configuration should be returned.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getLumaConfig id=$STORAGE_ID --host https://$HOST:9443

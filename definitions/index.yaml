@@ -111,6 +111,12 @@ StorageGetDetails:
 StorageModifyDetails:
   $ref: ./storage_modify_details.yaml
 
+PosixCompatibleCredentials:
+  $ref: ./storage_posix_compatible_credentials.yaml
+
+PosixCredentials:
+  $ref: ./storage_posix_credentials.yaml
+
 Posix:
   $ref: ./storage_posix.yaml
 
@@ -123,11 +129,17 @@ Localceph:
 LocalcephModify:
   $ref: ./storage_localceph_modify.yaml
 
+S3Credentials:
+  $ref: ./storage_s3_credentials.yaml
+
 S3:
   $ref: ./storage_s3.yaml
 
 S3Modify:
   $ref: ./storage_s3_modify.yaml
+
+CephCredentials:
+  $ref: ./storage_ceph_credentials.yaml
 
 Ceph:
   $ref: ./storage_ceph.yaml
@@ -135,11 +147,17 @@ Ceph:
 CephModify:
   $ref: ./storage_ceph_modify.yaml
 
+CephradosCredentials:
+  $ref: ./storage_cephrados_credentials.yaml
+
 Cephrados:
   $ref: ./storage_cephrados.yaml
 
 CephradosModify:
   $ref: ./storage_cephrados_modify.yaml
+
+SwiftCredentials:
+  $ref: ./storage_swift_credentials.yaml
 
 Swift:
   $ref: ./storage_swift.yaml
@@ -147,11 +165,17 @@ Swift:
 SwiftModify:
   $ref: ./storage_swift_modify.yaml
 
+GlusterfsCredentials:
+  $ref: ./storage_glusterfs_credentials.yaml
+
 Glusterfs:
   $ref: ./storage_glusterfs.yaml
 
 GlusterfsModify:
   $ref: ./storage_glusterfs_modify.yaml
+
+NulldeviceCredentials:
+  $ref: ./storage_nulldevice_credentials.yaml
 
 Nulldevice:
   $ref: ./storage_nulldevice.yaml
@@ -159,11 +183,44 @@ Nulldevice:
 NulldeviceModify:
   $ref: ./storage_nulldevice_modify.yaml
 
+WebdavCredentials:
+  $ref: ./storage_webdav_credentials.yaml
+
 Webdav:
   $ref: ./storage_webdav.yaml
 
 WebdavModify:
   $ref: ./storage_webdav_modify.yaml
+
+LumaConfig:
+  $ref: ./luma_config.yaml
+
+LumaUserMapping:
+  $ref: ./luma_user_mapping.yaml
+
+LumaStorageUser:
+  $ref: ./luma_storage_user.yaml
+
+LumaStorageCredentials:
+  $ref: ./luma_storage_credentials.yaml
+
+LumaOnedataUserScheme:
+  $ref: ./luma_onedata_user_scheme.yaml
+
+LumaIdpUserScheme:
+  $ref: ./luma_idp_user_scheme.yaml
+
+LumaOnedataUser:
+  $ref: ./luma_onedata_user.yaml
+
+LumaOnedataGroupScheme:
+  $ref: ./luma_onedata_group_scheme.yaml
+
+LumaIdpEntitlementScheme:
+  $ref: ./luma_idp_entitlement_scheme.yaml
+
+LumaOnedataGroup:
+  $ref: ./luma_onedata_group.yaml
 
 CephCluster:
   $ref: ./ceph_cluster.yaml
