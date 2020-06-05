@@ -14,6 +14,9 @@ allOf:
       subjectId:
         type: string
         description: The id of the user understood by the external identity provider.
+      onedataUserId:
+        type: string
+        description: The id of user in Onedata system.
     required:
       - mappingScheme
       - idp

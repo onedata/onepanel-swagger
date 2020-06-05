@@ -1,7 +1,7 @@
 delete:
-  operationId: invalidate_luma_db
-  summary: Invalidate LUMA DB
-  description: Invalidates all LUMA DB entries for given storage.
+  operationId: clear_luma_db
+  summary: Clear LUMA DB
+  description: Clears all LUMA DB entries for given storage.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
@@ -12,7 +12,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: LUMA DB has been successfully invalidated.
+      description: LUMA DB has been successfully cleared.
     '401':
       description: Unauthorized request.
     '403':
@@ -27,8 +27,8 @@ delete:
   - name: id
     in: path
     type: string
-    description: The Id of a storage for which LUMA DB will be invalidated
+    description: The Id of a storage for which LUMA DB will be cleared
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443 invalidateLumaDb id=$STORAGE_ID
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443 clearLumaDb id=$STORAGE_ID
