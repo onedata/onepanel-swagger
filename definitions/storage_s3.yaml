@@ -1,4 +1,5 @@
 description: The Simple Storage Service configuration.
+x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'

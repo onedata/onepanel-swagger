@@ -1,5 +1,6 @@
 description: Configuration of a Ceph (librados) storage backed
   by a Ceph pool created in the local Ceph cluster.
+x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'

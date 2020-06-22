@@ -38,37 +38,44 @@ properties:
       Returned only on PATCH requests for read-write storages.
   timeout:
     type: integer
+    x-onedata-storage-param: true
     readOnly: true
     description: Storage operation timeout in milliseconds.
   readonly:
     type: boolean
+    x-onedata-storage-param: true
     readOnly: true
     default: false
     description: Defines whether storage is readonly.
   lumaEnabled:
     type: boolean
+    x-onedata-storage-param: true
     readOnly: true
     description: If true LUMA and reverse LUMA services will be enabled.
     default: false
   lumaUrl:
     type: string
+    x-onedata-storage-param: true
     readOnly: true
     description: URL of external LUMA service.
   lumaApiKey:
     type: string
+    x-onedata-storage-param: true
     readOnly: true
     description: LUMA API Key, must be identical with API Key in external LUMA service.
   qosParameters:
     type: object
+    x-onedata-default-value: "#{}"
+    default: {}
     x-onedata-dictionary: true
     x-onedata-dictionary-value-type: string
     additionalProperties:
       type: string
     readOnly: true
     description: Map with key-value pairs used for describing storage QoS parameters.
-      Overrides all previously set parameters.
   importedStorage:
     type: boolean
+    x-onedata-storage-param: true
     readOnly: true
     default: false
     description: Defines whether storage contains existing data to be imported.

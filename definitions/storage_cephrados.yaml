@@ -1,4 +1,5 @@
 description: The Ceph storage configuration (uses librados).
+x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'

@@ -1,4 +1,5 @@
 description: The OpenStack Swift configuration.
+x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'
