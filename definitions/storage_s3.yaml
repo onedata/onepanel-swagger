@@ -1,7 +1,7 @@
 description: The Simple Storage Service configuration.
 allOf:
-  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
   - type: object
     properties:
       type:

@@ -1,7 +1,7 @@
 description: The Ceph storage configuration (uses librados).
 allOf:
-  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
   - type: object
     properties:
       type:

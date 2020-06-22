@@ -1,8 +1,8 @@
 description: Configuration of a Ceph (librados) storage backed
   by a Ceph pool created in the local Ceph cluster.
 allOf:
-  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/CephPool'
   - type: object
     properties:
