@@ -55,6 +55,7 @@ delete:
   summary: Remove default display credentials
   description: >
     Removes default display credentials for the space support from LUMA DB.
+    Default display credentials will be acquired again using currently setup LUMA feed.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)

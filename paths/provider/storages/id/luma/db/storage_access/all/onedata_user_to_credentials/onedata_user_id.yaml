@@ -52,6 +52,7 @@ delete:
   summary: Remove Onedata user to credentials mapping
   description: >
     Removes mapping of the Onedata user to user on the specific storage from LUMA DB.
+    Mapping will be acquired again using currently setup LUMA feed.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)

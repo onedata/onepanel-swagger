@@ -52,6 +52,7 @@ delete:
   summary: Remove mapping of ACL group
   description: >
     Removes mapping of ACL group on the specific storage to Onedata group from LUMA DB.
+    Mapping will be acquired again using currently setup LUMA feed.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)

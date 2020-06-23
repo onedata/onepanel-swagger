@@ -55,6 +55,7 @@ delete:
   summary: Remove default posix credentials
   description: >
     Removes default storage credentials for the space supported by POSIX-compatible storage from LUMA DB.
+    Default storage credentials will be acquired again using currently setup LUMA feed.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)

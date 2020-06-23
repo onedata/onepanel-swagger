@@ -3,6 +3,7 @@ get:
   summary: Lookup mapping of UID
   description: >
     Returns mapping of UID on the specific storage to Onedata user stored in LUMA DB.
+    Mapping will be acquired again using currently setup LUMA feed.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
