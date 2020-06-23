@@ -1,5 +1,5 @@
 get:
-  operationId: get_luma_config
+  operationId: luma_get_config
   summary: Get LUMA DB configuration
   description: >
     Returns configuration of Local User Mapping database (LUMA DB) for the storage.
@@ -26,6 +26,8 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
     - name: id
       in: path
@@ -34,4 +36,4 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getLumaConfig id=$STORAGE_ID --host https://$HOST:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE lumaGetConfig id=$STORAGE_ID --host https://$HOST:9443

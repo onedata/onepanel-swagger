@@ -42,7 +42,7 @@ example:
   type: cephrados
   name: SomeCeph
   username: user1
-  key: LKJASHD6876ASDBJHV65765ASD
+  key: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
   monitorHostname: test.example.com
   clusterName: CephCluster1
   poolName: data

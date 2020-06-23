@@ -1,7 +1,9 @@
 delete:
-  operationId: clear_luma_db
+  operationId: luma_clear_db
   summary: Clear LUMA DB
-  description: Clears all LUMA DB entries for given storage.
+  description: >
+    Clears all LUMA DB entries for given storage.
+    LUMA DB will be repopulated using currently setup feed.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
@@ -31,4 +33,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443 clearLumaDb id=$STORAGE_ID
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443 lumaClearDb id=$STORAGE_ID

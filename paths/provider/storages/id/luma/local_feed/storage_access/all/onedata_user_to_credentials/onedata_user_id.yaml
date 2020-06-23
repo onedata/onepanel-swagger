@@ -1,27 +1,29 @@
 get:
-  operationId: get_local_feed_luma_onedata_user_to_credentials_mapping
-  summary: Get local feed LUMA Onedata user to credentials mapping.
+  operationId: local_feed_get_onedata_user_to_credentials_mapping
+  summary: Lookup Onedata user to credentials mapping in local feed
   description: >
-    Returns user mapping stored in LUMA DB with local feed for the storage.
+    Returns mapping of the Onedata user to user on the specific storage defined in local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_onedata_user_to_credentials_mapping, ?BINDING(onedata_user_id)}"
   tags:
     - Oneprovider
+    - LUMA
   produces:
     - application/json
   responses:
     '200':
-      description: Onedata user mapping for given storage.
+      description: Onedata user to storage user mapping defined in local feed
       schema:
-        $ref: '#/definitions/LumaUserMapping'
+        $ref: '#/definitions/LumaStorageUser'
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Support does not exist.
+      description: Storage or user mapping does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
@@ -44,20 +46,22 @@ get:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE getLocalFeedLumaOnedataUserToCredentialsMapping
+        onepanel-rest-cli -u onepanel:$PASSPHRASE localFeedGetOnedataUserToCredentialsMapping
         id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID --host https://$HOST:9443
 
 patch:
-  operationId: modify_local_feed_luma_onedata_user_to_credentials_mapping
-  summary: Modify local feed LUMA Onedata user to credentials mapping.
+  operationId: local_feed_modify_onedata_user_to_credentials_mapping
+  summary: Update Onedata user to credentials mapping in local feed
   description: >
-    Modifies user mapping stored in LUMA DB with local feed for the storage.
+    Modifies mapping of the Onedata user to user on the specific storage in local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_onedata_user_to_credentials_mapping, ?BINDING(onedata_user_id)}"
   tags:
     - Oneprovider
+    - LUMA
   produces:
     - application/json
   responses:
@@ -68,7 +72,7 @@ patch:
     '403':
       description: Forbidden request.
     '404':
-      description: Support does not exist.
+      description: Storage or user mapping does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
@@ -88,7 +92,7 @@ patch:
       description: >
         The Id of a user for which mapping should be updated.
       required: true
-    - name: displayCredentials
+    - name: storageUser
       in: body
       description: >
         New user mapping
@@ -98,35 +102,39 @@ patch:
   x-code-samples:
     - lang: Shell
       source: >
-        cat storage_user.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyLocalFeedLumaOnedataUserToCredentialsMapping
+        cat storage_user.json | onepanel-rest-cli -u onepanel:$PASSPHRASE localFeedModifyOnedataUserToCredentialsMapping
         id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID --host https://$HOST:9443
 
 delete:
-  operationId: remove_local_feed_luma_onedata_user_to_credentials_mapping
-  summary: Remove local feed LUMA Onedata user to credentials mapping.
+  operationId: local_feed_remove_onedata_user_to_credentials_mapping
+  summary: Remove Onedata user to credentials mapping from local feed
   description: >
-    Removes Onedata user to credentials mapping from LUMA DB with local feed.
+    Removes mapping of the Onedata user to user on the specific storage local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_onedata_user_to_credentials_mapping, ?BINDING(onedata_user_id)}"
   tags:
     - Oneprovider
+    - LUMA
   consumes:
     - application/json
   responses:
     '204':
-      description: Onedata user mapping for given storage was successfully removed from LUMA DB.
+      description: Onedata user mapping for given storage was successfully removed from local feed.
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Storage does not exist.
+      description: Storage or user mapping does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
     - name: id
       in: path
@@ -143,5 +151,5 @@ delete:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID space_id=$SPACE_ID
-        removeLocalFeedLumaDefaultPosixCredentials --host https://$HOST:9443
+        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID
+        localFeedRemoveOnedataUserToCredentialsMapping --host https://$HOST:9443

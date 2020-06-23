@@ -15,6 +15,17 @@ tags:
     description: Resources and operations for managing Oneprovider deployment
   - name: Onezone
     description: Resources and operations for managing Onezone deployment
+x-tagGroups:
+  - name: Onepanel
+    tags:
+      - Onepanel
+  - name: Onezone
+    tags:
+      - Onezone
+  - name: Oneprovider
+    tags:
+      - Oneprovider
+      - LUMA
 securityDefinitions:
   # api_key1 is used by Bash generated clients as default
   # header for sending api key

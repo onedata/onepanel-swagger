@@ -165,8 +165,8 @@
 /provider/storages/{id}/luma/db:
   $ref: ./provider/storages/id/luma/db.yaml
 
-/provider/storages/{id}/luma/db/oneclient_display_credentials/all/default/{space_id}:
-  $ref: ./provider/storages/id/luma/db/oneclient_display_credentials/all/default/space_id.yaml
+/provider/storages/{id}/luma/db/display_credentials/all/default/{space_id}:
+  $ref: ./provider/storages/id/luma/db/display_credentials/all/default/space_id.yaml
 
 /provider/storages/{id}/luma/db/storage_access/all/onedata_user_to_credentials/{onedata_user_id}:
   $ref: ./provider/storages/id/luma/db/storage_access/all/onedata_user_to_credentials/onedata_user_id.yaml
@@ -185,8 +185,8 @@
 
 # Endpoints for setting/fetching/deleting LUMA DB entries ONLY for LOCAL feed
 
-/provider/storages/{id}/luma/local_feed/oneclient_display_credentials/all/default/{space_id}:
-  $ref: ./provider/storages/id/luma/local_feed/oneclient_display_credentials/all/default/space_id.yaml
+/provider/storages/{id}/luma/local_feed/display_credentials/all/default/{space_id}:
+  $ref: ./provider/storages/id/luma/local_feed/display_credentials/all/default/space_id.yaml
 
 /provider/storages/{id}/luma/local_feed/storage_access/all/onedata_user_to_credentials:
   $ref: ./provider/storages/id/luma/local_feed/storage_access/all/onedata_user_to_credentials.yaml

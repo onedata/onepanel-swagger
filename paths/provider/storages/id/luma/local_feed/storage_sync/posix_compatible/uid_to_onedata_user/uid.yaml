@@ -1,15 +1,16 @@
 get:
-  operationId: get_local_feed_luma_uid_to_onedata_user_mapping
-  summary: Get mapping of UID from LUMA DB with local feed
+  operationId: local_feed_get_uid_to_onedata_user_mapping
+  summary: Lookup mapping of UID in local feed
   description: >
-    Returns mapping of UID on the specific storage to Onedata user
-    The mapping is stored in LUMA DB with local feed.
+    Returns mapping of UID on the specific storage to Onedata user defined in local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
     - Oneprovider
+    - LUMA
   produces:
     - application/json
   responses:
@@ -22,7 +23,7 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: Support does not exist.
+      description: Storage or mapping for UID does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
@@ -34,7 +35,7 @@ get:
       in: path
       type: string
       description: >
-        The Id of a storage constituting space support for which default storage credentials should be returned.
+        The Id of a storage constituting space support for which onedata user mapping should be returned.
       required: true
     - name: uid
       in: path
@@ -45,30 +46,33 @@ get:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE getLocalFeedLumaUidToOnedataUserMapping
+        onepanel-rest-cli -u onepanel:$PASSPHRASE localFeedGetUidToOnedataUserMapping
         id=$STORAGE_ID uid=$UID --host https://$HOST:9443
 
 put:
-  operationId: set_uid_to_onedata_user_mapping
-  summary: Set mapping of UID in LUMA DB with local feed
+  operationId: local_feed_set_uid_to_onedata_user_mapping
+  summary: Insert mapping of UID into local feed
   description: >
-    Sets mapping of UID on the specific storage to Onedata user.
-    The mapping will be stored in LUMA DB with local feed
+    Sets mapping of UID on the specific storage to Onedata user in local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
     - Oneprovider
+    - LUMA
   consumes:
     - application/json
   responses:
     '204':
-      description: The mapping was successfully set in LUMA DB.
+      description: The mapping was successfully set in local feed.
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Storage or mapping for UID does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
@@ -80,7 +84,7 @@ put:
       in: path
       type: string
       description: >
-        The Id of a storage constituting space support for which default storage credentials should be set.
+        The Id of a storage constituting space support for which onedata user mapping should be set.
       required: true
     - name: uid
       in: path
@@ -98,41 +102,44 @@ put:
   - lang: Shell
     source: >
       cat user_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
-      setLocalFeedLumaUidToOnedataUserMapping id=$STORAGE_ID uid=$UID
+      localFeedSetUidToOnedataUserMapping id=$STORAGE_ID uid=$UID
 
 delete:
-  operationId: remove_uid_to_onedata_user_mapping
-  summary: Remove mapping of UID from LUMA DB with local feed.
+  operationId: local_feed_remove_uid_to_onedata_user_mapping
+  summary: Remove mapping of UID from local feed
   description: >
-    Removes mapping of UID on the specific storage to Onedata user.
-    The mapping will be removed from LUMA DB with local feed.
+    Removes mapping of UID on the specific storage to Onedata user from local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
     - Oneprovider
+    - LUMA
   consumes:
     - application/json
   responses:
     '204':
-      description: The mapping was successfully deleted from LUMA DB.
+      description: The mapping was successfully deleted from local feed.
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Storage does not exist.
+      description: Storage or mapping for UID does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
     - name: id
       in: path
       type: string
       description: >
-        The Id of a storage constituting space support for which default storage credentials should be removed.
+        The Id of a storage constituting space support for which onedata user mapping should be removed.
       required: true
     - name: uid
       in: path
@@ -144,4 +151,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID uid=$UID
-        removeLocalFeedLumaUidToOnedataUserMapping --host https://$HOST:9443
+        localFeedRemoveUidToOnedataUserMapping --host https://$HOST:9443

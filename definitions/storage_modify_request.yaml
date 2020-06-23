@@ -14,4 +14,4 @@ additionalProperties:
 example:
   s3storage:
     type: s3
-    accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
+    accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892

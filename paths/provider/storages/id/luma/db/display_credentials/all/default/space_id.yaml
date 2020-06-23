@@ -1,16 +1,18 @@
 get:
-  operationId: get_luma_display_credentials
-  summary: Get LUMA display credentials
+  operationId: luma_get_display_credentials
+  summary: Lookup default display credentials
   description: >
     Returns default display credentials for the space support that are stored in LUMA DB.
     These are POSIX credentials (UID & GID) which are returned in getattr response.
-    They are used to present file owners in the result of ls operation in Oneclient.
+    They are used to present file owners in the result of e.g. `ls` or `stat` operation in Oneclient or
+    when fetching file attributes via REST API.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{luma_display_credentials, ?BINDING(space_id)}"
   tags:
     - Oneprovider
+    - LUMA
   produces:
     - application/json
   responses:
@@ -23,7 +25,7 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: Support does not exist.
+      description: Support or mapping does not exist.
     '500':
       description: Internal server error.
       schema:
@@ -46,20 +48,21 @@ get:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE getLumaDisplayCredentials
+        onepanel-rest-cli -u onepanel:$PASSPHRASE lumaGetDisplayCredentials
         id=$STORAGE_ID space_id=$SPACE_ID --host https://$HOST:9443
 
 delete:
-  operationId: remove_luma_display_credentials
-  summary: Remove LUMA default display credentials
+  operationId: luma_remove_display_credentials
+  summary: Remove default display credentials
   description: >
-    Removes default display credentials for space supported by POSIX-compatible storage in LUMA DB.
+    Removes default display credentials for the space support from LUMA DB.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{luma_display_credentials, ?BINDING(space_id)}"
   tags:
     - Oneprovider
+    - LUMA
   consumes:
     - application/json
   responses:
@@ -70,11 +73,13 @@ delete:
     '403':
       description: Forbidden request.
     '404':
-      description: Support does not exist.
+      description: Support or mapping does not exist.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
     - name: id
       in: path
@@ -92,4 +97,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID space_id=$SPACE_ID
-        removeLumaDisplayCredentials --host https://$HOST:9443
+        lumaRemoveDisplayCredentials --host https://$HOST:9443

@@ -1,15 +1,18 @@
 get:
-  operationId: get_luma_default_posix_credentials
-  summary: Get LUMA default posix credentials
+  operationId: luma_get_default_posix_credentials
+  summary: Lookup default posix credentials
   description: >
-    Returns default storage credentials for space supported by POSIX-compatible storage
-    that are stored in LUMA DB.
+    Returns default storage credentials for the space supported by POSIX-compatible storage
+    that are stored in LUMA DB. GID will be used as a component of storage credentials
+    for each member of the space. Both UID and GID will be used as to represent
+    owner of the space directory on storage.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{luma_default_posix_credentials, ?BINDING(space_id)}"
   tags:
     - Oneprovider
+    - LUMA
   produces:
     - application/json
   responses:
@@ -45,35 +48,38 @@ get:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE getLumaDefaultPosixCredentials
+        onepanel-rest-cli -u onepanel:$PASSPHRASE lumaGetDefaultPosixCredentials
         id=$STORAGE_ID space_id=$SPACE_ID --host https://$HOST:9443
 
 delete:
-  operationId: remove_luma_default_posix_credentials
-  summary: Remove default LUMA posix credentials
+  operationId: luma_remove_default_posix_credentials
+  summary: Remove default posix credentials
   description: >
-    Removes default storage credentials for space supported by POSIX-compatible storage from LUMA DB.
+    Removes default storage credentials for the space supported by POSIX-compatible storage from LUMA DB.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{luma_default_posix_credentials, ?BINDING(space_id)}"
   tags:
     - Oneprovider
+    - LUMA
   consumes:
     - application/json
   responses:
     '204':
-      description: Default posix credentials has been succesfully removed from LUMA DB with local feed.
+      description: Default posix credentials has been succesfully removed from LUMA DB.
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Storage does not exist.
+      description: Support does not exist.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
     - name: id
       in: path
@@ -91,4 +97,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID space_id=$SPACE_ID
-        removeLumaDefaultPosixCredentials --host https://$HOST:9443
+        lumaRemoveDefaultPosixCredentials --host https://$HOST:9443

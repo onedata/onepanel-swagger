@@ -1,5 +1,5 @@
 type: object
-description: Credentials identifying group in the Onedata system.
+description: Representation of Onedata group.
 discriminator: mappingScheme
 x-onedata-oneof: true
 x-onedata-subclasses:

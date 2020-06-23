@@ -1,16 +1,19 @@
 get:
-  operationId: get_local_feed_luma_display_credentials
-  summary: Get local feed LUMA display credentials
+  operationId: local_feed_get_display_credentials
+  summary: Lookup default display credentials in local feed
   description: >
-    Returns default display credentials for the space support that are stored in LUMA DB with local feed.
+    Returns default display credentials for the space support that are defined in local feed.
     These are POSIX credentials (UID & GID) which are returned in getattr response.
-    They are used to present file owners in the result of ls operation in Oneclient.
+    They are used to present file owners in the result of e.g. `ls` or `stat` operation in Oneclient or
+    when fetching file attributes via REST API.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_display_credentials, ?BINDING(space_id)}"
   tags:
     - Oneprovider
+    - LUMA
   produces:
     - application/json
   responses:
@@ -23,7 +26,7 @@ get:
     '403':
       description: Forbidden request.
     '404':
-      description: Support does not exist.
+      description: Support or mapping does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
@@ -46,29 +49,33 @@ get:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE getLocalFeedLumaDisplayCredentials
+        onepanel-rest-cli -u onepanel:$PASSPHRASE localFeedGetDisplayCredentials
         id=$STORAGE_ID space_id=$SPACE_ID --host https://$HOST:9443
 
 put:
-  operationId: set_local_feed_luma_display_credentials
-  summary: Set local feed LUMA default display credentials
+  operationId: local_feed_set_display_credentials
+  summary: Insert default display credentials into local feed
   description: >
-    Sets default storage credentials for space supported by POSIX-compatible storage in LUMA DB with local feed.
+    Sets default display credentials for the space support in local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_display_credentials, ?BINDING(space_id)}"
   tags:
     - Oneprovider
+    - LUMA
   consumes:
     - application/json
   responses:
     '204':
-      description: Default display credentials were successfully set in LUMA DB.
+      description: Default display credentials were successfully set in local feed.
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Support or mapping does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
@@ -99,34 +106,38 @@ put:
   - lang: Shell
     source: >
       cat display_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
-      setLocalFeedLumaDisplayCredentials id=$STORAGE_ID space_id=$SPACE_ID
+      localFeedSetDisplayCredentials id=$STORAGE_ID space_id=$SPACE_ID
 
 delete:
-  operationId: remove_local_feed_luma_display_credentials
-  summary: Remove local feed LUMA default display credentials
+  operationId: local_feed_remove_display_credentials
+  summary: Remove default display credentials from local feed
   description: >
-    Removes default display credentials for space supported by POSIX-compatible storage in LUMA DB with local feed.
+    Removes default display credentials for the space support from local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{local_feed_luma_display_credentials, ?BINDING(space_id)}"
   tags:
     - Oneprovider
+    - LUMA
   consumes:
     - application/json
   responses:
     '204':
-      description: Default display credentials has been succesfully removed from LUMA DB.
+      description: Default display credentials has been succesfully removed from local feed.
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Support does not exist.
+      description: Support or mapping does not exist or LUMA feed is not `local`.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
     - name: id
       in: path
@@ -144,4 +155,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID space_id=$SPACE_ID
-        removeLocalFeedLumaDisplayCredentials --host https://$HOST:9443
+        localFeedRemoveDisplayCredentials --host https://$HOST:9443

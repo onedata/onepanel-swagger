@@ -1,4 +1,4 @@
-description: Credentials scheme that stores the Id of a group in an external identity provider.
+description: Representation of Onedata group in an external identity provider.
 allOf:
   - $ref: '#/definitions/LumaOnedataGroup'
   - type: object
@@ -13,7 +13,9 @@ allOf:
         description: The id of an external identity provider.
       idpEntitlement:
         type: string
-        description: The id of the group understood by the external identity provider.
+        description: >
+          The id of the group understood by the external identity provider,
+          in the same format as received during OIDC/SAML login flow.
       onedataGroupId:
         type: string
         description: The id of group in the Onedata system.

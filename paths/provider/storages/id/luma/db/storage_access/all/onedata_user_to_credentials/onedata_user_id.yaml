@@ -1,27 +1,28 @@
 get:
-  operationId: get_luma_onedata_user_to_credentials_mapping
-  summary: Get LUMA Onedata user to credentials mapping.
+  operationId: luma_get_onedata_user_to_credentials_mapping
+  summary: Lookup Onedata user to credentials mapping
   description: >
-    Returns user mapping stored in LUMA DB for the storage.
+    Returns mapping of the Onedata user to user on the specific storage stored in LUMA DB.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{luma_onedata_user_to_credentials_mapping, ?BINDING(onedata_user_id)}"
   tags:
     - Oneprovider
+    - LUMA
   produces:
     - application/json
   responses:
     '200':
-      description: Onedata user mapping for given storage.
+      description: Result of mapping the Onedata user to storage user.
       schema:
-        $ref: '#/definitions/LumaUserMapping'
+        $ref: '#/definitions/LumaStorageUser'
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
-      description: Support does not exist.
+      description: Storage or user mapping does not exist.
     '500':
       description: Internal server error.
       schema:
@@ -44,20 +45,21 @@ get:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE getLumaOnedataUserToCredentialsMapping
+        onepanel-rest-cli -u onepanel:$PASSPHRASE lumaGetOnedataUserToCredentialsMapping
         id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID --host https://$HOST:9443
 
 delete:
-  operationId: remove_luma_onedata_user_to_credentials_mapping
-  summary: Remove LUMA Onedata user to credentials mapping.
+  operationId: luma_remove_onedata_user_to_credentials_mapping
+  summary: Remove Onedata user to credentials mapping
   description: >
-    Removes Onedata user to credentials mapping from LUMA DB.
+    Removes mapping of the Onedata user to user on the specific storage from LUMA DB.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: "{luma_onedata_user_to_credentials_mapping, ?BINDING(onedata_user_id)}"
   tags:
     - Oneprovider
+    - LUMA
   consumes:
     - application/json
   responses:
@@ -68,11 +70,13 @@ delete:
     '403':
       description: Forbidden request.
     '404':
-      description: Storage does not exist.
+      description: Storage or user mapping does not exist.
     '500':
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
   parameters:
     - name: id
       in: path
@@ -89,5 +93,5 @@ delete:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID space_id=$SPACE_ID
-        removeLumaDefaultPosixCredentials --host https://$HOST:9443
+        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID
+        lumaRemoveOnedataUserToCredentialsMapping --host https://$HOST:9443

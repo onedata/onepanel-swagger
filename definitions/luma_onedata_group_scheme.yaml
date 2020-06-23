@@ -1,4 +1,4 @@
-description: Credentials scheme that stores the Id of a group in the Onedata system.
+description: Representation of Onedata group in the Onedata system.
 allOf:
 - $ref: '#/definitions/LumaOnedataGroup'
 - type: object

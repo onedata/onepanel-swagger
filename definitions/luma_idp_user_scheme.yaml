@@ -1,4 +1,4 @@
-description: Credentials scheme that stores the Id of a user in an external identity provider.
+description: Representation of Onedata user in an external identity provider.
 allOf:
   - $ref: '#/definitions/LumaOnedataUser'
   - type: object
