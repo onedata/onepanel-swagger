@@ -11,8 +11,7 @@ get:
     id: ?BINDING(id)
     aspect: "{luma_display_credentials, ?BINDING(space_id)}"
   tags:
-    - Oneprovider
-    - LUMA
+    - LUMA DB
   produces:
     - application/json
   responses:
@@ -61,8 +60,7 @@ delete:
     id: ?BINDING(id)
     aspect: "{luma_display_credentials, ?BINDING(space_id)}"
   tags:
-    - Oneprovider
-    - LUMA
+    - LUMA DB
   consumes:
     - application/json
   responses:

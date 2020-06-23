@@ -9,8 +9,7 @@ get:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_onedata_user_to_credentials_mapping, ?BINDING(onedata_user_id)}"
   tags:
-    - Oneprovider
-    - LUMA
+    - LUMA DB local feed
   produces:
     - application/json
   responses:
@@ -60,8 +59,7 @@ patch:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_onedata_user_to_credentials_mapping, ?BINDING(onedata_user_id)}"
   tags:
-    - Oneprovider
-    - LUMA
+    - LUMA DB local feed
   produces:
     - application/json
   responses:
@@ -116,8 +114,7 @@ delete:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_onedata_user_to_credentials_mapping, ?BINDING(onedata_user_id)}"
   tags:
-    - Oneprovider
-    - LUMA
+    - LUMA DB local feed
   consumes:
     - application/json
   responses:

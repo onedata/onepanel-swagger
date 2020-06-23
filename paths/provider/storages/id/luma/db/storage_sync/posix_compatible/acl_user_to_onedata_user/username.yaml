@@ -8,8 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: "{luma_acl_user_to_onedata_user_mapping, ?BINDING(username)}"
   tags:
-    - Oneprovider
-    - LUMA
+    - LUMA DB
   produces:
     - application/json
   responses:
@@ -58,8 +57,7 @@ delete:
     id: ?BINDING(id)
     aspect: "{luma_acl_user_to_onedata_user_mapping, ?BINDING(username)}"
   tags:
-    - Oneprovider
-    - LUMA
+    - LUMA DB
   consumes:
     - application/json
   responses:

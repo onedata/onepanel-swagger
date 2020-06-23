@@ -9,7 +9,7 @@ delete:
     id: ?BINDING(id)
     aspect: luma_db
   tags:
-    - Oneprovider
+    - LUMA DB
   consumes:
     - application/json
   responses:

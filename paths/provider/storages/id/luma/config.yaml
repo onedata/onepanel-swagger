@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: luma_configuration
   tags:
-    - Oneprovider
+    - LUMA DB
   produces:
     - application/json
   responses:
