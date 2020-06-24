@@ -4,6 +4,7 @@ get:
   description: >
     Returns mapping of UID on the specific storage to Onedata user defined in local feed.
     Returns an error if the storage has a different LUMA feed than `local`.
+    This endpoint is relevant **only for POSIX compatible storages**.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
@@ -54,6 +55,7 @@ put:
   description: >
     Sets mapping of UID on the specific storage to Onedata user in local feed.
     Returns an error if the storage has a different LUMA feed than `local`.
+    This endpoint is relevant **only for POSIX compatible storages**.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
@@ -108,6 +110,7 @@ delete:
   description: >
     Removes mapping of UID on the specific storage to Onedata user from local feed.
     Returns an error if the storage has a different LUMA feed than `local`.
+    This endpoint is relevant **only for POSIX compatible storages**.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)

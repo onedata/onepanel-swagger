@@ -3,6 +3,7 @@ get:
   summary: Lookup mapping of ACL group
   description: >
     Returns mapping of ACL group on the specific storage to Onedata group stored in LUMA DB.
+    This endpoint is relevant **only for POSIX compatible storages**.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
@@ -53,6 +54,7 @@ delete:
   description: >
     Removes mapping of ACL group on the specific storage to Onedata group from LUMA DB.
     Mapping will be acquired again using currently setup LUMA feed.
+    This endpoint is relevant **only for POSIX compatible storages**.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)

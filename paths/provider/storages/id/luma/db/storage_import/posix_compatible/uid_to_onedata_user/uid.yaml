@@ -4,6 +4,7 @@ get:
   description: >
     Returns mapping of UID on the specific storage to Onedata user stored in LUMA DB.
     Mapping will be acquired again using currently setup LUMA feed.
+    This endpoint is relevant **only for POSIX compatible storages**.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
@@ -53,6 +54,7 @@ delete:
   summary: Remove mapping of UID
   description: >
     Removes mapping of UID on the specific storage to Onedata user from LUMA DB.
+    This endpoint is relevant **only for POSIX compatible storages**.
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
