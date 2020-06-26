@@ -1,0 +1,158 @@
+get:
+  operationId: local_feed_get_default_posix_credentials
+  summary: Lookup default posix credentials in local feed
+  description: >
+    Returns default storage credentials for the space supported by POSIX-compatible storage
+    that are defined in local feed. GID will be used as a component of storage credentials
+    for each member of the space. Both UID and GID will be used as to represent
+    owner of the space directory on storage.
+    Returns an error if the storage has a different LUMA feed than `local`.
+    This endpoint is relevant **only for POSIX compatible storages**.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{local_feed_luma_default_posix_credentials, ?BINDING(space_id)}"
+  tags:
+    - LUMA DB local feed
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Default storage posix credentials for given space support.
+      schema:
+        $ref: '#/definitions/PosixCompatibleCredentials'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Support does not exist or LUMA feed is not `local`.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which default storage credentials should be returned.
+      required: true
+    - name: space_id
+      in: path
+      type: string
+      description: >
+        The Id of a space constituting space support for which default storage credentials should be returned.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE
+        localFeedGetDefaultPosixCredentials id=$STORAGE_ID space_id=$SPACE_ID --host https://$HOST:9443
+
+put:
+  operationId: local_feed_set_default_posix_credentials
+  summary: Insert default posix credentials into local feed
+  description: >
+    Sets default storage credentials for the space supported by POSIX-compatible storage in local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
+    This endpoint is relevant **only for POSIX compatible storages**.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{local_feed_luma_default_posix_credentials, ?BINDING(space_id)}"
+  tags:
+    - LUMA DB local feed
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Default storage credentials were successfully set in local feed.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Support does not exist or LUMA feed is not `local`.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which default storage credentials should be set.
+      required: true
+    - name: space_id
+      in: path
+      type: string
+      description: >
+        The Id of a space constituting space support for which default storage credentials should be set.
+      required: true
+    - name: posixCredentials
+      in: body
+      description: >
+        New default storage credentials for the space support.
+      schema:
+        $ref: '#/definitions/PosixCompatibleCredentials'
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: >
+      cat default_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
+      localFeedSetDefaultPosixCredentials id=$STORAGE_ID space_id=$SPACE_ID
+
+delete:
+  operationId: local_feed_remove_default_posix_credentials
+  summary: Remove default posix credentials from local feed
+  description: >
+    Removes default storage credentials for the space supported by POSIX-compatible storage from local feed.
+    Returns an error if the storage has a different LUMA feed than `local`.
+    This endpoint is relevant **only for POSIX compatible storages**.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{local_feed_luma_default_posix_credentials, ?BINDING(space_id)}"
+  tags:
+    - LUMA DB local feed
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Default posix credentials has been succesfully removed from local feed.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Support does not exist or LUMA feed is not `local`.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which default storage credentials should be removed.
+      required: true
+    - name: space_id
+      in: path
+      type: string
+      description: >
+        The Id of a space constituting space support for which default storage credentials should be removed.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID space_id=$SPACE_ID
+        localFeedRemoveDefaultPosixCredentials --host https://$HOST:9443

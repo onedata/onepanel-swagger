@@ -11,8 +11,8 @@ example:
     s3Hostname: s3.example.com
     iamHostname: iam.example.com
     bucketName: bucket1.iam.example.com
-    accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
-    secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDK
+    accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
+    secretKey: fdeac26aedd3a179f9551d7007cc6a6273165782
   swift:
     type: swift
     authUrl: http://keystone2.example.com

@@ -1,0 +1,23 @@
+description: Representation of Onedata user in an external identity provider.
+allOf:
+  - $ref: '#/definitions/LumaOnedataUser'
+  - type: object
+    properties:
+      mappingScheme:
+        type: string
+        description: Name of scheme used to represent user identity.
+        enum: [idpUser]
+        x-discriminator-value: idpUser
+      idp:
+        type: string
+        description: The id of an external identity provider.
+      subjectId:
+        type: string
+        description: The id of the user understood by the external identity provider.
+      onedataUserId:
+        type: string
+        description: The id of user in Onedata system.
+    required:
+      - mappingScheme
+      - idp
+      - subjectId

@@ -1,0 +1,11 @@
+type: object
+description: Representation of Onedata user.
+discriminator: mappingScheme
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - luma_onedata_user_scheme
+  - luma_idp_user_scheme
+properties:
+  mappingScheme:
+    type: string
+    description: Name of scheme used to represent user identity.

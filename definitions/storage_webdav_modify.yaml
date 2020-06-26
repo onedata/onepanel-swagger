@@ -5,8 +5,10 @@ allOf:
   properties:
     type:
       type: string
-      description: Type of the modified storage. Must match the type
-        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      description: >
+        Type of the modified storage. Must be given explicitly and must match
+        the actual type of subject storage - this redundancy is needed
+        due to limitations of OpenAPI polymorphism.
       enum: [webdav]
       x-discriminator-value: webdav
     endpoint:
@@ -64,12 +66,6 @@ allOf:
       description: >
         Defines the directory mode which directories imported from WebDAV storage will
         have in Onedata. Values should be provided in octal format e.g. `0775`.
-    insecure:
-      type: boolean
-      description: >
-        Defines whether storage administrator credentials (username and key)
-        may be used by users without storage accounts to access storage in
-        direct IO mode.
   required:
   - type
 example:
@@ -82,4 +78,3 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  insecure: true

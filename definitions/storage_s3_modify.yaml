@@ -5,8 +5,10 @@ allOf:
   properties:
     type:
       type: string
-      description: Type of the modified storage. Must match the type
-        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      description: >
+        Type of the modified storage. Must be given explicitly and must match
+        the actual type of subject storage - this redundancy is needed
+        due to limitations of OpenAPI polymorphism.
       enum: [s3]
       x-discriminator-value: s3
     hostname:
@@ -44,12 +46,6 @@ allOf:
       description: >
         Defines the directory mode which directories imported from S3 storage will
         have in Onedata. Values should be provided in octal format e.g. `0775`.
-    insecure:
-      type: boolean
-      description: >
-        Defines whether storage administrator credentials (accessKey and
-        secretKey) may be used by users without storage accounts to access
-        storage in direct IO mode.
   required:
   - type
 example:
@@ -57,5 +53,5 @@ example:
   name: SomeS3
   hostname: s3.example.com
   bucketName: bucket1.iam.example.com
-  accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
-  secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDKNJK
+  accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
+  secretKey: fdeac26aedd3a179f9551d7007cc6a6273165782
