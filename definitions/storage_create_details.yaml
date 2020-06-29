@@ -22,20 +22,32 @@ properties:
   timeout:
     type: integer
     description: Storage operation timeout in milliseconds.
-  readonly:
+  skipStorageDetection:
     type: boolean
+    description: >
+      If true, detecting whether storage is directly accessible by the Oneclient will not be performed.
+      This option should be set to true on readonly storages.
     default: false
-    description: Defines whether storage is readonly.
-  lumaEnabled:
-    type: boolean
-    description: If true LUMA and reverse LUMA services will be enabled.
-    default: false
-  lumaUrl:
+  lumaFeed:
     type: string
-    description: URL of external LUMA service.
-  lumaApiKey:
+    description: >
+      Type of feed for LUMA DB.
+      Feed is a source of user/group mappings used to populate the LUMA DB.
+      For more info please read: https://onedata.org/#/home/documentation/doc/administering_onedata/luma.html
+    enum:
+      - auto
+      - local
+      - external
+    default: auto
+    x-onedata-default-value: '<<"auto">>'
+  lumaFeedUrl:
     type: string
-    description: LUMA API Key, must be identical with API Key in external LUMA service.
+    description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
+  lumaFeedApiKey:
+    type: string
+    description: >
+      API key checked by external service used as feed for LUMA DB.
+      Relevant only if lumaFeed equals `external`.
   qosParameters:
     description: Map with key-value pairs used for describing storage QoS parameters.
     type: object
@@ -50,4 +62,3 @@ properties:
     default: false
     description: >
       Defines whether storage contains existing data to be imported.
-

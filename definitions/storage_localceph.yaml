@@ -11,14 +11,6 @@ allOf:
         type: string
         description: The type of storage.
         x-discriminator-value: localceph
-      insecure:
-        type: boolean
-        default: true
-        x-onedata-default-value: true
-        description: >
-          Defines whether storage administrator credentials (username and key)
-          may be used by users without storage accounts to access storage in
-          direct IO mode.
       blockSize:
         type: integer
         description: Storage block size in bytes.
@@ -37,5 +29,5 @@ example:
   type: localceph
   name: myceph
   copiesNumber: 2
-  readonly: false
+  skipStorageDetection: false
   blockSize: 10485760

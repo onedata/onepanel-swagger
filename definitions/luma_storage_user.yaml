@@ -1,0 +1,12 @@
+type: object
+description: Credentials identifying user on the local storage resources.
+properties:
+  storageCredentials:
+    $ref: '#/definitions/LumaStorageCredentials'
+  displayUid:
+    type: integer
+    description: >
+      This value will be used in the Oneclient to display it's owner UID if the corresponding
+      user is owner of the file.
+required:
+  - storageCredentials

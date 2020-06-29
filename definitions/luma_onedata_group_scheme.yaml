@@ -1,0 +1,16 @@
+description: Representation of Onedata group in the Onedata system.
+allOf:
+- $ref: '#/definitions/LumaOnedataGroup'
+- type: object
+  properties:
+    mappingScheme:
+      type: string
+      description: Name of scheme used to represent group identity.
+      enum: [onedataGroup]
+      x-discriminator-value: onedataGroup
+    onedataGroupId:
+      type: string
+      description: The id of group in the Onedata system.
+  required:
+    - mappingScheme
+    - onedataGroupId

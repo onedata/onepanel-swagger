@@ -155,8 +155,58 @@
 /provider/storages/{id}:
   $ref: ./provider/storages/id.yaml
 
-/provider/storages/{id}/invalidate_luma:
-  $ref: ./provider/storages/id/invalidate_luma.yaml
+# LUMA endpoints
+
+/provider/storages/{id}/luma/config:
+  $ref: ./provider/storages/id/luma/config.yaml
+
+# Endpoints for fetching/deleting LUMA DB entries for all feed types
+
+/provider/storages/{id}/luma/db:
+  $ref: ./provider/storages/id/luma/db.yaml
+
+/provider/storages/{id}/luma/db/display_credentials/all/default/{space_id}:
+  $ref: ./provider/storages/id/luma/db/display_credentials/all/default/space_id.yaml
+
+/provider/storages/{id}/luma/db/storage_access/all/onedata_user_to_credentials/{onedata_user_id}:
+  $ref: ./provider/storages/id/luma/db/storage_access/all/onedata_user_to_credentials/onedata_user_id.yaml
+
+/provider/storages/{id}/luma/db/storage_access/posix_compatible/default_credentials/{space_id}:
+  $ref: ./provider/storages/id/luma/db/storage_access/posix_compatible/default_credentials/space_id.yaml
+
+/provider/storages/{id}/luma/db/storage_import/posix_compatible/uid_to_onedata_user/{uid}:
+  $ref: ./provider/storages/id/luma/db/storage_import/posix_compatible/uid_to_onedata_user/uid.yaml
+
+/provider/storages/{id}/luma/db/storage_import/posix_compatible/acl_user_to_onedata_user/{username}:
+  $ref: ./provider/storages/id/luma/db/storage_import/posix_compatible/acl_user_to_onedata_user/username.yaml
+
+/provider/storages/{id}/luma/db/storage_import/posix_compatible/acl_group_to_onedata_group/{groupname}:
+  $ref: ./provider/storages/id/luma/db/storage_import/posix_compatible/acl_group_to_onedata_group/groupname.yaml
+
+# Endpoints for setting/fetching/deleting LUMA DB entries ONLY for LOCAL feed
+
+/provider/storages/{id}/luma/local_feed/display_credentials/all/default/{space_id}:
+  $ref: ./provider/storages/id/luma/local_feed/display_credentials/all/default/space_id.yaml
+
+/provider/storages/{id}/luma/local_feed/storage_access/all/onedata_user_to_credentials:
+  $ref: ./provider/storages/id/luma/local_feed/storage_access/all/onedata_user_to_credentials.yaml
+
+/provider/storages/{id}/luma/local_feed/storage_access/all/onedata_user_to_credentials/{onedata_user_id}:
+  $ref: ./provider/storages/id/luma/local_feed/storage_access/all/onedata_user_to_credentials/onedata_user_id.yaml
+
+/provider/storages/{id}/luma/local_feed/storage_access/posix_compatible/default_credentials/{space_id}:
+  $ref: ./provider/storages/id/luma/local_feed/storage_access/posix_compatible/default_credentials/space_id.yaml
+
+/provider/storages/{id}/luma/local_feed/storage_import/posix_compatible/uid_to_onedata_user/{uid}:
+  $ref: ./provider/storages/id/luma/local_feed/storage_import/posix_compatible/uid_to_onedata_user/uid.yaml
+
+/provider/storages/{id}/luma/local_feed/storage_import/posix_compatible/acl_user_to_onedata_user/{username}:
+  $ref: ./provider/storages/id/luma/local_feed/storage_import/posix_compatible/acl_user_to_onedata_user/username.yaml
+
+/provider/storages/{id}/luma/local_feed/storage_import/posix_compatible/acl_group_to_onedata_group/{groupname}:
+  $ref: ./provider/storages/id/luma/local_feed/storage_import/posix_compatible/acl_group_to_onedata_group/groupname.yaml
+
+###
 
 /provider/databases:
   $ref: ./provider/databases.yaml

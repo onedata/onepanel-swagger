@@ -5,8 +5,10 @@ allOf:
   properties:
     type:
       type: string
-      description: Type of the modified storage. Must match the type
-        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      description: >
+        Type of the modified storage. Must be given explicitly and must match
+        the actual type of subject storage - this redundancy is needed
+        due to limitations of OpenAPI polymorphism.
       enum: [cephrados]
       x-discriminator-value: cephrados
     username:
@@ -24,20 +26,13 @@ allOf:
     poolName:
       type: string
       description: The Ceph pool name.
-    insecure:
-      type: boolean
-      description: >
-        Defines whether storage administrator credentials (username and key)
-        may be used by users without storage accounts to access storage in
-        direct IO mode.
   required:
   - type
 example:
   type: cephrados
   name: SomeCeph
   username: user1
-  key: LKJASHD6876ASDBJHV65765ASD
+  key: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
   monitorHostname: test.example.com
   clusterName: CephCluster1
   poolName: data
-  insecure: true
