@@ -1,7 +1,8 @@
 description: The GlusterFS storage configuration.
+x-onedata-storage: true
 allOf:
-  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
   - type: object
     properties:
       type:

@@ -1,7 +1,8 @@
 description: The Simple Storage Service configuration.
+x-onedata-storage: true
 allOf:
-  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/S3Credentials'
   - type: object
     properties:

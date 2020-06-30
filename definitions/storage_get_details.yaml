@@ -38,16 +38,20 @@ properties:
       Returned only on PATCH requests for read-write storages.
   timeout:
     type: integer
+    x-onedata-storage-param: true
     readOnly: true
     description: Storage operation timeout in milliseconds.
   skipStorageDetection:
     type: boolean
+    x-onedata-storage-param: true
     readOnly: true
     description: >
       If true, detecting whether storage is directly accessible by the Oneclient will not be performed.
       This option should be set to true on readonly storages.
   lumaFeed:
     type: string
+    x-onedata-storage-param: true
+    x-onedata-default-value: '<<"auto">>'
     readOnly: true
     description: >
       Type of feed for LUMA DB.
@@ -59,10 +63,12 @@ properties:
       - external
   lumaFeedUrl:
     type: string
+    x-onedata-storage-param: true
     readOnly: true
     description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
   lumaFeedApiKey:
     type: string
+    x-onedata-storage-param: true
     readOnly: true
     description: >
       API key checked by external service used as feed for LUMA DB.
@@ -79,6 +85,7 @@ properties:
     readOnly: true
   importedStorage:
     type: boolean
+    x-onedata-storage-param: true
     readOnly: true
     default: false
     description: Defines whether storage contains existing data to be imported.
