@@ -192,6 +192,15 @@ Webdav:
 WebdavModify:
   $ref: ./storage_webdav_modify.yaml
 
+XRootDCredentials:
+  $ref: ./storage_xrootd_credentials.yaml
+
+XRootD:
+  $ref: ./storage_xrootd.yaml
+
+XRootDModify:
+  $ref: ./storage_xrootd_modify.yaml
+
 LumaConfig:
   $ref: ./luma_config.yaml
 
