@@ -15,7 +15,8 @@ allOf:
       type: string
       description: >
         Full URL of the XRootD server, including scheme (root or http) and path, e.g.
-        `root://192.168.0.1//data`.
+        `root://192.168.0.1//data`. Please note, that XRootD URL format requires double
+        slash after host to indicate absolute path.
     credentialsType:
       type: string
       description: >
