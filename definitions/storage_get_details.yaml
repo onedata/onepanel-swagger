@@ -18,6 +18,7 @@ x-onedata-subclasses:
   - glusterfs
   - nulldevice
   - webdav
+  - xrootd
 properties:
   type:
     type: string
