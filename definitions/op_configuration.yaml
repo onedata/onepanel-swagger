@@ -1,5 +1,5 @@
 type: object
-description: Public Oneprovider configuration details
+description: Public Oneprovider configuration details.
 allOf:
   - $ref: '#/definitions/Configuration'
   - type: object
@@ -12,13 +12,13 @@ allOf:
       providerId:
         type: string
         description: >
-          This cluster's Oneprovider Id. Null if the Oneprovider is not registered
+          This cluster's Oneprovider Id. `null` if the Oneprovider is not registered
           or Oneprovider worker is down.
       zoneDomain:
         type: string
         description: >
           The domain of the Onezone where this Oneprovider is registered.
-          Null if the Oneprovider is not registered.
+          `null` if the Oneprovider is not registered.
       isRegistered:
         type: boolean
         description: >
@@ -32,6 +32,6 @@ example:
   providerId: b4ceb5c9ac793e6b8b36c813b9068757
   zoneDomain: onedata.org
   build: 155-gdf98e0f
-  version: 18.02.2
+  version: 20.02.0-beta4
   deployed: true
   isRegistered: true

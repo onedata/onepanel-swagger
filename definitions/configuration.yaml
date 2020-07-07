@@ -1,25 +1,27 @@
 type: object
-description: Public service configuration details
+description: Public service configuration details.
 discriminator: serviceType
 x-onedata-oneof: true
 x-onedata-subclasses:
   - op_configuration
   - oz_configuration
 properties:
-  serviceType:
-    description: Indicates whether this is Onezone's or Oneprovider's panel.
+  clusterId:
     type: string
+    description: The Id of cluster record for this cluster.
+      `null` if the cluster is not registered.
   version:
     type: string
-    description: Version of this Onepanel
+    description: Version of this Onepanel.
   build:
     type: string
-    description: Build number of this Onepanel
+    description: Build number of this Onepanel.
   deployed:
     type: boolean
     default: true
-    description: True when cluster deployment is finished
+    description: True when cluster deployment is finished.
 required:
+  - clusterId
   - version
   - build
   - deployed

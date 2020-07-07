@@ -1,0 +1,57 @@
+description: The Simple Storage Service configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      type: string
+      description: >
+        Type of the modified storage. Must be given explicitly and must match
+        the actual type of subject storage - this redundancy is needed
+        due to limitations of OpenAPI polymorphism.
+      enum: [s3]
+      x-discriminator-value: s3
+    hostname:
+      type: string
+      description: The hostname of a machine where S3 storage is installed.
+    bucketName:
+      type: string
+      description: The storage bucket name.
+    accessKey:
+      type: string
+      description: The access key to the S3 storage.
+    secretKey:
+      type: string
+      description: The secret key to the S3 storage.
+    signatureVersion:
+      type: integer
+      description: >
+        The version of signature used to sign requests.
+        One of: 2, 4. Default: 4.
+      enum: [2, 4]
+    maximumCanonicalObjectSize:
+      type: integer
+      description: >
+        Defines the maximum size for objects, which can be modified on the S3
+        storage in `canonical` path mode. In this mode, entire file needs to be
+        downloaded to memory, modified and uploaded back, which is impractical
+        for large files (default 64 MiB).
+    fileMode:
+      type: string
+      description: >
+        Defines the file permissions, which files imported from S3 storage will have
+        in Onedata. Values should be provided in octal format e.g. `0644`.
+    dirMode:
+      type: string
+      description: >
+        Defines the directory mode which directories imported from S3 storage will
+        have in Onedata. Values should be provided in octal format e.g. `0775`.
+  required:
+  - type
+example:
+  type: s3
+  name: SomeS3
+  hostname: s3.example.com
+  bucketName: bucket1.iam.example.com
+  accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
+  secretKey: fdeac26aedd3a179f9551d7007cc6a6273165782

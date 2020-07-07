@@ -1,11 +1,15 @@
 description: The Simple Storage Service configuration.
+x-onedata-storage: true
 allOf:
-  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
+  - $ref: '#/definitions/S3Credentials'
   - type: object
     properties:
       type:
         type: string
         description: The type of storage.
+        enum: [s3]
         x-discriminator-value: s3
       hostname:
         type: string
@@ -13,38 +17,45 @@ allOf:
       bucketName:
         type: string
         description: The storage bucket name.
-      accessKey:
-        type: string
-        description: The access key to the S3 storage.
-      secretKey:
-        type: string
-        description: The secret key to the S3 storage.
       signatureVersion:
         type: integer
         default: 4
         description: >
           The version of signature used to sign requests.
           One of: 2, 4. Default: 4.
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
+        enum: [2, 4]
       blockSize:
         type: integer
-        description: Storage block size in bytes.
-      insecure:
-        type: boolean
-        default: false
         description: >
-          Defines whether storage administrator credentials (accessKey and
-          secretKey) may be used by users without storage accounts to access
-          storage in direct IO mode.
-      readonly:
-        type: boolean
-        default: false
-        description: Defines whether storage is readonly.
+          Storage block size in bytes. In case the block size is `0` and
+          `canonical` path type is selected, each file is stored in a single
+          S3 object. This value must be set to `0` to enable data import from
+          an existing S3 bucket.
+      maximumCanonicalObjectSize:
+        type: integer
+        description: >
+          Defines the maximum size for objects, which can be modified on the S3
+          storage in `canonical` path mode. In this mode, entire file needs to be
+          downloaded to memory, modified and uploaded back, which is impractical
+          for large files (default 64 MiB).
+        default: 67108864
+        x-onedata-default-value: 67108864
+      fileMode:
+        type: string
+        description: >
+          Defines the file permissions, which files imported from S3 storage will have
+          in Onedata. Values should be provided in octal format e.g. `0644`.
+        default: "0644"
+      dirMode:
+        type: string
+        description: >
+          Defines the directory mode which directories imported from S3 storage will
+          have in Onedata. Values should be provided in octal format e.g. `0775`.
+        default: "0775"
       storagePathType:
         type: string
-        default: "flat"
+        default: flat
+        x-onedata-default-value: '<<"flat">>'
         description: |
           Determines how the logical file paths will be mapped on the storage.
           'canonical' paths reflect the logical file names and directory structure,
@@ -55,12 +66,10 @@ allOf:
     - type
     - hostname
     - bucketName
-    - accessKey
-    - secretKey
 example:
   type: s3
   name: SomeS3
   hostname: s3.example.com
   bucketName: bucket1.iam.example.com
-  accessKey: LKJHLAKJSHD887678678ASDKNJKASD9898789ASD
-  secretKey: ASASDLLASD89798&LKJHLAKJSHD887678678ASDKNJK
+  accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
+  secretKey: fdeac26aedd3a179f9551d7007cc6a6273165782

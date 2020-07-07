@@ -1,9 +1,41 @@
 type: object
 description: State of Onezone operation policies.
 properties:
+  oneproviderRegistration:
+    type: string
+    enum: [open, restricted]
+    description: |
+      Indicates policy enforced during provider registration. Possible options are:
+      open - anyone can acquire a registration token and register a new Oneprovider
+      restricted - requires an administrative privilege 'oz_providers_invite'
+                   to generate a Oneprovider registration token. The token
+                   can be issued for someone else.
   subdomainDelegation:
     type: boolean
     description: If true, Oneproviders are allowed to request subdomains
       of the Onezone domain for use as their domains.
+  guiPackageVerification:
+    type: boolean
+    default: true
+    description: >
+      When this value is true, GUI packages uploaded by services operating under
+      Onezone or by harvester admins are checked against known
+      SHA-256 checksums using the compatibility registry. Setting this value
+      to false disables the verification.
+
+      WARNING: disabling GUI package verification poses a severe security
+      threat, allowing Oneprovider owners to upload arbitrary GUI to Onezone
+      (which is then hosted in Onezone's domain).
+  harvesterGuiPackageVerification:
+    type: boolean
+    default: true
+    description: >
+      This policy can be used to disable GUI package verification for harvester
+      plugins only. See "guiPackageVerification" for detailed description.
+
+      This setting has no effect if "guiPackageVerification" is set to false.
 example:
   subdomainDelegation: true
+  guiPackageVerification: true
+  harvesterGuiPackageVerification: false
+

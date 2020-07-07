@@ -1,0 +1,7 @@
+type: object
+description: A token.
+properties:
+  token:
+    type: string
+required:
+  - token

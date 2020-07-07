@@ -1,0 +1,34 @@
+type: object
+description: Information about the authenticated user.
+properties:
+  userId:
+    type: string
+    description: The user Id.
+  username:
+    type: string
+    description: User's full name (given names + surname).
+  clusterPrivileges:
+    type: array
+    description: >
+      List of cluster privileges held by the user in the current cluster.
+    items:
+      type: string
+      enum:
+        - cluster_view
+        - cluster_update
+        - cluster_delete
+        - cluster_view_privileges
+        - cluster_set_privileges
+        - cluster_add_user
+        - cluster_remove_user
+        - cluster_add_group
+        - cluster_remove_group
+
+required:
+  - userId
+  - username
+  - userRole
+example:
+  userId: i3h2bp4TjPVuOyvXulbW
+  username: admin
+  clusterPrivileges: [cluster_update]

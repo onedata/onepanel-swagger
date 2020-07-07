@@ -1,0 +1,36 @@
+delete:
+  operationId: luma_clear_db
+  summary: Clear LUMA DB
+  description: >
+    Clears all LUMA DB entries for given storage.
+    LUMA DB will be repopulated using currently setup feed.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: luma_db
+  tags:
+    - LUMA DB
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: LUMA DB has been successfully cleared.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+  - name: id
+    in: path
+    type: string
+    description: The Id of a storage for which LUMA DB will be cleared
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443 lumaClearDb id=$STORAGE_ID

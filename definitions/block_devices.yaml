@@ -1,0 +1,45 @@
+type: object
+description: List of block device descriptions.
+properties:
+  blockDevices:
+    type: array
+    description: List of available block devices.
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Device type, as returned by lsblk.
+          enum:
+            - disk
+            - part
+        host:
+          type: string
+          description: Host on which the device is available.
+        path:
+          type: string
+        size:
+          type: integer
+          description: Device size in bytes.
+        mounted:
+          type: boolean
+          description: Result of heuristic attempt to detect whether a device
+            or any of its children is mounted.
+      required:
+        - host
+        - path
+        - size
+        - mounted
+required:
+  - block_devices
+example:
+  block_devices:
+    - path: /dev/sda
+      size: 10000000000
+      mounted: false
+    - path: /dev/sdb
+      size: 20000000000
+      mounted: true
+    - path: /dev/sr0
+      size: 1073741312
+      mounted: false

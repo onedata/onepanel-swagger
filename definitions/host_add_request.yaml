@@ -1,0 +1,11 @@
+type: object
+description: Details of host added to cluster.
+properties:
+  address:
+    type: string
+    description: >
+      Address at which the host is available, IP or hostname.
+required:
+  - address
+example:
+  address: node2.onedata.org

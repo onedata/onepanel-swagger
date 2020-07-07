@@ -1,0 +1,65 @@
+get:
+  operationId: get_progress
+  summary: Get deployment progress
+  description: Returns deployment markers state.
+  x-onedata-gri:
+    type: onp_panel
+    aspect: progress
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The progress markers.
+      schema:
+        $ref: '#/definitions/Progress'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+
+patch:
+  operationId: modify_progress
+  summary: Modify progress markers
+  description: Sets or unsets markers for completed deployment stages.
+  x-onedata-gri:
+    type: onp_panel
+    aspect: progress
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Changes successfully saved.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: ProgressModify
+      in: body
+      schema:
+        $ref: '#/definitions/ProgressModify'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProgress dnsCheck==true
+        --host https://$HOST:9443

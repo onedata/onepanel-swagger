@@ -26,14 +26,14 @@ required:
 example:
   cluster:
     master: "node1.onezone.onedata.example.com"
-    manager:
+    managers:
       mainHost: "node1.onezone.onedata.example.com"
       hosts:
         - "node1.onezone.onedata.example.com"
-    worker:
+    workers:
       hosts:
         - "node1.onezone.onedata.example.com"
-    database:
+    databases:
       hosts:
         - "node1.onezone.onedata.example.com"
   onezone:

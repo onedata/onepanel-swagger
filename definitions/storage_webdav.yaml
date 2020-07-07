@@ -1,11 +1,15 @@
 description: The WebDAV storage configuration.
+x-onedata-storage: true
 allOf:
-  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
+  - $ref: '#/definitions/WebdavCredentials'
   - type: object
     properties:
       type:
         type: string
         description: The type of storage.
+        enum: [webdav]
         x-discriminator-value: webdav
       endpoint:
         type: string
@@ -18,36 +22,6 @@ allOf:
             the WebDAV server.
         default: true
         x-onedata-default-value: true
-      credentialsType:
-        type: string
-        description: >
-            Determines the types of credentials provided in the credentials
-            field.
-        enum: [none, basic, token, oauth2]
-        default: none
-        x-onedata-default-value: none
-      credentials:
-        type: string
-        description: >
-            The credentials to authenticate with the WebDAV server. `basic` credentials
-            should be provided in the form `username:password`, for `token` just the token.
-            In case of `oauth2`, this field should contain the username for the WebDAV, while
-            the token will be obtained and refreshed automatically in the background.
-            For `none` this field is ignored.
-      oauth2IdP:
-        type: string
-        description: >
-          In case `oauth2` credential type is selected and Onezone is configured with support
-          for multiple external IdP's, this field must contain the name of the IdP which
-          authenticates requests to the WebDAV endpoint. If Onezone has only one external IdP,
-          it will be selected automatically.
-      onedataAccessToken:
-        type: string
-        description: >
-          When registering storage in `insecure` mode with `oauth2` external IdP, this field
-          must contain a valid Onedata access token of the user on whose behalf the WebDAV
-          storage will be accessed by all users with access to any space supported by this
-          storage.
       authorizationHeader:
         type: string
         description: >
@@ -65,7 +39,7 @@ allOf:
             selected no write support is available for this WebDAV storage.
         enum: [none, moddav, sabredav]
         default: none
-        x-onedata-default-value: none
+        x-onedata-default-value: '<<"none">>'
       connectionPoolSize:
         type: integer
         description: >
@@ -84,30 +58,17 @@ allOf:
         description: >
           Defines the file permissions, which files imported from WebDAV storage will have
           in Onedata. Values should be provided in octal format e.g. `0644`.
-        default: 0644
+        default: "0644"
       dirMode:
         type: string
         description: >
           Defines the directory mode which directories imported from WebDAV storage will
           have in Onedata. Values should be provided in octal format e.g. `0775`.
-        default: 0775
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
-      insecure:
-        type: boolean
-        default: false
-        description: >
-          Defines whether storage administrator credentials (username and key)
-          may be used by users without storage accounts to access storage in
-          direct IO mode.
-      readonly:
-        type: boolean
-        default: false
-        description: Defines whether storage is readonly.
+        default: "0775"
       storagePathType:
         type: string
         default: canonical
+        x-onedata-default-value: '<<"canonical">>'
         description: |
           Determines how the logical file paths will be mapped on the storage.
           'canonical' paths reflect the logical file names and directory structure,
@@ -127,8 +88,7 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  insecure: true
-  readonly: false
+  skipStorageDetection: false
 example:
   type: webdav
   name: SomeWebDAV
@@ -140,8 +100,7 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  insecure: true
-  readonly: false
+  skipStorageDetection: false
 example:
   type: webdav
   name: SomeWebDAV
@@ -154,8 +113,7 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  insecure: true
-  readonly: false
+  skipStorageDetection: false
 example:
   type: webdav
   name: SomeWebDAV
@@ -167,5 +125,4 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  insecure: false
-  readonly: false
+  skipStorageDetection: false

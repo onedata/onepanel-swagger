@@ -1,0 +1,22 @@
+type: object
+description: The new Onezone user account details.
+properties:
+  username:
+    type: string
+  password:
+    type: string
+  groups:
+    description: Ids of Onezone groups to which the user should be added.
+      The groups must already exist.
+    type: array
+    x-onedata-default-value: "[]"
+    default: []
+    items:
+      type: string
+required:
+  - username
+  - password
+example:
+  username: "admin"
+  password: "somePassword"
+  groups: ["admins"]

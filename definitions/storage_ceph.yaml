@@ -1,44 +1,28 @@
 description: The Ceph storage configuration (uses libradosstriper).
 allOf:
-  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
+  - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/CephCredentials'
   - type: object
     properties:
       type:
         type: string
         description: The type of storage.
+        enum: [ceph]
         x-discriminator-value: ceph
-      username:
-        type: string
-        description: The username of the Ceph cluster administrator.
-      key:
-        type: string
-        description: The admin key to access the Ceph cluster.
       monitorHostname:
         type: string
-        description: The monitor host name.
+        description: The monitor hostname.
       clusterName:
         type: string
         description: The Ceph cluster name.
       poolName:
         type: string
         description: The Ceph pool name.
-      timeout:
-        type: integer
-        description: Storage operation timeout in milliseconds.
-      insecure:
-        type: boolean
-        default: false
-        description: >
-          Defines whether storage administrator credentials (username and key)
-          may be used by users without storage accounts to access storage in
-          direct IO mode.
-      readonly:
-        type: boolean
-        default: false
-        description: Defines whether storage is readonly.
       storagePathType:
         type: string
-        default: "flat"
+        default: flat
+        x-onedata-default-value: '<<"flat">>'
         description: |
           Determines how the logical file paths will be mapped on the storage.
           'canonical' paths reflect the logical file names and directory structure,
@@ -47,8 +31,6 @@ allOf:
           rename when logical file name is changed.
     required:
     - type
-    - username
-    - key
     - monitorHostname
     - clusterName
     - poolName
@@ -56,8 +38,7 @@ example:
   type: ceph
   name: SomeCeph
   username: user1
-  key: LKJASHD6876ASDBJHV65765ASD
+  key: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
   monitorHostname: test.example.com
   clusterName: CephCluster1
   poolName: data
-  insecure: true

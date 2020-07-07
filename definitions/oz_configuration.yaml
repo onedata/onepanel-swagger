@@ -1,5 +1,5 @@
 type: object
-description: Public Onezone configuration details
+description: Public Onezone configuration details.
 allOf:
   - $ref: '#/definitions/Configuration'
   - type: object
@@ -12,11 +12,11 @@ allOf:
       zoneDomain:
         type: string
         description: >
-          The domain of this Onezone cluster. Null before cluster is configured.
+          The domain of this Onezone cluster. `null` before cluster is configured.
       zoneName:
         type: string
         description: >
-          The name of this Onezone cluster. Null before cluster is configured.
+          The name of this Onezone cluster. `null` before cluster is configured.
     required:
       - serviceType
       - zoneDomain
@@ -25,5 +25,5 @@ example:
   zoneDomain: onedata.org
   zoneName: OnedataZone
   build: 155-gdf98e0f
-  version: 18.02.2
+  version: 20.02.0-beta4
   deployed: true

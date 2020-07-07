@@ -3,6 +3,8 @@ description: The provider deployment configuration.
 properties:
   cluster:
     $ref: '#/definitions/ProviderClusterConfiguration'
+  ceph:
+    $ref: '#/definitions/CephCluster'
   oneprovider:
     type: object
     description: The provider custom configuration.
@@ -10,6 +12,11 @@ properties:
       register:
         type: boolean
         description: Defines whether the provider should be registered in a zone.
+      token:
+        type: string
+        description: >
+          Registration token obtained from Onezone. This token identifies
+          Onezone to be used and authorizes the registration request.
       name:
         type: string
         description: The name under which the provider will be registered in a zone.
@@ -54,15 +61,6 @@ properties:
       - register
       - name
       - adminEmail
-  onezone:
-    type: object
-    description: The zone custom configuration.
-    properties:
-      domainName:
-        description: The domain name of a zone where provider will be registered.
-        type: string
-    required:
-      - domainName
   onepanel:
     $ref: '#/definitions/PanelConfiguration'
 required:
@@ -73,10 +71,14 @@ example:
     nodes:
       node1:
         hostname: "node1"
+        externalIp: "128.128.64.64"
+      node2:
+        hostname: "node2"
     manager:
       mainNode: "node1"
       nodes:
         - "node1"
+        - "node2"
     worker:
       nodes:
         - "node1"
@@ -89,6 +91,7 @@ example:
         mountPoint: "/volumes/storage"
   oneprovider:
     register: true
+    token: "bWFjYXJvb25mcm9tb25lem9uZQo="
     name: "example"
     subdomainDelegation: false,
     letsEncryptEnabled: false,
@@ -96,5 +99,3 @@ example:
     adminEmail: "admin@example.eu"
     geoLongitude: -24.3776025
     geoLatitude: -128.3519364
-  onezone:
-    domainName: "node1.onezone.onedata.example.com"

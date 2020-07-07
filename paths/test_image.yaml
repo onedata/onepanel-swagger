@@ -1,0 +1,21 @@
+get:
+  operationId: test_image
+  summary: Get test image
+  description: >
+    This endpoint returns a dummy image in `.png` format. It is used internally
+    by web applications across Onedata to check connectivity with certain services.
+    This endpoint does not require authentication.
+  x-onedata-gri:
+    type: onp_panel
+    aspect: test_image
+  tags:
+    - Onepanel
+  produces:
+    - image/png
+  responses:
+    '200':
+      description: Test image.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'

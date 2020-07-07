@@ -28,10 +28,21 @@ properties:
           domain was delegated to the DNS server built into Onezone service.
       policies:
         $ref: '#/definitions/ZonePolicies'
+      users:
+        type: array
+        description: List of Onezone user specifications.
+        x-onedata-default-value: "[]"
+        default: []
+        items:
+          $ref: '#/definitions/OnezoneUserCreateRequest'
+    required:
+      - domainName
+      - name
   onepanel:
     $ref: '#/definitions/PanelConfiguration'
 required:
   - cluster
+  - onezone
 example:
   cluster:
     domainName: "onezone.onedata.example.com"
@@ -52,3 +63,8 @@ example:
     domainName: "example.com"
     name: "example"
     letsEncryptEnabled: true
+    users:
+      - username: "ozadmin"
+        password: "somepassword"
+        groups: ["admins"]
+

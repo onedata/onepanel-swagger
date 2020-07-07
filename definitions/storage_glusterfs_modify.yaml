@@ -1,0 +1,48 @@
+description: The GlusterFS storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      type: string
+      description: >
+        Type of the modified storage. Must be given explicitly and must match
+        the actual type of subject storage - this redundancy is needed
+        due to limitations of OpenAPI polymorphism.
+      enum: [glusterfs]
+      x-discriminator-value: glusterfs
+    volume:
+      type: string
+      description: The name of the volume to use as a storage backend.
+    hostname:
+      type: string
+      description: The hostname (IP address or FQDN) of GlusterFS volume server.
+    port:
+      type: integer
+      description: The GlusterFS port on volume server.
+    transport:
+      type: string
+      description: The transport protocol to use to connect to the volume server.
+      enum:
+      - tcp
+      - rdma
+      - socket
+    mountPoint:
+      type: string
+      description: Relative mountpoint within the volume which should be used by Oneprovider.
+    xlatorOptions:
+      type: string
+      description: |
+        Volume specific GlusterFS translator options, in the format:
+          TRANSLATOR1.OPTION1=VALUE1;TRANSLATOR2.OPTION2=VALUE2;...
+  required:
+  - type
+example:
+  type: glusterfs
+  name: LocalGluster
+  volume: Volume1
+  hostname: volfileserver.example.com
+  transport: tcp
+  port: 24007
+  mountPoint: ""
+  xlatorOptions: "transport.socket.ssl-enabled=on"

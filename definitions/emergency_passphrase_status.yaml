@@ -1,0 +1,6 @@
+type: object
+description: Emergency passphrase status.
+properties:
+  isSet:
+    type: boolean
+    description: True if the passphrase is set.

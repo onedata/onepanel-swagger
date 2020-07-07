@@ -1,0 +1,30 @@
+get:
+  operationId: get_ceph_usage
+  summary: Get Ceph storage space usage.
+  description: Returns summary of storage space usage in the Ceph cluster.
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: usage
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The usage statistics.
+      schema:
+        $ref: '#/definitions/CephUsage'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph cluster is not deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephUsage --host https://$HOST:9443
+

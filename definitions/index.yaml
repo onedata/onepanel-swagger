@@ -12,8 +12,14 @@ op_configuration:
 oz_configuration:
   $ref: ./oz_configuration.yaml
 
-Cookie:
-  $ref: ./cookie.yaml
+VersionInfo:
+  $ref: ./version_info.yaml
+
+BlockDevices:
+  $ref: ./block_devices.yaml
+
+DataUsage:
+  $ref: ./data_usage.yaml
 
 DnsCheck:
   $ref: ./dns_check.yaml
@@ -27,17 +33,56 @@ DnsCheckConfiguration:
 Error:
   $ref: ./error.yaml
 
-SessionDetails:
-  $ref: ./session_details.yaml
+GuiMessage:
+  $ref: ./gui_message.yaml
 
-UserDetails:
-  $ref: ./user_details.yaml
+Id:
+  $ref: ./id.yaml
 
-UserCreateRequest:
-  $ref: ./user_create_request.yaml
+Ids:
+  $ref: ./ids.yaml
 
-UserModifyRequest:
-  $ref: ./user_modify_request.yaml
+Token:
+  $ref: ./token.yaml
+
+InviteToken:
+  $ref: ./invite_token.yaml
+
+ClusterDetails:
+  $ref: ./cluster_details.yaml
+
+ClusterMembersSummary:
+  $ref: ./cluster_members_summary.yaml
+
+RemoteProviderDetails:
+  $ref: ./remote_provider_details.yaml
+
+EmergencyPassphraseChangeRequest:
+  $ref: ./emergency_passphrase_change_request.yaml
+
+EmergencyPassphraseStatus:
+  $ref: ./emergency_passphrase_status.yaml
+
+Host:
+  $ref: ./host.yaml
+
+HostAddRequest:
+  $ref: ./host_add_request.yaml
+
+OnezoneInfo:
+  $ref: ./onezone_info.yaml
+
+OnezoneUser:
+  $ref: ./onezone_user.yaml
+
+OnezoneUserCreateRequest:
+  $ref: ./onezone_user_create_request.yaml
+
+CurrentUser:
+  $ref: ./current_user.yaml
+
+PasswordChangeRequest:
+  $ref: ./password_change_request.yaml
 
 PanelConfiguration:
   $ref: ./panel_configuration.yaml
@@ -57,32 +102,170 @@ ClusterIps:
 ModifyClusterIps:
   $ref: ./modify_cluster_ips.yaml
 
-StorageDetails:
-  $ref: ./storage_details.yaml
+StorageCreateDetails:
+  $ref: ./storage_create_details.yaml
 
-posix:
+StorageGetDetails:
+  $ref: ./storage_get_details.yaml
+
+StorageModifyDetails:
+  $ref: ./storage_modify_details.yaml
+
+PosixCompatibleCredentials:
+  $ref: ./storage_posix_compatible_credentials.yaml
+
+PosixCredentials:
+  $ref: ./storage_posix_credentials.yaml
+
+Posix:
   $ref: ./storage_posix.yaml
 
-s3:
+PosixModify:
+  $ref: ./storage_posix_modify.yaml
+
+Localceph:
+  $ref: ./storage_localceph.yaml
+
+LocalcephModify:
+  $ref: ./storage_localceph_modify.yaml
+
+S3Credentials:
+  $ref: ./storage_s3_credentials.yaml
+
+S3:
   $ref: ./storage_s3.yaml
 
-ceph:
+S3Modify:
+  $ref: ./storage_s3_modify.yaml
+
+CephCredentials:
+  $ref: ./storage_ceph_credentials.yaml
+
+Ceph:
   $ref: ./storage_ceph.yaml
 
-cephrados:
+CephModify:
+  $ref: ./storage_ceph_modify.yaml
+
+CephradosCredentials:
+  $ref: ./storage_cephrados_credentials.yaml
+
+Cephrados:
   $ref: ./storage_cephrados.yaml
 
-swift:
+CephradosModify:
+  $ref: ./storage_cephrados_modify.yaml
+
+SwiftCredentials:
+  $ref: ./storage_swift_credentials.yaml
+
+Swift:
   $ref: ./storage_swift.yaml
 
-glusterfs:
+SwiftModify:
+  $ref: ./storage_swift_modify.yaml
+
+GlusterfsCredentials:
+  $ref: ./storage_glusterfs_credentials.yaml
+
+Glusterfs:
   $ref: ./storage_glusterfs.yaml
 
-nulldevice:
+GlusterfsModify:
+  $ref: ./storage_glusterfs_modify.yaml
+
+NulldeviceCredentials:
+  $ref: ./storage_nulldevice_credentials.yaml
+
+Nulldevice:
   $ref: ./storage_nulldevice.yaml
 
-webdav:
+NulldeviceModify:
+  $ref: ./storage_nulldevice_modify.yaml
+
+WebdavCredentials:
+  $ref: ./storage_webdav_credentials.yaml
+
+Webdav:
   $ref: ./storage_webdav.yaml
+
+WebdavModify:
+  $ref: ./storage_webdav_modify.yaml
+
+LumaConfig:
+  $ref: ./luma_config.yaml
+
+LumaUserMapping:
+  $ref: ./luma_user_mapping.yaml
+
+LumaStorageUser:
+  $ref: ./luma_storage_user.yaml
+
+LumaStorageCredentials:
+  $ref: ./luma_storage_credentials.yaml
+
+LumaOnedataUserScheme:
+  $ref: ./luma_onedata_user_scheme.yaml
+
+LumaIdpUserScheme:
+  $ref: ./luma_idp_user_scheme.yaml
+
+LumaOnedataUser:
+  $ref: ./luma_onedata_user.yaml
+
+LumaOnedataGroupScheme:
+  $ref: ./luma_onedata_group_scheme.yaml
+
+LumaIdpEntitlementScheme:
+  $ref: ./luma_idp_entitlement_scheme.yaml
+
+LumaOnedataGroup:
+  $ref: ./luma_onedata_group.yaml
+
+CephCluster:
+  $ref: ./ceph_cluster.yaml
+
+CephGlobalParams:
+  $ref: ./ceph_global_params.yaml
+
+CephManager:
+  $ref: ./ceph_manager.yaml
+
+CephManagers:
+  $ref: ./ceph_managers.yaml
+
+CephMonitor:
+  $ref: ./ceph_monitor.yaml
+
+CephMonitors:
+  $ref: ./ceph_monitors.yaml
+
+CephOsd:
+  $ref: ./ceph_osd.yaml
+
+blockdevice:
+  $ref: ./ceph_osd_blockdevice.yaml
+
+loopdevice:
+  $ref: ./ceph_osd_loopdevice.yaml
+
+CephOsds:
+  $ref: ./ceph_osds.yaml
+
+CephUsage:
+  $ref: ./ceph_usage.yaml
+
+CephPoolUsage:
+  $ref: ./ceph_pool_usage.yaml
+
+CephPool:
+  $ref: ./ceph_pool.yaml
+
+CephPools:
+  $ref: ./ceph_pools.yaml
+
+CephStatus:
+  $ref: ./ceph_status.yaml
 
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml
@@ -129,14 +312,17 @@ ProviderRegisterRequest:
 ProviderModifyRequest:
   $ref: ./provider_modify_request.yaml
 
+Progress:
+  $ref: ./progress.yaml
+
+ProgressModify:
+  $ref: ./progress_modify.yaml
+
 ServiceStatus:
   $ref: ./service_status.yaml
 
 ServiceStatusHost:
   $ref: ./service_status_host.yaml
-
-ServiceError:
-  $ref: ./service_error.yaml
 
 ServiceHosts:
   $ref: ./service_hosts.yaml
@@ -153,8 +339,14 @@ ManagerHosts:
 WorkerHosts:
   $ref: ./worker_hosts.yaml
 
+Node:
+  $ref: ./node.yaml
+
 ClusterConfigurationDetails:
   $ref: ./cluster_configuration_details.yaml
+
+TaskId:
+  $ref: ./task_id.yaml
 
 TaskStatus:
   $ref: ./task_status.yaml
@@ -177,6 +369,9 @@ TimeStats:
 TimeStatsCollection:
   $ref: ./time_stats_collection.yaml
 
+TransfersMock:
+  $ref: ./transfers_mock.yaml
+
 SpaceFilePopularityConfiguration:
   $ref: ./space_file_popularity_configuration.yaml
 
@@ -197,9 +392,6 @@ SpaceAutoCleaningReports:
 
 SpaceAutoCleaningReport:
   $ref: ./space_auto_cleaning_report.yaml
-
-SpaceId:
-  $ref: ./space_id.yaml
 
 WebCert:
   $ref: ./web_cert.yaml

@@ -5,29 +5,15 @@ properties:
     type: boolean
     default: true
     description: >
-      Indicates that interactive deployment is performed.
+      Indicates that interactive deployment is being performed.
 
       If false, users entering GUI will not be asked to complete the configuration.
       In that case default values will be used, available for change later
-      via appropriate onepanel GUI pages or REST.
-  users:
-    type: object
-    description: The collection of user names associated with users properties.
-    x-onedata-default-value: "#{}"
-    default: {}
-    additionalProperties:
-      type: object
-      properties:
-        password:
-          type: string
-          description: The user password.
-        userRole:
-          type: string
-          x-onedata-datatype: atom
-          description: The user role, one of 'admin' or 'regular'.
-          enum:
-            - admin
-            - regular
-      required:
-        - password
-        - userRole
+      via appropriate Onepanel GUI pages or REST.
+
+  guiDebugMode:
+    type: boolean
+    default: false
+    description: >
+      When true, all GUIs hosted in this cluster will print
+      debug logs to browser console.

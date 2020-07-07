@@ -4,6 +4,11 @@ properties:
   master:
     type: string
     description: Host responsible for deploying cluster and coordinating cluster restarts.
+  hosts:
+    type: array
+    description: List of hosts belonging to the Onepanel cluster.
+    items:
+      type: string
   databases:
     $ref: '#/definitions/DatabaseHosts'
   managers:
@@ -12,6 +17,7 @@ properties:
     $ref: '#/definitions/WorkerHosts'
 required:
   - master
+  - hosts
   - databases
   - managers
   - workers
