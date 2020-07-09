@@ -201,6 +201,15 @@ XRootD:
 XRootDModify:
   $ref: ./storage_xrootd_modify.yaml
 
+HTTPCredentials:
+  $ref: ./storage_http_credentials.yaml
+
+HTTP:
+  $ref: ./storage_http.yaml
+
+HTTPModify:
+  $ref: ./storage_http_modify.yaml
+
 LumaConfig:
   $ref: ./luma_config.yaml
 

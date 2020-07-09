@@ -1,0 +1,98 @@
+description: The HTTP storage configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
+  - $ref: '#/definitions/HTTPCredentials'
+  - type: object
+    properties:
+      type:
+        type: string
+        description: The type of storage.
+        enum: [http]
+        x-discriminator-value: http
+      endpoint:
+        type: string
+        description: >
+            Full URL of the HTTP server, including scheme (http or https) and path.
+      verifyServerCertificate:
+        type: boolean
+        description: >
+            Determines whether Oneprovider should verify the certificate of
+            the HTTP server.
+        default: true
+        x-onedata-default-value: true
+      authorizationHeader:
+        type: string
+        description: >
+            The authorization header to be used for passing the access token. This field
+            can contain any prefix that should be added to the header value. Default is
+            `Authorization: Bearer {}`. The token will placed where `{}` is provided.
+        default: "Authorization: Bearer {}"
+      connectionPoolSize:
+        type: integer
+        description: >
+            Defines the maximum number of parallel connections for a single HTTP storage.
+        default: 25
+        x-onedata-default-value: 25
+      fileMode:
+        type: string
+        description: >
+          Defines the file permissions, which files imported from HTTP storage will have
+          in Onedata. Values should be provided in octal format e.g. `0644`.
+        default: "0664"
+      storagePathType:
+        type: string
+        default: canonical
+        x-onedata-default-value: '<<"canonical">>'
+        description: |
+          Determines how the logical file paths will be mapped on the storage.
+          'canonical' paths reflect the logical file names and directory structure,
+          however each rename operation will require renaming the files on the storage.
+          'flat' paths are based on unique file UUID's and do not require on-storage
+          rename when logical file name is changed.
+    required:
+    - type
+    - endpoint
+example:
+  type: http
+  name: SomeHTTP
+  endoint: https://192.168.1.2:8080/http
+  verifyServerCertificate: false
+  credentialsType: basic
+  credentials: "admin:password"
+  connectionPoolSize: 25
+  skipStorageDetection: false
+example:
+  type: http
+  name: SomeHTTP
+  endoint: https://192.168.1.2:8080/http
+  verifyServerCertificate: false
+  credentialsType: token
+  credentials: "9uIG9uZXpvbmUKMDAzMGlkZW500aWZpZXIgMDc00CB00aW1lIDwgMTU3MDY2ZkZWVhNDIxMzE3ZGU5YzdiMGUzZDVhYTFmNmMKMDAxYW"
+  authorizationHeader: "X-Auth-Token: {}"
+  connectionPoolSize: 25
+  skipStorageDetection: false
+example:
+  type: http
+  name: SomeHTTP
+  endoint: https://192.168.1.2:8080/http
+  verifyServerCertificate: false
+  credentialsType: oauth2
+  credentials: "eudat"
+  oauth2IdP: b2access
+  onedataAccessToken: MDAxNWxvY2F10aW9uIG9uZXpvbmUKMDAzMGlkZW500aWZpZXIgMDc00CB00aW1lIDwgMTU3MDY2ZkZWVhNDIxMzE3ZGU5YzdiMGUzZDVhYTFmNmMKMDAxYWNpZEwMzI4NQowMDJmc2lnbmF00dXJlIGTFnkfXYWEJ5PXUHYVJJIeOt4qdJ2LHeFL6r5OEYkgKCg
+  rangeWriteSupport: moddav
+  connectionPoolSize: 25
+  maximumUploadSize: 0
+  skipStorageDetection: false
+example:
+  type: http
+  name: SomeHTTP
+  endoint: https://192.168.1.2:8080/http
+  verifyServerCertificate: false
+  credentialsType: oauth2
+  credentials: "eudat"
+  oauth2IdP: b2access
+  connectionPoolSize: 25
+  skipStorageDetection: false
