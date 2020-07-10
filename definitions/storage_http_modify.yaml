@@ -52,7 +52,7 @@ allOf:
 example:
   type: http
   name: SomeHTTP
-  endoint: https://192.168.1.2:8080/http
+  endpoint: https://192.168.1.2:8080/http
   verifyServerCertificate: false
   credentialsType: basic
   credentials: "admin:password"

@@ -81,7 +81,7 @@ allOf:
 example:
   type: webdav
   name: SomeWebDAV
-  endoint: https://192.168.1.2:8080/webdav
+  endpoint: https://192.168.1.2:8080/webdav
   verifyServerCertificate: false
   credentialsType: basic
   credentials: "admin:password"
@@ -92,7 +92,7 @@ example:
 example:
   type: webdav
   name: SomeWebDAV
-  endoint: https://192.168.1.2:8080/webdav
+  endpoint: https://192.168.1.2:8080/webdav
   verifyServerCertificate: false
   credentialsType: token
   credentials: "9uIG9uZXpvbmUKMDAzMGlkZW500aWZpZXIgMDc00CB00aW1lIDwgMTU3MDY2ZkZWVhNDIxMzE3ZGU5YzdiMGUzZDVhYTFmNmMKMDAxYW"
@@ -104,7 +104,7 @@ example:
 example:
   type: webdav
   name: SomeWebDAV
-  endoint: https://192.168.1.2:8080/webdav
+  endpoint: https://192.168.1.2:8080/webdav
   verifyServerCertificate: false
   credentialsType: oauth2
   credentials: "eudat"
@@ -117,7 +117,7 @@ example:
 example:
   type: webdav
   name: SomeWebDAV
-  endoint: https://192.168.1.2:8080/webdav
+  endpoint: https://192.168.1.2:8080/webdav
   verifyServerCertificate: false
   credentialsType: oauth2
   credentials: "eudat"
