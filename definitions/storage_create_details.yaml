@@ -16,6 +16,7 @@ x-onedata-subclasses:
   - nulldevice
   - webdav
   - xrootd
+  - http
 properties:
   type:
     type: string

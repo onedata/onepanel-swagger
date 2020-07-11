@@ -71,7 +71,7 @@ allOf:
 example:
   type: webdav
   name: SomeWebDAV
-  endoint: https://192.168.1.2:8080/webdav
+  endpoint: https://192.168.1.2:8080/webdav
   verifyServerCertificate: false
   credentialsType: basic
   credentials: "admin:password"
