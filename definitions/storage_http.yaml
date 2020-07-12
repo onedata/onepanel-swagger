@@ -33,8 +33,8 @@ allOf:
         type: integer
         description: >
             Defines the maximum number of parallel connections for a single HTTP storage.
-        default: 25
-        x-onedata-default-value: 25
+        default: 150
+        x-onedata-default-value: 150
       fileMode:
         type: string
         description: >
