@@ -29,6 +29,7 @@ allOf:
             can contain any prefix that should be added to the header value. Default is
             `Authorization: Bearer {}`. The token will placed where `{}` is provided.
         default: "Authorization: Bearer {}"
+        x-onedata-default-value: '<<"Authorization: Bearer {}">>'
       connectionPoolSize:
         type: integer
         description: >

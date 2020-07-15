@@ -29,6 +29,7 @@ allOf:
             can contain any prefix that should be added to the header value. Default is
             `Authorization: Bearer {}`. The token will placed where `{}` is provided.
         default: "Authorization: Bearer {}"
+        x-onedata-default-value: '<<"Authorization: Bearer {}">>'
       rangeWriteSupport:
         type: string
         description: >
@@ -59,12 +60,14 @@ allOf:
           Defines the file permissions, which files imported from WebDAV storage will have
           in Onedata. Values should be provided in octal format e.g. `0644`.
         default: "0664"
+        x-onedata-default-value: '<<"0664">>'
       dirMode:
         type: string
         description: >
           Defines the directory mode which directories imported from WebDAV storage will
           have in Onedata. Values should be provided in octal format e.g. `0775`.
         default: "0775"
+        x-onedata-default-value: '<<"0775">>'
       storagePathType:
         type: string
         default: canonical

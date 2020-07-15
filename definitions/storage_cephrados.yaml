@@ -24,6 +24,7 @@ allOf:
         type: integer
         description: Storage block size in bytes.
         default: 4194304
+        x-onedata-default-value: 4194304
       storagePathType:
         type: string
         default: flat
