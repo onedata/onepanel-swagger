@@ -23,6 +23,7 @@ allOf:
       blockSize:
         type: integer
         description: Storage block size in bytes.
+        default: 10485760
       storagePathType:
         type: string
         default: flat
