@@ -29,6 +29,7 @@ allOf:
             can contain any prefix that should be added to the header value. Default is
             `Authorization: Bearer {}`. The token will placed where `{}` is provided.
         default: "Authorization: Bearer {}"
+        x-onedata-default-value: '<<"Authorization: Bearer {}">>'
       connectionPoolSize:
         type: integer
         description: >
@@ -39,7 +40,7 @@ allOf:
         type: string
         description: >
           Defines the file permissions, which files imported from HTTP storage will have
-          in Onedata. Values should be provided in octal format e.g. `0644`.
+          in Onedata. Values should be provided in octal format e.g. `0664`.
         default: "0664"
       storagePathType:
         type: string

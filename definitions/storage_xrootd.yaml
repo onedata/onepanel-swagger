@@ -25,6 +25,7 @@ allOf:
           in a file which is readable for all users, but file which is writeable in XRootD
           will be only writeable by user and group.
         default: "0664"
+        x-onedata-default-value: '<<"0664">>'
       dirModeMask:
         type: string
         description: >
@@ -33,6 +34,7 @@ allOf:
           would result in a directory which is readable for owner and group but not for
           others.
         default: "0775"
+        x-onedata-default-value: '<<"0775">>'
       storagePathType:
         type: string
         default: canonical
