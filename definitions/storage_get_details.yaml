@@ -90,3 +90,11 @@ properties:
     readOnly: true
     default: false
     description: Defines whether storage contains existing data to be imported.
+  readonly:
+    type: boolean
+    x-onedata-storage-param: true
+    readOnly: true
+    default: false
+    description: >
+      Defines whether storage is readonly. If set to `true` it is not possible to write, modify or delete data
+      on the storage. Such storage can only be used to import data into space.

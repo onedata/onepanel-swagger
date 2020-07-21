@@ -64,3 +64,9 @@ properties:
     default: false
     description: >
       Defines whether storage contains existing data to be imported.
+  readonly:
+    type: boolean
+    default: false
+    description: >
+      Defines whether storage is readonly. If set to `true` it is not possible to write, modify or delete data
+      on the storage. Such storage can only be used to import data into space.
