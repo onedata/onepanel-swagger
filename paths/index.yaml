@@ -149,6 +149,12 @@
 /provider/spaces/{id}/sync:
   $ref: ./provider/spaces/id/sync.yaml
 
+/provider/spaces/{id}/sync/start:
+  $ref: ./provider/spaces/id/sync/start.yaml
+
+/provider/spaces/{id}/sync/cancel:
+  $ref: ./provider/spaces/id/sync/cancel.yaml
+
 /provider/storages:
   $ref: ./provider/storages.yaml
 

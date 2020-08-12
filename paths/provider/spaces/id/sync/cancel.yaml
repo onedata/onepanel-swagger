@@ -1,0 +1,38 @@
+post:
+  operationId: cancel_storage_import_scan
+  summary: Cancels storage import scan
+  description: Cancels current scan of storage import mechanism in given space.
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: cancel_storage_import_scan
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Storage import scan in given space has been cancelled.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The Id of a space.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE cancelStorageImportScan --host https://$HOST:9443
