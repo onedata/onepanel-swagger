@@ -1,26 +1,22 @@
 type: object
 description: Status and statistics of storage/space synchronization.
 properties:
-  importStatus:
+  status:
     type: string
-    description: Describes import algorithm run status.
+    description: Describes current status of storage import mechanism in given space.
     enum:
-      - inProgress
+      - initializing
+      - running
+      - stopping
+      - failed
       - done
-  updateStatus:
-    type: string
-    enum:
-      - waiting
-      - inProgress
-    description: Describes update algorithm run status.
   stats:
     description: Collection of statistics for requested metrics.
     $ref: '#/definitions/TimeStatsCollection'
 required:
-  - importStatus
+  - status
 example:
-  importStatus: done
-  updateStatus: inProgress
+  status: done
   stats:
     queueLength:
       name: queueLength
