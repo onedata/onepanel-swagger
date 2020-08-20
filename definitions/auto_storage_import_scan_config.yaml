@@ -1,33 +1,28 @@
 type: object
 description: >
-  The storage update configuration. Storage update ensures that all changes
-  on storage will be reflected in space.
+  Configuration of scan of storage import mechanism.
 properties:
-  strategy:
-    type: string
-    description: The update strategy. One of no_update, simple_scan.
   maxDepth:
     type: integer
     description: >
-      Maximum depth of filesystem tree that will be traversed during storage
-      synchronization.
+      Maximum depth of filesystem tree that will be traversed during the scan.
   scanInterval:
     type: integer
     description: >
       Period between subsequent scans in seconds (counted from end of one scan
-      till beginning of the following).
+      till beginning of the following). This parameter is relevant only for continuous scans.
   writeOnce:
     type: boolean
     description: >
       Flag determining that synchronized storage will be treated as immutable
       (only creations and deletions of files on storage will be detected).
-  deleteEnable:
+      This parameter is relevant only for continuous scans.
+  detectDeletions:
     type: boolean
     description: >
       Flag determining that deletions of files will be detected.
+      This parameter is relevant only for continuous scans.
   syncAcl:
     type: boolean
     description: >
       Flag that enables synchronization of NFSv4 ACLs.
-required:
-  - strategy

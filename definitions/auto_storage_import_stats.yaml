@@ -1,15 +1,16 @@
 type: object
-description: Status and statistics of storage/space synchronization.
+description: Status and statistics of storage import mechanism in given space.
 properties:
   status:
     type: string
-    description: Describes current status of storage import mechanism in given space.
+    description: Describes current status of storage import scan in given space.
     enum:
       - initializing
       - running
-      - stopping
-      - failed
+      - aborting
       - done
+      - failed
+      - aborted
   stats:
     description: Collection of statistics for requested metrics.
     $ref: '#/definitions/TimeStatsCollection'
