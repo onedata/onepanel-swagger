@@ -1,20 +1,20 @@
 get:
-  operationId: get_provider_storage_import_stats
-  summary: Get statistics of storage import mechanism.
+  operationId: get_provider_auto_storage_import_stats
+  summary: Get statistics of auto storage import mechanism.
   description: >
-    Returns requested statistics of storage import mechanism for given space
+    Returns requested statistics of auto storage import mechanism for given space
     on this provider.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
-    aspect: storage_import_stats
+    aspect: auto_storage_import_stats
   tags:
     - Oneprovider
   produces:
     - application/json
   responses:
     '200':
-      description: Status and statistics of storage import mechanism in given space.
+      description: Status and statistics of auto storage import mechanism in given space.
       schema:
         $ref: '#/definitions/AutoStorageImportStats'
     '401':
@@ -51,5 +51,5 @@ get:
   - lang: Shell
     source: >
       onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
-      getProviderStorageImportStats id=$SPACE_ID
+      getProviderAutoStorageImportStats id=$SPACE_ID
       started_after="2017-10-20T21:39:37"

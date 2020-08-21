@@ -25,7 +25,7 @@ properties:
       type: integer
       description: Supported storage space in bytes.
   storageImport:
-    $ref: '#/definitions/StorageImportConfig'
+    $ref: '#/definitions/StorageImport'
   spaceOccupancy:
     type: integer
     description: Amount of storage [b] used by data from given space on that storage.

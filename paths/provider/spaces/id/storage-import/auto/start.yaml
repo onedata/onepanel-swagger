@@ -1,18 +1,18 @@
 post:
-  operationId: start_storage_import_scan
-  summary: Starts storage import scan
-  description: Starts scan of storage import mechanism in given space.
+  operationId: start_auto_storage_import_scan
+  summary: Start auto storage import scan
+  description: Starts scan of auto storage import mechanism in given space.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
-    aspect: start_storage_import_scan
+    aspect: start_auto_storage_import_scan
   tags:
     - Oneprovider
   consumes:
     - application/json
   responses:
     '204':
-      description: Storage import scan in given space has started.
+      description: Scan of auto storage import in given space has started.
     '400':
       description: Invalid request.
       schema:
@@ -35,4 +35,4 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStorageImportScan --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startAutoStorageImportScan --host https://$HOST:9443 id=$SPACE_ID

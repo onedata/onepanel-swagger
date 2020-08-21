@@ -372,14 +372,14 @@ SpaceSupportRequest:
 SpaceModifyRequest:
   $ref: ./space_modify_request.yaml
 
-AutoStorageImportScanConfig:
-  $ref: ./auto_storage_import_scan_config.yaml
+AutoStorageImport:
+  $ref: ./auto_storage_import.yaml
 
 AutoStorageImportStats:
   $ref: ./auto_storage_import_stats.yaml
 
-StorageImportConfig:
-  $ref: ./storage_import_config.yaml
+StorageImport:
+  $ref: ./storage_import.yaml
 
 TimeStats:
   $ref: ./time_stats.yaml

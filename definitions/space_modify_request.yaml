@@ -6,4 +6,4 @@ properties:
     description: >
       The storage space size in bytes that provider is willing to assign to the space.
   storageImport:
-    $ref: '#/definitions/StorageImportConfig'
+    $ref: '#/definitions/StorageImport'
