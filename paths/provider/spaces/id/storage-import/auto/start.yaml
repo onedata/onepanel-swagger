@@ -21,6 +21,8 @@ post:
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '409':
+      description: Storage import scan is currently exectued in the space.
     '500':
       description: Internal server error.
       schema:
