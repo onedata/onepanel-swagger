@@ -5,12 +5,15 @@ properties:
     type: string
     description: Describes current status of storage import scan in given space.
     enum:
-      - initializing
+      - enqueued
       - running
       - aborting
       - done
       - failed
       - aborted
+  nextScan:
+    type: integer
+    description: Estimated time at which next scan will be enqueued.
   stats:
     description: Collection of statistics for requested metrics.
     $ref: '#/definitions/TimeStatsCollection'
@@ -18,6 +21,7 @@ required:
   - status
 example:
   status: done
+  nextScan: 1598871487
   stats:
     queueLength:
       name: queueLength
