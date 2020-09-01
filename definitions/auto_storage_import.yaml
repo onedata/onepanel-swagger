@@ -25,17 +25,18 @@ properties:
     description: >
       Period between subsequent scans in seconds (counted from end of one scan
       till beginning of the following). This parameter is relevant only for continuous scans.
-    default: 10
-  writeOnce:
+    default: 60
+  detectModifications:
     type: boolean
     description: >
-      Flag determining that synchronized storage will be treated as immutable
+      Flag determining that modifications of files on the synchronized storage will be detected.
+      If disabled, the storage will be treated as immutable
       (only creations and deletions of files on storage will be detected).
       This parameter is relevant only for continuous scans.
-      default: false
+    default: true
   detectDeletions:
     type: boolean
     description: >
-      Flag determining that deletions of files will be detected.
+      Flag determining that deletions of files from the synchronized storage will be detected.
       This parameter is relevant only for continuous scans.
-    default: false
+    default: true
