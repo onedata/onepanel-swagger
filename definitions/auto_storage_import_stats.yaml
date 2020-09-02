@@ -8,7 +8,7 @@ properties:
       - enqueued
       - running
       - aborting
-      - done
+      - completed
       - failed
       - aborted
   nextScan:
