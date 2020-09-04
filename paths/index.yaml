@@ -146,6 +146,9 @@
 /provider/spaces/{id}/file-popularity/configuration:
   $ref: ./provider/spaces/id/file-popularity/configuration.yaml
 
+/provider/spaces/{id}/storage-import/auto/info:
+  $ref: ./provider/spaces/id/storage-import/auto/info.yaml
+
 /provider/spaces/{id}/storage-import/auto/stats:
   $ref: ./provider/spaces/id/storage-import/auto/stats.yaml
 

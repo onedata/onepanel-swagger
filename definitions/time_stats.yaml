@@ -1,24 +1,9 @@
 type: object
-description: Statistics for single metric over specified time.
+description: Statistics of single metric over specified time.
 properties:
-  name:
-    type: string
-    description: Name of metric for which this object holds statistics.
-    enum:
-      - queueLength
-      - insertCount
-      - updateCount
-      - deleteCount
   lastValueDate:
     type: string
     description: Date of last measurement value in this object in ISO 8601 format.
-  period:
-    description: Predefined time period for which the statistics were fetched.
-    type: string
-    enum:
-      - minute
-      - hour
-      - day
   values:
     type: array
     description: >
@@ -30,13 +15,11 @@ properties:
     items:
       type: number
 required:
-  - name
   - lastValueDate
   - values
 example:
   name: queueLength
   lastValueDate: "2017-06-22T13:29:39.654Z"
-  period: minute
   values:
     - 4
     - 8

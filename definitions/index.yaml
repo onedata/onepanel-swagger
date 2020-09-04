@@ -378,14 +378,14 @@ AutoStorageImport:
 AutoStorageImportStats:
   $ref: ./auto_storage_import_stats.yaml
 
+AutoStorageImportInfo:
+  $ref: ./auto_storage_import_info.yaml
+
 StorageImport:
   $ref: ./storage_import.yaml
 
 TimeStats:
   $ref: ./time_stats.yaml
-
-TimeStatsCollection:
-  $ref: ./time_stats_collection.yaml
 
 TransfersMock:
   $ref: ./transfers_mock.yaml

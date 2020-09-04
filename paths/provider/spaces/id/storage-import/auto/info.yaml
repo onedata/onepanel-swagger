@@ -1,22 +1,20 @@
 get:
-  operationId: get_auto_storage_import_stats
-  summary: Get statistics of auto storage import mechanism.
-  description: >
-    Returns requested statistics of auto storage import mechanism for given space
-    on this provider.
+  operationId: get_auto_storage_import_info
+  summary: Get information about auto storage import scan.
+  description: Returns information about current or last finished auto storage import scan.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
-    aspect: auto_storage_import_stats
+    aspect: auto_storage_import_info
   tags:
     - Oneprovider
   produces:
     - application/json
   responses:
     '200':
-      description: Status and statistics of auto storage import mechanism in given space.
+      description: Information of auto storage import mechanism in given space.
       schema:
-        $ref: '#/definitions/AutoStorageImportStats'
+        $ref: '#/definitions/AutoStorageImportInfo'
     '401':
       description: Unauthorized request.
     '403':
@@ -44,10 +42,13 @@ get:
     required: false
   - name: metrics
     in: query
-    description: >
-      Specify which statistic metrics should be returned - strings delimited with comma.
-      Accepted values are: `queueLength`, `insertCount`, `updateCount`, `deleteCount`
+    description: Specify which statistic metrics should be returned - strings delimited with comma.
     type: string
+    enum:
+      - queueLength
+      - insertCount
+      - updateCount
+      - deleteCount
     required: false
   x-code-samples:
   - lang: Shell
