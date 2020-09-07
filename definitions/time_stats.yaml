@@ -18,7 +18,6 @@ required:
   - lastValueDate
   - values
 example:
-  name: queueLength
   lastValueDate: "2017-06-22T13:29:39.654Z"
   values:
     - 4
