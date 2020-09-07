@@ -29,6 +29,9 @@ properties:
   nextScan:
     type: integer
     description: Estimated time at which next scan will be enqueued.
+  totalScans:
+    type: integer
+    description: Total number of performed scans.
 required:
   - status
   - start
@@ -36,6 +39,7 @@ required:
   - importedFiles
   - updatedFiles
   - deletedFiles
+  - totalScans
 example:
   status: done
   start: 1598871401
