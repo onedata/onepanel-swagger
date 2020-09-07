@@ -46,7 +46,7 @@ get:
     in: query
     description: >
       Specify which statistic metrics should be returned - strings delimited with comma.
-      Accepted values are: `queueLength`, `insertCount`, `updateCount`, `deleteCount`
+      Accepted values are: `queueLength`, `importCount`, `updateCount`, `deleteCount`
     type: string
     required: false
   x-code-samples:

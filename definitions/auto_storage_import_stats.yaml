@@ -5,7 +5,7 @@ properties:
   queueLength:
     description: Statistics of auto storage import jobs queue length.
     $ref: '#/definitions/TimeStats'
-  insertCount:
+  importCount:
     description: Statistics of imported files count by auto storage import.
     $ref: '#/definitions/TimeStats'
   updateCount:
@@ -31,7 +31,7 @@ example:
       - 0
       - 0
       - 0
-  insertCount:
+  importCount:
     lastValueDate: "2017-06-22T13:29:39.654Z"
     period: hour
     values:

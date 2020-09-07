@@ -46,7 +46,7 @@ get:
     type: string
     enum:
       - queueLength
-      - insertCount
+      - importCount
       - updateCount
       - deleteCount
     required: false
