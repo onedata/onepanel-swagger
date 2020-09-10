@@ -1,11 +1,11 @@
 post:
-  operationId: stop_auto_storage_import_scan
-  summary: Stop auto storage import scan
-  description: Stops current scan of auto storage import mechanism in given space.
+  operationId: force_stop_auto_storage_import_scan
+  summary: Force stop auto storage import scan
+  description: Forcefully stops current scan of auto storage import mechanism in given space.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
-    aspect: stop_auto_storage_import_scan
+    aspect: force_stop_auto_storage_import_scan
   tags:
     - Oneprovider
   consumes:
@@ -37,4 +37,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE stopAutoStorageImportScan --host https://$HOST:9443 id=$SPACE_ID
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE forceStopAutoStorageImportScan --host https://$HOST:9443 id=$SPACE_ID

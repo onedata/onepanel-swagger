@@ -152,11 +152,11 @@
 /provider/spaces/{id}/storage-import/auto/stats:
   $ref: ./provider/spaces/id/storage-import/auto/stats.yaml
 
-/provider/spaces/{id}/storage-import/auto/start:
-  $ref: ./provider/spaces/id/storage-import/auto/start.yaml
+/provider/spaces/{id}/storage-import/auto/force-start:
+  $ref: ./provider/spaces/id/storage-import/auto/force-start.yaml
 
-/provider/spaces/{id}/storage-import/auto/stop:
-  $ref: ./provider/spaces/id/storage-import/auto/stop.yaml
+/provider/spaces/{id}/storage-import/auto/force-stop:
+  $ref: ./provider/spaces/id/storage-import/auto/force-stop.yaml
 
 /provider/storages:
   $ref: ./provider/storages.yaml
