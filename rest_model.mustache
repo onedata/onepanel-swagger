@@ -3,7 +3,8 @@
 %%% specification - DO NOT EDIT!
 %%%
 %%% @author Krzysztof Trzepla
-%%% @copyright (C) 2016 ACK CYFRONET AGH
+%%% @author Wojciech Geisler
+%%% @copyright (C) 2020 ACK CYFRONET AGH
 %%% This software is released under the MIT license
 %%% cited in 'LICENSE.txt'.
 %%% @end
@@ -33,16 +34,16 @@
         {{/description}}
         {{#vendorExtensions}}
             {{#x-onedata-oneof}}
--spec {{classname}}_model() -> {oneof, Oneof :: list()}.
+-spec {{classname}}_model() -> onepanel_parser:multi_spec().
             {{/x-onedata-oneof}}
             {{^x-onedata-oneof}}
--spec {{classname}}_model() -> map().
+-spec {{classname}}_model() -> onepanel_parser:object_spec().
             {{/x-onedata-oneof}}
         {{/vendorExtensions}}
 {{classname}}_model() ->
         {{#vendorExtensions}}
             {{#x-onedata-oneof}}
-    {oneof, [{{#x-onedata-subclasses}}{{.}}_model(),{{/x-onedata-subclasses}}]}.
+    {subclasses, onepanel_parser:prepare_subclasses([{{#x-onedata-subclasses}}{{.}}_model(),{{/x-onedata-subclasses}}])}.
             {{/x-onedata-oneof}}
             {{^x-onedata-oneof}}
                 {{#x-onedata-dictionary-value-type}}
@@ -51,12 +52,13 @@
                 {{^x-onedata-dictionary-value-type}}
     #{
                     {{#vars}}
+                        {{^isReadOnly}}
                         {{#description}}
         %% {{description}}
                         {{/description}}
                         {{#vendorExtensions}}
                             {{#x-discriminator-value}}
-        {{name}} => {equal, <<"{{x-discriminator-value}}">>}{{#hasMore}},{{/hasMore}}
+        {{name}} => {discriminator, <<"{{x-discriminator-value}}">>}{{#hasMore}},{{/hasMore}}
                             {{/x-discriminator-value}}
                             {{^x-discriminator-value}}
                                 {{#required}}
@@ -99,6 +101,61 @@
                                 {{/required}}
                             {{/x-discriminator-value}}
                         {{/vendorExtensions}}
+                        {{/isReadOnly}}
+                        {{#x-onedata-storage}}
+                        {{#vendorExtensions}}
+                            {{#x-onedata-storage-param}}
+                            {{#description}}
+        %% {{description}}
+                            {{/description}}
+                            {{#vendorExtensions}}
+                                {{#x-discriminator-value}}
+        {{name}} => {discriminator, <<"{{x-discriminator-value}}">>}{{#hasMore}},{{/hasMore}}
+                                {{/x-discriminator-value}}
+                                {{^x-discriminator-value}}
+                                    {{#required}}
+                                        {{#x-onedata-datatype}}
+        {{name}} => {{x-onedata-datatype}}{{#hasMore}},{{/hasMore}}
+                                        {{/x-onedata-datatype}}
+                                        {{^x-onedata-datatype}}
+                                            {{#isEnum}}
+        {{name}} => {{> enum }}{{#hasMore}},{{/hasMore}}
+                                            {{/isEnum}}
+                                            {{^isEnum}}
+        {{name}} => {{datatype}}{{#hasMore}},{{/hasMore}}
+                                            {{/isEnum}}
+                                        {{/x-onedata-datatype}}
+                                    {{/required}}
+                                    {{^required}}
+                                        {{#vendorExtensions}}
+                                            {{#x-onedata-default-value}}
+                                                {{#isEnum}}
+        {{name}} => { {{> enum}}, {optional, {{{x-onedata-default-value}}} } }{{#hasMore}},{{/hasMore}}
+                                                {{/isEnum}}
+                                                {{^isEnum}}
+        {{name}} => { {{datatype}}, {optional, {{{x-onedata-default-value}}} } }{{#hasMore}},{{/hasMore}}
+                                                {{/isEnum}}
+                                            {{/x-onedata-default-value}}
+                                            {{^x-onedata-default-value}}
+                                                {{#x-onedata-datatype}}
+        {{name}} => { {{x-onedata-datatype}}, optional }{{#hasMore}},{{/hasMore}}
+                                                {{/x-onedata-datatype}}
+                                                {{^x-onedata-datatype}}
+                                                    {{#isEnum}}
+        {{name}} => { {{> enum}} , optional }{{#hasMore}},{{/hasMore}}
+                                                    {{/isEnum}}
+                                                    {{^isEnum}}
+        {{name}} => { {{datatype}}, optional }{{#hasMore}},{{/hasMore}}
+                                                    {{/isEnum}}
+                                                {{/x-onedata-datatype}}
+                                            {{/x-onedata-default-value}}
+                                        {{/vendorExtensions}}
+                                    {{/required}}
+                                {{/x-discriminator-value}}
+                            {{/vendorExtensions}}
+                            {{/x-onedata-storage-param}}
+                        {{/vendorExtensions}}
+                        {{/x-onedata-storage}}
                     {{/vars}}
     }.
                 {{/x-onedata-dictionary-value-type}}

@@ -1,0 +1,33 @@
+get:
+  operationId: get_cluster_members_summary
+  summary: Get summary of members in this cluster
+  description: >
+    Returns aggregated counts of users and groups
+    belonging to this cluster.
+  x-onedata-gri:
+    type: onp_cluster
+    aspect: current_cluster_members_summary
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Members summary.
+      schema:
+        $ref: '#/definitions/ClusterMembersSummary'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getClusterMembersSummary --host https://$HOST:9443

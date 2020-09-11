@@ -1,0 +1,11 @@
+type: object
+description: Representation of Onedata group.
+discriminator: mappingScheme
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - luma_onedata_group_scheme
+  - luma_idp_entitlement_scheme
+properties:
+  mappingScheme:
+    type: string
+    description: Name of scheme used to represent group identity.

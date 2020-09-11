@@ -1,0 +1,98 @@
+get:
+  operationId: luma_get_acl_group_to_onedata_group_mapping
+  summary: Lookup mapping of ACL group
+  description: >
+    Returns mapping of ACL group on the specific storage to Onedata group stored in LUMA DB.
+    This endpoint is relevant **only for POSIX compatible storages**.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{luma_acl_group_to_onedata_group_mapping, ?BINDING(groupname)}"
+  tags:
+    - LUMA DB
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Mapping of ACL group to Onedata group.
+      schema:
+        $ref: '#/definitions/LumaOnedataGroup'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Storage or mapping for ACL group does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which onedata group mapping should be returned.
+      required: true
+    - name: groupname
+      in: path
+      type: integer
+      description: >
+        The ACL name of the group on the storage.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE lumaGetAclGroupToOnedataGroupMapping
+        id=$STORAGE_ID groupname=$ACL_GROUP --host https://$HOST:9443
+
+delete:
+  operationId: luma_remove_acl_group_to_onedata_group_mapping
+  summary: Remove mapping of ACL group
+  description: >
+    Removes mapping of ACL group on the specific storage to Onedata group from LUMA DB.
+    Mapping will be acquired again using currently setup LUMA feed.
+    This endpoint is relevant **only for POSIX compatible storages**.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{luma_acl_group_to_onedata_group_mapping, ?BINDING(groupname)}"
+  tags:
+    - LUMA DB
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The mapping was successfully deleted from LUMA DB.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Storage or mapping for ACL group does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which onedata group mapping should be removed.
+      required: true
+    - name: groupname
+      in: path
+      type: integer
+      description: >
+        The ACL name of the group on the storage.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID groupname=$ACL_GROUP
+        lumaRemoveAclGroupToOnedataGroupMapping --host https://$HOST:9443

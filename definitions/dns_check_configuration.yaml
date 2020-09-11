@@ -3,6 +3,7 @@ description: Configuration of the 'dns_check' method calls.
 properties:
   dnsServers:
     type: array
+    x-onedata-datatype: "[ip4]"
     items:
       type: string
     description: A collection of IP addresses for DNS servers used in checking DNS.
@@ -21,5 +22,5 @@ properties:
       interactive deployment.
 example:
   builtInDnsServer: false
-  dnsServers: ["8.8.8.8", "8.8.4.4.", "1.1.1.1"]
+  dnsServers: ["8.8.8.8", "8.8.4.4", "1.1.1.1"]
   dnsCheckAcknowledged: true

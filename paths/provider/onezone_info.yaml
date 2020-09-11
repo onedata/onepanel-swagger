@@ -1,0 +1,41 @@
+get:
+  operationId: get_onezone_info
+  summary: Get Onezone information
+  description: >
+    Get information about a Onezone.
+
+    Before registration, this endpoint requires a registration token and returns
+    information about the Onezone which issued the token.
+
+    If the Oneprovider is registered, returns information about the Onezone
+    at which the provider is registered.
+  x-onedata-gri:
+    type: onp_zone
+    aspect: instance
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about Onezone.
+      schema:
+        $ref: '#/definitions/OnezoneInfo'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: token
+      in: query
+      type: string
+      description: Oneprovider registration token obtained from Onezone.
+        Required if the Oneprovider is not registered.
+      required: false
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnezoneInfo --host https://$HOST:9443

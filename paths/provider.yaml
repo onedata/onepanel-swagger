@@ -2,9 +2,10 @@ get:
   operationId: get_provider
   summary: Get provider details
   description: Returns the basic configuration information of the provider.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: provider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: instance
+    scope: private
   tags:
     - Oneprovider
   produces:
@@ -26,16 +27,16 @@ get:
       description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProvider --host https://example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProvider --host https://$HOST:9443
 
 
 post:
   operationId: add_provider
   summary: Register provider
   description: Registers provider in the zone.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: provider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: instance
   tags:
     - Oneprovider
   consumes:
@@ -46,7 +47,7 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/ServiceError'
+        $ref: '#/definitions/Error'
     '401':
       description: Unauthorized request.
     '403':
@@ -68,16 +69,16 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_details.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProvider --host https://example.com:9443
+    source: cat provider_details.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProvider --host https://$HOST:9443
 
 
 patch:
   operationId: modify_provider
   summary: Modify provider details
   description: Modifies basic provider details in the zone.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: provider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: instance
   tags:
     - Oneprovider
   consumes:
@@ -88,7 +89,7 @@ patch:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/ServiceError'
+        $ref: '#/definitions/Error'
     '401':
       description: Unauthorized request.
     '403':
@@ -110,16 +111,16 @@ patch:
       required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_details.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProvider --host https://example.com:9443
+    source: cat provider_details.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProvider --host https://$HOST:9443
 
 
 delete:
   operationId: remove_provider
   summary: Unregister provider
   description: Unregisters provider from the zone.
-  x-onedata-version: 3
-  x-onedata-module: rest_oneprovider
-  x-onedata-resource: provider
+  x-onedata-gri:
+    type: onp_provider
+    aspect: instance
   tags:
     - Oneprovider
   responses:
@@ -137,4 +138,4 @@ delete:
       description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE removeProvider --host https://example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE removeProvider --host https://$HOST:9443

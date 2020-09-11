@@ -1,0 +1,30 @@
+post:
+  operationId: create_invite_token
+  summary: Create node invite token
+  description: >
+    Creates node invite token.
+
+    The token can be used by other nodes to [join cluster](#operation/join_cluster).
+  x-onedata-gri:
+    type: onp_panel
+    aspect: invite_token
+  tags:
+    - Onepanel
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Invite token created.
+      schema:
+        $ref: '#/definitions/InviteToken'
+    '403':
+      description: Forbidden request.
+    '409':
+      description: Operation forbidden. The node is already a part of a cluster.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE createInviteToken --host https://$HOST:9443

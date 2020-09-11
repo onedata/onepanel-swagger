@@ -1,0 +1,28 @@
+type: object
+description: Configuration of Local User Mapping database (LUMA DB).
+properties:
+  lumaFeed:
+    type: string
+    description: >
+      Type of feed for LUMA DB.
+      Feed is a source of user/group mappings used to populate the LUMA DB.
+      For more info please read: https://onedata.org/#/home/documentation/doc/administering_onedata/luma.html
+    enum:
+      - auto
+      - local
+      - external
+  lumaFeedUrl:
+    type: string
+    description: >
+      URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
+  lumaFeedApiKey:
+    type: string
+    description: >
+      API key checked by external service used as feed for LUMA DB.
+      Relevant only if lumaFeed equals `external`.
+required:
+  - lumaFeed
+example:
+  lumaFeed: external
+  lumaFeedUrl:  "http://example.external.luma.feed.com:8080"
+  lumaFeedApiKey:  ab9f4a57f303704ee75aa25808b898fd

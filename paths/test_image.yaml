@@ -5,10 +5,9 @@ get:
     This endpoint returns a dummy image in `.png` format. It is used internally
     by web applications across Onedata to check connectivity with certain services.
     This endpoint does not require authentication.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: test_image
-  x-onedata-noauth: true
+  x-onedata-gri:
+    type: onp_panel
+    aspect: test_image
   tags:
     - Onepanel
   produces:

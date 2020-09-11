@@ -1,0 +1,69 @@
+get:
+  operationId: get_ceph_params
+  summary: Get global Ceph params
+  description: Returns settings global for the Ceph cluster.
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: global_params
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The Ceph cluster configuration details.
+      schema:
+        $ref: '#/definitions/CephGlobalParams'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph cluster not deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephParams --host https://$HOST:9443
+
+post:
+  operationId: configure_ceph
+  summary: Configure Ceph cluster
+  description: Configures Ceph services. Any services and pools
+    specified in the request are deployed.
+    This request IS NOT idempotent.
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: cluster
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+    - application/x-yaml
+  responses:
+    '202':
+      $ref: '#/responses/TaskStarted'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: cephCluster
+      in: body
+      description: The Ceph cluster specification.
+      schema:
+        $ref: '#/definitions/CephCluster'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: cat ceph_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE configureCeph --host https://$HOST:9443

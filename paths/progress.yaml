@@ -2,9 +2,9 @@ get:
   operationId: get_progress
   summary: Get deployment progress
   description: Returns deployment markers state.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: progress
+  x-onedata-gri:
+    type: onp_panel
+    aspect: progress
   tags:
     - Onepanel
   produces:
@@ -31,9 +31,9 @@ patch:
   operationId: modify_progress
   summary: Modify progress markers
   description: Sets or unsets markers for completed deployment stages.
-  x-onedata-version: 3
-  x-onedata-module: rest_onepanel
-  x-onedata-resource: progress
+  x-onedata-gri:
+    type: onp_panel
+    aspect: progress
   tags:
     - Onepanel
   consumes:

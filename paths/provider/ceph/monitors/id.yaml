@@ -1,0 +1,35 @@
+get:
+  operationId: get_ceph_monitor
+  summary: Get Ceph monitor
+  description: Returns details of a Ceph monitor instance.
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: "{monitor, ?BINDING(id)}"
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Ceph monitor specification.
+      schema:
+        $ref: '#/definitions/CephMonitor'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph monitor with given id does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      description: Id of the Ceph monitor to describe.
+      in: path
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephMonitor --host https://$HOST:9443

@@ -3,6 +3,8 @@ description: The provider deployment configuration.
 properties:
   cluster:
     $ref: '#/definitions/ProviderClusterConfiguration'
+  ceph:
+    $ref: '#/definitions/CephCluster'
   oneprovider:
     type: object
     description: The provider custom configuration.
@@ -69,10 +71,14 @@ example:
     nodes:
       node1:
         hostname: "node1"
+        externalIp: "128.128.64.64"
+      node2:
+        hostname: "node2"
     manager:
       mainNode: "node1"
       nodes:
         - "node1"
+        - "node2"
     worker:
       nodes:
         - "node1"

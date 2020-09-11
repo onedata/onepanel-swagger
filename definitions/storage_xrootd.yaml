@@ -1,0 +1,67 @@
+description: The XRootD storage configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
+  - $ref: '#/definitions/XRootDCredentials'
+  - type: object
+    properties:
+      type:
+        type: string
+        description: The type of storage.
+        enum: [xrootd]
+        x-discriminator-value: xrootd
+      url:
+        type: string
+        description: >
+            Full URL of the XRootD server, including scheme (root or http) and path, e.g.
+            `root://192.168.0.1//data`. Please note, that XRootD URL format requires double
+            slash after host to indicate absolute path.
+      fileModeMask:
+        type: string
+        description: >
+          Defines the file permissions mask, which is used to map XRootD file mode to POSIX
+          mode. For instance a fileModeMask `0664` for readable file on XRootD would result
+          in a file which is readable for all users, but file which is writeable in XRootD
+          will be only writeable by user and group.
+        default: "0664"
+        x-onedata-default-value: '<<"0664">>'
+      dirModeMask:
+        type: string
+        description: >
+          Defines the directory permissions mask, which is used to map XRootD dir mode to
+          POSIX mode. For instance a dirModeMask `0770` for readable directory on XRootD
+          would result in a directory which is readable for owner and group but not for
+          others.
+        default: "0775"
+        x-onedata-default-value: '<<"0775">>'
+      storagePathType:
+        type: string
+        default: canonical
+        x-onedata-default-value: '<<"canonical">>'
+        description: |
+          Determines how the logical file paths will be mapped on the storage.
+          'canonical' paths reflect the logical file names and directory structure,
+          however each rename operation will require renaming the files on the storage.
+          'flat' paths are based on unique file UUID's and do not require on-storage
+          rename when logical file name is changed.
+    required:
+    - type
+    - url
+example:
+  type: xrootd
+  name: SomeXRootD
+  url: root://192.168.1.2//data
+  credentialsType: none
+  fileModeMask: "0644"
+  fileDirMask: "0755"
+  skipStorageDetection: true
+example:
+  type: xrootd
+  name: SomeXRootD
+  url: root://192.168.1.2//data
+  credentialsType: pwd
+  credentials: "admin:password"
+  fileModeMask: "0664"
+  fileDirMask: "0775"
+  skipStorageDetection: false

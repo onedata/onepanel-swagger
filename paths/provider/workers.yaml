@@ -1,0 +1,109 @@
+get:
+  operationId: get_provider_workers_status
+  summary: Get provider cluster workers status
+  description: >
+    Returns status of cluster worker service on each host where it has been
+    deployed.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{all_hosts_status, <<"op_worker">>}'
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        The status of cluster worker service on each host where it has been
+        deployed.
+      schema:
+        $ref: '#/definitions/ServiceStatus'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Cluster worker service has not been deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderWorkersStatus --host https://$HOST:9443
+
+
+post:
+  operationId: add_provider_workers
+  summary: Add provider cluster workers
+  description: Deploys cluster worker services on provided hosts.
+  x-onedata-gri:
+    type: onp_service
+    aspect: op_worker_instances
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '202':
+      $ref: '#/responses/TaskStarted'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: serviceHosts
+    in: body
+    description: >
+      The service hosts configuration where workers should be deployed.
+    schema:
+      $ref: '#/definitions/ServiceHosts'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProviderWorkers --host https://$HOST:9443
+
+
+patch:
+  operationId: start_stop_provider_workers
+  summary: Start/stop provider cluster workers
+  description: >
+    Starts or stops cluster worker service on all hosts in the local deployment.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{start_stop_all, <<"op_worker">>}'
+  tags:
+    - Oneprovider
+  responses:
+    '204':
+      description: Cluster worker service state changed successfully.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Cluster worker service has not been deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: started
+    in: query
+    description: >
+      Defines the intended state of the cluster worker service. The service
+      will be started or stopped in order to match the requested state.
+    type: boolean
+    default: true
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderWorkers started=true --host https://$HOST:9443

@@ -1,0 +1,29 @@
+get:
+  operationId: get_ceph_pools
+  summary: List Ceph pools
+  description: Returns object containing list of Ceph pool details.
+  x-onedata-gri:
+    type: onp_ceph
+    aspect: pools
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The pools details.
+      schema:
+        $ref: '#/definitions/CephPools'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Ceph cluster not deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephPools --host https://$HOST:9443

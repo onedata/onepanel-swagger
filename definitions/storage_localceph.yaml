@@ -1,0 +1,33 @@
+description: Configuration of a Ceph (librados) storage backed
+  by a Ceph pool created in the local Ceph cluster.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
+  - $ref: '#/definitions/CephPool'
+  - type: object
+    properties:
+      type:
+        type: string
+        description: The type of storage.
+        x-discriminator-value: localceph
+      blockSize:
+        type: integer
+        description: Storage block size in bytes.
+        default: 4194304
+      storagePathType:
+        type: string
+        default: flat
+        x-onedata-default-value: '<<"flat">>'
+        description: |
+          Determines how the logical file paths will be mapped on the storage.
+          'canonical' paths reflect the logical file names and directory structure,
+          however each rename operation will require renaming the files on the storage.
+          'flat' paths are based on unique file UUID's and do not require on-storage
+          rename when logical file name is changed.
+example:
+  type: localceph
+  name: myceph
+  copiesNumber: 2
+  skipStorageDetection: false
+  blockSize: 10485760

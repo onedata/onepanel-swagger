@@ -1,0 +1,29 @@
+post:
+  operationId: create_user_invite_token
+  summary: Generate cluster invitation token for a user
+  description: >
+    Returns a token which can be used to add a Onezone user
+    as a member of this cluster.
+  x-onedata-gri:
+    type: onp_cluster
+    aspect: invite_user_token
+  tags:
+    - Onepanel
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The generated token.
+      schema:
+        $ref: '#/definitions/Token'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE createUserInviteToken --host https://$HOST:9443

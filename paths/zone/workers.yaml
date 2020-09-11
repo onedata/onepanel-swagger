@@ -1,0 +1,107 @@
+get:
+  operationId: get_zone_workers_status
+  summary: Get zone cluster workers status
+  description: >
+    Returns status of cluster worker service on each host where it has been deployed.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{all_hosts_status, <<"oz_worker">>}'
+  tags:
+    - Onezone
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        The status of cluster worker service on each host where it has been
+        deployed.
+      schema:
+        $ref: '#/definitions/ServiceStatus'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Cluster worker service has not been deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneWorkersStatus --host https://$HOST:9443
+
+
+post:
+  operationId: add_zone_workers
+  summary: Add zone cluster workers
+  description: Deploys a cluster worker service on provided hosts.
+  x-onedata-gri:
+    type: onp_service
+    aspect: oz_worker_instances
+  tags:
+    - Onezone
+  consumes:
+    - application/json
+  responses:
+    '202':
+      $ref: '#/responses/TaskStarted'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: serviceHosts
+    in: body
+    description: The hosts specification where the workers should be deployed.
+    schema:
+      $ref: '#/definitions/ServiceHosts'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addZoneWorkers --host https://$HOST:9443
+
+
+patch:
+  operationId: start_stop_zone_workers
+  summary: Start/stop zone cluster workers
+  description: >
+    Starts or stops cluster worker service on all hosts in the local deployment.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{start_stop_all, <<"oz_worker">>}'
+  tags:
+    - Onezone
+  responses:
+    '204':
+      description: Cluster worker service state changed successfully.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Cluster worker service has not been deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: started
+    in: query
+    description: >
+      Defines the intended state of the cluster worker service. The service
+      will be started or stopped in order to match the requested state.
+    type: boolean
+    default: true
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneWorkers started=false --host https://$HOST:9443

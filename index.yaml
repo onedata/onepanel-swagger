@@ -6,6 +6,8 @@ paths:
   $ref: ./paths/index.yaml
 definitions:
   $ref: ./definitions/index.yaml
+responses:
+  $ref: ./responses/index.yaml
 tags:
   - name: Onepanel
     description: Common Onepanel resources and operations
@@ -13,6 +15,24 @@ tags:
     description: Resources and operations for managing Oneprovider deployment
   - name: Onezone
     description: Resources and operations for managing Onezone deployment
+  - name: LUMA DB
+    description: Resources and operations for managing LUMA DB for the specific storage resource.
+  - name: LUMA DB local feed
+    description: >
+      Resources and operations for managing local feed of LUMA DB for the specific storage resource.
+      All operations in this group return error if the storage has a different LUMA feed than `local`.
+x-tagGroups:
+  - name: Onepanel
+    tags:
+      - Onepanel
+  - name: Onezone
+    tags:
+      - Onezone
+  - name: Oneprovider
+    tags:
+      - Oneprovider
+      - LUMA DB
+      - LUMA DB local feed
 securityDefinitions:
   # api_key1 is used by Bash generated clients as default
   # header for sending api key

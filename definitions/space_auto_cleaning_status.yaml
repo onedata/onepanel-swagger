@@ -1,5 +1,5 @@
 type: object
-description: Status of current auto-cleaning process for given space
+description: Status of current auto-cleaning process for given space.
 properties:
   inProgress:
     type: boolean

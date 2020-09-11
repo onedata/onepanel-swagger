@@ -1,0 +1,98 @@
+get:
+  operationId: luma_get_uid_to_onedata_user_mapping
+  summary: Lookup mapping of UID
+  description: >
+    Returns mapping of UID on the specific storage to Onedata user stored in LUMA DB.
+    Mapping will be acquired again using currently setup LUMA feed.
+    This endpoint is relevant **only for POSIX compatible storages**.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
+  tags:
+    - LUMA DB
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Mapping of UID to Onedata user.
+      schema:
+        $ref: '#/definitions/LumaOnedataUser'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Storage or mapping for UID does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which onedata user mapping should be returned.
+      required: true
+    - name: uid
+      in: path
+      type: integer
+      description: >
+        The UID of the user on the storage.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE lumaGetUidToOnedataUserMapping
+        id=$STORAGE_ID uid=$UID --host https://$HOST:9443
+
+delete:
+  operationId: luma_remove_uid_to_onedata_user_mapping
+  summary: Remove mapping of UID
+  description: >
+    Removes mapping of UID on the specific storage to Onedata user from LUMA DB.
+    This endpoint is relevant **only for POSIX compatible storages**.
+  x-onedata-gri:
+    type: onp_storage
+    id: ?BINDING(id)
+    aspect: "{luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
+  tags:
+    - LUMA DB
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The mapping was successfully deleted from LUMA DB.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Storage or mapping for UID does not exist.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: >
+        The Id of a storage constituting space support for which onedata user mapping should be removed.
+      required: true
+    - name: uid
+      in: path
+      type: integer
+      description: >
+        The UID of the user on the storage.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: >
+        onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID uid=$UID
+        lumaRemoveUidToOnedataUserMapping --host https://$HOST:9443

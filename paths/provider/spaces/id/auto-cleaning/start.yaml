@@ -1,0 +1,50 @@
+post:
+  operationId: trigger_auto_cleaning
+  summary: Triggers space auto-cleaning
+  description: Triggers one run of auto-cleaning mechanism for given space.
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: start_auto_cleaning
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '202':
+      description: Cleaning of given space has started.
+      schema:
+        type: object
+        properties:
+          reportId:
+            type: string
+      headers:
+        Location:
+          type: string
+          description: Path of the cleaning report for the started run.
+    '204':
+      description: No action taken. Auto-cleaning is already running
+        or there are no files to be cleaned.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The Id of a space.
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE triggerAutoCleaning --host https://$HOST:9443

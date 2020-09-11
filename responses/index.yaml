@@ -1,0 +1,5 @@
+TaskStarted:
+  $ref: ./task_started.yaml
+
+Created:
+  $ref: ./created.yaml

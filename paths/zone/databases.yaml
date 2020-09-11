@@ -1,0 +1,107 @@
+get:
+  operationId: get_zone_databases_status
+  summary: Get zone databases status
+  description: >
+    Returns status of database service on each host where it has been deployed.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{all_hosts_status, <<"couchbase">>}'
+  tags:
+    - Onezone
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        The status of database service on each host where it has been deployed.
+      schema:
+        $ref: '#/definitions/ServiceStatus'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Database service has not been deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneDatabasesStatus --host https://$HOST:9443
+
+
+post:
+  operationId: add_zone_databases
+  summary: Add zone databases
+  description: Deploys a database service on provided hosts.
+  x-onedata-gri:
+    type: onp_service
+    aspect: couchbase_instances
+  tags:
+    - Onezone
+  consumes:
+    - application/json
+  responses:
+    '202':
+      $ref: '#/responses/TaskStarted'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: serviceHosts
+    in: body
+    description: >
+      The service hosts configuration where databases should be deployed.
+    schema:
+      $ref: '#/definitions/ServiceDatabases'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addZoneDatabases --host https://$HOST:9443
+
+
+patch:
+  operationId: start_stop_zone_databases
+  summary: Start/stop zone databases
+  description: >
+    Starts or stops database service on all hosts in the local deployment.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{start_stop_all, <<"couchbase">>}'
+  tags:
+    - Onezone
+  responses:
+    '204':
+      description: Database service state changed successfully.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Database service has not been deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: started
+    in: query
+    description: >
+      Defines the intended state of the database service. The service will be
+      started or stopped in order to match the requested state.
+    type: boolean
+    default: true
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneDatabases started=false --host https://$HOST:9443

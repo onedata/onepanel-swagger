@@ -3,9 +3,9 @@ get:
   summary: Get details of this cluster
   description: >
     Returns details of this cluster.
-  x-onedata-version: 3
-  x-onedata-module: rest_clusters
-  x-onedata-resource: current_cluster
+  x-onedata-gri:
+    type: onp_cluster
+    aspect: current_cluster
   tags:
     - Onepanel
   produces:

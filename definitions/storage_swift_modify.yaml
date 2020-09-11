@@ -1,12 +1,14 @@
 description: The OpenStack Swift configuration.
 allOf:
-- $ref: '#/definitions/StorageDetailsModify'
+- $ref: '#/definitions/StorageModifyDetails'
 - type: object
   properties:
     type:
       type: string
-      description: Type of the modified storage. Must match the type
-        of existing storage, needed only for OpenAPI polymorphism disambiguation.
+      description: >
+        Type of the modified storage. Must be given explicitly and must match
+        the actual type of subject storage - this redundancy is needed
+        due to limitations of OpenAPI polymorphism.
       enum: [swift]
       x-discriminator-value: swift
     authUrl:
@@ -24,12 +26,6 @@ allOf:
     password:
       type: string
       description: The Keystone authentication password.
-    insecure:
-      type: boolean
-      description: >
-        Defines whether storage administrator credentials (username and
-        password) may be used by users without storage accounts to access
-        storage in direct IO mode.
   required:
   - type
 example:
@@ -40,4 +36,3 @@ example:
   containerName: Container1
   username: user
   password: p@$$w0rd
-  insecure: true

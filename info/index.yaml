@@ -1,4 +1,4 @@
-version: 19.02.4
+version: 20.02.1
 title: Onepanel
 x-bash-codegen-description: |
   This is the RESTful API definition of **Onepanel** component of Onedata data
@@ -46,7 +46,7 @@ description: |
   particular full control over the **Onezone** and **Oneprovider** services and
   their distribution and monitoring on the local resources.
 
-  The API is group into 3 categories of operations:
+  The API is grouped into 3 categories of operations:
     * **Onepanel** - for common operations
     * **Oneprovider** - for Oneprovider specific administrative operations
     * **Onezone** - for Onezone specific administrative operations

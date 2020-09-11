@@ -11,7 +11,11 @@ SWAGGER_JS_CLIENT_IMAGE     ?= docker.onedata.org/swagger-codegen:VFS-3144
 SWAGGER_BASH_CLIENT_IMAGE   ?= docker.onedata.org/swagger-codegen:VFS-6328
 SWAGGER_REDOC_IMAGE         ?= docker.onedata.org/swagger-redoc:1.0.0
 
-BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
+ifndef BRANCH
+	# BRANCH should always be passed in case of git detached state. This is only a fallback.
+	BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
+endif
+
 COMMIT_MESSAGE = $(shell git log -1 --pretty=format:%s)
 
 .PHONY : all swagger.json
@@ -33,7 +37,7 @@ validate: swagger.json
 	fi
 
 cowboy-server: validate
-	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger -t ${SWAGGER_COWBOY_SERVER_IMAGE} generate -i ./swagger.json -l cowboy -o ./generated/cowboy
+	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger -t ${SWAGGER_COWBOY_SERVER_IMAGE} generate -i ./swagger.json -l cowboy -o ./generated/cowboy -DapiFileNameSuffix="_rest_routes"
 	./fix_generated.py
 
 python-client: validate
@@ -46,10 +50,12 @@ javascript-client: validate
 	docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_JS_CLIENT_IMAGE}  generate -i ./swagger.json -l javascript -o ./generated/javascript/ -c ./javascript-config.json
 
 javascript-update-repo: clean javascript-client
+	if [ "${BRANCH}" = "HEAD" ]; then exit 1; fi
 	rm -rf generated/javascript-git
 	git clone ssh://git@git.onedata.org:7999/vfs/onepanel-javascript-client.git generated/javascript-git && \
 	cd generated/javascript-git && \
 	( ( git checkout ${BRANCH} && ( git pull || exit 1 ) ) || git checkout -b ${BRANCH} ) && \
+	git rm -r * && \
 	cp -R ../javascript/* . && \
 	git add -A . && \
 	git config user.email "bamboo@onedata.org" && \

@@ -14,28 +14,17 @@ properties:
     description: The list of operation steps that have been executed successfully.
     items:
       type: string
+  totalSteps:
+    type: integer
+    description: Total number of steps to be executed.
   error:
-    description: The name of an error type.
-    type: string
-  description:
-    description: The detailed error description.
-    type: string
-  module:
-    description: The name of a module containing function that returned error.
-    type: string
-  function:
-    description: The name of a function that returned error.
-    type: string
-  hosts:
-    type: object
-    description: The collection of hosts with associated error description.
-    additionalProperties:
-      # The description of an error that has occured on a service host.
-      $ref: '#/definitions/Error'
+    $ref: '#/definitions/Error'
 required:
   - status
   - steps
+  - totalSteps
 example:
   status: running
   steps:
     - configuring
+  totalSteps: 3

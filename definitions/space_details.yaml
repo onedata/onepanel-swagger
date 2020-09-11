@@ -10,7 +10,7 @@ properties:
   storageId:
     type: string
     description: >
-      Id of StorageDetails that supports this space on provider that is
+      Id of storage that supports this space on provider that is
       associated with this panel.
   localStorages:
     type: array
@@ -24,11 +24,6 @@ properties:
     additionalProperties:
       type: integer
       description: Supported storage space in bytes.
-  mountInRoot:
-    type: boolean
-    default: false
-    description: >
-      Defines whether space will be mounted in / or /{SpaceId}/ path.
   storageImport:
     $ref: '#/definitions/StorageImportDetails'
   storageUpdate:

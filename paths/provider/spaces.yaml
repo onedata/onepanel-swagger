@@ -1,0 +1,74 @@
+get:
+  operationId: get_provider_spaces
+  summary: Get provider spaces
+  description: Returns the list of spaces supported by the provider.
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: list
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The provider spaces IDs.
+      schema:
+        $ref: '#/definitions/ProviderSpaces'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderSpaces --host https://$HOST:9443
+
+
+post:
+  operationId: support_space
+  summary: Support space
+  description: >
+    Supports an existing space.
+  x-onedata-gri:
+    type: onp_space
+    aspect: support
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: Created space support relation.
+      schema:
+        $ref: '#/definitions/Id'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+  - name: spaceSupportRequest
+    in: body
+    description: >
+      Specification of the space support request including support size and token.
+    schema:
+      $ref: '#/definitions/SpaceSupportRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE supportSpace token==ASDKJASKJDHKAJSHD size:=1073741824 --host https://$HOST:9443

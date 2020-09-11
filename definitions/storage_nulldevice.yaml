@@ -1,6 +1,8 @@
 description: The Null Device storage configuration.
+x-onedata-storage: true
 allOf:
-  - $ref: '#/definitions/StorageDetails'
+  - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
   - type: object
     properties:
       type:
