@@ -9,7 +9,7 @@ properties:
       In case of `auto` mode, the storage will be automatically scanned and data will be imported
       from storage into the assigned Onedata space without need for copying the data.
 
-      Configuration of the auto storage import can be passed in the `scanConfig` parameter.
+      Configuration of the auto storage import can be passed in the `autoStorageImportConfig` parameter.
       It is possible to enable periodical scans for automatic detection of changes on the storage
       (refer to the option `continuousScan` in the config).
 
@@ -21,5 +21,5 @@ properties:
     enum: [auto, manual]
     default: auto
     x-onedata-default-value: '<<"auto">>'
-  scanConfig:
-    $ref: '#/definitions/AutoStorageImport'
+  autoStorageImportConfig:
+    $ref: '#/definitions/AutoStorageImportConfig'
