@@ -158,6 +158,9 @@
 /provider/spaces/{id}/storage-import/auto/force-stop:
   $ref: ./provider/spaces/id/storage-import/auto/force-stop.yaml
 
+/provider/spaces/{id}/storage-import/manual/example:
+  $ref: ./provider/spaces/id/storage-import/manual/example.yaml
+
 /provider/storages:
   $ref: ./provider/storages.yaml
 

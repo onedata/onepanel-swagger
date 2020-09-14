@@ -3,7 +3,7 @@ description: >
   Configuration of the storage import within the space.
 properties:
   mode:
-    description: >
+    description: |
       Mode of the storage import within the space.
 
       In case of `auto` mode, the storage will be automatically scanned and data will be imported

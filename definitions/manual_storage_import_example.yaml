@@ -1,0 +1,13 @@
+type: object
+description: >
+    Example `curl` command that can be executed to manually import (register) file from storage.
+    For more info please read: https://onedata.org/#/home/api/stable/oneprovider?anchor=tag/File-registration
+properties:
+  curl:
+    type: string
+required:
+  - curl
+example:
+  curl: >
+    curl -X POST -H "X-Auth-Token:$TOKEN" -H "content-type:application/json" \
+    -d '{"storageId":"'$STORAGE_ID'", "spaceId":"'$SPACE_ID'", "storageFileId":"'$STORAGE_FILE_ID'", "destinationPath":"'$DESTINATION_PATH'"}' $ONEPROVIDER_HOST/api/v3/oneprovider/data/register

@@ -381,6 +381,9 @@ AutoStorageImportStats:
 AutoStorageImportInfo:
   $ref: ./auto_storage_import_info.yaml
 
+ManualStorageImportExample:
+  $ref: ./manual_storage_import_example.yaml
+
 StorageImport:
   $ref: ./storage_import.yaml
 

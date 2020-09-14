@@ -1,0 +1,49 @@
+get:
+  operationId: get_manual_storage_import_example
+  summary: Get manual storage import example.
+  description: |
+    Returns example `curl` command that can be executed to manually import (register) file from storage.
+
+    The command is filled with correct host of the Oneprovider, space and storage ids.
+    In order to execute the command, user must set 3 variables:
+     * `TOKEN` - Onedata access token.
+     * `STORAGE_FILE_ID` - Identifier of the file on storage, relevant for given storage backend:
+       * path on POSIX-compatible or canonical object storages, e.g. /dir/file.txt,
+       * URL on HTTP based storages, e.g. https://www.example.org/data/21/run123.tar.
+     * `DESTINATION_PATH` - An absolute path in space where file should be created.
+
+    For more info please read: https://onedata.org/#/home/api/stable/oneprovider?anchor=tag/File-registration
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: manual_storage_import_example
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Example `curl` command.
+      schema:
+        $ref: '#/definitions/ManualStorageImportExample'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+  - name: id
+    in: path
+    type: string
+    description: The Id of a space for which the example command should be generated.
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: >
+      onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
+      getManualStorageImportExample id=$SPACE_ID
