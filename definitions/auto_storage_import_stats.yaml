@@ -5,14 +5,14 @@ properties:
   queueLength:
     description: Statistics of auto storage import jobs queue length.
     $ref: '#/definitions/TimeStats'
-  importCount:
-    description: Statistics of imported files count by auto storage import.
+  createdFiles:
+    description: Statistics of count of created files detected by auto storage import.
     $ref: '#/definitions/TimeStats'
-  updateCount:
-    description: Statistics of updated files count by auto storage import.
+  modifiedFiles:
+    description: Statistics of count of modified files detected by auto storage import.
     $ref: '#/definitions/TimeStats'
-  deleteCount:
-    description: Statistics of deleted files count by auto storage import.
+  deletedFiles:
+    description: Statistics of count of deleted files detected by auto storage import.
     $ref: '#/definitions/TimeStats'
 example:
   queueLength:
@@ -30,7 +30,7 @@ example:
       - 0
       - 0
       - 0
-  importCount:
+  createdFiles:
     lastValueDate: "2017-06-22T13:29:39.654Z"
     values:
       - 4

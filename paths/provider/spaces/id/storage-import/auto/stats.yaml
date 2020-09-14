@@ -46,11 +46,11 @@ get:
     in: query
     description: >
       Specify which statistic metrics should be returned - strings delimited with comma.
-      Accepted values are: `queueLength`, `importCount`, `updateCount`, `deleteCount`
+      Accepted values are: `queueLength`, `createdFiles`, `modifiedFiles`, `deletedFiles`
     type: string
     required: true
   x-code-samples:
   - lang: Shell
     source: >
       onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
-      getAutoStorageImportStats id=$SPACE_ID period=minute metrics='queueLength,importCount'
+      getAutoStorageImportStats id=$SPACE_ID period=minute metrics='queueLength,createdFiles'
