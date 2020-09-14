@@ -3,12 +3,18 @@ x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'
-  - $ref: '#/definitions/SwiftCredentials'
   - type: object
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "swift"`
+          
+          Storage backend compatible with
+          [OpenStack](http://docs.openstack.org/developer/swift/) SWIFT
+          protocol.
         enum: [swift]
         x-discriminator-value: swift
       authUrl:
@@ -40,6 +46,7 @@ allOf:
     - authUrl
     - tenantName
     - containerName
+  - $ref: '#/definitions/SwiftCredentials'
 example:
   type: swift
   name: SomeSwift

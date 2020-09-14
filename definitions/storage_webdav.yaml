@@ -3,12 +3,17 @@ x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'
-  - $ref: '#/definitions/WebdavCredentials'
   - type: object
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "webdav"`
+          
+          Storage backend compatible with
+          [WebDAV](https://tools.ietf.org/html/rfc4918) protocol.
         enum: [webdav]
         x-discriminator-value: webdav
       endpoint:
@@ -81,6 +86,7 @@ allOf:
     required:
     - type
     - endpoint
+  - $ref: '#/definitions/WebdavCredentials'
 example:
   type: webdav
   name: SomeWebDAV
