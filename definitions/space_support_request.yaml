@@ -14,9 +14,7 @@ properties:
     description: >
       The Id of the storage resource where the space data should be stored.
   storageImport:
-    $ref: '#/definitions/StorageImportDetails'
-  storageUpdate:
-    $ref: '#/definitions/StorageUpdateDetails'
+    $ref: '#/definitions/StorageImport'
 required:
   - token
   - size

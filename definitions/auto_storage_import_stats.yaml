@@ -1,0 +1,47 @@
+type: object
+description: >
+  Statistics of auto storage import mechanism in given space over specified time.
+properties:
+  queueLength:
+    description: Statistics of auto storage import jobs queue length.
+    $ref: '#/definitions/TimeStats'
+  createdFiles:
+    description: Statistics of count of created files detected by auto storage import.
+    $ref: '#/definitions/TimeStats'
+  modifiedFiles:
+    description: Statistics of count of modified files detected by auto storage import.
+    $ref: '#/definitions/TimeStats'
+  deletedFiles:
+    description: Statistics of count of deleted files detected by auto storage import.
+    $ref: '#/definitions/TimeStats'
+example:
+  queueLength:
+    lastValueDate: "2017-06-22T13:29:39.654Z"
+    values:
+      - 4
+      - 8
+      - 12
+      - 16
+      - 20
+      - 10
+      - 4
+      - 2
+      - 0
+      - 0
+      - 0
+      - 0
+  createdFiles:
+    lastValueDate: "2017-06-22T13:29:39.654Z"
+    values:
+      - 4
+      - 8
+      - 12
+      - 16
+      - 20
+      - 10
+      - 4
+      - 2
+      - 0
+      - 0
+      - 0
+      - 0

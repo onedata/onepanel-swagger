@@ -146,8 +146,20 @@
 /provider/spaces/{id}/file-popularity/configuration:
   $ref: ./provider/spaces/id/file-popularity/configuration.yaml
 
-/provider/spaces/{id}/sync:
-  $ref: ./provider/spaces/id/sync.yaml
+/provider/spaces/{id}/storage-import/auto/info:
+  $ref: ./provider/spaces/id/storage-import/auto/info.yaml
+
+/provider/spaces/{id}/storage-import/auto/stats:
+  $ref: ./provider/spaces/id/storage-import/auto/stats.yaml
+
+/provider/spaces/{id}/storage-import/auto/force-start:
+  $ref: ./provider/spaces/id/storage-import/auto/force-start.yaml
+
+/provider/spaces/{id}/storage-import/auto/force-stop:
+  $ref: ./provider/spaces/id/storage-import/auto/force-stop.yaml
+
+/provider/spaces/{id}/storage-import/manual/example:
+  $ref: ./provider/spaces/id/storage-import/manual/example.yaml
 
 /provider/storages:
   $ref: ./provider/storages.yaml

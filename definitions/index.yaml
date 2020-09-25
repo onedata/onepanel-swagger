@@ -291,12 +291,6 @@ StorageCreateRequest:
 StorageModifyRequest:
   $ref: ./storage_modify_request.yaml
 
-StorageImportDetails:
-  $ref: ./storage_import_details.yaml
-
-StorageUpdateDetails:
-  $ref: ./storage_update_details.yaml
-
 ZoneConfiguration:
   $ref: ./zone_configuration.yaml
 
@@ -378,14 +372,23 @@ SpaceSupportRequest:
 SpaceModifyRequest:
   $ref: ./space_modify_request.yaml
 
-SpaceSyncStats:
-  $ref: ./space_sync_stats.yaml
+AutoStorageImportConfig:
+  $ref: ./auto_storage_import_config.yaml
+
+AutoStorageImportStats:
+  $ref: ./auto_storage_import_stats.yaml
+
+AutoStorageImportInfo:
+  $ref: ./auto_storage_import_info.yaml
+
+ManualStorageImportExample:
+  $ref: ./manual_storage_import_example.yaml
+
+StorageImport:
+  $ref: ./storage_import.yaml
 
 TimeStats:
   $ref: ./time_stats.yaml
-
-TimeStatsCollection:
-  $ref: ./time_stats_collection.yaml
 
 TransfersMock:
   $ref: ./transfers_mock.yaml

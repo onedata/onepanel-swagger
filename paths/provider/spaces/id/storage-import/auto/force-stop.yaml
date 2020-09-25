@@ -1,0 +1,40 @@
+post:
+  operationId: force_stop_auto_storage_import_scan
+  summary: Force stop auto storage import scan
+  description: Forcefully stops current scan of auto storage import mechanism in given space.
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: force_stop_auto_storage_import_scan
+  tags:
+    - Oneprovider
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Scan of auto storage import in given space has been stopped.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: Storage import scan is not currently executed in the space.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: The Id of a space.
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE forceStopAutoStorageImportScan --host https://$HOST:9443 id=$SPACE_ID

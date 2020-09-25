@@ -1,0 +1,38 @@
+get:
+  operationId: get_auto_storage_import_info
+  summary: Get information about auto storage import scan.
+  description: Returns information about current or last finished auto storage import scan.
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: auto_storage_import_info
+  tags:
+    - Oneprovider
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information of auto storage import mechanism in given space.
+      schema:
+        $ref: '#/definitions/AutoStorageImportInfo'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+  - name: id
+    in: path
+    type: string
+    description: The Id of a space for which storage import stats should be returned.
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: >
+      onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
+      getAutoStorageImportInfo id=$SPACE_ID

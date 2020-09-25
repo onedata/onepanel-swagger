@@ -1,0 +1,50 @@
+type: object
+description: Information about current (or last finished) auto storage import scan in given space.
+properties:
+  status:
+    type: string
+    description: Describes status of current (or last finished) auto storage import scan in given space.
+    enum:
+      - enqueued
+      - running
+      - aborting
+      - completed
+      - failed
+      - aborted
+  start:
+    type: integer
+    description: Time at which current (or last finished) scan has been started.
+  stop:
+    type: integer
+    description: Time at which current (or last finished) scan has been stopped.
+  createdFiles:
+    type: integer
+    description: Counter of created files that has been detected during current (or last finished) scan.
+  modifiedFiles:
+    type: integer
+    description: Counter of modified files that has been detected during current (or last finished) scan.
+  deletedFiles:
+    type: integer
+    description: Counter of deleted files that has been detected during current (or last finished) scan.
+  nextScan:
+    type: integer
+    description: Estimated time at which next scan will be enqueued.
+  totalScans:
+    type: integer
+    description: Total number of performed scans.
+required:
+  - status
+  - start
+  - stop
+  - createdFiles
+  - modifiedFiles
+  - deletedFiles
+  - totalScans
+example:
+  status: done
+  start: 1598871401
+  stop: 1598871427
+  createdFiles: 1146
+  modifiedFiles: 191
+  deletedFiles: 303
+  nextScan: 1598871487
