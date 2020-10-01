@@ -1,12 +1,12 @@
 get:
   operationId: get_ceph_pool
-  summary: Get details of a Ceph pool.
+  summary: Get details of a Ceph pool
   description: Returns object describng single Ceph pool specified by name.
   x-onedata-gri:
     type: onp_ceph
     aspect: "{pool, ?BINDING(name)}"
   tags:
-    - Oneprovider
+    - Ceph
   produces:
     - application/json
   responses:
@@ -44,7 +44,7 @@ patch:
     type: onp_ceph
     aspect: "{pool, ?BINDING(name)}"
   tags:
-    - Oneprovider
+    - Ceph
   consumes:
     - application/json
   responses:

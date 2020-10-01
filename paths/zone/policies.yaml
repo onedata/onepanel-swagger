@@ -1,6 +1,6 @@
 get:
   operationId: get_zone_policies
-  summary: Get Onezone policies.
+  summary: Get Onezone policies
   description: >
     Returns restrictions placed on Onezone operations such as registering
     Oneproviders.
@@ -8,7 +8,7 @@ get:
     type: onp_zone
     aspect: policies
   tags:
-    - Onezone
+    - Service Configuration
   produces:
     - application/json
   responses:
@@ -39,7 +39,7 @@ patch:
     type: onp_zone
     aspect: policies
   tags:
-    - Onezone
+    - Service Configuration
   consumes:
     - application/json
   responses:

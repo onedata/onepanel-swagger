@@ -8,7 +8,7 @@ get:
     type: onp_panel
     aspect: "{task, ?BINDING(id)}"
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:

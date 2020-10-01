@@ -7,7 +7,7 @@ get:
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Oneprovider
+    - Storages
   produces:
     - application/json
   responses:
@@ -49,7 +49,7 @@ patch:
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Oneprovider
+    - Storages
   consumes:
     - application/json
   responses:
@@ -100,7 +100,7 @@ delete:
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Oneprovider
+    - Storages
   consumes:
     - application/json
   responses:

@@ -7,7 +7,7 @@ get:
     type: onp_provider
     aspect: transfers_mock
   tags:
-    - Oneprovider
+    - Debug
   produces:
     - application/json
   responses:
@@ -39,7 +39,7 @@ patch:
     type: onp_provider
     aspect: transfers_mock
   tags:
-    - Oneprovider
+    - Debug
   consumes:
     - application/json
   responses:

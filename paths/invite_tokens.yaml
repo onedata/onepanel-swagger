@@ -9,7 +9,7 @@ post:
     type: onp_panel
     aspect: invite_token
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:

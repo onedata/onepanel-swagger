@@ -2,13 +2,13 @@ get:
   operationId: get_file_popularity_configuration
   summary: Get file-popularity configuration
   description: >
-    Returns configuration of file-popularity mechanism in the space specified by space Id in the path.
+    Returns configuration of file popularity mechanism in the space specified by space Id in the path.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
     aspect: file_popularity_configuration
   tags:
-    - Oneprovider
+    - File popularity & Auto-cleaning
   produces:
     - application/json
   responses:
@@ -61,7 +61,7 @@ patch:
     id: ?BINDING(id)
     aspect: file_popularity_configuration
   tags:
-    - Oneprovider
+    - File popularity & Auto-cleaning
   consumes:
     - application/json
   responses:

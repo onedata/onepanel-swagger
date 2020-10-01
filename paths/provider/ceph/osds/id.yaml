@@ -6,7 +6,7 @@ get:
     type: onp_ceph
     aspect: "{osd, ?BINDING(id)}"
   tags:
-    - Oneprovider
+    - Ceph
   produces:
     - application/json
   responses:

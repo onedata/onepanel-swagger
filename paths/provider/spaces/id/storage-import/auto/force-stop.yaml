@@ -7,7 +7,7 @@ post:
     id: ?BINDING(id)
     aspect: force_stop_auto_storage_import_scan
   tags:
-    - Oneprovider
+    - Space Support
   consumes:
     - application/json
   responses:

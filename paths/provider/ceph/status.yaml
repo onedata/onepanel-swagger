@@ -6,7 +6,7 @@ get:
     type: onp_ceph
     aspect: status
   tags:
-    - Oneprovider
+    - Ceph
   produces:
     - application/json
   responses:

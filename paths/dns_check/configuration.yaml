@@ -1,13 +1,13 @@
 get:
   operationId: get_dns_check_configuration
-  summary: Return settings used when performing the DNS check.
+  summary: Return settings used when performing the DNS check
   description: >
     Returns servers queried to check DNS configuration correctness.
   x-onedata-gri:
     type: onp_panel
     aspect: dns_check_configuration
   tags:
-    - Onepanel
+    - DNS & Web certificates
   produces:
     - application/json
   responses:
@@ -38,7 +38,7 @@ patch:
     type: onp_panel
     aspect: dns_check_configuration
   tags:
-    - Onepanel
+    - DNS & Web certificates
   consumes:
     - application/json
     - application/x-yaml

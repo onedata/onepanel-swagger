@@ -1,13 +1,13 @@
 get:
   operationId: get_ceph_osds
-  summary: Get Ceph OSDs list.
+  summary: Get Ceph OSDs list
   description: >
     Return list of Ceph OSD configurations.
   x-onedata-gri:
     type: onp_ceph
     aspect: osds
   tags:
-    - Oneprovider
+    - Ceph
   produces:
     - application/json
   responses:
@@ -38,7 +38,7 @@ post:
     type: onp_ceph
     aspect: osds
   tags:
-    - Oneprovider
+    - Ceph
   consumes:
     - application/json
   responses:

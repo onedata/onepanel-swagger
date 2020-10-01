@@ -7,7 +7,7 @@ get:
     id: undefined
     aspect: external_ips
   tags:
-    - Onezone
+    - Onezone Cluster
   produces:
     - application/json
   responses:
@@ -40,7 +40,7 @@ patch:
     id: undefined
     aspect: external_ips
   tags:
-    - Onezone
+    - Onezone Cluster
   consumes:
     - application/json
     - application/x-yaml

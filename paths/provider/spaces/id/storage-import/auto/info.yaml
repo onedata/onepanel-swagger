@@ -1,13 +1,13 @@
 get:
   operationId: get_auto_storage_import_info
-  summary: Get information about auto storage import scan.
+  summary: Get information about auto storage import scan
   description: Returns information about current or last finished auto storage import scan.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
     aspect: auto_storage_import_info
   tags:
-    - Oneprovider
+    - Space Support
   produces:
     - application/json
   responses:

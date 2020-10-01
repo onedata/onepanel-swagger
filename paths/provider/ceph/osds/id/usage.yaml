@@ -1,12 +1,12 @@
 get:
   operationId: get_ceph_osd_usage
-  summary: Get storage space usage details for specific OSD.
+  summary: Get storage space usage details for specific OSD
   description: Returns storage space usage statistics of given Ceph OSD.
   x-onedata-gri:
     type: onp_ceph
     aspect: "{osd_usage, ?BINDING(id)}"
   tags:
-    - Oneprovider
+    - Ceph
   produces:
     - application/json
   responses:

@@ -6,7 +6,7 @@ get:
     type: onp_provider
     aspect: cluster
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   produces:
     - application/json
   responses:
@@ -41,7 +41,7 @@ post:
     type: onp_provider
     aspect: cluster
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   consumes:
     - application/json
     - application/x-yaml

@@ -9,30 +9,66 @@ definitions:
 responses:
   $ref: ./responses/index.yaml
 tags:
-  - name: Onepanel
-    description: Common Onepanel resources and operations
-  - name: Oneprovider
-    description: Resources and operations for managing Oneprovider deployment
-  - name: Onezone
-    description: Resources and operations for managing Onezone deployment
+  - name: Cluster
+    description: Resources and operations for cluster managing.
+  - name: Security
+    description: Resources and operations for security managing.
+  - name: DNS & Web certificates
+    description: Resources and operations for DNS & Web certificates managing.
+  - name: Current User
+    description: Resources and operations for currently logged user managing.
+  - name: Internal
+    description: Internal resources and operations.
+  - name: Onezone Cluster
+    description: Resources and operations for managing onezone cluster.
+  - name: Service Configuration
+    description: Resources and operations for service configuration managing.
+  - name: User Management
+    description: Resources and operations for onezone users management.
+  - name: Oneprovider Cluster
+    description: Resources and operations for managing oneprovider cluster.
+  - name: Registration and Identity
+    description: Resources and operations for managing registration and identity of providers.
+  - name: Storages
+    description: Resources and operations for storages managing.
+  - name: Space Support
+    description: Resources and operations for space support managing.
   - name: LUMA DB
     description: Resources and operations for managing LUMA DB for the specific storage resource.
   - name: LUMA DB local feed
     description: >
       Resources and operations for managing local feed of LUMA DB for the specific storage resource.
       All operations in this group return error if the storage has a different LUMA feed than `local`.
+  - name: File popularity & Auto-cleaning
+    description: Resources and operations for file popularity and auto-cleaning managing
+  - name: Ceph
+    description: Resources and operations for Ceph managing.
+  - name: Debug
+    description: Resources and operations for debugging purposes.
 x-tagGroups:
-  - name: Onepanel
+  - name: ONEPANEL COMMON
     tags:
-      - Onepanel
-  - name: Onezone
+      - Cluster
+      - Security
+      - DNS & Web certificates
+      - Current User
+      - Internal
+  - name: ONEZONE ADMINISTRATION
     tags:
-      - Onezone
-  - name: Oneprovider
+      - Onezone Cluster
+      - Service Configuration
+      - User Management
+  - name: ONEPROVIDER ADMINISTRATION
     tags:
-      - Oneprovider
+      - Oneprovider Cluster
+      - Registration and Identity
+      - Storages
+      - Space Support
       - LUMA DB
       - LUMA DB local feed
+      - File popularity & Auto-cleaning
+      - Ceph
+      - Debug
 securityDefinitions:
   # api_key1 is used by Bash generated clients as default
   # header for sending api key

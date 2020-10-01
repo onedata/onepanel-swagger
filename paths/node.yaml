@@ -1,13 +1,13 @@
 get:
   operationId: get_node
-  summary: Get information about current onepanel node.
+  summary: Get information about current onepanel node
   description: >
     Returns information about current onepanel node.
   x-onedata-gri:
     type: onp_host
     aspect: instance
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:

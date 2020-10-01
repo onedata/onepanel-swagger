@@ -2,23 +2,60 @@
 # defined in separate files for each path
 
 
-# Onepanel common resources
+# Onepanel Common
 
+## Cluster
 /configuration:
   $ref: ./configuration.yaml
 
-/test_image:
-  $ref: ./test_image.yaml
+/node:
+  $ref: ./node.yaml
 
 /cluster:
   $ref: ./cluster.yaml
 
-/cluster/invite_user_token:
-  $ref: ./cluster/invite_user_token.yaml
+/cookie:
+  $ref: ./cookie.yaml
+
+/hosts:
+  $ref: ./hosts.yaml
+
+/invite_tokens:
+  $ref: ./invite_tokens.yaml
+
+/join_cluster:
+  $ref: ./join_cluster.yaml
+
+/hosts/{host}:
+  $ref: ./hosts/host.yaml
+
+/progress:
+  $ref: ./progress.yaml
+
+/tasks/{id}:
+  $ref: ./tasks/id.yaml
 
 /cluster/members_summary:
   $ref: ./cluster/members_summary.yaml
 
+/cluster/invite_user_token:
+  $ref: ./cluster/invite_user_token.yaml
+
+## Security
+/emergency_passphrase:
+  $ref: ./emergency_passphrase.yaml
+
+## DNS & Web certificates
+/dns_check/configuration:
+  $ref: ./dns_check/configuration.yaml
+
+/dns_check:
+  $ref: ./dns_check.yaml
+
+/web_cert:
+  $ref: ./web_cert.yaml
+
+## Current User
 /user:
   $ref: ./user.yaml
 
@@ -28,123 +65,109 @@
 /user/clusters/{id}:
   $ref: ./user/clusters/id.yaml
 
+## Internal
 /providers/{id}:
   $ref: ./providers/id.yaml
 
-/cookie:
-  $ref: ./cookie.yaml
+/test_image:
+  $ref: ./test_image.yaml
 
-/dns_check:
-  $ref: ./dns_check.yaml
 
-/dns_check/configuration:
-  $ref: ./dns_check/configuration.yaml
+# Onezone Administration
 
-/invite_tokens:
-  $ref: ./invite_tokens.yaml
+## Onezone Cluster
+/zone/configuration:
+  $ref: ./zone/configuration.yaml
 
-/join_cluster:
-  $ref: ./join_cluster.yaml
+/zone/cluster_ips:
+  $ref: ./zone/cluster_ips.yaml
 
-/node:
-  $ref: ./node.yaml
+/zone/nagios:
+  $ref: ./zone/nagios.yaml
 
-/hosts:
-  $ref: ./hosts.yaml
+/zone/databases:
+  $ref: ./zone/databases.yaml
 
-/hosts/{host}:
-  $ref: ./hosts/host.yaml
+/zone/databases/{host}:
+  $ref: ./zone/databases/host.yaml
 
-/tasks/{id}:
-  $ref: ./tasks/id.yaml
+/zone/managers:
+  $ref: ./zone/managers.yaml
 
-/progress:
-  $ref: ./progress.yaml
+/zone/managers/{host}:
+  $ref: ./zone/managers/host.yaml
 
-/emergency_passphrase:
-  $ref: ./emergency_passphrase.yaml
+/zone/workers:
+  $ref: ./zone/workers.yaml
 
-/web_cert:
-  $ref: ./web_cert.yaml
+/zone/workers/{host}:
+  $ref: ./zone/workers/host.yaml
 
-# Provider specific resources
-/provider:
-  $ref: ./provider.yaml
+## Service Configuration
+/zone/policies:
+  $ref: ./zone/policies.yaml
+
+/zone/gui_messages/{id}:
+  $ref: ./zone/gui_messages/id.yaml
+
+## User Management
+/zone/users:
+  $ref: ./zone/users.yaml
+
+/zone/users/{id}:
+  $ref: ./zone/users/id.yaml
+
+
+# ONEPROVIDER ADMINISTRATION
+
+## Oneprovider Cluster
+/provider/configuration:
+  $ref: ./provider/configuration.yaml
+
+/provider/cluster_ips:
+  $ref: ./provider/cluster_ips.yaml
 
 /provider/nagios:
   $ref: ./provider/nagios.yaml
 
-/provider/configuration:
-  $ref: ./provider/configuration.yaml
+/provider/databases:
+  $ref: ./provider/databases.yaml
 
-/provider/ceph:
-  $ref: ./provider/ceph.yaml
+/provider/databases/{host}:
+  $ref: ./provider/databases/host.yaml
 
-/provider/ceph/osds:
-  $ref: ./provider/ceph/osds.yaml
+/provider/managers:
+  $ref: ./provider/managers.yaml
 
-/provider/ceph/osds/{id}:
-  $ref: ./provider/ceph/osds/id.yaml
+/provider/managers/{host}:
+  $ref: ./provider/managers/host.yaml
 
-/provider/ceph/osds/{id}/usage:
-  $ref: ./provider/ceph/osds/id/usage.yaml
+/provider/workers:
+  $ref: ./provider/workers.yaml
 
-/provider/ceph/managers:
-  $ref: ./provider/ceph/managers.yaml
+/provider/workers/{host}:
+  $ref: ./provider/workers/host.yaml
 
-/provider/ceph/managers/{id}:
-  $ref: ./provider/ceph/managers/id.yaml
+## Registration and Identity
+/provider/onezone_info:
+  $ref: ./provider/onezone_info.yaml
 
-/provider/ceph/monitors:
-  $ref: ./provider/ceph/monitors.yaml
+/provider:
+  $ref: ./provider.yaml
 
-/provider/ceph/monitors/{id}:
-  $ref: ./provider/ceph/monitors/id.yaml
+## Storages
+/provider/storages:
+  $ref: ./provider/storages.yaml
 
-/provider/ceph/status:
-  $ref: ./provider/ceph/status.yaml
+/provider/storages/{id}:
+  $ref: ./provider/storages/id.yaml
 
-/provider/ceph/usage:
-  $ref: ./provider/ceph/usage.yaml
-
-/provider/ceph/pools:
-  $ref: ./provider/ceph/pools.yaml
-
-/provider/ceph/pools/{name}:
-  $ref: ./provider/ceph/pools/name.yaml
-
-/provider/ceph/pools/{name}/usage:
-  $ref: ./provider/ceph/pools/name/usage.yaml
-
-/provider/ceph/preflight/block_devices:
-  $ref: ./provider/ceph/preflight/block_devices.yaml
-
+## Space Support
 /provider/spaces:
   $ref: ./provider/spaces.yaml
 
 /provider/spaces/{id}:
   $ref: ./provider/spaces/id.yaml
-
-/provider/spaces/{id}/auto-cleaning/configuration:
-  $ref: ./provider/spaces/id/auto-cleaning/configuration.yaml
-
-/provider/spaces/{id}/auto-cleaning/reports:
-  $ref: ./provider/spaces/id/auto-cleaning/reports.yaml
-
-/provider/spaces/{id}/auto-cleaning/reports/{report_id}:
-  $ref: ./provider/spaces/id/auto-cleaning/reports/report_id.yaml
-
-/provider/spaces/{id}/auto-cleaning/start:
-  $ref: ./provider/spaces/id/auto-cleaning/start.yaml
-
-/provider/spaces/{id}/auto-cleaning/cancel:
-  $ref: ./provider/spaces/id/auto-cleaning/cancel.yaml
-
-/provider/spaces/{id}/auto-cleaning/status:
-  $ref: ./provider/spaces/id/auto-cleaning/status.yaml
-
-/provider/spaces/{id}/file-popularity/configuration:
-  $ref: ./provider/spaces/id/file-popularity/configuration.yaml
 
 /provider/spaces/{id}/storage-import/auto/info:
   $ref: ./provider/spaces/id/storage-import/auto/info.yaml
@@ -160,12 +183,6 @@
 
 /provider/spaces/{id}/storage-import/manual/example:
   $ref: ./provider/spaces/id/storage-import/manual/example.yaml
-
-/provider/storages:
-  $ref: ./provider/storages.yaml
-
-/provider/storages/{id}:
-  $ref: ./provider/storages/id.yaml
 
 # LUMA endpoints
 
@@ -218,72 +235,71 @@
 /provider/storages/{id}/luma/local_feed/storage_import/posix_compatible/acl_group_to_onedata_group/{groupname}:
   $ref: ./provider/storages/id/luma/local_feed/storage_import/posix_compatible/acl_group_to_onedata_group/groupname.yaml
 
-###
+## File popularity & Auto-cleaning
+/provider/spaces/{id}/file-popularity/configuration:
+  $ref: ./provider/spaces/id/file-popularity/configuration.yaml
 
-/provider/databases:
-  $ref: ./provider/databases.yaml
+/provider/spaces/{id}/auto-cleaning/configuration:
+  $ref: ./provider/spaces/id/auto-cleaning/configuration.yaml
 
-/provider/databases/{host}:
-  $ref: ./provider/databases/host.yaml
+/provider/spaces/{id}/auto-cleaning/reports:
+  $ref: ./provider/spaces/id/auto-cleaning/reports.yaml
 
-/provider/managers:
-  $ref: ./provider/managers.yaml
+/provider/spaces/{id}/auto-cleaning/reports/{report_id}:
+  $ref: ./provider/spaces/id/auto-cleaning/reports/report_id.yaml
 
-/provider/managers/{host}:
-  $ref: ./provider/managers/host.yaml
+/provider/spaces/{id}/auto-cleaning/start:
+  $ref: ./provider/spaces/id/auto-cleaning/start.yaml
 
-/provider/workers:
-  $ref: ./provider/workers.yaml
+/provider/spaces/{id}/auto-cleaning/cancel:
+  $ref: ./provider/spaces/id/auto-cleaning/cancel.yaml
 
-/provider/workers/{host}:
-  $ref: ./provider/workers/host.yaml
+/provider/spaces/{id}/auto-cleaning/status:
+  $ref: ./provider/spaces/id/auto-cleaning/status.yaml
 
-/provider/cluster_ips:
-  $ref: ./provider/cluster_ips.yaml
+## Ceph
+/provider/ceph:
+  $ref: ./provider/ceph.yaml
 
-/provider/onezone_info:
-  $ref: ./provider/onezone_info.yaml
+/provider/ceph/osds:
+  $ref: ./provider/ceph/osds.yaml
 
+/provider/ceph/osds/{id}:
+  $ref: ./provider/ceph/osds/id.yaml
+
+/provider/ceph/osds/{id}/usage:
+  $ref: ./provider/ceph/osds/id/usage.yaml
+
+/provider/ceph/managers:
+  $ref: ./provider/ceph/managers.yaml
+
+/provider/ceph/managers/{id}:
+  $ref: ./provider/ceph/managers/id.yaml
+
+/provider/ceph/monitors:
+  $ref: ./provider/ceph/monitors.yaml
+
+/provider/ceph/monitors/{id}:
+  $ref: ./provider/ceph/monitors/id.yaml
+
+/provider/ceph/status:
+  $ref: ./provider/ceph/status.yaml
+
+/provider/ceph/usage:
+  $ref: ./provider/ceph/usage.yaml
+
+/provider/ceph/pools:
+  $ref: ./provider/ceph/pools.yaml
+
+/provider/ceph/pools/{name}:
+  $ref: ./provider/ceph/pools/name.yaml
+
+/provider/ceph/pools/{name}/usage:
+  $ref: ./provider/ceph/pools/name/usage.yaml
+
+/provider/ceph/preflight/block_devices:
+  $ref: ./provider/ceph/preflight/block_devices.yaml
+
+## Debug
 /provider/debug/transfers_mock:
   $ref: ./provider/debug/transfers_mock.yaml
-
-# Zone specific resources
-
-/zone/users:
-  $ref: ./zone/users.yaml
-
-/zone/users/{id}:
-  $ref: ./zone/users/id.yaml
-
-/zone/nagios:
-  $ref: ./zone/nagios.yaml
-
-/zone/configuration:
-  $ref: ./zone/configuration.yaml
-
-/zone/databases:
-  $ref: ./zone/databases.yaml
-
-/zone/databases/{host}:
-  $ref: ./zone/databases/host.yaml
-
-/zone/managers:
-  $ref: ./zone/managers.yaml
-
-/zone/managers/{host}:
-  $ref: ./zone/managers/host.yaml
-
-/zone/workers:
-  $ref: ./zone/workers.yaml
-
-/zone/workers/{host}:
-  $ref: ./zone/workers/host.yaml
-
-/zone/cluster_ips:
-  $ref: ./zone/cluster_ips.yaml
-
-/zone/policies:
-  $ref: ./zone/policies.yaml
-
-/zone/gui_messages/{id}:
-  $ref: ./zone/gui_messages/id.yaml

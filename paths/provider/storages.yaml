@@ -6,7 +6,7 @@ get:
     type: onp_storage
     aspect: list
   tags:
-    - Oneprovider
+    - Storages
   produces:
     - application/json
   responses:
@@ -37,7 +37,7 @@ post:
     type: onp_storage
     aspect: instances
   tags:
-    - Oneprovider
+    - Storages
   consumes:
     - application/json
   responses:

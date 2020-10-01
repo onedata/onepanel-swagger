@@ -9,7 +9,7 @@ get:
     type: onp_panel
     aspect: cookie
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:

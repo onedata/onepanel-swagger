@@ -7,7 +7,7 @@ get:
     id: ?BINDING(id)
     aspect: list
   tags:
-    - Oneprovider
+    - Space Support
   produces:
     - application/json
   responses:
@@ -39,7 +39,7 @@ post:
     type: onp_space
     aspect: support
   tags:
-    - Oneprovider
+    - Space Support
   consumes:
     - application/json
   responses:

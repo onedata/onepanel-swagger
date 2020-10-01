@@ -7,7 +7,7 @@ get:
     type: onp_user
     aspect: list
   tags:
-    - Onezone
+    - User Management
   produces:
     - application/json
   responses:
@@ -39,7 +39,7 @@ post:
     type: onp_user
     aspect: instance
   tags:
-    - Onezone
+    - User Management
   consumes:
     - application/json
   responses:

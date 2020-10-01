@@ -11,7 +11,7 @@ post:
     type: onp_host
     aspect: join_cluster
   tags:
-    - Onepanel
+    - Cluster
   consumes:
     - application/json
   responses:

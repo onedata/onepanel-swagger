@@ -1,13 +1,13 @@
 post:
   operationId: trigger_auto_cleaning
-  summary: Triggers space auto-cleaning
-  description: Triggers one run of auto-cleaning mechanism for given space.
+  summary: Trigger space auto-cleaning
+  description: Trigger one run of auto-cleaning mechanism for given space.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
     aspect: start_auto_cleaning
   tags:
-    - Oneprovider
+    - File popularity & Auto-cleaning
   consumes:
     - application/json
   responses:

@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Oneprovider
+    - Space Support
   produces:
     - application/json
   responses:
@@ -48,7 +48,7 @@ patch:
     id: ?BINDING(id)
     aspect: support
   tags:
-    - Oneprovider
+    - Space Support
   consumes:
     - application/json
   responses:
@@ -95,7 +95,7 @@ delete:
     id: ?BINDING(id)
     aspect: support
   tags:
-    - Oneprovider
+    - Space Support
   responses:
     '204':
       description: The space support has been successfully revoked.

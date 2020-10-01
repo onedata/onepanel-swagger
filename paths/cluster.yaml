@@ -7,7 +7,7 @@ get:
     type: onp_cluster
     aspect: current_cluster
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:

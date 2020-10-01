@@ -9,7 +9,7 @@ delete:
     id: ?BINDING(host)
     aspect: instance
   tags:
-    - Onepanel
+    - Cluster
   responses:
     '204':
       description: Node has been successfully removed from the cluster.

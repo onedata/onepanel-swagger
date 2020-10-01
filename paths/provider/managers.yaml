@@ -7,7 +7,7 @@ get:
     type: onp_service
     aspect: '{all_hosts_status, <<"cluster_manager">>}'
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   produces:
     - application/json
   responses:
@@ -39,7 +39,7 @@ post:
     type: onp_service
     aspect: cluster_manager_instances
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   consumes:
     - application/json
   responses:
@@ -78,7 +78,7 @@ patch:
     type: onp_service
     aspect: '{start_stop_all, <<"cluster_manager">>}'
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   responses:
     '204':
       description: Cluster manager service state changed successfully.

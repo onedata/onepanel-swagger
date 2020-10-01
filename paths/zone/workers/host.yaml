@@ -7,7 +7,7 @@ get:
     id: ?BINDING(host)
     aspect: '{host_status, <<"oz_worker">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   produces:
     - application/json
   responses:
@@ -48,7 +48,7 @@ patch:
     id: ?BINDING(host)
     aspect: '{start_stop, <<"oz_worker">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   responses:
     '204':
       description: Cluster worker service state changed successfully.

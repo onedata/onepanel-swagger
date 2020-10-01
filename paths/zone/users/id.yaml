@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Onezone
+    - User Management
   produces:
     - application/json
   responses:
@@ -48,7 +48,7 @@ patch:
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Onezone
+    - User Management
   consumes:
     - application/json
   responses:

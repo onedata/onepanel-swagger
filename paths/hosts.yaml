@@ -7,7 +7,7 @@ get:
     type: onp_host
     aspect: list
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:
@@ -37,7 +37,7 @@ get:
 
 post:
   operationId: add_cluster_host
-  summary: Adds given host to the cluster
+  summary: Add given host to the cluster
   description: >
     Adds given host to the current cluster. The host can be specified
     by any address by which it is reachable.
@@ -47,7 +47,7 @@ post:
     type: onp_host
     aspect: instance
   tags:
-    - Onepanel
+    - Cluster
   consumes:
     - application/json
   responses:

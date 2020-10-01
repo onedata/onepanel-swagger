@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: auto_cleaning_status
   tags:
-    - Oneprovider
+    - File popularity & Auto-cleaning
   produces:
     - application/json
   responses:

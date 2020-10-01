@@ -6,7 +6,7 @@ get:
     type: onp_panel
     aspect: emergency_passphrase
   tags:
-    - Onepanel
+    - Security
   produces:
     - application/json
   responses:
@@ -43,7 +43,7 @@ put:
     type: onp_panel
     aspect: emergency_passphrase
   tags:
-    - Onepanel
+    - Security
   consumes:
     - application/json
   responses:

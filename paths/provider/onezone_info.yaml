@@ -13,7 +13,7 @@ get:
     type: onp_zone
     aspect: instance
   tags:
-    - Oneprovider
+    - Registration and Identity
   produces:
     - application/json
   responses:
