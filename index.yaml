@@ -13,8 +13,8 @@ tags:
     description: Resources and operations for cluster managing.
   - name: Security
     description: Resources and operations for security managing.
-  - name: DNS & Web certificates
-    description: Resources and operations for DNS & Web certificates managing.
+  - name: DNS and Web certificates
+    description: Resources and operations for DNS and Web certificates managing.
   - name: Current User
     description: Resources and operations for currently logged user managing.
   - name: Internal
@@ -39,7 +39,7 @@ tags:
     description: >
       Resources and operations for managing local feed of LUMA DB for the specific storage resource.
       All operations in this group return error if the storage has a different LUMA feed than `local`.
-  - name: File popularity & Auto-cleaning
+  - name: File popularity and Auto-cleaning
     description: Resources and operations for file popularity and auto-cleaning managing
   - name: Ceph
     description: Resources and operations for Ceph managing.
@@ -50,7 +50,7 @@ x-tagGroups:
     tags:
       - Cluster
       - Security
-      - DNS & Web certificates
+      - DNS and Web certificates
       - Current User
       - Internal
   - name: ONEZONE ADMINISTRATION
@@ -66,7 +66,7 @@ x-tagGroups:
       - Space Support
       - LUMA DB
       - LUMA DB local feed
-      - File popularity & Auto-cleaning
+      - File popularity and Auto-cleaning
       - Ceph
       - Debug
 securityDefinitions:

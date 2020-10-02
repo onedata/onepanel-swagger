@@ -45,7 +45,7 @@
 /emergency_passphrase:
   $ref: ./emergency_passphrase.yaml
 
-## DNS & Web certificates
+## DNS and Web certificates
 /dns_check/configuration:
   $ref: ./dns_check/configuration.yaml
 
@@ -235,7 +235,7 @@
 /provider/storages/{id}/luma/local_feed/storage_import/posix_compatible/acl_group_to_onedata_group/{groupname}:
   $ref: ./provider/storages/id/luma/local_feed/storage_import/posix_compatible/acl_group_to_onedata_group/groupname.yaml
 
-## File popularity & Auto-cleaning
+## File popularity and Auto-cleaning
 /provider/spaces/{id}/file-popularity/configuration:
   $ref: ./provider/spaces/id/file-popularity/configuration.yaml
 

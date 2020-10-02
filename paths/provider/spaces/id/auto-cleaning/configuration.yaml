@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: auto_cleaning_configuration
   tags:
-    - File popularity & Auto-cleaning
+    - File popularity and Auto-cleaning
   produces:
     - application/json
   responses:
@@ -46,7 +46,7 @@ patch:
     id: ?BINDING(id)
     aspect: auto_cleaning_configuration
   tags:
-    - File popularity & Auto-cleaning
+    - File popularity and Auto-cleaning
   produces:
     - application/json
   responses:
