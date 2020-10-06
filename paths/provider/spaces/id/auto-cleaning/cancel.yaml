@@ -7,7 +7,7 @@ post:
     id: ?BINDING(id)
     aspect: cancel_auto_cleaning
   tags:
-    - File popularity and Auto-cleaning
+    - File popularity and Auto cleaning
   consumes:
     - application/json
   responses:

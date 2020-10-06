@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: "{auto_cleaning_report, ?BINDING(report_id)}"
   tags:
-    - File popularity and Auto-cleaning
+    - File popularity and Auto cleaning
   produces:
     - application/json
   responses:
