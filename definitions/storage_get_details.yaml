@@ -5,7 +5,7 @@
 # are prevented from appearing in the generated Erlang code.
 
 type: object
-description: The cluster storage configuration.
+description: The storage configuration.
 discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:
