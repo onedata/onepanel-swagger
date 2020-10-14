@@ -5,10 +5,13 @@ allOf:
   properties:
     type:
       type: string
-      description: >
-        Type of the modified storage. Must be given explicitly and must match
-        the actual type of subject storage - this redundancy is needed
-        due to limitations of OpenAPI polymorphism.
+      description: |
+        The type of storage.
+        
+        `type = "xrootd"`
+        
+        Storage backend compatible with [XRootD](http://www.xrootd.org/)
+        protocol.
       enum: [xrootd]
       x-discriminator-value: xrootd
     url:

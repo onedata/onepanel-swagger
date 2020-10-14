@@ -20,7 +20,6 @@ x-onedata-subclasses:
 properties:
   type:
     type: string
-    description: The type of storage.
   timeout:
     type: integer
     description: Storage operation timeout in milliseconds.

@@ -3,12 +3,18 @@ x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'
-  - $ref: '#/definitions/HTTPCredentials'
   - type: object
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "http"`
+          
+          Any [HTTP](https://tools.ietf.org/html/rfc7231) or HTTPS compatible
+          server. Supported only with Readonly option enabled and in manual
+          import mode.
         enum: [http]
         x-discriminator-value: http
       endpoint:
@@ -55,6 +61,7 @@ allOf:
     required:
     - type
     - endpoint
+  - $ref: '#/definitions/HTTPCredentials'
 example:
   type: http
   name: SomeHTTP
