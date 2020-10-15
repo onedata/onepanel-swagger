@@ -7,7 +7,13 @@ allOf:
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "glusterfs"`
+          
+          [GlusterFS](https://www.gluster.org/) volume directly attached to
+          the Oneprovider.
         enum: [glusterfs]
         x-discriminator-value: glusterfs
       volume:
