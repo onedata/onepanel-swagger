@@ -5,10 +5,13 @@ allOf:
   properties:
     type:
       type: string
-      description: >
-        Type of the modified storage. Must be given explicitly and must match
-        the actual type of subject storage - this redundancy is needed
-        due to limitations of OpenAPI polymorphism.
+      description: |
+        The type of storage.
+        
+        `type = "cephrados"`
+        
+        Storage backend compatible with [Ceph](http://ceph.com/ceph-storage/)
+        object storage.
       enum: [cephrados]
       x-discriminator-value: cephrados
     username:

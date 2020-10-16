@@ -3,12 +3,17 @@ x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'
-  - $ref: '#/definitions/CephradosCredentials'
   - type: object
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "cephrados"`
+          
+          Storage backend compatible with [Ceph](http://ceph.com/ceph-storage/)
+          object storage.
         enum: [cephrados]
         x-discriminator-value: cephrados
       monitorHostname:
@@ -40,6 +45,7 @@ allOf:
     - monitorHostname
     - clusterName
     - poolName
+  - $ref: '#/definitions/CephradosCredentials'
 example:
   type: cephrados
   name: SomeCeph

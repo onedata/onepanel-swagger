@@ -62,8 +62,10 @@ post:
     - name: storageCreateRequest
       in: body
       description: >
-        The configuration details of storage resources to be added to the provider
-        deployment.
+        The configuration details of storage resources to be added to
+        the provider deployment. Must be an object with unique names for
+        the storages as keys and their corresponding configuration (objects)
+        as values - see the request body example.
       schema:
         $ref: '#/definitions/StorageCreateRequest'
       required: true

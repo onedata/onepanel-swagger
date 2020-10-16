@@ -2,12 +2,18 @@ description: The Ceph storage configuration (uses libradosstriper).
 allOf:
   - $ref: '#/definitions/StorageCreateDetails'
   - $ref: '#/definitions/StorageGetDetails'
-  - $ref: '#/definitions/CephCredentials'
   - type: object
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "ceph"`
+          
+          (**DEPRECATED** - use Ceph RADOS instead) storage backend compatible
+          with [Ceph](http://ceph.com/ceph-storage/) object storage, using the
+          deprecated `libradosstriper` library.
         enum: [ceph]
         x-discriminator-value: ceph
       monitorHostname:
@@ -34,6 +40,7 @@ allOf:
     - monitorHostname
     - clusterName
     - poolName
+  - $ref: '#/definitions/CephCredentials'
 example:
   type: ceph
   name: SomeCeph
