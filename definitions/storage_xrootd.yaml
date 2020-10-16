@@ -3,12 +3,17 @@ x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'
-  - $ref: '#/definitions/XRootDCredentials'
   - type: object
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "xrootd"`
+          
+          Storage backend compatible with [XRootD](http://www.xrootd.org/)
+          protocol.
         enum: [xrootd]
         x-discriminator-value: xrootd
       url:
@@ -48,6 +53,7 @@ allOf:
     required:
     - type
     - url
+  - $ref: '#/definitions/XRootDCredentials'
 example:
   type: xrootd
   name: SomeXRootD

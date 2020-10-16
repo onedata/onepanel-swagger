@@ -3,12 +3,17 @@ x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - $ref: '#/definitions/StorageCreateDetails'
-  - $ref: '#/definitions/S3Credentials'
   - type: object
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "s3"`
+          
+          [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)
+          compatible storage.
         enum: [s3]
         x-discriminator-value: s3
       hostname:
@@ -71,6 +76,7 @@ allOf:
     - type
     - hostname
     - bucketName
+  - $ref: '#/definitions/S3Credentials'
 example:
   type: s3
   name: SomeS3
