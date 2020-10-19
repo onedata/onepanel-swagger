@@ -1,6 +1,6 @@
 get:
   operationId: check_dns
-  summary: Check correctness of DNS entries for the cluster's domain.
+  summary: Check correctness of DNS entries for the cluster's domain
   description: >
     Returns results of the last DNS check, verifying the validity
     of DNS configuration for cluster's domain.

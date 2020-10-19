@@ -1,6 +1,6 @@
 get:
   operationId: get_web_cert
-  summary: Get information about SSL certificates configuration and status.
+  summary: Get information about SSL certificates configuration and status
   description: >
     Returns information about SSL certificate status and renewal configuration.
   x-onedata-gri:
