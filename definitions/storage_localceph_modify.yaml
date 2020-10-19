@@ -6,7 +6,15 @@ allOf:
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "localceph"`
+          
+          Local Ceph cluster that has been deployed during deployment
+          of Oneprovider. For more information on local Ceph deployment please
+          see [here](https://onedata.org/#/home/documentation/stable/doc/administering_onedata/ceph_cluster_deployment.html).
+        enum: [localceph]
         x-discriminator-value: localceph
       name:
         type: string

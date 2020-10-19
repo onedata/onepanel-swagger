@@ -12,6 +12,7 @@ x-onedata-dictionary-value-type: storage_modify_details
 additionalProperties:
   $ref: '#/definitions/StorageModifyDetails'
 example:
-  s3storage:
+  Old storage name:
     type: s3
+    name: New storage name
     accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892

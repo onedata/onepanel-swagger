@@ -7,7 +7,13 @@ allOf:
     properties:
       type:
         type: string
-        description: The type of storage.
+        description: |
+          The type of storage.
+          
+          `type = "posix"`
+          
+          Any POSIX compatible storage, typically attached over high-throughput
+          local network, such as NFS.
         enum: [posix]
         x-discriminator-value: posix
       mountPoint:

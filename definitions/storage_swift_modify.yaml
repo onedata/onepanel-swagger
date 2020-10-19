@@ -5,10 +5,14 @@ allOf:
   properties:
     type:
       type: string
-      description: >
-        Type of the modified storage. Must be given explicitly and must match
-        the actual type of subject storage - this redundancy is needed
-        due to limitations of OpenAPI polymorphism.
+      description: |
+        The type of storage.
+        
+        `type = "swift"`
+        
+        Storage backend compatible with
+        [OpenStack](http://docs.openstack.org/developer/swift/) SWIFT
+        protocol.
       enum: [swift]
       x-discriminator-value: swift
     authUrl:
