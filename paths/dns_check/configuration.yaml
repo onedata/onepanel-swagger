@@ -7,7 +7,7 @@ get:
     type: onp_panel
     aspect: dns_check_configuration
   tags:
-    - DNS and Web certificates
+    - DNS
   produces:
     - application/json
   responses:
@@ -38,7 +38,7 @@ patch:
     type: onp_panel
     aspect: dns_check_configuration
   tags:
-    - DNS and Web certificates
+    - DNS
   consumes:
     - application/json
     - application/x-yaml

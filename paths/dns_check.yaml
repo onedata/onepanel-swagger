@@ -15,7 +15,7 @@ get:
     type: onp_panel
     aspect: dns_check
   tags:
-    - DNS and Web certificates
+    - DNS
   produces:
     - application/json
   responses:

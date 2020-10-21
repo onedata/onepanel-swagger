@@ -42,18 +42,18 @@
   $ref: ./cluster/invite_user_token.yaml
 
 ## Security
+/web_cert:
+  $ref: ./web_cert.yaml
+
 /emergency_passphrase:
   $ref: ./emergency_passphrase.yaml
 
-## DNS and Web certificates
+## DNS
 /dns_check/configuration:
   $ref: ./dns_check/configuration.yaml
 
 /dns_check:
   $ref: ./dns_check.yaml
-
-/web_cert:
-  $ref: ./web_cert.yaml
 
 ## Current User
 /user:
@@ -148,7 +148,7 @@
 /provider/workers/{host}:
   $ref: ./provider/workers/host.yaml
 
-## Registration and Identity
+## Oneprovider Identity
 /provider/onezone_info:
   $ref: ./provider/onezone_info.yaml
 
@@ -239,6 +239,7 @@
 /provider/spaces/{id}/file-popularity/configuration:
   $ref: ./provider/spaces/id/file-popularity/configuration.yaml
 
+## Auto-cleaning
 /provider/spaces/{id}/auto-cleaning/configuration:
   $ref: ./provider/spaces/id/auto-cleaning/configuration.yaml
 

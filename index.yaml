@@ -13,8 +13,8 @@ tags:
     description: Resources and operations for cluster managing.
   - name: Security
     description: Resources and operations for security managing.
-  - name: DNS and Web certificates
-    description: Resources and operations for DNS and Web certificates managing.
+  - name: DNS
+    description: Resources and operations for DNS managing.
   - name: Current User
     description: Resources and operations for currently logged user managing.
   - name: Internal
@@ -27,7 +27,7 @@ tags:
     description: Resources and operations for onezone users management.
   - name: Oneprovider Cluster
     description: Resources and operations for managing oneprovider cluster.
-  - name: Registration and Identity
+  - name: Oneprovider Identity
     description: Resources and operations for managing registration and identity of providers.
   - name: Storages
     description: Resources and operations for storages managing.
@@ -39,8 +39,10 @@ tags:
     description: >
       Resources and operations for managing local feed of LUMA DB for the specific storage resource.
       All operations in this group return error if the storage has a different LUMA feed than `local`.
-  - name: File popularity and Auto cleaning
-    description: Resources and operations for file popularity and auto-cleaning managing
+  - name: File popularity
+    description: Resources and operations for file popularity  managing.
+  - name: Auto cleaning
+    description: Resources and operations for auto-cleaning managing.
   - name: Ceph
     description: Resources and operations for Ceph managing.
   - name: Debug
@@ -50,7 +52,7 @@ x-tagGroups:
     tags:
       - Cluster
       - Security
-      - DNS and Web certificates
+      - DNS
       - Current User
       - Internal
   - name: ONEZONE ADMINISTRATION
@@ -61,12 +63,13 @@ x-tagGroups:
   - name: ONEPROVIDER ADMINISTRATION
     tags:
       - Oneprovider Cluster
-      - Registration and Identity
+      - Oneprovider Identity
       - Storages
       - Space Support
       - LUMA DB
       - LUMA DB local feed
-      - File popularity and Auto cleaning
+      - File popularity
+      - Auto cleaning
       - Ceph
       - Debug
 securityDefinitions:

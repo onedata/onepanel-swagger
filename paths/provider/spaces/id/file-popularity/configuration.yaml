@@ -1,6 +1,6 @@
 get:
   operationId: get_file_popularity_configuration
-  summary: Get file-popularity configuration
+  summary: Get file popularity configuration
   description: >
     Returns configuration of file popularity mechanism in the space specified by space Id in the path.
   x-onedata-gri:
@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: file_popularity_configuration
   tags:
-    - File popularity and Auto cleaning
+    - File popularity
   produces:
     - application/json
   responses:
@@ -39,10 +39,10 @@ get:
 
 patch:
   operationId: configure_file_popularity
-  summary: Configure file-popularity mechanism in the space.
+  summary: Configure file popularity mechanism in the space
   description: |
-    Configures the file-popularity mechanism in the space.
-    The mechanism is responsible for collecting file-popularity usage statistics per space support.
+    Configures the file popularity mechanism in the space.
+    The mechanism is responsible for collecting file popularity usage statistics per space support.
     Creates a view which can be queried to fetch the least popular files.
     The view is sorted in an increasing order by the popularity function value.
     The popularity function is defined as
@@ -61,7 +61,7 @@ patch:
     id: ?BINDING(id)
     aspect: file_popularity_configuration
   tags:
-    - File popularity and Auto cleaning
+    - File popularity
   consumes:
     - application/json
   responses:

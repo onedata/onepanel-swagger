@@ -7,7 +7,7 @@ get:
     type: onp_panel
     aspect: web_cert
   tags:
-    - DNS and Web certificates
+    - Security
   produces:
     - application/json
   responses:
@@ -38,7 +38,7 @@ patch:
     type: onp_panel
     aspect: web_cert
   tags:
-    - DNS and Web certificates
+    - Security
   consumes:
     - application/json
   responses:
