@@ -7,7 +7,7 @@ post:
     id: ?BINDING(id)
     aspect: cancel_auto_cleaning
   tags:
-    - Auto cleaning
+    - Auto Cleaning
   consumes:
     - application/json
   responses:

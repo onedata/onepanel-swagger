@@ -10,43 +10,43 @@ responses:
   $ref: ./responses/index.yaml
 tags:
   - name: Cluster
-    description: Resources and operations for cluster managing.
+    description: Endpoints for cluster management.
   - name: Security
-    description: Resources and operations for security managing.
+    description: Endpoints related to security.
   - name: DNS
-    description: Resources and operations for DNS managing.
+    description: Tools for DNS diagnostics.
   - name: Current User
-    description: Resources and operations for currently logged user managing.
+    description: Endpoints for serving information about the currently authenticated user.
   - name: Internal
-    description: Internal resources and operations.
+    description: Endpoints used internally by Onedata components.
   - name: Onezone Cluster
-    description: Resources and operations for managing onezone cluster.
+    description: Endpoints for managing Onezone cluster and underlying services.
   - name: Service Configuration
-    description: Resources and operations for service configuration managing.
+    description: Endpoints for configuring the Onezone service.
   - name: User Management
-    description: Resources and operations for onezone users management.
+    description: Endpoints for managing users in Onezone.
   - name: Oneprovider Cluster
-    description: Resources and operations for managing oneprovider cluster.
+    description: Endpoints for managing Oneprovider cluster and services.
   - name: Oneprovider Identity
-    description: Resources and operations for managing registration and identity of providers.
+    description: Endpoints for Oneprovider registration and identity management.
   - name: Storages
-    description: Resources and operations for storages managing.
+    description: Endpoints for managing storages.
   - name: Space Support
-    description: Resources and operations for space support managing.
+    description: Endpoints for space support management.
   - name: LUMA DB
-    description: Resources and operations for managing LUMA DB for the specific storage resource.
-  - name: LUMA DB local feed
+    description: Endpoints for LUMA DB for the specific storage resource management.
+  - name: LUMA DB Local Feed
     description: >
-      Resources and operations for managing local feed of LUMA DB for the specific storage resource.
+      Endpoints for managing local feed of LUMA DB for the specific storage resource.
       All operations in this group return error if the storage has a different LUMA feed than `local`.
-  - name: File popularity
-    description: Resources and operations for file popularity  managing.
-  - name: Auto cleaning
-    description: Resources and operations for auto-cleaning managing.
+  - name: File Popularity
+    description: Endpoints for managing the file popularity mechanisms.
+  - name: Auto Cleaning
+    description: Endpoints for managing the auto-cleaning mechanisms.
   - name: Ceph
-    description: Resources and operations for Ceph managing.
+    description: Endpoints for managing the local Ceph cluster.
   - name: Debug
-    description: Resources and operations for debugging purposes.
+    description: Endpoints for debugging purposes.
 x-tagGroups:
   - name: ONEPANEL COMMON
     tags:
@@ -67,9 +67,9 @@ x-tagGroups:
       - Storages
       - Space Support
       - LUMA DB
-      - LUMA DB local feed
-      - File popularity
-      - Auto cleaning
+      - LUMA DB Local Feed
+      - File Popularity
+      - Auto Cleaning
       - Ceph
       - Debug
 securityDefinitions:

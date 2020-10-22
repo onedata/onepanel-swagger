@@ -190,7 +190,6 @@
   $ref: ./provider/storages/id/luma/config.yaml
 
 # Endpoints for fetching/deleting LUMA DB entries for all feed types
-
 /provider/storages/{id}/luma/db:
   $ref: ./provider/storages/id/luma/db.yaml
 
@@ -212,8 +211,8 @@
 /provider/storages/{id}/luma/db/storage_import/posix_compatible/acl_group_to_onedata_group/{groupname}:
   $ref: ./provider/storages/id/luma/db/storage_import/posix_compatible/acl_group_to_onedata_group/groupname.yaml
 
-# Endpoints for setting/fetching/deleting LUMA DB entries ONLY for LOCAL feed
 
+# Endpoints for setting/fetching/deleting LUMA DB entries ONLY for LOCAL feed
 /provider/storages/{id}/luma/local_feed/display_credentials/all/default/{space_id}:
   $ref: ./provider/storages/id/luma/local_feed/display_credentials/all/default/space_id.yaml
 
@@ -235,11 +234,11 @@
 /provider/storages/{id}/luma/local_feed/storage_import/posix_compatible/acl_group_to_onedata_group/{groupname}:
   $ref: ./provider/storages/id/luma/local_feed/storage_import/posix_compatible/acl_group_to_onedata_group/groupname.yaml
 
-## File popularity and Auto-cleaning
+## File popularity
 /provider/spaces/{id}/file-popularity/configuration:
   $ref: ./provider/spaces/id/file-popularity/configuration.yaml
 
-## Auto-cleaning
+## Auto Cleaning
 /provider/spaces/{id}/auto-cleaning/configuration:
   $ref: ./provider/spaces/id/auto-cleaning/configuration.yaml
 

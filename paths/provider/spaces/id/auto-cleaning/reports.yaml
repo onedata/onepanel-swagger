@@ -9,7 +9,7 @@ get:
     id: ?BINDING(id)
     aspect: auto_cleaning_reports_list
   tags:
-    - Auto cleaning
+    - Auto Cleaning
   produces:
     - application/json
   responses:

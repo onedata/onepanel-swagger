@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: file_popularity_configuration
   tags:
-    - File popularity
+    - File Popularity
   produces:
     - application/json
   responses:
@@ -61,7 +61,7 @@ patch:
     id: ?BINDING(id)
     aspect: file_popularity_configuration
   tags:
-    - File popularity
+    - File Popularity
   consumes:
     - application/json
   responses:
