@@ -18,7 +18,7 @@ get:
     id: ?BINDING(id)
     aspect: manual_storage_import_example
   tags:
-    - Space Support
+    - Storage Import
   produces:
     - application/json
   responses:

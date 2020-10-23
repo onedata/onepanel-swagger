@@ -7,7 +7,7 @@ post:
     id: ?BINDING(id)
     aspect: force_start_auto_storage_import_scan
   tags:
-    - Space Support
+    - Storage Import
   consumes:
     - application/json
   responses:

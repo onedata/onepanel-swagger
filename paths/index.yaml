@@ -172,6 +172,7 @@
 /provider/spaces/{id}/storage-import/auto/info:
   $ref: ./provider/spaces/id/storage-import/auto/info.yaml
 
+## Storage Import
 /provider/spaces/{id}/storage-import/auto/stats:
   $ref: ./provider/spaces/id/storage-import/auto/stats.yaml
 

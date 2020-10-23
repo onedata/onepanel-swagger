@@ -9,7 +9,7 @@ get:
     id: ?BINDING(id)
     aspect: auto_storage_import_stats
   tags:
-    - Space Support
+    - Storage Import
   produces:
     - application/json
   responses:
