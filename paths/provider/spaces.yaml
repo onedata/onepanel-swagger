@@ -1,7 +1,24 @@
 get:
   operationId: get_provider_spaces
   summary: Get provider spaces
-  description: Returns the list of spaces supported by the provider.
+  description: |
+    Returns the list of spaces supported by the provider.
+
+    ***Example cURL requests***
+
+    **Get provider space ids**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET -k -vvv \
+    https://$HOST/api/v3/onepanel/provider/spaces \
+
+    {
+      "ids":[
+        "0614a7a1512271ceeae95539872eeeabched69",
+        "06911eba60e6ba947f86f799ce975042chad21",
+        "109b7d84c00cd45a88b6cdb852dba5b3ch84db"
+      ]
+    }
+    ```
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
@@ -33,8 +50,21 @@ get:
 post:
   operationId: support_space
   summary: Support space
-  description: >
+  description: |
     Supports an existing space.
+
+    ***Example cURL requests***
+
+    **Support space**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X POST -k -vvv -H "content-type: application/json" \
+    -d '{"token":"MDAU02QHLaaJ00go", "size":"10000000", "storageId": "18a42a43b1b2d9e9a1f82"}' \
+    https://$HOST/api/v3/onepanel/provider/spaces
+
+    {
+      "id":"16403a6c45105010dc7103e31874cb3echac41"
+    }
+    ```
   x-onedata-gri:
     type: onp_space
     aspect: support
