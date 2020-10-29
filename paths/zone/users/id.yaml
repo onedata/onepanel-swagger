@@ -8,8 +8,7 @@ get:
 
     **Get Onzone user details**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onepanel/zone/users/$USER_ID
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/zone/users/$USER_ID
 
     {
       "username": "someUser",
@@ -62,10 +61,8 @@ patch:
 
     **Set Onzone user password**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH \
-    -H "Content-type: application/json" \
-    -d '{"newPassword": "someNewPassword"}' \
-    https://$HOST/api/v3/onepanel/zone/users/$USER_ID
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/zone/users/$USER_ID \
+    -H "Content-Type: application/json" -d '{"newPassword": "someNewPassword"}'
     ```
   x-onedata-gri:
     type: onp_user

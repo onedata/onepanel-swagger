@@ -8,8 +8,7 @@ get:
 
     **Get Storage Details**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET \
-    https:/$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X GET https:/$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
 
     {
       "type": "s3",
@@ -83,10 +82,13 @@ patch:
 
     **Modify storage name. Notice, that current storage name is the map key.**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH \
-    -H "Content-type: application/json" \
-    -d '{"s3_storage":{"type":"s3", "name": "new_s3_storage_name"}}' \
-    https://$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID \
+    -H "Content-Type: application/json" -d '{
+    "s3_storage": {
+      "type":"s3",
+      "name": "new_s3_storage_name"
+      }
+    }'
 
     {
       "type": "s3",
@@ -169,8 +171,7 @@ delete:
 
     **Remove storage**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X DELETE \
-    https://$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X DELETE https://$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
     ```
   x-onedata-gri:
     type: onp_storage

@@ -8,8 +8,7 @@ get:
 
     **Get Onzone user ids**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onepanel/zone/users \
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/zone/users
 
     {
       "ids": [
@@ -57,10 +56,11 @@ post:
 
     **Create Onezone user with username & password**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X POST \
-    -H "Content-type: application/json" \
-    -d '{"username":"someUser","password":"somePassword"}' \
-    https://$HOST/api/v3/onepanel/zone/users
+    curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/zone/users \
+    -H "Content-Type: application/json" -d '{
+      "username": "someUser",
+      "password": "somePassword"
+    }'
 
     {
       "id": "b519b3ac46823b2b83b6cb85e1b16f4fchaa0f"

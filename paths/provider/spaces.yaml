@@ -8,8 +8,7 @@ get:
 
     **Get provider space ids**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onepanel/provider/spaces
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/spaces
 
     {
       "ids": [
@@ -57,10 +56,12 @@ post:
 
     **Support space**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X POST \
-    -H "Content-type: application/json" \
-    -d '{"token": "MDAU02QHLaaJ00go", "size": "10000000", "storageId": "18a42a43b1b2d9e9a1f82"}' \
-    https://$HOST/api/v3/onepanel/provider/spaces
+    curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/provider/spaces \
+    -H "Content-Type: application/json" -d '{
+      "token": "MDAU02QHLaaJ00go",
+      "size": "10000000",
+      "storageId": "18a42a43b1b2d9e9a1f82"
+    }'
 
     {
       "id": "16403a6c45105010dc7103e31874cb3echac41"

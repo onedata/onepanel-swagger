@@ -8,8 +8,7 @@ get:
 
     **Get provider storage ids**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onepanel/provider/storages
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/storages
 
     {
       "ids": [
@@ -56,10 +55,15 @@ post:
 
     **Add storage**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X POST \
-    -H "Content-type: application/json" \
-    -d '{"s3_Storage": {"type": "s3", "hostname": "iam.example.com", "bucketName": "bucket1.iam.example.com", "skipStorageDetection": true}}' \
-    https://$HOST/api/v3/onepanel/provider/storages
+    curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/provider/storages \
+    -H "Content-Type: application/json" -d '{
+    "s3_Storage": {
+      "type": "s3",
+      "hostname": "iam.example.com",
+      "bucketName": "bucket1.iam.example.com",
+      "skipStorageDetection": true
+      }
+    }'
     ```
   x-onedata-gri:
     type: onp_storage

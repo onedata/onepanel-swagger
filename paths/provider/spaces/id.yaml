@@ -8,8 +8,7 @@ get:
 
     **Get space details**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
 
     {
       "supportingProviders": {
@@ -69,10 +68,8 @@ patch:
 
     **Modify space support size**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH \
-    -H "Content-type: application/json" \
-    -d '{"size": "30000000"}' \
-    https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID \
+    -H "Content-Type: application/json" -d '{"size": "30000000"}'
     ```
   x-onedata-gri:
     type: onp_space
@@ -126,8 +123,7 @@ delete:
 
     **Revoke space support**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X DELETE \
-    https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X DELETE https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
     ```
   x-onedata-gri:
     type: onp_space
