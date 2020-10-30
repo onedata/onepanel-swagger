@@ -11,11 +11,11 @@ get:
     curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/zone/users
 
     {
-      "ids": [
-        "f891d1ddf693232bbf0c11fe3cd9f7e7cheda9",
-        "eefc8a11e1776d0797969ccf0b59c6dcch73dc",
-        "ec0a39261b325cdc74e9c2d6b54fa786ch0419"
-      ]
+        "ids": [
+            "f891d1ddf693232bbf0c11fe3cd9f7e7cheda9",
+            "eefc8a11e1776d0797969ccf0b59c6dcch73dc",
+            "ec0a39261b325cdc74e9c2d6b54fa786ch0419"
+        ]
     }
     ```
   x-onedata-gri:
@@ -58,12 +58,12 @@ post:
     ```bash
     curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/zone/users \
     -H "Content-Type: application/json" -d '{
-      "username": "someUser",
-      "password": "somePassword"
+        "username": "someUser",
+        "password": "somePassword"
     }'
 
     {
-      "id": "b519b3ac46823b2b83b6cb85e1b16f4fchaa0f"
+        "id": "b519b3ac46823b2b83b6cb85e1b16f4fchaa0f"
     }
     ```
   x-onedata-gri:

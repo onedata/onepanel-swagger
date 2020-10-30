@@ -11,11 +11,11 @@ get:
     curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/storages
 
     {
-      "ids": [
-        "18a42a43b1b2d92455ffa09e9a15df7fch4f82",
-        "0a26877440f6ce457106c6958dfe7ecbch0ac6",
-        "b3d7d10504393556d9b1631a74c34520ch8359"
-      ]
+        "ids": [
+            "18a42a43b1b2d92455ffa09e9a15df7fch4f82",
+            "0a26877440f6ce457106c6958dfe7ecbch0ac6",
+            "b3d7d10504393556d9b1631a74c34520ch8359"
+        ]
     }
     ```
   x-onedata-gri:
@@ -57,12 +57,12 @@ post:
     ```bash
     curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/provider/storages \
     -H "Content-Type: application/json" -d '{
-    "s3_Storage": {
-      "type": "s3",
-      "hostname": "iam.example.com",
-      "bucketName": "bucket1.iam.example.com",
-      "skipStorageDetection": true
-      }
+        "s3_Storage": {
+            "type": "s3",
+            "hostname": "iam.example.com",
+            "bucketName": "bucket1.iam.example.com",
+            "skipStorageDetection": true
+        }
     }'
     ```
   x-onedata-gri:

@@ -11,9 +11,9 @@ get:
     curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/zone/users/$USER_ID
 
     {
-      "username": "someUser",
-      "userId": "b519b3ac46823b2b83b6cb85e1b16f4fchaa0f",
-      "fullName": "Unnamed User"
+        "username": "someUser",
+        "userId": "b519b3ac46823b2b83b6cb85e1b16f4fchaa0f",
+        "fullName": "Unnamed User"
     }
     ```
   x-onedata-gri:
