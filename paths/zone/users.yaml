@@ -6,7 +6,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get Onzone user ids**
+    **Get Onezone user ids**
     ```bash
     curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/zone/users
 

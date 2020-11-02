@@ -57,7 +57,7 @@ post:
     ```bash
     curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/provider/storages \
     -H "Content-Type: application/json" -d '{
-        "s3_Storage": {
+        "My S3 Storage": {
             "type": "s3",
             "hostname": "iam.example.com",
             "bucketName": "bucket1.iam.example.com",

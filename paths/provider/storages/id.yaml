@@ -21,7 +21,7 @@ get:
             "storageId": "05b6c0a9b72e475c9d5061b0b7e16947chbcdc",
             "providerId": "03c7e42a793912307b01b1bbb72a3a6bch4c1c"
         },
-        "name": "s3_storage",
+        "name": "My S3 Storage",
         "maximumCanonicalObjectSize": 67108864,
         "lumaFeed": "auto",
         "importedStorage": false,
@@ -84,9 +84,9 @@ patch:
     ```bash
     curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID \
     -H "Content-Type: application/json" -d '{
-        "s3_storage": {
+        "My S3 Storage": {
             "type":"s3",
-            "name": "new_s3_storage_name"
+            "name": "My S3 Storage Updated"
         }
     }'
 
@@ -101,7 +101,7 @@ patch:
             "storageId": "2456aa013af797dbef27743790a5f12cche680",
             "providerId": "03c7e42a793912307b01b1bbb72a3a6bch4c1c"
         },
-        "name": "new_s3_storage_name",
+        "name": "My S3 Storage Updated",
         "maximumCanonicalObjectSize": "67108864",
         "lumaFeed": "auto",
         "importedStorage": false,
