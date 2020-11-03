@@ -1,14 +1,33 @@
 get:
   operationId: get_space_details
   summary: Get space details
-  description: >
+  description: |
     Returns details of space specified by space Id in the path.
+
+    ***Example cURL requests***
+
+    **Get space details**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
+
+    {
+        "supportingProviders": {
+            "03c7e42a793912307b01b1bbb72a3a6bch4c1c": 10000000
+        },
+        "storageId": "18a42a43b1b2d92455ffa09e9a15df7fch4f82",
+        "spaceOccupancy": 0,
+        "name": "someSpace",
+        "localStorages": ["18a42a43b1b2d92455ffa09e9a15df7fch4f82"],
+        "importedStorage": false,
+        "id": "16403a6c45105010dc7103e31874cb3echac41"
+    }
+    ```
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Oneprovider
+    - Space Support
   produces:
     - application/json
   responses:
@@ -42,13 +61,22 @@ get:
 patch:
   operationId: modify_space
   summary: Modify space details
-  description: Modifies the space import/update strategies.
+  description: |
+    Modifies the space import/update strategies.
+
+    ***Example cURL requests***
+
+    **Modify space support size**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID \
+    -H "Content-Type: application/json" -d '{"size": "30000000"}'
+    ```
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
     aspect: support
   tags:
-    - Oneprovider
+    - Space Support
   consumes:
     - application/json
   responses:
@@ -86,16 +114,23 @@ patch:
 delete:
   operationId: revoke_space_support
   summary: Revoke space support for a space
-  description: >
+  description: |
     Allows provider to revoke storage support for a specific space. Users with
     access to this space will no longer be able to store data on the resources
     of this provider.
+
+    ***Example cURL requests***
+
+    **Revoke space support**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X DELETE https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
+    ```
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
     aspect: support
   tags:
-    - Oneprovider
+    - Space Support
   responses:
     '204':
       description: The space support has been successfully revoked.

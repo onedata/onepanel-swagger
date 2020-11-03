@@ -1,13 +1,13 @@
 get:
   operationId: get_current_user
-  summary: Get Onepanel user details of currently logged in user.
+  summary: Get details of authenticated user
   description: >
-    Returns the configuration information of the Onepanel user performing the query.
+    Returns the details of the user performing the query.
   x-onedata-gri:
     type: onp_user
     aspect: current_user
   tags:
-    - Onepanel
+    - Current User
   produces:
     - application/json
   responses:

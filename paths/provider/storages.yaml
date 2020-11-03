@@ -1,12 +1,28 @@
 get:
   operationId: get_storages
   summary: Get storages
-  description: Returns the list of provider storage resources and their details.
+  description: |
+    Returns the list of provider storage resources and their details.
+
+    ***Example cURL requests***
+
+    **Get provider storage ids**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/storages
+
+    {
+        "ids": [
+            "18a42a43b1b2d92455ffa09e9a15df7fch4f82",
+            "0a26877440f6ce457106c6958dfe7ecbch0ac6",
+            "b3d7d10504393556d9b1631a74c34520ch8359"
+        ]
+    }
+    ```
   x-onedata-gri:
     type: onp_storage
     aspect: list
   tags:
-    - Oneprovider
+    - Storages
   produces:
     - application/json
   responses:
@@ -32,12 +48,28 @@ get:
 post:
   operationId: add_storage
   summary: Add storage
-  description: Adds additional storage resources to the provider.
+  description: |
+    Adds additional storage resources to the provider.
+
+    ***Example cURL requests***
+
+    **Add storage**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/provider/storages \
+    -H "Content-Type: application/json" -d '{
+        "My S3 Storage": {
+            "type": "s3",
+            "hostname": "iam.example.com",
+            "bucketName": "bucket1.iam.example.com",
+            "skipStorageDetection": true
+        }
+    }'
+    ```
   x-onedata-gri:
     type: onp_storage
     aspect: instances
   tags:
-    - Oneprovider
+    - Storages
   consumes:
     - application/json
   responses:

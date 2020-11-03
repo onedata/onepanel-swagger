@@ -6,7 +6,7 @@ get:
     type: onp_ceph
     aspect: monitors
   tags:
-    - Oneprovider
+    - Ceph
   produces:
     - application/json
   responses:
@@ -37,7 +37,7 @@ post:
     type: onp_ceph
     aspect: monitors
   tags:
-    - Oneprovider
+    - Ceph
   consumes:
     - application/json
   responses:

@@ -1,13 +1,13 @@
 get:
   operationId: get_web_cert
-  summary: Get information about SSL certificates configuration and status.
+  summary: Get information about SSL certificates configuration and status
   description: >
     Returns information about SSL certificate status and renewal configuration.
   x-onedata-gri:
     type: onp_panel
     aspect: web_cert
   tags:
-    - Onepanel
+    - Security
   produces:
     - application/json
   responses:
@@ -38,7 +38,7 @@ patch:
     type: onp_panel
     aspect: web_cert
   tags:
-    - Onepanel
+    - Security
   consumes:
     - application/json
   responses:

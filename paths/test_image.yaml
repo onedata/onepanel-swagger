@@ -9,7 +9,7 @@ get:
     type: onp_panel
     aspect: test_image
   tags:
-    - Onepanel
+    - Internal
   produces:
     - image/png
   responses:

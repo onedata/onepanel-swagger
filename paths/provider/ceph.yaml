@@ -6,7 +6,7 @@ get:
     type: onp_ceph
     aspect: global_params
   tags:
-    - Oneprovider
+    - Ceph
   produces:
     - application/json
   responses:
@@ -40,7 +40,7 @@ post:
     type: onp_ceph
     aspect: cluster
   tags:
-    - Oneprovider
+    - Ceph
   consumes:
     - application/json
     - application/x-yaml

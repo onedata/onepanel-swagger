@@ -1,6 +1,6 @@
 get:
   operationId: get_remote_provider
-  summary: Get details of a remote Oneprovider.
+  summary: Get details of a remote Oneprovider
   description: >
     Returns the details of given provider. Only users belonging to that Oneprovider's
     cluster can fetch its details.
@@ -9,7 +9,7 @@ get:
     id: ?BINDING(id)
     aspect: remote_instance
   tags:
-    - Onepanel
+    - Internal
   produces:
     - application/json
   responses:

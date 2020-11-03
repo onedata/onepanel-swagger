@@ -1,6 +1,6 @@
 get:
   operationId: get_manual_storage_import_example
-  summary: Get manual storage import example.
+  summary: Get manual storage import example
   description: |
     Returns example `curl` command that can be executed to manually import (register) file from storage.
 
@@ -18,7 +18,7 @@ get:
     id: ?BINDING(id)
     aspect: manual_storage_import_example
   tags:
-    - Oneprovider
+    - Storage Import
   produces:
     - application/json
   responses:

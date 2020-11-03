@@ -1,6 +1,6 @@
 get:
   operationId: get_auto_storage_import_stats
-  summary: Get statistics of auto storage import mechanism.
+  summary: Get statistics of auto storage import mechanism
   description: >
     Returns requested statistics of auto storage import mechanism for given space
     on this provider.
@@ -9,7 +9,7 @@ get:
     id: ?BINDING(id)
     aspect: auto_storage_import_stats
   tags:
-    - Oneprovider
+    - Storage Import
   produces:
     - application/json
   responses:

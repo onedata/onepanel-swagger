@@ -7,7 +7,7 @@ get:
     type: onp_ceph
     aspect: block_devices
   tags:
-    - Oneprovider
+    - Ceph
   produces:
     - application/json
   responses:

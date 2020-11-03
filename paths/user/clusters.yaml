@@ -7,7 +7,7 @@ get:
     type: onp_user
     aspect: current_user_clusters
   tags:
-    - Onepanel
+    - Current User
   produces:
     - application/json
   responses:

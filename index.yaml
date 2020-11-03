@@ -9,30 +9,72 @@ definitions:
 responses:
   $ref: ./responses/index.yaml
 tags:
-  - name: Onepanel
-    description: Common Onepanel resources and operations
-  - name: Oneprovider
-    description: Resources and operations for managing Oneprovider deployment
-  - name: Onezone
-    description: Resources and operations for managing Onezone deployment
+  - name: Cluster
+    description: Endpoints for cluster management.
+  - name: Security
+    description: Endpoints related to security.
+  - name: DNS
+    description: Tools for DNS diagnostics.
+  - name: Current User
+    description: Endpoints for serving information about the currently authenticated user.
+  - name: Internal
+    description: Endpoints used internally by Onedata components.
+  - name: Onezone Cluster
+    description: Endpoints for managing Onezone cluster and underlying services.
+  - name: Service Configuration
+    description: Endpoints for configuring the Onezone service.
+  - name: User Management
+    description: Endpoints for managing users in Onezone.
+  - name: Oneprovider Cluster
+    description: Endpoints for managing Oneprovider cluster and services.
+  - name: Oneprovider Identity
+    description: Endpoints for Oneprovider registration and identity management.
+  - name: Storages
+    description: Endpoints for managing storages.
+  - name: Storage Import
+    description: Endpoints for storage import management.
+  - name: Space Support
+    description: Endpoints for space support management.
   - name: LUMA DB
-    description: Resources and operations for managing LUMA DB for the specific storage resource.
-  - name: LUMA DB local feed
+    description: Endpoints for LUMA DB for the specific storage resource management.
+  - name: LUMA DB Local Feed
     description: >
-      Resources and operations for managing local feed of LUMA DB for the specific storage resource.
+      Endpoints for managing local feed of LUMA DB for the specific storage resource.
       All operations in this group return error if the storage has a different LUMA feed than `local`.
+  - name: File Popularity
+    description: Endpoints for managing the file popularity mechanisms.
+  - name: Auto Cleaning
+    description: Endpoints for managing the auto-cleaning mechanisms.
+  - name: Ceph
+    description: Endpoints for managing the local Ceph cluster.
+  - name: Debug
+    description: Endpoints for debugging purposes.
 x-tagGroups:
-  - name: Onepanel
+  - name: ONEPANEL COMMON
     tags:
-      - Onepanel
-  - name: Onezone
+      - Cluster
+      - Security
+      - DNS
+      - Current User
+      - Internal
+  - name: ONEZONE ADMINISTRATION
     tags:
-      - Onezone
-  - name: Oneprovider
+      - Onezone Cluster
+      - Service Configuration
+      - User Management
+  - name: ONEPROVIDER ADMINISTRATION
     tags:
-      - Oneprovider
+      - Oneprovider Cluster
+      - Oneprovider Identity
+      - Storages
+      - Space Support
+      - Storage Import
       - LUMA DB
-      - LUMA DB local feed
+      - LUMA DB Local Feed
+      - File Popularity
+      - Auto Cleaning
+      - Ceph
+      - Debug
 securityDefinitions:
   # api_key1 is used by Bash generated clients as default
   # header for sending api key

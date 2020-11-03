@@ -6,7 +6,7 @@ get:
     type: onp_panel
     aspect: progress
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:
@@ -35,7 +35,7 @@ patch:
     type: onp_panel
     aspect: progress
   tags:
-    - Onepanel
+    - Cluster
   consumes:
     - application/json
   responses:

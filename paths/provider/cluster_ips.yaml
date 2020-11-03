@@ -7,7 +7,7 @@ get:
     id: undefined
     aspect: external_ips
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   produces:
     - application/json
   responses:
@@ -38,7 +38,7 @@ patch:
     id: undefined
     aspect: external_ips
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   consumes:
     - application/json
     - application/x-yaml

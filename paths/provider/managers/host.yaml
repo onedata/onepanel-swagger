@@ -7,7 +7,7 @@ get:
     id: ?BINDING(host)
     aspect: '{host_status, <<"cluster_manager">>}'
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   produces:
     - application/json
   responses:
@@ -50,7 +50,7 @@ patch:
     id: ?BINDING(host)
     aspect: '{start_stop, <<"cluster_manager">>}'
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   responses:
     '204':
       description: Cluster manager service state changed successfully.

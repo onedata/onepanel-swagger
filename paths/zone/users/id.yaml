@@ -1,14 +1,27 @@
 get:
   operationId: get_onezone_user
   summary: Get Onezone user details
-  description: >
+  description: |
     Returns the configuration information of the Onezone user.
+
+    ***Example cURL requests***
+
+    **Get Onezone user details**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/zone/users/$USER_ID
+
+    {
+        "username": "someUser",
+        "userId": "b519b3ac46823b2b83b6cb85e1b16f4fchaa0f",
+        "fullName": "Unnamed User"
+    }
+    ```
   x-onedata-gri:
     type: onp_user
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Onezone
+    - User Management
   produces:
     - application/json
   responses:
@@ -41,14 +54,22 @@ get:
 patch:
   operationId: change_user_password
   summary: Set password for Onezone user
-  description: >
+  description: |
     Sets a new password for a Onezone user using Basic authentication.
+
+    ***Example cURL requests***
+
+    **Set Onezone user password**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/zone/users/$USER_ID \
+    -H "Content-Type: application/json" -d '{"newPassword": "someNewPassword"}'
+    ```
   x-onedata-gri:
     type: onp_user
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Onezone
+    - User Management
   consumes:
     - application/json
   responses:

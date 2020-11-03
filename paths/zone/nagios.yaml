@@ -6,7 +6,7 @@ get:
     type: onp_service
     aspect: '{nagios, <<"oz_worker">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   produces:
     - text/xml
   responses:

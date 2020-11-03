@@ -12,7 +12,7 @@ get:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_display_credentials, ?BINDING(space_id)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   produces:
     - application/json
   responses:
@@ -62,7 +62,7 @@ put:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_display_credentials, ?BINDING(space_id)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   consumes:
     - application/json
   responses:
@@ -117,7 +117,7 @@ delete:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_display_credentials, ?BINDING(space_id)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   consumes:
     - application/json
   responses:

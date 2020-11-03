@@ -1,13 +1,13 @@
 post:
   operationId: cancel_auto_cleaning
-  summary: Cancels space auto-cleaning
-  description: Cancels current run of auto-cleaning mechanism for given space.
+  summary: Cancel space auto-cleaning
+  description: Cancel current run of auto-cleaning mechanism for given space.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
     aspect: cancel_auto_cleaning
   tags:
-    - Oneprovider
+    - Auto Cleaning
   consumes:
     - application/json
   responses:

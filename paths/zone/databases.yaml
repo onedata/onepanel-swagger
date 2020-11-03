@@ -7,7 +7,7 @@ get:
     type: onp_service
     aspect: '{all_hosts_status, <<"couchbase">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   produces:
     - application/json
   responses:
@@ -39,7 +39,7 @@ post:
     type: onp_service
     aspect: couchbase_instances
   tags:
-    - Onezone
+    - Onezone Cluster
   consumes:
     - application/json
   responses:
@@ -79,7 +79,7 @@ patch:
     type: onp_service
     aspect: '{start_stop_all, <<"couchbase">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   responses:
     '204':
       description: Database service state changed successfully.

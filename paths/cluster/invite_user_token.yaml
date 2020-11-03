@@ -8,7 +8,7 @@ post:
     type: onp_cluster
     aspect: invite_user_token
   tags:
-    - Onepanel
+    - Cluster
   consumes:
     - application/json
   responses:

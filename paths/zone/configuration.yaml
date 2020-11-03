@@ -6,7 +6,7 @@ get:
     type: onp_zone
     aspect: cluster
   tags:
-    - Onezone
+    - Onezone Cluster
   produces:
     - application/json
   responses:
@@ -44,7 +44,7 @@ post:
     type: onp_zone
     aspect: cluster
   tags:
-    - Onezone
+    - Onezone Cluster
   consumes:
     - application/json
     - application/x-yaml

@@ -7,7 +7,7 @@ get:
     type: onp_service
     aspect: '{all_hosts_status, <<"oz_worker">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   produces:
     - application/json
   responses:
@@ -40,7 +40,7 @@ post:
     type: onp_service
     aspect: oz_worker_instances
   tags:
-    - Onezone
+    - Onezone Cluster
   consumes:
     - application/json
   responses:
@@ -79,7 +79,7 @@ patch:
     type: onp_service
     aspect: '{start_stop_all, <<"oz_worker">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   responses:
     '204':
       description: Cluster worker service state changed successfully.

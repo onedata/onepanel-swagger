@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Onepanel
+    - Current User
   produces:
     - application/json
   responses:

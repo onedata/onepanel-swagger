@@ -10,7 +10,7 @@ get:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   produces:
     - application/json
   responses:
@@ -61,7 +61,7 @@ put:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   consumes:
     - application/json
   responses:
@@ -116,7 +116,7 @@ delete:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   consumes:
     - application/json
   responses:

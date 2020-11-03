@@ -8,7 +8,7 @@ get:
     id: ?BINDING(id)
     aspect: "{auto_cleaning_report, ?BINDING(report_id)}"
   tags:
-    - Oneprovider
+    - Auto Cleaning
   produces:
     - application/json
   responses:
