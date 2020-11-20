@@ -45,14 +45,16 @@ required:
   - createdFiles
   - modifiedFiles
   - deletedFiles
+  - unmodifiedFiles
+  - failedFiles
   - totalScans
 example:
   status: done
   start: 1598871401
   stop: 1598871427
-  storageFiles: 1594
   createdFiles: 1146
   modifiedFiles: 191
   deletedFiles: 303
-  processedFiles: 1897
+  unmodifiedFiles: 1350
+  failedFiles: 1
   nextScan: 1598871487
