@@ -26,7 +26,7 @@ properties:
   deletedFiles:
     type: integer
     description: Counter of deleted files (both directories and regular files) that has been detected during current (or last finished) scan.
-  umodifiedFiles:
+  unmodifiedFiles:
     type: integer
     description: Counter of unmodified files (both directories and regular files) that has been detected during current (or last finished) scan.
   failedFiles:
