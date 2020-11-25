@@ -6,13 +6,13 @@ properties:
     description: Statistics of auto storage import jobs queue length.
     $ref: '#/definitions/TimeStats'
   createdFiles:
-    description: Statistics of count of created files detected by auto storage import.
+    description: Statistics of count of created files (both directories and regular files) detected by auto storage import.
     $ref: '#/definitions/TimeStats'
   modifiedFiles:
-    description: Statistics of count of modified files detected by auto storage import.
+    description: Statistics of count of modified files (both directories and regular files) detected by auto storage import.
     $ref: '#/definitions/TimeStats'
   deletedFiles:
-    description: Statistics of count of deleted files detected by auto storage import.
+    description: Statistics of count of deleted files (both directories and regular files) detected by auto storage import.
     $ref: '#/definitions/TimeStats'
 example:
   queueLength:
