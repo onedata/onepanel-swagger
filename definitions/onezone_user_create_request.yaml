@@ -5,6 +5,8 @@ properties:
     type: string
   password:
     type: string
+  fullName:
+    type: string
   groups:
     description: Ids of Onezone groups to which the user should be added.
       The groups must already exist.
