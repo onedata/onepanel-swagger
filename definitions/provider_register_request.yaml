@@ -6,11 +6,35 @@ properties:
     type: string
     description: >
       The name under which the provider should be registered in a zone.
+  tokenProvisionMethod:
+    type: string
+    description: >
+      Indicates how the Oneprovider registration token will be provided:
+
+      * `"inline"` - the registration token must be placed in the **token**
+        field (consult for more information).
+      * `"fromFile"` - the registration token will be read from given file,
+        specified in the **tokenFile** field (consult for more information).
+    enum:
+      - inline
+      - fromFile
+    default: inline
+    x-onedata-default-value: '<<"inline">>'
   token:
     type: string
     description: >
-      Registration token obtained from Onezone. This token identifies
-      Onezone to be used and authorizes the registration request.
+      Registration token obtained from Onezone. This token identifies the
+      Onezone service where the Oneprovider will be registered and
+      authorizes the registration request. Required when the
+      `tokenProvisionMethod` is set to `"inline"`.
+  tokenFile:
+    type: string
+    description: >
+      Absolute path to the file containing the Oneprovider registration token.
+      The token (and nothing else) should be placed in the file as plaintext.
+      The file does not have to pre-exist - it may be created after this
+      request is made (Onepanel will wait for the file to appear for some time).
+      Required when the `tokenProvisionMethod` is set to `"fromFile"`.
   subdomainDelegation:
     type: boolean
     description: >
@@ -44,12 +68,11 @@ properties:
     description: Email address of the Oneprovider administrator.
 required:
   - name
-  - token
   - subdomainDelegation
   - adminEmail
 example:
   name: Provider1
-  token: "bWFjYXJvb25mcm9tb25lem9uZQo="
+  token: "MDAzM2xvY2F00aW9uIGRldi1vbmV6b25lLmRlZmF1..."
   subdomainDelegation: false
   domain: provider.example.com
   geoLongitude: -24.3776025
