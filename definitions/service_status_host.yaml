@@ -1,7 +1,9 @@
 type: string
 description: The service status.
 enum:
+  - starting
   - healthy
   - unhealthy
+  - stopping
   - stopped
   - missing
