@@ -15,6 +15,6 @@ required:
   - build
   - gui
 example:
-  release: 21.02.0-alpha3
+  release: 21.02.0-alpha4
   build: 1-gfabf02d
   gui: 68e7e1472adb719ddf2d88908775091dfb10e5d0b916f06125ea1af4056044e3
