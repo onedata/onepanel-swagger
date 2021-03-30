@@ -64,6 +64,12 @@ post:
             "skipStorageDetection": true
         }
     }'
+
+    {
+      "My S3 Storage": {
+        "id": "f891d1ddf693232bbf0c11fe3cd9f7e7cheda9"
+      }
+    }
     ```
   x-onedata-gri:
     type: onp_storage
@@ -73,13 +79,11 @@ post:
   consumes:
     - application/json
   responses:
-    '204':
+    '200':
       description: >
         The storage resources have been successfully added to the provider deployment.
     '400':
       description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
     '401':
       description: Unauthorized request.
     '403':
