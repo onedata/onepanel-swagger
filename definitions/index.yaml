@@ -105,6 +105,9 @@ ModifyClusterIps:
 StorageCreateDetails:
   $ref: ./storage_create_details.yaml
 
+StorageCreateResponse:
+  $ref: ./storage_create_response.yaml
+
 StorageGetDetails:
   $ref: ./storage_get_details.yaml
 

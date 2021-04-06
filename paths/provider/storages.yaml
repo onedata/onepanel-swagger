@@ -82,6 +82,8 @@ post:
     '200':
       description: >
         The storage resources have been successfully added to the provider deployment.
+      schema:
+       $ref: '#/definitions/StorageCreateResponse'
     '400':
       description: Invalid request.
     '401':
