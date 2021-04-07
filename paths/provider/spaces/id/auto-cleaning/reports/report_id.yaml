@@ -38,5 +38,5 @@ get:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
+        onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$OP_PANEL_HOST:9443
         getProviderSpaceAutoCleaningReports id=$SPACE_ID report_id=$REPORT_ID

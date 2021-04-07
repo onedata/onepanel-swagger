@@ -34,7 +34,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getSpaceAutoCleaningConfiguration id=$SPACE_ID --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getSpaceAutoCleaningConfiguration id=$SPACE_ID --host https://$OP_PANEL_HOST:9443
 
 patch:
   operationId: configure_space_auto_cleaning
@@ -76,5 +76,5 @@ patch:
   x-code-samples:
     - lang: Shell
       source: >
-        cat new_auto_cleaning_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
+        cat new_auto_cleaning_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$OP_PANEL_HOST:9443
         configureSpaceAutoCleaning id=$SPACE_ID -
