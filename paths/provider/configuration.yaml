@@ -69,4 +69,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE configureProvider --host https://$HOST:9443
+    source: cat provider_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE configureProvider --host https://$HOST:9443 -

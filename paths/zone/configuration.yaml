@@ -70,4 +70,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat zone_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE configureZone --host https://$HOST:9443
+    source: cat zone_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE configureZone --host https://$HOST:9443 -

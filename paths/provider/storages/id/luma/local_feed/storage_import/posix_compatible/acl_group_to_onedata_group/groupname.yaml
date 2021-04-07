@@ -102,7 +102,7 @@ put:
     - lang: Shell
       source: >
         cat group_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
-        localFeedSetAclGroupToOnedataGroupMapping id=$STORAGE_ID groupname=$ACL_GROUP
+        localFeedSetAclGroupToOnedataGroupMapping id=$STORAGE_ID groupname=$ACL_GROUP -
 
 delete:
   operationId: local_feed_remove_acl_group_to_onedata_group_mapping

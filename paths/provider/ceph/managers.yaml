@@ -66,5 +66,5 @@ post:
     - lang: Shell
       source: >
         echo '{"managers": [{"host": "n1.op.example.com"}]}' |
-        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephManagers --host https://$HOST:9443
+        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephManagers --host https://$HOST:9443 -
 

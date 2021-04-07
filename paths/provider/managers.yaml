@@ -66,7 +66,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat mng_hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE -ct json addProviderManagers --host https://$HOST:9443
+    source: cat mng_hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE -ct json addProviderManagers --host https://$HOST:9443 -
 
 
 patch:

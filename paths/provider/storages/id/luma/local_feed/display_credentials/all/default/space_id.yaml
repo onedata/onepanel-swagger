@@ -104,7 +104,7 @@ put:
   - lang: Shell
     source: >
       cat display_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
-      localFeedSetDisplayCredentials id=$STORAGE_ID space_id=$SPACE_ID
+      localFeedSetDisplayCredentials id=$STORAGE_ID space_id=$SPACE_ID -
 
 delete:
   operationId: local_feed_remove_display_credentials

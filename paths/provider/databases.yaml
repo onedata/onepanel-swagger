@@ -67,7 +67,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat service_dbs.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProviderDatabases --host https://$HOST:9443
+    source: cat service_dbs.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProviderDatabases --host https://$HOST:9443 -
 
 
 patch:

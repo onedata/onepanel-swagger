@@ -66,5 +66,5 @@ patch:
   - lang: Shell
     source: >
       echo '{"dnsServers": ["8.8.8.8", "8.8.4.4"]}' |
-      onepanel-rest-cli -u onepanel:$PASSPHRASE modifyDnsCheckConfiguration --host https://$HOST:9443
+      onepanel-rest-cli -u onepanel:$PASSPHRASE modifyDnsCheckConfiguration --host https://$HOST:9443 -
 

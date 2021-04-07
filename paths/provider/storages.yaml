@@ -114,4 +114,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: cat storages.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addStorage --host https://$HOST:9443
+      source: cat storages.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addStorage --host https://$HOST:9443 -
