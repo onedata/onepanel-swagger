@@ -3,7 +3,7 @@ additionalProperties:
   type: object
   properties:
       error:
-        $ref: '#/definitions/Error'
+        $ref: '#/definitions/ErrorDetails'
       id:
         type: string
         description: Id of added storage.

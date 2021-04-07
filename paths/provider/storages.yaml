@@ -81,11 +81,16 @@ post:
   responses:
     '200':
       description: >
-        The storage resources have been successfully added to the provider deployment.
+        Response consists of map, where keys are names of storages passed in the request, and
+        values respresent id of added storage.
       schema:
        $ref: '#/definitions/StorageCreateResponse'
     '400':
-      description: Invalid request.
+      description: >
+        Invalid request. Response consists of map, where keys are names of storages passed in the request, and
+        values respresent id of added storage, or an error describing why the storage has not been added.
+      schema:
+        $ref: '#/definitions/StorageCreateResponse'
     '401':
       description: Unauthorized request.
     '403':

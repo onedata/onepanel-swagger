@@ -33,6 +33,9 @@ DnsCheckConfiguration:
 Error:
   $ref: ./error.yaml
 
+ErrorDetails:
+  $ref: ./error_details.yaml
+
 GuiMessage:
   $ref: ./gui_message.yaml
 
