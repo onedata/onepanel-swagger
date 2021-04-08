@@ -35,4 +35,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE cancelAutoCleaning --host https://$HOST:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE cancelAutoCleaning --host https://$OP_PANEL_HOST:9443

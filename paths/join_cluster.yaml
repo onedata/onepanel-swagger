@@ -33,4 +33,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli joinCluster inviteToken==$INVITE_TOKEN --host https://$HOST:9443
+      source: onepanel-rest-cli joinCluster inviteToken==$INVITE_TOKEN --host https://$PANEL_HOST:9443

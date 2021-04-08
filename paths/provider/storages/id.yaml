@@ -8,7 +8,7 @@ get:
 
     **Get Storage Details**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET https:/$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X GET https:/$OP_PANEL_HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
 
     {
         "type": "s3",
@@ -70,7 +70,7 @@ get:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE getStorageDetails
-        id=$STORAGE_ID --host https://$HOST:9443
+        id=$STORAGE_ID --host https://$OP_PANEL_HOST:9443
 
 patch:
   operationId: modify_storage
@@ -82,7 +82,7 @@ patch:
 
     **Modify storage name. Notice, that current storage name is the map key.**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID \
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$OP_PANEL_HOST/api/v3/onepanel/provider/storages/$STORAGE_ID \
     -H "Content-Type: application/json" -d '{
         "My S3 Storage": {
             "type":"s3",
@@ -158,7 +158,7 @@ patch:
     - lang: Shell
       source: >
         onepanel-rest-cli id=$STORAGE_ID timeout==10000
-        -u onepanel:$PASSPHRASE --host https://$HOST:9443 modifyStorage
+        -u onepanel:$PASSPHRASE --host https://$OP_PANEL_HOST:9443 modifyStorage
 
 delete:
   operationId: remove_storage
@@ -171,7 +171,7 @@ delete:
 
     **Remove storage**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X DELETE https://$HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X DELETE https://$OP_PANEL_HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
     ```
   x-onedata-gri:
     type: onp_storage
@@ -206,4 +206,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID
-        removeStorage --host https://$HOST:9443
+        removeStorage --host https://$OP_PANEL_HOST:9443

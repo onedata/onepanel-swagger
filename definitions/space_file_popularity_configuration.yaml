@@ -28,7 +28,7 @@ properties:
     default:  100
 example:
   enabled: true
-  exampleQuery: "curl -sS -k -H 'X-Auth-Token: $TOKEN' -X GET https://$HOST/api/v3/oneprovider/spaces/example_space_id/views/file-popularity?limit=10&stale=false"
+  exampleQuery: "curl -sS -k -H 'X-Auth-Token: $TOKEN' -X GET https://$OP_PANEL_HOST/api/v3/oneprovider/spaces/example_space_id/views/file-popularity?limit=10&stale=false"
   lastOpenHourWeight: 1.0
   avgOpenCountPerDayWeight: 20.0
   maxAvgOpenCountPerDay:  100
