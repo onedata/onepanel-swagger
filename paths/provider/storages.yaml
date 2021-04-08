@@ -62,12 +62,25 @@ post:
             "hostname": "iam.example.com",
             "bucketName": "bucket1.iam.example.com",
             "skipStorageDetection": true
+        },
+        "My Posix Storage": {
+            "type": "posix",
+            "mountPoint": "/volumes/inexistent/path"
         }
     }'
 
     {
       "My S3 Storage": {
-        "id": "f891d1ddf693232bbf0c11fe3cd9f7e7cheda9"
+          "id": "f891d1ddf693232bbf0c11fe3cd9f7e7cheda9"
+      },
+      "My Posix Storage": {
+          "error": {
+              "id": "storageTestFailed",
+              "description": "Failed to write test file on storage.",
+              "details": {
+                  "operation": "write"
+              }
+          }
       }
     }
     ```
