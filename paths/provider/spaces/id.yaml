@@ -8,7 +8,7 @@ get:
 
     **Get space details**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$OP_PANEL_HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
 
     {
         "supportingProviders": {
@@ -55,7 +55,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getSpaceDetails id=$SPACE_ID --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getSpaceDetails id=$SPACE_ID --host https://$OP_PANEL_HOST:9443
 
 
 patch:
@@ -68,7 +68,7 @@ patch:
 
     **Modify space support size**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID \
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$OP_PANEL_HOST/api/v3/onepanel/provider/spaces/$SPACE_ID \
     -H "Content-Type: application/json" -d '{"size": "30000000"}'
     ```
   x-onedata-gri:
@@ -123,7 +123,7 @@ delete:
 
     **Revoke space support**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X DELETE https://$HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
+    curl -H "X-Auth-Token: $TOKEN" -X DELETE https://$OP_PANEL_HOST/api/v3/onepanel/provider/spaces/$SPACE_ID
     ```
   x-onedata-gri:
     type: onp_space
@@ -154,4 +154,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE revokeSpaceSupport id=$SPACE_ID --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE revokeSpaceSupport id=$SPACE_ID --host https://$OP_PANEL_HOST:9443

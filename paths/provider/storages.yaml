@@ -8,7 +8,7 @@ get:
 
     **Get provider storage ids**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/storages
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$OP_PANEL_HOST/api/v3/onepanel/provider/storages
 
     {
         "ids": [
@@ -42,7 +42,7 @@ get:
       description: Services needed to fulfill this request are not running.
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getStorages --host https://$HOST:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getStorages --host https://$OP_PANEL_HOST:9443
 
 
 post:
@@ -55,7 +55,7 @@ post:
 
     **Add storage**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/provider/storages \
+    curl -H "X-Auth-Token: $TOKEN" -X POST https://$OP_PANEL_HOST/api/v3/onepanel/provider/storages \
     -H "Content-Type: application/json" -d '{
         "My S3 Storage": {
             "type": "s3",
@@ -127,4 +127,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: cat storages.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addStorage --host https://$HOST:9443 -
+      source: cat storages.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addStorage --host https://$OP_PANEL_HOST:9443 -

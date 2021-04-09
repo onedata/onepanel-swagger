@@ -46,7 +46,7 @@ get:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE localFeedGetOnedataUserToCredentialsMapping
-        id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID --host https://$HOST:9443
+        id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID --host https://$OP_PANEL_HOST:9443
 
 patch:
   operationId: local_feed_modify_onedata_user_to_credentials_mapping
@@ -101,7 +101,7 @@ patch:
     - lang: Shell
       source: >
         cat storage_user.json | onepanel-rest-cli -u onepanel:$PASSPHRASE localFeedModifyOnedataUserToCredentialsMapping
-        id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID --host https://$HOST:9443 -
+        id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID --host https://$OP_PANEL_HOST:9443 -
 
 delete:
   operationId: local_feed_remove_onedata_user_to_credentials_mapping
@@ -149,4 +149,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID onedata_user_id=$ONEDATA_USER_ID
-        localFeedRemoveOnedataUserToCredentialsMapping --host https://$HOST:9443
+        localFeedRemoveOnedataUserToCredentialsMapping --host https://$OP_PANEL_HOST:9443

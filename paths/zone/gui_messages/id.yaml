@@ -78,4 +78,4 @@ patch:
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyGuiMessage
-        id=signin_notification enabled==true --host https://$HOST:9443
+        id=signin_notification enabled==true --host https://$OZ_PANEL_HOST:9443

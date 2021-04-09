@@ -27,7 +27,7 @@ get:
       description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProvider --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProvider --host https://$OP_PANEL_HOST:9443
 
 
 post:
@@ -69,7 +69,7 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_details.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProvider --host https://$HOST:9443 -
+    source: cat provider_details.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProvider --host https://$OP_PANEL_HOST:9443 -
 
 
 patch:
@@ -111,7 +111,7 @@ patch:
       required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_details.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProvider --host https://$HOST:9443 -
+    source: cat provider_details.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProvider --host https://$OP_PANEL_HOST:9443 -
 
 
 delete:
@@ -138,4 +138,4 @@ delete:
       description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE removeProvider --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE removeProvider --host https://$OP_PANEL_HOST:9443
