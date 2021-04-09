@@ -102,7 +102,7 @@ put:
   - lang: Shell
     source: >
       cat user_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$OP_PANEL_HOST:9443
-      localFeedSetAclUserToOnedataUserMapping id=$STORAGE_ID username=$ACL_USER
+      localFeedSetAclUserToOnedataUserMapping id=$STORAGE_ID username=$ACL_USER -
 
 delete:
   operationId: local_feed_remove_acl_user_to_onedata_user_mapping

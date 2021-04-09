@@ -66,4 +66,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat zone_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyZoneClusterIps --host https://$OZ_PANEL_HOST:9443
+    source: cat zone_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyZoneClusterIps --host https://$OZ_PANEL_HOST:9443 -
