@@ -25,5 +25,5 @@ example:
   zoneDomain: onedata.org
   zoneName: OnedataZone
   build: 155-gdf98e0f
-  version: 20.02.8
+  version: 20.02.9
   deployed: true
