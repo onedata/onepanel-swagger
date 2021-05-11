@@ -89,6 +89,13 @@ properties:
     readOnly: true
     default: false
     description: Defines whether storage contains existing data to be imported.
+  archiveStorage:
+    type: boolean
+    default: false
+    x-onedata-storage-param: true
+    readOnly: true
+    description: >
+      Defines whether storage supports long-term dataset archiving.
   readonly:
     type: boolean
     x-onedata-storage-param: true
