@@ -30,7 +30,7 @@ allOf:
       type: integer
       description: >
         The version of signature used to sign requests.
-        Only version 4. is supported.
+        Only version 4 is supported.
       enum: [4]
     maximumCanonicalObjectSize:
       type: integer
