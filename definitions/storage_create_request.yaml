@@ -8,7 +8,7 @@ additionalProperties:
 example:
   s3:
     type: s3
-    s3Hostname: s3.example.com
+    s3Hostname: https://s3.example.com
     iamHostname: iam.example.com
     bucketName: bucket1.iam.example.com
     accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
