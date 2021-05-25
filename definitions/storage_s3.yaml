@@ -80,7 +80,7 @@ allOf:
 example:
   type: s3
   name: SomeS3
-  hostname: s3.example.com
+  hostname: https://s3.example.com:443/
   bucketName: bucket1.iam.example.com
   accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
   secretKey: fdeac26aedd3a179f9551d7007cc6a6273165782
