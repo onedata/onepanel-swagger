@@ -1,4 +1,4 @@
-version: 20.02.9
+version: 20.02.10
 title: Onepanel
 x-bash-codegen-description: |
   This is the RESTful API definition of **Onepanel** component of Onedata data
