@@ -33,7 +33,7 @@ get:
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephPool name=$POOL_NAME
-        --host https://$HOST:9443
+        --host https://$OP_PANEL_HOST:9443
 
 
 patch:

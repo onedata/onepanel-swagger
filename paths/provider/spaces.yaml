@@ -8,7 +8,7 @@ get:
 
     **Get provider space ids**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/provider/spaces
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$OP_PANEL_HOST/api/v3/onepanel/provider/spaces
 
     {
         "ids": [
@@ -43,7 +43,7 @@ get:
       description: Services needed to fulfill this request are not running.
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderSpaces --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderSpaces --host https://$OP_PANEL_HOST:9443
 
 
 post:
@@ -56,7 +56,7 @@ post:
 
     **Support space**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/provider/spaces \
+    curl -H "X-Auth-Token: $TOKEN" -X POST https://$OP_PANEL_HOST/api/v3/onepanel/provider/spaces \
     -H "Content-Type: application/json" -d '{
         "token": "MDAU02QHLaaJ00go",
         "size": "10000000",
@@ -103,4 +103,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE supportSpace token==ASDKJASKJDHKAJSHD size:=1073741824 --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE supportSpace token==ASDKJASKJDHKAJSHD size:=1073741824 --host https://$OP_PANEL_HOST:9443

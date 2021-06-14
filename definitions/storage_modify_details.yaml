@@ -56,6 +56,10 @@ properties:
     type: boolean
     description: >
       Defines whether storage contains existing data to be imported.
+  archiveStorage:
+    type: boolean
+    description: >
+      Defines whether storage supports long-term dataset archiving.
   readonly:
     type: boolean
     description: >
