@@ -34,12 +34,12 @@ allOf:
       rootUid:
         type: integer
         default: 0
-        description: UID of the user, on whose behalf operations in the admin context will be performed on the storage.
+        description: UID of the user on whose behalf operations in the admin context will be performed on the storage.
         x-onedata-default-value: 0
       rootGid:
         type: integer
         default: 0
-        description: GID of the group, on whose behalf operations in the admin context will be performed on the storage.
+        description: GID of the group on whose behalf operations in the admin context will be performed on the storage.
         x-onedata-default-value: 0
     required:
     - type
