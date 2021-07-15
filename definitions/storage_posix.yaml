@@ -31,6 +31,16 @@ allOf:
           however each rename operation will require renaming the files on the storage.
           'flat' paths are based on unique file UUID's and do not require on-storage
           rename when logical file name is changed.
+      rootUid:
+        type: integer
+        default: 0
+        description: Admin uid on posix storage.
+        x-onedata-default-value: 0
+      rootGid:
+        type: integer
+        default: 0
+        description: Admin gid on posix storage.
+        x-onedata-default-value: 0
     required:
     - type
     - mountPoint
