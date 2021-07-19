@@ -25,7 +25,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getTransfersMock --host https://oz.example.com:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getTransfersMock --host https://$OP_PANEL_HOST:9443
 
 
 patch:
@@ -69,4 +69,4 @@ patch:
   x-code-samples:
   - lang: Shell
     source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyTransfersMock
-      transfersMock==true --host https://oz.example.org:9443
+      transfersMock==true --host https://$OP_PANEL_HOST:9443

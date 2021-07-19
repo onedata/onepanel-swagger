@@ -34,7 +34,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneWorkerStatus host=work.example.com --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneWorkerStatus host=work.example.com --host https://$OZ_PANEL_HOST:9443
 
 
 patch:
@@ -81,4 +81,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneWorker host=work.example.com started=false --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneWorker host=work.example.com started=false --host https://$OZ_PANEL_HOST:9443

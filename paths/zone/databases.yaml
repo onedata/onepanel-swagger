@@ -28,7 +28,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneDatabasesStatus --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneDatabasesStatus --host https://$OZ_PANEL_HOST:9443
 
 
 post:
@@ -67,7 +67,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addZoneDatabases --host https://$HOST:9443
+    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addZoneDatabases --host https://$OZ_PANEL_HOST:9443 -
 
 
 patch:
@@ -104,4 +104,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneDatabases started=false --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneDatabases started=false --host https://$OZ_PANEL_HOST:9443

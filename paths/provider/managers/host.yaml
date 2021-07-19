@@ -36,7 +36,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderManagerStatus host=mng.example.com --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderManagerStatus host=mng.example.com --host https://$OP_PANEL_HOST:9443
 
 
 patch:
@@ -82,4 +82,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderManager started=false --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderManager started=false --host https://$OP_PANEL_HOST:9443
