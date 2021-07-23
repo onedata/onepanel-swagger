@@ -47,11 +47,11 @@ python-client: validate
 	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/local -t ${SWAGGER_PYTHON_CLIENT_IMAGE} generate -i /local/swagger.json -l python -o /local/generated/python -c /local/python-config.json
 
 # Generate OpenAPI v3 stubs 
-python-client3:
+python-client-openapi3.0:
 	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/local -t ${SWAGGER_OPENAPI_CLIENT_IMAGE} generate -i /local/openapi.json -l python -o /local/generated/python3 -c /local/python-config.json
 
 # Convert Swagger v2 to OpenAPI v3
-convert-swagger:
+convert-swagger-v2tov3:
 	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/local -t ${SWAGGER_OPENAPI_CLIENT_IMAGE} generate -i /local/swagger.json -l openapi -o /local/
 
 bash-client: validate
