@@ -44,7 +44,7 @@ cowboy-server: validate
 	./fix_generated.py
 
 python-client: validate
-	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/local -t ${SWAGGER_PYTHON_CLIENT_IMAGE} generate -i /local/swagger.json -l python -o /local/generated/python -c /local/python-config.json
+	docker run --rm --user ${UID} -e CHOWNUID=${UID} -v `pwd`:/local -t ${SWAGGER_PYTHON_CLIENT_IMAGE} generate -i /local/swagger.json -l python -o /local/generated/python -c /local/python-config.json
 
 # Generate OpenAPI v3 stubs 
 python-client-openapi3:
