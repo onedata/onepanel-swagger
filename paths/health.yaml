@@ -2,11 +2,12 @@ get:
   operationId: health
   summary: Perform health check
   description: >
-    Returns status code indicating oneprovider service health status.
-        This endpoint does not require authentication.
+    Returns status code indicating onepanel service health status.
+    This endpoint does not require authentication.
   x-onedata-gri:
     type: onp_panel
     aspect: health
+    scope: public
   tags:
     - Internal
   produces:
