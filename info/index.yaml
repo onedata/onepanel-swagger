@@ -1,4 +1,4 @@
-version: 20.02.12
+version: 21.02.0-alpha21
 title: Onepanel
 x-bash-codegen-description: |
   This is the RESTful API definition of **Onepanel** component of Onedata data
@@ -115,7 +115,7 @@ description: |
   The passphrase is set during deployment. It can be changed in the Onepanel GUI
   or with an API request:
   ```bash
-  curl -X PUT 'https://$HOST:9443/api/v3/onepanel/emergency_passphrase' \
+  curl -X PUT 'https://$PANEL_HOST:9443/api/v3/onepanel/emergency_passphrase' \
   -u onepanel:TheEmergencyPassphrase -H 'Content-Type: application/json' \
   -d '{"currentPassphrase": "TheEmergencyPassphrase", "newPassphrase": "TheNewPassphrase"}'
   ```

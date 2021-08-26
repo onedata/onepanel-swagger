@@ -33,6 +33,9 @@ DnsCheckConfiguration:
 Error:
   $ref: ./error.yaml
 
+ErrorDetails:
+  $ref: ./error_details.yaml
+
 GuiMessage:
   $ref: ./gui_message.yaml
 
@@ -104,6 +107,9 @@ ModifyClusterIps:
 
 StorageCreateDetails:
   $ref: ./storage_create_details.yaml
+
+StorageCreateResponse:
+  $ref: ./storage_create_response.yaml
 
 StorageGetDetails:
   $ref: ./storage_get_details.yaml

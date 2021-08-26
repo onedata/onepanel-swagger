@@ -63,6 +63,11 @@ properties:
     default: false
     description: >
       Defines whether storage contains existing data to be imported.
+  archiveStorage:
+    type: boolean
+    default: false
+    description: >
+      Defines whether storage supports long-term dataset archiving.
   readonly:
     type: boolean
     default: false

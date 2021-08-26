@@ -47,7 +47,7 @@ get:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE localFeedGetAclGroupToOnedataGroupMapping
-        id=$STORAGE_ID groupname=$ACL_GROUP --host https://$HOST:9443
+        id=$STORAGE_ID groupname=$ACL_GROUP --host https://$OP_PANEL_HOST:9443
 
 put:
   operationId: local_feed_set_acl_group_to_onedata_group_mapping
@@ -101,8 +101,8 @@ put:
   x-code-samples:
     - lang: Shell
       source: >
-        cat group_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
-        localFeedSetAclGroupToOnedataGroupMapping id=$STORAGE_ID groupname=$ACL_GROUP
+        cat group_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$OP_PANEL_HOST:9443
+        localFeedSetAclGroupToOnedataGroupMapping id=$STORAGE_ID groupname=$ACL_GROUP -
 
 delete:
   operationId: local_feed_remove_acl_group_to_onedata_group_mapping
@@ -151,4 +151,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID groupname=$ACL_GROUP
-        localFeedRemoveAclGroupToOnedataGroupMapping --host https://$HOST:9443
+        localFeedRemoveAclGroupToOnedataGroupMapping --host https://$OP_PANEL_HOST:9443

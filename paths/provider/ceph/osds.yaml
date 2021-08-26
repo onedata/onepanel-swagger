@@ -27,7 +27,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephOsds --host https://$HOST:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephOsds --host https://$OP_PANEL_HOST:9443
 
 
 post:
@@ -67,4 +67,4 @@ post:
     - lang: Shell
       source: >
         echo '{"osds": [{"host": "n1.op.example.com", "type": "loopdevice"}]}' |
-        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephOsds --host https://$HOST:9443
+        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephOsds --host https://$OP_PANEL_HOST:9443
