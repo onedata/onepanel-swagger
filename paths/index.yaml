@@ -72,6 +72,9 @@
 /test_image:
   $ref: ./test_image.yaml
 
+/health:
+  $ref: ./health.yaml
+
 
 # Onezone Administration
 
