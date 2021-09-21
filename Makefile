@@ -1,4 +1,3 @@
-
 SHELL = /bin/bash
 UID = $(shell id -u)
 
@@ -12,7 +11,6 @@ SWAGGER_BASH_CLIENT_IMAGE   ?= docker.onedata.org/swagger-codegen:VFS-6328
 # Updated/newer docker images for swagger codegen v2 and v3
 SWAGGER_PYTHON_CLIENT_IMAGE ?= swaggerapi/swagger-codegen-cli:2.4.20
 SWAGGER_OPENAPI_CLIENT_IMAGE ?= swaggerapi/swagger-codegen-cli-v3:3.0.26
-
 
 ifndef BRANCH
 	# BRANCH should always be passed in case of git detached state. This is only a fallback.
