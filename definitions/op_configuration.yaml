@@ -14,6 +14,14 @@ allOf:
         description: >
           This cluster's Oneprovider Id. `null` if the Oneprovider is not registered
           or Oneprovider worker is down.
+      providerName:
+        type: string
+        description: >
+          Name of this Oneprovider. `null` if the Oneprovider is not configured.
+      providerDomain:
+        type: string
+        description: >
+          The domain of this Oneprovider cluster. `null` before cluster is configured.
       zoneDomain:
         type: string
         description: >
@@ -26,9 +34,13 @@ allOf:
     required:
       - serviceType
       - providerId
+      - providerName
+      - providerDomain
       - zoneDomain
 example:
   serviceType: oneprovider
+  providerName: oneprovider-name
+  providerDomain: onedata.org
   providerId: b4ceb5c9ac793e6b8b36c813b9068757
   zoneDomain: onedata.org
   build: 155-gdf98e0f
