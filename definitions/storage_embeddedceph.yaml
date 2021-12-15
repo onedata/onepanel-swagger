@@ -1,5 +1,5 @@
 description: Configuration of a Ceph (librados) storage backed
-  by a Ceph pool created in the local Ceph cluster.
+  by a Ceph pool created in the embedded Ceph cluster.
 x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
@@ -12,13 +12,13 @@ allOf:
         description: |
           The type of storage.
           
-          `type = "localceph"`
+          `type = "embeddedceph"`
           
-          Local Ceph cluster that has been deployed during deployment
-          of Oneprovider. For more information on local Ceph deployment please
+          Embedded Ceph cluster that has been deployed during deployment
+          of Oneprovider. For more information on embedded Ceph deployment please
           see [here](https://onedata.org/#/home/documentation/stable/doc/administering_onedata/ceph_cluster_deployment.html).
-        enum: [localceph]
-        x-discriminator-value: localceph
+        enum: [embeddedceph]
+        x-discriminator-value: embeddedceph
       blockSize:
         type: integer
         description: Storage block size in bytes.
@@ -35,7 +35,7 @@ allOf:
           rename when logical file name is changed.
         enum: [flat]
 example:
-  type: localceph
+  type: embeddedceph
   name: myceph
   copiesNumber: 2
   skipStorageDetection: false
