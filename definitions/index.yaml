@@ -129,11 +129,11 @@ Posix:
 PosixModify:
   $ref: ./storage_posix_modify.yaml
 
-Localceph:
-  $ref: ./storage_localceph.yaml
+Embeddedceph:
+  $ref: ./storage_embeddedceph.yaml
 
-LocalcephModify:
-  $ref: ./storage_localceph_modify.yaml
+EmbeddedcephModify:
+  $ref: ./storage_embeddedceph_modify.yaml
 
 S3Credentials:
   $ref: ./storage_s3_credentials.yaml

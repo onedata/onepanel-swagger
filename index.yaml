@@ -46,7 +46,7 @@ tags:
   - name: Auto Cleaning
     description: Endpoints for managing the auto-cleaning mechanisms.
   - name: Ceph
-    description: Endpoints for managing the local Ceph cluster.
+    description: Endpoints for managing the embedded Ceph cluster.
   - name: Debug
     description: Endpoints for debugging purposes.
 x-tagGroups:
