@@ -207,6 +207,15 @@ XRootD:
 XRootDModify:
   $ref: ./storage_xrootd_modify.yaml
 
+NFSCredentials:
+  $ref: ./storage_nfs_credentials.yaml
+
+NFS:
+  $ref: ./storage_nfs.yaml
+
+NFSModify:
+  $ref: ./storage_nfs_modify.yaml
+
 HTTPCredentials:
   $ref: ./storage_http_credentials.yaml
 

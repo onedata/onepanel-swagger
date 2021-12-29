@@ -1,0 +1,44 @@
+description: The NFS storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      type: string
+      description: |
+        The type of storage.
+        
+        `type = "nfs"`
+        
+          NFS storage.
+      enum: [nfs]
+      x-discriminator-value: nfs
+    hostname:
+      type: string
+      description: The hostname (IP address or FQDN) of NFS server.
+    version:
+      type: integer
+      description: The NFS protocol version. Allowed values are 3 (default) and 4 (experimental).
+    volume:
+      type: string
+      description: The name of the NFS volume (export).
+    dircache:
+      type: boolean
+      description: Enables directory caching.
+    readahead:
+      type: integer
+      description: The size of readahead in bytes.
+    autoreconnect:
+      type: integer
+      description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
+  required:
+  - type
+example:
+  type: nfs
+  name: SomeNFS
+  volume: /nfs/nfsvolume/
+  hostname: nfs.example.com
+  version: 3
+  dircache: false
+  readahead: 1024
+  autoreconnect: 5

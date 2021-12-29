@@ -13,6 +13,7 @@ x-onedata-subclasses:
   - nulldevice_modify
   - webdav_modify
   - xrootd_modify
+  - nfs_modify
   - http_modify
 properties:
   name:
