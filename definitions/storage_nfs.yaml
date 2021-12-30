@@ -15,7 +15,7 @@ allOf:
           NFS storage.
         enum: [nfs]
         x-discriminator-value: nfs
-      hostname:
+      host:
         type: string
         description: The hostname (IP address or FQDN) of NFS server.
       version:
@@ -41,7 +41,7 @@ allOf:
         description: The size of readahead in bytes.
         default: 0
         x-onedata-default-value: 0
-      autorReconnect:
+      autoReconnect:
         type: integer
         description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
         default: 1

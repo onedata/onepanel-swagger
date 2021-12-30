@@ -13,7 +13,7 @@ allOf:
           NFS storage.
       enum: [nfs]
       x-discriminator-value: nfs
-    hostname:
+    host:
       type: string
       description: The hostname (IP address or FQDN) of NFS server.
     version:
@@ -40,8 +40,8 @@ example:
   type: nfs
   name: SomeNFS
   volume: /nfs/nfsvolume/
-  hostname: nfs.example.com
+  host: nfs.example.com
   version: 3
-  dircache: false
-  readahead: 1024
-  autoreconnect: 5
+  dirCache: false
+  readAhead: 1024
+  autoReconnect: 5
