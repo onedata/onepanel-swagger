@@ -22,13 +22,16 @@ allOf:
     volume:
       type: string
       description: The name of the NFS volume (export).
-    dircache:
+    connectionPoolSize:
+      type: integer
+      description: The size of NFS connection pool.
+    dirCache:
       type: boolean
       description: Enables directory caching.
-    readahead:
+    readAhead:
       type: integer
       description: The size of readahead in bytes.
-    autoreconnect:
+    autoReconnect:
       type: integer
       description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
   required:

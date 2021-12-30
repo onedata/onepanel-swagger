@@ -15,9 +15,6 @@ allOf:
           NFS storage.
         enum: [nfs]
         x-discriminator-value: nfs
-      volume:
-        type: string
-        description: The name of the NFS volume (export).
       hostname:
         type: string
         description: The hostname (IP address or FQDN) of NFS server.
@@ -26,17 +23,25 @@ allOf:
         description: The NFS protocol version. Allowed values are 3 (default) and 4 (experimental).
         default: 3
         x-onedata-default-value: 3
-      dircache:
+      volume:
+        type: string
+        description: The name of the NFS volume (export).
+      connectionPoolSize:
+        type: integer
+        description: The size of NFS connection pool.
+        default: 10
+        x-onedata-default-value: 10
+      dirCache:
         type: boolean
         description: Enables directory caching.
         default: true
         x-onedata-default-value: true
-      readahead:
+      readAhead:
         type: integer
         description: The size of readahead in bytes.
         default: 0
         x-onedata-default-value: 0
-      autoreconnect:
+      autorReconnect:
         type: integer
         description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
         default: 1
