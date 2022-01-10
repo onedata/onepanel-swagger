@@ -13,12 +13,14 @@ x-onedata-subclasses:
   - s3
   - ceph
   - cephrados
-  - localceph
+  - embeddedceph
   - swift
   - glusterfs
   - nulldevice
   - webdav
   - xrootd
+  - nfs
+  - http
 properties:
   type:
     type: string

@@ -1,0 +1,69 @@
+description: The NFS storage configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - $ref: '#/definitions/StorageCreateDetails'
+  - type: object
+    properties:
+      type:
+        type: string
+        description: |
+          The type of storage.
+          
+          `type = "nfs"`
+          
+          NFS storage.
+        enum: [nfs]
+        x-discriminator-value: nfs
+      host:
+        type: string
+        description: The hostname (IP address or FQDN) of NFS server.
+      version:
+        type: integer
+        description: The NFS protocol version. Allowed values are 3 (default) and 4 (experimental).
+        default: 3
+        x-onedata-default-value: 3
+      volume:
+        type: string
+        description: The name of the NFS volume (export).
+      connectionPoolSize:
+        type: integer
+        description: The size of NFS connection pool.
+        default: 10
+        x-onedata-default-value: 10
+      dirCache:
+        type: boolean
+        description: Enables directory caching.
+        default: true
+        x-onedata-default-value: true
+      readAhead:
+        type: integer
+        description: The size of readahead in bytes.
+        default: 0
+        x-onedata-default-value: 0
+      autoReconnect:
+        type: integer
+        description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
+        default: 1
+        x-onedata-default-value: 1
+      storagePathType:
+        type: string
+        enum: [canonical]
+        default: canonical
+        x-onedata-default-value: '<<"canonical">>'
+        description: |
+          Determines how the logical file paths will be mapped on the storage.
+          'canonical' paths reflect the logical file names and directory structure,
+          however each rename operation will require renaming the files on the storage.
+          'flat' paths are based on unique file UUID's and do not require on-storage
+          rename when logical file name is changed.
+          **Note that 'flat' paths are not allowed on this type of storage.**
+    required:
+    - type
+    - volume
+    - hostname
+example:
+  type: nfs
+  name: SomeNFS
+  volume: /nfs/nfsvolume/
+  hostname: nfs.example.com
