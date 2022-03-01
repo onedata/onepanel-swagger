@@ -61,9 +61,9 @@ allOf:
     required:
     - type
     - volume
-    - hostname
+    - host
 example:
   type: nfs
   name: SomeNFS
   volume: /nfs/nfsvolume/
-  hostname: nfs.example.com
+  host: nfs.example.com
