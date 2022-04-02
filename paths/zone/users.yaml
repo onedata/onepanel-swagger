@@ -8,7 +8,7 @@ get:
 
     **Get Onezone user ids**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/zone/users
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$OZ_PANEL_HOST/api/v3/onepanel/zone/users
 
     {
         "ids": [
@@ -42,7 +42,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnezoneUsers --host https://$HOST:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnezoneUsers --host https://$OZ_PANEL_HOST:9443
 
 
 post:
@@ -56,7 +56,7 @@ post:
 
     **Create Onezone user with username & password**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X POST https://$HOST/api/v3/onepanel/zone/users \
+    curl -H "X-Auth-Token: $TOKEN" -X POST https://$OZ_PANEL_HOST/api/v3/onepanel/zone/users \
     -H "Content-Type: application/json" -d '{
         "username": "someUser",
         "password": "somePassword"
@@ -96,4 +96,4 @@ post:
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE addOnezoneUser
-        username==bob password==secret --host https://$HOST:9443
+        username==bob password==secret --host https://$OZ_PANEL_HOST:9443

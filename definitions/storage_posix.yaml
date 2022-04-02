@@ -23,6 +23,7 @@ allOf:
           on the cluster nodes.
       storagePathType:
         type: string
+        enum: [canonical]
         default: canonical
         x-onedata-default-value: '<<"canonical">>'
         description: |
@@ -31,6 +32,7 @@ allOf:
           however each rename operation will require renaming the files on the storage.
           'flat' paths are based on unique file UUID's and do not require on-storage
           rename when logical file name is changed.
+          **Note that 'flat' paths are not allowed on this type of storage.**
       rootUid:
         type: integer
         default: 0

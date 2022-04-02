@@ -30,5 +30,5 @@ get:
   x-code-samples:
     - lang: Shell
       source: >
-        onepanel-rest-cli getClusters --host https://$HOST:9443
+        onepanel-rest-cli getClusters --host https://$PANEL_HOST:9443
         -H "x-auth-token: $TOKEN"

@@ -39,4 +39,4 @@ get:
     - lang: Shell
       source: >
         onepanel-rest-cli getRemoteProvider id=VAiDGZbs3k0FD8jPhyU1
-        --host https://$HOST:9443 -H "x-auth-token: $TOKEN"
+        --host https://$PANEL_HOST:9443 -H "x-auth-token: $TOKEN"
