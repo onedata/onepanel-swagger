@@ -7,3 +7,11 @@ properties:
       The storage space size in bytes that provider is willing to assign to the space.
   autoStorageImportConfig:
     $ref: '#/definitions/AutoStorageImportConfig'
+  accountingEnabled:
+    type: boolean
+    description: Flag that enables accounting.
+  dirStatsEnabled:
+    type: boolean
+    description: >
+      Flag that enables gathering various directory statistics (e.g. size).
+      It can't be disabled if accounting is enabled.

@@ -15,6 +15,16 @@ properties:
       The Id of the storage resource where the space data should be stored.
   storageImport:
     $ref: '#/definitions/StorageImport'
+  accountingEnabled:
+    type: boolean
+    default: false
+    description: Flag that enables accounting.
+  dirStatsEnabled:
+    type: boolean
+    default: false
+    description: >
+      Flag that enables gathering various directory statistics (e.g. size).
+      It can't be disabled if accounting is enabled.
 required:
   - token
   - size

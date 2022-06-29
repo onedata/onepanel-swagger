@@ -29,6 +29,21 @@ properties:
   spaceOccupancy:
     type: integer
     description: Amount of storage [b] used by data from given space on that storage.
+  accountingEnabled:
+    type: boolean
+    description: Flag informing whether accounting is enabled.
+  dirStatsEnabled:
+    type: boolean
+    description: >
+      Flag informing whether gathering various directory statistics (e.g. size) is enabled.
+  dirStatsCollectingStatus:
+    type: string
+    enum:
+      - initializing
+      - enabled
+      - stopping
+      - disabled
+    description: Current status of directory statistics gathering.
 required:
   - id
   - name
@@ -36,3 +51,6 @@ required:
   - localStorages
   - supportingProviders
   - spaceOccupancy
+  - accountingEnabled
+  - dirStatsEnabled
+  - dirStatsCollectingStatus
