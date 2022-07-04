@@ -1,2 +1,5 @@
 type: boolean
-description: Indciates enabling of space accounting.
+description: >
+  Indicates if accounting is enabled. The accounting mechanism utilizes directory 
+  statistics to keep track of quota usage within a space for the corresponding 
+  supporting provider.
