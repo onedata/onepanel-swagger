@@ -378,6 +378,12 @@ TaskId:
 TaskStatus:
   $ref: ./task_status.yaml
 
+AccountingEnabled:
+  $ref: ./accounting_enabled.yaml
+
+DirStatsServiceEnabled:
+  $ref: ./dir_stats_service_enabled.yaml
+
 SpaceDetails:
   $ref: ./space_details.yaml
 

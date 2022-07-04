@@ -1,0 +1,4 @@
+type: boolean
+description: >
+  Indicates enabling of directory statistics (e.g. logical/physical size) 
+  gathering service.

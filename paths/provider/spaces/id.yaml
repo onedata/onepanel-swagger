@@ -21,8 +21,8 @@ get:
         "importedStorage": false,
         "id": "16403a6c45105010dc7103e31874cb3echac41",
         "accountingEnabled": false,
-        "dirStatsEnabled": true,
-        "dirStatsCollectingStatus": "initializing"
+        "dirStatsServiceEnabled": true,
+        "dirStatsServiceStatus": "initializing"
     }
     ```
   x-onedata-gri:

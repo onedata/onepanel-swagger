@@ -16,15 +16,13 @@ properties:
   storageImport:
     $ref: '#/definitions/StorageImport'
   accountingEnabled:
-    type: boolean
+    allOf:
+      - $ref: "#/definitions/AccountingEnabled"
     default: false
-    description: Flag that enables accounting.
-  dirStatsEnabled:
-    type: boolean
+  dirStatsServiceEnabled:
+    allOf:
+      - $ref: "#/definitions/DirStatsServiceEnabled"
     default: false
-    description: >
-      Flag that enables gathering various directory statistics (e.g. size).
-      It can't be disabled if accounting is enabled.
 required:
   - token
   - size
