@@ -40,7 +40,7 @@ properties:
       - enabled
       - stopping
       - disabled
-    description: Current status of directory statistics gathering service.
+    description: Current status of directory statistics service.
 required:
   - id
   - name
