@@ -8,6 +8,14 @@ properties:
   autoStorageImportConfig:
     $ref: '#/definitions/AutoStorageImportConfig'
   accountingEnabled:
-    $ref: "#/definitions/AccountingEnabled"
+    type: boolean
+    description: >
+      Indicates if accounting is enabled. The accounting mechanism utilizes directory 
+      statistics to keep track of quota usage within a space for the corresponding 
+      supporting provider.
   dirStatsServiceEnabled:
-    $ref: "#/definitions/DirStatsServiceEnabled"
+    type: boolean
+    description: >
+      Indicates if the directory statistics service is enabled. 
+      The service gathers statistics concerning logical and physical directory size, file count and update times.
+      It cannot be disabled if accounting is enabled.
