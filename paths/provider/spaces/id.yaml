@@ -19,7 +19,10 @@ get:
         "name": "someSpace",
         "localStorages": ["18a42a43b1b2d92455ffa09e9a15df7fch4f82"],
         "importedStorage": false,
-        "id": "16403a6c45105010dc7103e31874cb3echac41"
+        "id": "16403a6c45105010dc7103e31874cb3echac41",
+        "accountingEnabled": false,
+        "dirStatsServiceEnabled": true,
+        "dirStatsServiceStatus": "initializing"
     }
     ```
   x-onedata-gri:
