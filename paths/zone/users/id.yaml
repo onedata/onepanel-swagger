@@ -8,7 +8,7 @@ get:
 
     **Get Onezone user details**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onepanel/zone/users/$USER_ID
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$OZ_PANEL_HOST/api/v3/onepanel/zone/users/$USER_ID
 
     {
         "username": "someUser",
@@ -48,7 +48,7 @@ get:
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnezoneUser id=$USER_ID
-        --host https://$HOST:9443
+        --host https://$OZ_PANEL_HOST:9443
 
 
 patch:
@@ -61,7 +61,7 @@ patch:
 
     **Set Onezone user password**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$HOST/api/v3/onepanel/zone/users/$USER_ID \
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$OZ_PANEL_HOST/api/v3/onepanel/zone/users/$USER_ID \
     -H "Content-Type: application/json" -d '{"newPassword": "someNewPassword"}'
     ```
   x-onedata-gri:
@@ -103,4 +103,4 @@ patch:
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE changeUserPassword id=$USER_ID
-        newPassword==someNewPassword --host https://$HOST:9443
+        newPassword==someNewPassword --host https://$OZ_PANEL_HOST:9443

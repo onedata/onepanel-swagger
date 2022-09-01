@@ -26,7 +26,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephMonitors --host https://$HOST:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getCephMonitors --host https://$OP_PANEL_HOST:9443
 
 
 post:
@@ -66,5 +66,5 @@ post:
     - lang: Shell
       source: >
         echo '{"monitors": [{"host": "n1.op.example.com"}]}' |
-        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$HOST:9443
+        onepanel-rest-cli -u onepanel:$PASSPHRASE addCephMonitors --host https://$OP_PANEL_HOST:9443
 

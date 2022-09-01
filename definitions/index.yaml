@@ -33,6 +33,9 @@ DnsCheckConfiguration:
 Error:
   $ref: ./error.yaml
 
+ErrorDetails:
+  $ref: ./error_details.yaml
+
 GuiMessage:
   $ref: ./gui_message.yaml
 
@@ -105,6 +108,9 @@ ModifyClusterIps:
 StorageCreateDetails:
   $ref: ./storage_create_details.yaml
 
+StorageCreateResponse:
+  $ref: ./storage_create_response.yaml
+
 StorageGetDetails:
   $ref: ./storage_get_details.yaml
 
@@ -123,11 +129,11 @@ Posix:
 PosixModify:
   $ref: ./storage_posix_modify.yaml
 
-Localceph:
-  $ref: ./storage_localceph.yaml
+Embeddedceph:
+  $ref: ./storage_embeddedceph.yaml
 
-LocalcephModify:
-  $ref: ./storage_localceph_modify.yaml
+EmbeddedcephModify:
+  $ref: ./storage_embeddedceph_modify.yaml
 
 S3Credentials:
   $ref: ./storage_s3_credentials.yaml
@@ -200,6 +206,15 @@ XRootD:
 
 XRootDModify:
   $ref: ./storage_xrootd_modify.yaml
+
+NFSCredentials:
+  $ref: ./storage_nfs_credentials.yaml
+
+NFS:
+  $ref: ./storage_nfs.yaml
+
+NFSModify:
+  $ref: ./storage_nfs_modify.yaml
 
 HTTPCredentials:
   $ref: ./storage_http_credentials.yaml

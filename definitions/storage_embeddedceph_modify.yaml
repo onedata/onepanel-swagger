@@ -9,17 +9,17 @@ allOf:
         description: |
           The type of storage.
           
-          `type = "localceph"`
+          `type = "embeddedceph"`
           
-          Local Ceph cluster that has been deployed during deployment
-          of Oneprovider. For more information on local Ceph deployment please
+          Embedded Ceph cluster that has been deployed during deployment
+          of Oneprovider. For more information on embedded Ceph deployment please
           see [here](https://onedata.org/#/home/documentation/stable/doc/administering_onedata/ceph_cluster_deployment.html).
-        enum: [localceph]
-        x-discriminator-value: localceph
+        enum: [embeddedceph]
+        x-discriminator-value: embeddedceph
       name:
         type: string
         readOnly: true
         description: Name of the storage and corresponding Ceph pool.
 example:
-  type: localceph
+  type: embeddedceph
   copiesNumber: 3

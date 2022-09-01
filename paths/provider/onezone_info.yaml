@@ -38,4 +38,4 @@ get:
       required: false
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnezoneInfo --host https://$HOST:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnezoneInfo --host https://$OP_PANEL_HOST:9443

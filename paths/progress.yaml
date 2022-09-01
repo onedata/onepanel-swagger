@@ -62,4 +62,4 @@ patch:
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProgress dnsCheck==true
-        --host https://$HOST:9443
+        --host https://$PANEL_HOST:9443
