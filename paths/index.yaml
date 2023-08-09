@@ -261,48 +261,6 @@
 /provider/spaces/{id}/auto-cleaning/status:
   $ref: ./provider/spaces/id/auto-cleaning/status.yaml
 
-## Ceph
-/provider/ceph:
-  $ref: ./provider/ceph.yaml
-
-/provider/ceph/osds:
-  $ref: ./provider/ceph/osds.yaml
-
-/provider/ceph/osds/{id}:
-  $ref: ./provider/ceph/osds/id.yaml
-
-/provider/ceph/osds/{id}/usage:
-  $ref: ./provider/ceph/osds/id/usage.yaml
-
-/provider/ceph/managers:
-  $ref: ./provider/ceph/managers.yaml
-
-/provider/ceph/managers/{id}:
-  $ref: ./provider/ceph/managers/id.yaml
-
-/provider/ceph/monitors:
-  $ref: ./provider/ceph/monitors.yaml
-
-/provider/ceph/monitors/{id}:
-  $ref: ./provider/ceph/monitors/id.yaml
-
-/provider/ceph/status:
-  $ref: ./provider/ceph/status.yaml
-
-/provider/ceph/usage:
-  $ref: ./provider/ceph/usage.yaml
-
-/provider/ceph/pools:
-  $ref: ./provider/ceph/pools.yaml
-
-/provider/ceph/pools/{name}:
-  $ref: ./provider/ceph/pools/name.yaml
-
-/provider/ceph/pools/{name}/usage:
-  $ref: ./provider/ceph/pools/name/usage.yaml
-
-/provider/ceph/preflight/block_devices:
-  $ref: ./provider/ceph/preflight/block_devices.yaml
 
 ## Debug
 /provider/debug/transfers_mock:

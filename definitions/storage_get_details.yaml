@@ -13,7 +13,6 @@ x-onedata-subclasses:
   - s3
   - ceph
   - cephrados
-  - embeddedceph
   - swift
   - glusterfs
   - nulldevice

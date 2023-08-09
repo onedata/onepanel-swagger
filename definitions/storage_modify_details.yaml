@@ -7,7 +7,6 @@ x-onedata-subclasses:
   - s3_modify
   - ceph_modify
   - cephrados_modify
-  - embeddedceph_modify
   - swift_modify
   - glusterfs_modify
   - nulldevice_modify

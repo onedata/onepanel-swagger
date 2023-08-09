@@ -3,8 +3,6 @@ description: The provider deployment configuration.
 properties:
   cluster:
     $ref: '#/definitions/ProviderClusterConfiguration'
-  ceph:
-    $ref: '#/definitions/CephCluster'
   oneprovider:
     type: object
     description: The provider registration data.

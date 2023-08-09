@@ -1,8 +1,0 @@
-type: object
-description: Object containing a list of Ceph pools.
-properties:
-  pools:
-    type: array
-    description: List of Ceph pools.
-    items:
-      $ref: "#/definitions/CephPool"

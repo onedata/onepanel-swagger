@@ -129,12 +129,6 @@ Posix:
 PosixModify:
   $ref: ./storage_posix_modify.yaml
 
-Embeddedceph:
-  $ref: ./storage_embeddedceph.yaml
-
-EmbeddedcephModify:
-  $ref: ./storage_embeddedceph_modify.yaml
-
 S3Credentials:
   $ref: ./storage_s3_credentials.yaml
 
@@ -254,51 +248,6 @@ LumaIdpEntitlementScheme:
 
 LumaOnedataGroup:
   $ref: ./luma_onedata_group.yaml
-
-CephCluster:
-  $ref: ./ceph_cluster.yaml
-
-CephGlobalParams:
-  $ref: ./ceph_global_params.yaml
-
-CephManager:
-  $ref: ./ceph_manager.yaml
-
-CephManagers:
-  $ref: ./ceph_managers.yaml
-
-CephMonitor:
-  $ref: ./ceph_monitor.yaml
-
-CephMonitors:
-  $ref: ./ceph_monitors.yaml
-
-CephOsd:
-  $ref: ./ceph_osd.yaml
-
-blockdevice:
-  $ref: ./ceph_osd_blockdevice.yaml
-
-loopdevice:
-  $ref: ./ceph_osd_loopdevice.yaml
-
-CephOsds:
-  $ref: ./ceph_osds.yaml
-
-CephUsage:
-  $ref: ./ceph_usage.yaml
-
-CephPoolUsage:
-  $ref: ./ceph_pool_usage.yaml
-
-CephPool:
-  $ref: ./ceph_pool.yaml
-
-CephPools:
-  $ref: ./ceph_pools.yaml
-
-CephStatus:
-  $ref: ./ceph_status.yaml
 
 StorageCreateRequest:
   $ref: ./storage_create_request.yaml
