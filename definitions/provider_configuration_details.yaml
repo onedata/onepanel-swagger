@@ -16,8 +16,6 @@ properties:
     required:
       - name
       - configured
-  ceph:
-    $ref: '#/definitions/CephCluster'
 required:
   - cluster
   - oneprovider

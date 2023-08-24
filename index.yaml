@@ -45,8 +45,6 @@ tags:
     description: Endpoints for managing the file popularity mechanisms.
   - name: Auto Cleaning
     description: Endpoints for managing the auto-cleaning mechanisms.
-  - name: Ceph
-    description: Endpoints for managing the embedded Ceph cluster.
   - name: Debug
     description: Endpoints for debugging purposes.
 x-tagGroups:
@@ -73,7 +71,6 @@ x-tagGroups:
       - LUMA DB Local Feed
       - File Popularity
       - Auto Cleaning
-      - Ceph
       - Debug
 securityDefinitions:
   # api_key1 is used by Bash generated clients as default
