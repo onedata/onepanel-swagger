@@ -32,6 +32,15 @@ allOf:
         The version of signature used to sign requests.
         Only version 4 is supported.
       enum: [4]
+    verifyServerCertificate:
+      type: boolean
+      description: >
+        Enables or disables verification of the S3 server SSL certificate.
+    region:
+      type: string
+      description: >
+        Allows to specify a custom S3 region, which will be send with each
+        request to the S3 server.
     maximumCanonicalObjectSize:
       type: integer
       description: >
