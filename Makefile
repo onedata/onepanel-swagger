@@ -57,6 +57,7 @@ bash-client: validate
 
 javascript-client: validate
 	docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_JS_CLIENT_IMAGE}  generate -i ./swagger.json -l javascript -o ./generated/javascript/ -c ./javascript-config.json
+	./semversionize_js_package.py ./generated/javascript/package.json
 
 javascript-update-repo: clean javascript-client
 	if [ "${BRANCH}" = "HEAD" ]; then exit 1; fi
