@@ -5,7 +5,7 @@ Changes generated JavaScript client NPM package version from "year.month.minor" 
 (eg. 21.02.3) commonly used in Onedata to version compatible with Semver (eg. 21.2.3 in
 this example).
 
-Compatible with Python 3.7+
+Compatible with Python 3.7+.
 """
 
 __author__ = "Jakub Liput"
@@ -37,11 +37,7 @@ def replace_package_json_version(json_string):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Changes generated JavaScript client NPM package version from "
-        + '"year-month-minor" format (eg. 21.02.3) commonly used in Onedata to version '
-        + "compatible with Semver (eg. 21.2.3 in this example)."
-    )
+    parser = argparse.ArgumentParser(description=__doc__)
 
     parser.add_argument(
         "package_json_path",
