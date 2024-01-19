@@ -41,7 +41,6 @@ def main():
         description="Changes generated JavaScript client NPM package version from "
         + '"year-month-minor" format (eg. 21.02.3) commonly used in Onedata to version '
         + "compatible with Semver (eg. 21.2.3 in this example)."
-        + "errors.",
     )
 
     parser.add_argument(
