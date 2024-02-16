@@ -59,7 +59,7 @@ post:
     curl -H "X-Auth-Token: $TOKEN" -X POST https://$OP_PANEL_HOST/api/v3/onepanel/provider/spaces \
     -H "Content-Type: application/json" -d '{
         "token": "MDAU02QHLaaJ00go",
-        "size": "10000000",
+        "size": 10000000,
         "storageId": "18a42a43b1b2d9e9a1f82"
     }'
 
