@@ -5,6 +5,9 @@ description: >
   Both Oneprovider and Onezone return field 'domain' for checking if cluster's domain
   can be resolved.
 
+  In Oneprovider there may be additional field 'oneS3Subdomain' for checking if 
+  OneS3 domain can be resolved if it's enabled.
+
   In Onezone there is additional field 'dnsZone' for checking whether DNS zone management
   for the Onezone's domain has been delegated to Onezone server (SOA and NS records)
   allowing for subdomain delegation.
@@ -12,6 +15,8 @@ description: >
   If the cluster is configured with an IP neither 'domain' nor 'dnsZone' is returned.
 properties:
   domain:
+    $ref: '#/definitions/DnsCheckResult'
+  oneS3Subdomain:
     $ref: '#/definitions/DnsCheckResult'
   dnsZone:
     $ref: '#/definitions/DnsCheckResult'
