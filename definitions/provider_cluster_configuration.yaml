@@ -26,6 +26,8 @@ properties:
     $ref: '#/definitions/ClusterDatabases'
   managers:
     $ref: '#/definitions/ClusterManagers'
+  oneS3:
+    $ref: '#/definitions/ClusterOneS3'
   workers:
     $ref: '#/definitions/ClusterWorkers'
   storages:

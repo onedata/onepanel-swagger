@@ -90,6 +90,9 @@ PasswordChangeRequest:
 PanelConfiguration:
   $ref: ./panel_configuration.yaml
 
+ClusterOneS3:
+  $ref: ./cluster_ones3.yaml
+
 ClusterWorkers:
   $ref: ./cluster_workers.yaml
 
@@ -311,6 +314,9 @@ DatabaseHosts:
 
 ManagerHosts:
   $ref: ./manager_hosts.yaml
+
+OneS3Hosts:
+  $ref: ./ones3_hosts.yaml
 
 WorkerHosts:
   $ref: ./worker_hosts.yaml

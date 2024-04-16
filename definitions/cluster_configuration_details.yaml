@@ -13,6 +13,8 @@ properties:
     $ref: '#/definitions/DatabaseHosts'
   managers:
     $ref: '#/definitions/ManagerHosts'
+  oneS3:
+    $ref: '#/definitions/OneS3Hosts'
   workers:
     $ref: '#/definitions/WorkerHosts'
 required:

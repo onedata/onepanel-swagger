@@ -1,0 +1,10 @@
+type: object
+description: The OneS3 service configuration.
+properties:
+  nodes:
+    type: array
+    description: The list of aliases of OneS3 nodes.
+    items:
+      type: string
+required:
+- nodes
