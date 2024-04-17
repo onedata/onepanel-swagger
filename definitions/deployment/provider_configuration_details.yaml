@@ -29,6 +29,9 @@ example:
     workers:
       hosts:
         - "node1.oneprovider.onedata.example.com"
+    oneS3:
+      hosts:
+        - "node1.oneprovider.onedata.example.com"
     databases:
       hosts:
         - "node1.oneprovider.onedata.example.com"

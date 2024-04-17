@@ -22,4 +22,5 @@ required:
   - hosts
   - databases
   - managers
+  - oneS3
   - workers
