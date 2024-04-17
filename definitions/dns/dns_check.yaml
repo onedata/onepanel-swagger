@@ -6,7 +6,7 @@ description: >
   can be resolved.
 
   In Oneprovider there may be additional field 'oneS3Subdomain' for checking if 
-  OneS3 domain can be resolved if it's enabled.
+  OneS3 domain can be resolved if said service is enabled.
 
   In Onezone there is additional field 'dnsZone' for checking whether DNS zone management
   for the Onezone's domain has been delegated to Onezone server (SOA and NS records)

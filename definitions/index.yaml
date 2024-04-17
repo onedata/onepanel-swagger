@@ -22,13 +22,13 @@ DataUsage:
   $ref: ./data_usage.yaml
 
 DnsCheck:
-  $ref: ./dns_check.yaml
+  $ref: ./dns/dns_check.yaml
 
 DnsCheckResult:
-  $ref: ./dns_check_result.yaml
+  $ref: ./dns/dns_check_result.yaml
 
 DnsCheckConfiguration:
-  $ref: ./dns_check_configuration.yaml
+  $ref: ./dns/dns_check_configuration.yaml
 
 Error:
   $ref: ./error.yaml
