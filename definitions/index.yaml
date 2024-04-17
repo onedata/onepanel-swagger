@@ -259,28 +259,28 @@ StorageModifyRequest:
   $ref: ./storage_modify_request.yaml
 
 ZoneConfiguration:
-  $ref: ./zone_configuration.yaml
+  $ref: ./deployment/zone_configuration.yaml
 
 ZoneConfigurationDetails:
-  $ref: ./zone_configuration_details.yaml
+  $ref: ./deployment/zone_configuration_details.yaml
 
 ZoneClusterConfiguration:
-  $ref: ./zone_cluster_configuration.yaml
+  $ref: ./deployment/zone_cluster_configuration.yaml
 
 ZoneClusterConfigurationDetails:
-  $ref: ./zone_cluster_configuration_details.yaml
+  $ref: ./deployment/zone_cluster_configuration_details.yaml
 
 ProviderConfiguration:
-  $ref: ./provider_configuration.yaml
+  $ref: ./deployment/provider_configuration.yaml
 
 ProviderConfigurationDetails:
-  $ref: ./provider_configuration_details.yaml
+  $ref: ./deployment/provider_configuration_details.yaml
 
 ProviderClusterConfigurationDetails:
-  $ref: ./provider_cluster_configuration_details.yaml
+  $ref: ./deployment/provider_cluster_configuration_details.yaml
 
 ProviderClusterConfiguration:
-  $ref: ./provider_cluster_configuration.yaml
+  $ref: ./deployment/provider_cluster_configuration.yaml
 
 ProviderDetails:
   $ref: ./provider_details.yaml
