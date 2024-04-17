@@ -2,7 +2,7 @@ type: object
 description: The provider deployment configuration.
 properties:
   cluster:
-    $ref: '#/definitions/ClusterConfigurationDetails'
+    $ref: '#/definitions/ProviderClusterConfigurationDetails'
   oneprovider:
     type: object
     description: The provider custom configuration.

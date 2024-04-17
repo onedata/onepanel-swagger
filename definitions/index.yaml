@@ -267,11 +267,17 @@ ZoneConfigurationDetails:
 ZoneClusterConfiguration:
   $ref: ./zone_cluster_configuration.yaml
 
+ZoneClusterConfigurationDetails:
+  $ref: ./zone_cluster_configuration_details.yaml
+
 ProviderConfiguration:
   $ref: ./provider_configuration.yaml
 
 ProviderConfigurationDetails:
   $ref: ./provider_configuration_details.yaml
+
+ProviderClusterConfigurationDetails:
+  $ref: ./provider_cluster_configuration_details.yaml
 
 ProviderClusterConfiguration:
   $ref: ./provider_cluster_configuration.yaml
@@ -323,9 +329,6 @@ WorkerHosts:
 
 Node:
   $ref: ./node.yaml
-
-ClusterConfigurationDetails:
-  $ref: ./cluster_configuration_details.yaml
 
 TaskId:
   $ref: ./task_id.yaml

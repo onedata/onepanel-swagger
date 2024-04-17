@@ -2,7 +2,7 @@ type: object
 description: The zone cluster configuration.
 properties:
   cluster:
-    $ref: '#/definitions/ClusterConfigurationDetails'
+    $ref: '#/definitions/ZoneClusterConfigurationDetails'
   onezone:
     type: object
     description: The zone custom configuration.
