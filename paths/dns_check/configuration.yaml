@@ -12,7 +12,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The DNS check results.
+      description: The DNS check configuration.
       schema:
         $ref: '#/definitions/DnsCheckConfiguration'
     '401':

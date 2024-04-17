@@ -30,9 +30,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The DNS check results.
+      description: The DNS check summary.
       schema:
-        $ref: '#/definitions/DnsCheck'
+        $ref: '#/definitions/DnsCheckSummary'
     '401':
       description: Unauthorized request.
     '403':
