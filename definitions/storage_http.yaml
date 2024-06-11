@@ -79,7 +79,6 @@ example:
   credentialsType: basic
   credentials: "admin:password"
   connectionPoolSize: 25
-  skipStorageDetection: false
 example:
   type: http
   name: SomeHTTP
@@ -89,7 +88,6 @@ example:
   credentials: "9uIG9uZXpvbmUKMDAzMGlkZW500aWZpZXIgMDc00CB00aW1lIDwgMTU3MDY2ZkZWVhNDIxMzE3ZGU5YzdiMGUzZDVhYTFmNmMKMDAxYW"
   authorizationHeader: "X-Auth-Token: {}"
   connectionPoolSize: 25
-  skipStorageDetection: false
 example:
   type: http
   name: SomeHTTP
@@ -102,7 +100,6 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  skipStorageDetection: false
 example:
   type: http
   name: SomeHTTP
@@ -112,4 +109,3 @@ example:
   credentials: "eudat"
   oauth2IdP: b2access
   connectionPoolSize: 25
-  skipStorageDetection: false
