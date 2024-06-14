@@ -13,7 +13,6 @@ get:
     {
         "type": "s3",
         "storagePathType": "flat",
-        "skipStorageDetection": true,
         "signatureVersion": 4,
         "scheme": "http",
         "readonly": false,
@@ -93,7 +92,6 @@ patch:
     {
         "type": "s3",
         "storagePathType": "flat",
-        "skipStorageDetection": "true",
         "signatureVersion": "4",
         "scheme": "http",
         "readonly": false,

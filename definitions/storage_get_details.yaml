@@ -42,13 +42,6 @@ properties:
     x-onedata-storage-param: true
     readOnly: true
     description: Storage operation timeout in milliseconds.
-  skipStorageDetection:
-    type: boolean
-    x-onedata-storage-param: true
-    readOnly: true
-    description: >
-      If true, detecting whether storage is directly accessible by the Oneclient will not be performed.
-      This option should be set to true on readonly storages.
   lumaFeed:
     type: string
     x-onedata-storage-param: true

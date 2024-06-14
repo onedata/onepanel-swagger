@@ -99,7 +99,6 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  skipStorageDetection: false
 example:
   type: webdav
   name: SomeWebDAV
@@ -111,7 +110,6 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  skipStorageDetection: false
 example:
   type: webdav
   name: SomeWebDAV
@@ -124,7 +122,6 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  skipStorageDetection: false
 example:
   type: webdav
   name: SomeWebDAV
@@ -136,4 +133,3 @@ example:
   rangeWriteSupport: moddav
   connectionPoolSize: 25
   maximumUploadSize: 0
-  skipStorageDetection: false
