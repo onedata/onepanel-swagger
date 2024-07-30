@@ -47,7 +47,7 @@ properties:
     description: >
       **DEPRECATED** The domain (Common Name) for which current certificate 
       was issued.
-  SANs:
+  subjectAlternativeNames:
     type: array
     description: >
       List of Subject Alternative Name (domains) for which current certificate 
