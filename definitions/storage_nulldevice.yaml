@@ -14,8 +14,7 @@ allOf:
           
           POSIX compatible storage which emulates behavior of `/dev/null` on
           local filesystem. Allows running various performance tests, which are
-          not impacted by actual storage latency. Skip storage detection option
-          is obligatory for this type of storage.
+          not impacted by actual storage latency.
         enum: [nulldevice]
         x-discriminator-value: nulldevice
       latencyMin:
