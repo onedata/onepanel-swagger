@@ -50,7 +50,7 @@ properties:
   dnsNames:
     type: array
     description: >
-      List of dns names included in certificate's Subject Alternative Name extension.
+      List of DNS names included in certificate's Subject Alternative Name extension.
     items:
       type: string
   issuer:
