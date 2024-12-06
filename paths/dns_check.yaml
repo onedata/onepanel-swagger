@@ -1,10 +1,20 @@
 get:
   operationId: check_dns
   summary: Check correctness of DNS entries for the cluster's domain
-  description: >
+  description: |
     Returns results of the last DNS check, verifying the validity
     of DNS configuration for cluster's domain.
     Unless 'forceCheck' flag is set, the results may be cached.
+
+    Both Oneprovider and Onezone return field `domain` for checking if cluster's 
+    domain can be resolved.
+
+    In Oneprovider there may be additional field `oneS3Subdomain` for checking if 
+    OneS3 domain can be resolved if said service is enabled.
+
+    In Onezone there is additional field `dnsZone` for checking whether DNS zone management
+    for the Onezone's domain has been delegated to Onezone server (SOA and NS records)
+    allowing for subdomain delegation.
 
     If the cluster is configured with an IP instead of a domain
     no results are returned.
@@ -20,9 +30,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The DNS check results.
+      description: The DNS check summary.
       schema:
-        $ref: '#/definitions/DnsCheck'
+        $ref: '#/definitions/DnsCheckSummary'
     '401':
       description: Unauthorized request.
     '403':

@@ -1,6 +1,34 @@
 #
 # This file groups the type definitions for Onepanel REST API
 #
+
+## DNS
+
+DnsCheckSummary:
+  $ref: ./dns/check_summary.yaml
+
+DnsCheckResult:
+  $ref: ./dns/check_result.yaml
+
+DnsCheckConfiguration:
+  $ref: ./dns/check_configuration.yaml
+
+## Hosts
+
+DatabaseHosts:
+  $ref: ./hosts/database.yaml
+
+ManagerHosts:
+  $ref: ./hosts/manager.yaml
+
+OneS3Hosts:
+  $ref: ./hosts/ones3.yaml
+
+WorkerHosts:
+  $ref: ./hosts/worker.yaml
+
+################################
+
 Configuration:
   $ref: ./configuration.yaml
 
@@ -20,15 +48,6 @@ BlockDevices:
 
 DataUsage:
   $ref: ./data_usage.yaml
-
-DnsCheck:
-  $ref: ./dns_check.yaml
-
-DnsCheckResult:
-  $ref: ./dns_check_result.yaml
-
-DnsCheckConfiguration:
-  $ref: ./dns_check_configuration.yaml
 
 Error:
   $ref: ./error.yaml
@@ -90,14 +109,17 @@ PasswordChangeRequest:
 PanelConfiguration:
   $ref: ./panel_configuration.yaml
 
+ClusterOneS3:
+  $ref: ./deployment/cluster_ones3.yaml
+
 ClusterWorkers:
-  $ref: ./cluster_workers.yaml
+  $ref: ./deployment/cluster_workers.yaml
 
 ClusterManagers:
-  $ref: ./cluster_managers.yaml
+  $ref: ./deployment/cluster_managers.yaml
 
 ClusterDatabases:
-  $ref: ./cluster_databases.yaml
+  $ref: ./deployment/cluster_databases.yaml
 
 ClusterIps:
   $ref: ./cluster_ips.yaml
@@ -256,22 +278,28 @@ StorageModifyRequest:
   $ref: ./storage_modify_request.yaml
 
 ZoneConfiguration:
-  $ref: ./zone_configuration.yaml
+  $ref: ./deployment/zone_configuration.yaml
 
 ZoneConfigurationDetails:
-  $ref: ./zone_configuration_details.yaml
+  $ref: ./deployment/zone_configuration_details.yaml
 
 ZoneClusterConfiguration:
-  $ref: ./zone_cluster_configuration.yaml
+  $ref: ./deployment/zone_cluster_configuration.yaml
+
+ZoneClusterConfigurationDetails:
+  $ref: ./deployment/zone_cluster_configuration_details.yaml
 
 ProviderConfiguration:
-  $ref: ./provider_configuration.yaml
+  $ref: ./deployment/provider_configuration.yaml
 
 ProviderConfigurationDetails:
-  $ref: ./provider_configuration_details.yaml
+  $ref: ./deployment/provider_configuration_details.yaml
+
+ProviderClusterConfigurationDetails:
+  $ref: ./deployment/provider_cluster_configuration_details.yaml
 
 ProviderClusterConfiguration:
-  $ref: ./provider_cluster_configuration.yaml
+  $ref: ./deployment/provider_cluster_configuration.yaml
 
 ProviderDetails:
   $ref: ./provider_details.yaml
@@ -306,20 +334,8 @@ ServiceHosts:
 ServiceDatabases:
   $ref: ./service_databases.yaml
 
-DatabaseHosts:
-  $ref: ./database_hosts.yaml
-
-ManagerHosts:
-  $ref: ./manager_hosts.yaml
-
-WorkerHosts:
-  $ref: ./worker_hosts.yaml
-
 Node:
   $ref: ./node.yaml
-
-ClusterConfigurationDetails:
-  $ref: ./cluster_configuration_details.yaml
 
 TaskId:
   $ref: ./task_id.yaml

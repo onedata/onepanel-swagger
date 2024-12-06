@@ -1,0 +1,26 @@
+type: object
+description: The provider cluster configuration.
+properties:
+  master:
+    type: string
+    description: Host responsible for deploying cluster and coordinating cluster restarts.
+  hosts:
+    type: array
+    description: List of hosts belonging to the Onepanel cluster.
+    items:
+      type: string
+  databases:
+    $ref: '#/definitions/DatabaseHosts'
+  managers:
+    $ref: '#/definitions/ManagerHosts'
+  oneS3:
+    $ref: '#/definitions/OneS3Hosts'
+  workers:
+    $ref: '#/definitions/WorkerHosts'
+required:
+  - master
+  - hosts
+  - databases
+  - managers
+  - oneS3
+  - workers
