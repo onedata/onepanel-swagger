@@ -145,6 +145,12 @@
 /provider/managers/{host}:
   $ref: ./provider/managers/host.yaml
 
+/provider/ones3:
+  $ref: ./provider/ones3.yaml
+
+/provider/ones3/{host}:
+  $ref: ./provider/ones3/host.yaml
+
 /provider/workers:
   $ref: ./provider/workers.yaml
 

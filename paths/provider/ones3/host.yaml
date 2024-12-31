@@ -1,0 +1,75 @@
+get:
+  operationId: get_provider_one_s3_status
+  summary: Get provider OneS3 status
+  description: Returns status of OneS3 service on the selected host.
+  x-onedata-gri:
+    type: onp_service
+    id: ?BINDING(host)
+    aspect: '{host_status, <<"ones3">>}'
+  tags:
+    - Oneprovider Cluster
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The status of OneS3 service on the selected host.
+      schema:
+        $ref: '#/definitions/ServiceStatusHost'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: OneS3 service has not been deployed on the selected host.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    description: The name of a host for which OneS3 service status should be returned.
+    in: path
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderOneS3Status host=s3.example.com --host https://$OP_PANEL_HOST:9443
+
+patch:
+  operationId: start_stop_provider_one_s3
+  summary: Start/stop provider OneS3
+  description: Starts or stops OneS3 service on the selected host in the local deployment.
+  x-onedata-gri:
+    type: onp_service
+    id: ?BINDING(host)
+    aspect: '{start_stop, <<"ones3">>}'
+  tags:
+    - Oneprovider Cluster
+  responses:
+    '204':
+      description: OneS3 service state changed successfully.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: OneS3 service has not been deployed on the selected host.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: host
+    description: The name of a host for which OneS3 service status should be changed.
+    in: path
+    type: string
+    required: true
+  - name: started
+    in: query
+    description: Defines the intended state of the OneS3 service. The service will be started or stopped in order to match the requested state.
+    type: boolean
+    default: true
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderOneS3 started=false --host https://$OP_PANEL_HOST:9443 
