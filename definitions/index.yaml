@@ -27,6 +27,20 @@ OneS3Hosts:
 WorkerHosts:
   $ref: ./hosts/worker.yaml
 
+## Service
+
+ServiceStatus:
+  $ref: ./service/status.yaml
+
+ServiceStatusHost:
+  $ref: ./service/status_host.yaml
+
+ServiceHosts:
+  $ref: ./service/hosts.yaml
+
+ServiceDatabases:
+  $ref: ./service/databases.yaml
+
 ################################
 
 Configuration:
@@ -321,18 +335,6 @@ Progress:
 
 ProgressModify:
   $ref: ./progress_modify.yaml
-
-ServiceStatus:
-  $ref: ./service_status.yaml
-
-ServiceStatusHost:
-  $ref: ./service_status_host.yaml
-
-ServiceHosts:
-  $ref: ./service_hosts.yaml
-
-ServiceDatabases:
-  $ref: ./service_databases.yaml
 
 Node:
   $ref: ./node.yaml
