@@ -1,7 +1,8 @@
 get:
-  operationId: get_provider_one_s3_status_all
-  summary: Get provider OneS3 status on all hosts
-  description: Returns status of OneS3 service on each host where it has been deployed.
+  operationId: get_provider_one_s3_status
+  summary: Get provider host OneS3 status on all hosts
+  description: >
+    Returns status of OneS3 service on each host where it has been deployed.
   x-onedata-gri:
     type: onp_service
     aspect: '{all_hosts_status, <<"ones3">>}'
@@ -11,7 +12,8 @@ get:
     - application/json
   responses:
     '200':
-      description: The status of OneS3 service on each host where it has been deployed.
+      description: >
+        The status of OneS3 service on each host where it has been deployed.
       schema:
         $ref: '#/definitions/ServiceStatus'
     '401':
@@ -29,13 +31,13 @@ get:
     source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderOneS3Status --host https://$OP_PANEL_HOST:9443
 
 post:
-  operationId: enable_provider_one_s3
-  summary: Enable provider OneS3
+  operationId: add_provider_one_s3
+  summary: Add provider OneS3
   description: >
-    Enables the OneS3 service on the specified hosts without starting it. 
+    Deploys the OneS3 service on the specified hosts.
 
-    NOTE: The admin must first replace the certificates with ones containing 
-    the s3 subdomain and then manually [start OneS3](#operation/start_stop_provider_one_s3_all).
+    NOTE: If provider is not registered in Onezone yet,
+    then OneS3 will be enabled but not started.
   x-onedata-gri:
     type: onp_service
     aspect: ones3_instances
@@ -59,20 +61,22 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: oneS3Hosts
+  - name: serviceHosts
     in: body
-    description: The OneS3 service hosts configuration.
+    description: >
+      The OneS3 service hosts configuration.
     schema:
-      $ref: '#/definitions/OneS3Hosts'
+      $ref: '#/definitions/ServiceHosts'
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat ones3_hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE enableProviderOneS3 --host https://$OP_PANEL_HOST:9443 -
+    source: cat ones3_hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProviderOneS3 --host https://$OP_PANEL_HOST:9443 -
 
 patch:
-  operationId: start_stop_provider_one_s3_all
-  summary: Start/stop provider OneS3 on all hosts
-  description: Starts or stops OneS3 service on all hosts in the local deployment.
+  operationId: start_stop_provider_one_s3
+  summary: Start/stop provider OneS3
+  description: >
+    Starts or stops OneS3 service on all hosts in the local deployment.
   x-onedata-gri:
     type: onp_service
     aspect: '{start_stop_all, <<"ones3">>}'
@@ -94,10 +98,12 @@ patch:
   parameters:
   - name: started
     in: query
-    description: Defines the intended state of the OneS3 server service. The service will be started or stopped in order to match the requested state.
+    description: >
+      Defines the intended state of the OneS3 server service. The service 
+      will be started or stopped in order to match the requested state.
     type: boolean
     default: true
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderOneS3All started=false --host https://$OP_PANEL_HOST:9443 
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderOneS3 started=false --host https://$OP_PANEL_HOST:9443 
