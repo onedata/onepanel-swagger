@@ -9,25 +9,30 @@ allOf:
         type: string
         description: |
           The type of storage.
-          
+
           `type = "cephrados"`
-          
+
           Storage backend compatible with [Ceph](http://ceph.com/ceph-storage/)
           object storage.
         enum: [cephrados]
         x-discriminator-value: cephrados
       monitorHostname:
         type: string
-        description: The monitor hostname.
+        description: >
+          The hostname (IP address or FQDN) of the Ceph monitor service.
       clusterName:
         type: string
-        description: The Ceph cluster name.
+        description: The name of the Ceph storage cluster.
       poolName:
         type: string
-        description: The Ceph pool name.
+        description: >
+          The name of the Ceph pool – the logical partition for object storage.
       blockSize:
         type: integer
-        description: Storage block size in bytes.
+        description: >
+          Each file will be split across a number of Ceph RADOS objects
+          of the specified size. For optimal performance, this value should be equal
+          to the object size configured in a given Ceph Storage Cluster (default 4M).
         default: 4194304
         x-onedata-default-value: 4194304
       storagePathType:
