@@ -1,5 +1,6 @@
 type: object
-description: The storage parameters to be changed. Should be a single-valued
+description: >
+  The storage parameters to be changed. Should be a single-valued
   dictionary with storage name as the key and parameters to be changed
   as the value.
   If changing the storage name, use old name as dictionary key and provide
