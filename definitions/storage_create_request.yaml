@@ -13,10 +13,6 @@ example:
     bucketName: bucket1.iam.example.com
     accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
     secretKey: fdeac26aedd3a179f9551d7007cc6a6273165782
-  swift:
-    type: swift
-    authUrl: http://keystone2.example.com
-    tenantName: Project1
-    containerName: Container1
-    username: user
-    password: p@$$w0rd
+  posix:
+    type: posix
+    mountPoint: /mnt/posix/onedata-space
