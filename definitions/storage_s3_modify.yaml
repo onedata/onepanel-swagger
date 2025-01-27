@@ -7,16 +7,18 @@ allOf:
       type: string
       description: |
         The type of storage.
-        
+
         `type = "s3"`
-        
+
         [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)
         compatible storage.
       enum: [s3]
       x-discriminator-value: s3
     hostname:
       type: string
-      description: The hostname of a machine where S3 storage is installed.
+      description: >
+        The URL of the S3 service endpoint, including the scheme (http or https)
+        and optionally a port (after a colon).
     bucketName:
       type: string
       description: The storage bucket name.

@@ -9,9 +9,9 @@ allOf:
         type: string
         description: |
           The type of storage.
-          
+
           `type = "nfs"`
-          
+
           NFS storage.
         enum: [nfs]
         x-discriminator-value: nfs
@@ -25,20 +25,26 @@ allOf:
         x-onedata-default-value: 3
       volume:
         type: string
-        description: The name of the NFS volume (export).
+        description: The name (path) of the NFS export.
       connectionPoolSize:
         type: integer
-        description: The size of NFS connection pool.
+        description: >
+          Number of simultaneous network connections that can be maintained
+          with the NFS server.
         default: 10
         x-onedata-default-value: 10
       dirCache:
         type: boolean
-        description: Enables directory caching.
+        description: >
+          Enables caching of directory metadata on the client side to improve
+          performance by reducing requests to the NFS server. May cause temporary
+          inconsistencies if the directory content changes on the server.
         default: true
         x-onedata-default-value: true
       readAhead:
         type: integer
-        description: The size of readahead in bytes.
+        description: >
+          The amount of data that the system preloads into cache ahead of client requests.
         default: 0
         x-onedata-default-value: 0
       autoReconnect:

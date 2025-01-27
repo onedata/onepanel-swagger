@@ -9,9 +9,9 @@ allOf:
         Type of the modified storage. Must be given explicitly and must match
         the actual type of subject storage - this redundancy is needed
         due to limitations of OpenAPI polymorphism.
-        
+
         `type = "ceph"`
-        
+
         (**DEPRECATED** - use Ceph RADOS instead) storage backend compatible
         with [Ceph](http://ceph.com/ceph-storage/) object storage, using the
         deprecated `libradosstriper` library.
@@ -25,13 +25,14 @@ allOf:
       description: The admin key to access the Ceph cluster.
     monitorHostname:
       type: string
-      description: The monitor hostname.
+      description: The hostname (IP address or FQDN) of the Ceph monitor service.
     clusterName:
       type: string
-      description: The Ceph cluster name.
+      description: The name of the Ceph storage cluster.
     poolName:
       type: string
-      description: The Ceph pool name.
+      description: >
+        The name of the Ceph pool – the logical partition for object storage.
   required:
   - type
 example:
