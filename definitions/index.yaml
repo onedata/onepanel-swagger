@@ -41,6 +41,9 @@ ServiceHosts:
 ServiceDatabases:
   $ref: ./service/databases.yaml
 
+ServiceOnes3:
+  $ref: ./service/ones3.yaml
+
 ################################
 
 Configuration:

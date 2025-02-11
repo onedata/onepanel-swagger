@@ -1,6 +1,6 @@
 get:
   operationId: get_provider_one_s3_status
-  summary: Get provider host OneS3 status on all hosts
+  summary: Get provider OneS3 status on all hosts
   description: >
     Returns status of OneS3 service on each host where it has been deployed.
   x-onedata-gri:
@@ -66,7 +66,7 @@ post:
     description: >
       The OneS3 service hosts configuration.
     schema:
-      $ref: '#/definitions/ServiceHosts'
+      $ref: '#/definitions/ServiceOnes3'
     required: true
   x-code-samples:
   - lang: Shell
@@ -99,7 +99,7 @@ patch:
   - name: started
     in: query
     description: >
-      Defines the intended state of the OneS3 server service. The service 
+      Defines the intended state of the OneS3 service. The service 
       will be started or stopped in order to match the requested state.
     type: boolean
     default: true
