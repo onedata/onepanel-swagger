@@ -12,12 +12,12 @@ properties:
       The server quota is the RAM memory in MiB that is allocated to the server
       when Couchbase Server is first installed. This sets the limit of RAM
       allocated by Couchbase for caching data for all buckets on each of the nodes. 
-      Optional, defaults to `4096`.
+      Optional, defaults to `4096` (4 GiB).
   bucketQuota:
     type: integer
     description: >
       The bucket quota is the amount of RAM memory in MiB allocated to each
-      individual bucket for caching data. Optional, defaults to `4096`. 
+      individual bucket for caching data. Optional, defaults to `4096` (4 GiB). 
       Optimally, should be set to the same value as `serverQuota`.
 required:
 - nodes
