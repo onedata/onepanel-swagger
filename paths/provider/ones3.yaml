@@ -1,8 +1,8 @@
 get:
-  operationId: get_provider_one_s3_status
-  summary: Get provider OneS3 status on all hosts
+  operationId: get_ones3_status_cluster_wide
+  summary: Get OneS3 service status (cluster-wide)
   description: >
-    Returns status of OneS3 service on each host where it has been deployed.
+    Returns the status of OneS3 service on each host where it has been deployed.
   x-onedata-gri:
     type: onp_service
     aspect: '{all_hosts_status, <<"ones3">>}'
@@ -28,16 +28,18 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderOneS3Status --host https://$OP_PANEL_HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnes3StatusClusterWide --host https://$OP_PANEL_HOST:9443
 
 post:
-  operationId: add_provider_one_s3
-  summary: Add provider OneS3
-  description: >
+  operationId: add_ones3
+  summary: Add OneS3 services
+  description: |
     Deploys the OneS3 service on the specified hosts.
-
-    NOTE: If provider is not registered in Onezone yet,
-    then OneS3 will be enabled but not started.
+    
+    NOTE: the OneS3 service requires that the provider is registered in 
+    Onezone before it can be started. If it's not the case, the service
+    will be enabled, but its start will be postponed and automatically 
+    resumed after the registration.
   x-onedata-gri:
     type: onp_service
     aspect: ones3_instances
@@ -70,13 +72,18 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat ones3_hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addProviderOneS3 --host https://$OP_PANEL_HOST:9443 -
+    source: cat ones3_hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addOnes3 --host https://$OP_PANEL_HOST:9443 -
 
 patch:
-  operationId: start_stop_provider_one_s3
-  summary: Start/stop provider OneS3
-  description: >
-    Starts or stops OneS3 service on all hosts in the local deployment.
+  operationId: start_stop_ones3_cluster_wide
+  summary: Start/stop OneS3 service (cluster-wide)
+  description: |
+    Starts or stops OneS3 service on all hosts in the cluster.
+    
+    NOTE: the OneS3 service requires that the provider is registered in 
+    Onezone before it can be started. If it's not the case, the start
+    of the service will be postponed and automatically resumed after the
+    registration.
   x-onedata-gri:
     type: onp_service
     aspect: '{start_stop_all, <<"ones3">>}'
@@ -99,11 +106,12 @@ patch:
   - name: started
     in: query
     description: >
-      Defines the intended state of the OneS3 service. The service 
-      will be started or stopped in order to match the requested state.
+      Defines the intended state of the OneS3 service. The service will be
+      started or stopped in order to match the requested state. Starting
+      may be postponed (see the description).
     type: boolean
     default: true
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderOneS3 started=false --host https://$OP_PANEL_HOST:9443 
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopOnes3ClusterWide started=false --host https://$OP_PANEL_HOST:9443
