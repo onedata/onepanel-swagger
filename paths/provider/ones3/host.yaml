@@ -1,7 +1,7 @@
 get:
-  operationId: get_provider_host_one_s3_status
-  summary: Get provider host OneS3 status
-  description: Returns status of OneS3 service on the selected host.
+  operationId: get_ones3_status_on_host
+  summary: Get OneS3 service status on a host
+  description: Returns the status of the OneS3 service on the selected host.
   x-onedata-gri:
     type: onp_service
     id: ?BINDING(host)
@@ -12,7 +12,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The status of OneS3 service on the selected host.
+      description: The status of the OneS3 service on the selected host.
       schema:
         $ref: '#/definitions/ServiceStatusHost'
     '401':
@@ -27,19 +27,24 @@ get:
         $ref: '#/definitions/Error'
   parameters:
   - name: host
-    description: The name of a host for which OneS3 service status should be returned.
+    description: The cluster host for which the OneS3 service status should be returned.
     in: path
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderHostOneS3Status host=s3.example.com --host https://$OP_PANEL_HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnes3StatusOnHost host=s3.example.com --host https://$OP_PANEL_HOST:9443
 
 patch:
-  operationId: start_stop_provider_host_one_s3
-  summary: Start/stop provider host OneS3
-  description: >
-    Starts or stops OneS3 service on the selected host in the local deployment.
+  operationId: start_stop_ones3_on_host
+  summary: Start/stop OneS3 service on a host
+  description: |
+    Starts or stops the OneS3 service on the selected host in the cluster.
+    
+    NOTE: the OneS3 service requires that the provider is registered in 
+    Onezone before it can be started. If it's not the case, the start
+    of the service will be postponed and automatically resumed after the
+    registration.
   x-onedata-gri:
     type: onp_service
     id: ?BINDING(host)
@@ -61,8 +66,7 @@ patch:
         $ref: '#/definitions/Error'
   parameters:
   - name: host
-    description: >
-      The name of a host for which OneS3 service status should be changed.
+    description: The cluster host for which OneS3 service status should be changed.
     in: path
     type: string
     required: true
@@ -70,10 +74,11 @@ patch:
     in: query
     description: >
       Defines the intended state of the OneS3 service. The service will be
-      started or stopped in order to match the requested state.
+      started or stopped in order to match the requested state. Starting
+      may be postponed (see the description).
     type: boolean
     default: true
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderHostOneS3 started=false --host https://$OP_PANEL_HOST:9443 
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopOnes3OnHost started=false --host https://$OP_PANEL_HOST:9443
