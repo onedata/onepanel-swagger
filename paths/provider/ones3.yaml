@@ -1,0 +1,117 @@
+get:
+  operationId: get_ones3_status_cluster_wide
+  summary: Get OneS3 service status (cluster-wide)
+  description: >
+    Returns the status of OneS3 service on each host where it has been deployed.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{all_hosts_status, <<"ones3">>}'
+  tags:
+    - Oneprovider Cluster
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        The status of OneS3 service on each host where it has been deployed.
+      schema:
+        $ref: '#/definitions/ServiceStatus'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: OneS3 service has not been deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getOnes3StatusClusterWide --host https://$OP_PANEL_HOST:9443
+
+post:
+  operationId: add_ones3
+  summary: Add OneS3 services
+  description: |
+    Deploys the OneS3 service on the specified hosts.
+    
+    NOTE: the OneS3 service requires that the provider is registered in 
+    Onezone before it can be started. If it's not the case, the service
+    will be enabled, but its start will be postponed and automatically 
+    resumed after the registration.
+  x-onedata-gri:
+    type: onp_service
+    aspect: ones3_instances
+  tags:
+    - Oneprovider Cluster
+  consumes:
+    - application/json
+  responses:
+    '202':
+      $ref: '#/responses/TaskStarted'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: serviceHosts
+    in: body
+    description: >
+      The OneS3 service hosts configuration.
+    schema:
+      $ref: '#/definitions/ServiceOnes3'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: cat ones3_hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addOnes3 --host https://$OP_PANEL_HOST:9443 -
+
+patch:
+  operationId: start_stop_ones3_cluster_wide
+  summary: Start/stop OneS3 service (cluster-wide)
+  description: |
+    Starts or stops OneS3 service on all hosts in the cluster.
+    
+    NOTE: the OneS3 service requires that the provider is registered in 
+    Onezone before it can be started. If it's not the case, the start
+    of the service will be postponed and automatically resumed after the
+    registration.
+  x-onedata-gri:
+    type: onp_service
+    aspect: '{start_stop_all, <<"ones3">>}'
+  tags:
+    - Oneprovider Cluster
+  responses:
+    '204':
+      description: OneS3 server service state changed successfully.
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '404':
+      description: OneS3 server service has not been deployed.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: started
+    in: query
+    description: >
+      Defines the intended state of the OneS3 service. The service will be
+      started or stopped in order to match the requested state. Starting
+      may be postponed (see the description).
+    type: boolean
+    default: true
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopOnes3ClusterWide started=false --host https://$OP_PANEL_HOST:9443

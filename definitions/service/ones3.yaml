@@ -1,0 +1,23 @@
+type: object
+description: The service hosts configuration.
+properties:
+  hosts:
+    type: array
+    description: The list of hosts where service should be deployed.
+    items:
+      type: string
+  port:
+    type: integer
+    description: |
+      The port on which the OneS3 service will be available.
+
+      NOTE: This parameter is taken into account only during the initial cluster 
+      deployment and ignored when adding new hosts to the cluster.
+required:
+  - hosts
+example:
+  hosts:
+    - node1.example.com
+    - node2.example.com
+    - node3.example.com
+  port: 4443

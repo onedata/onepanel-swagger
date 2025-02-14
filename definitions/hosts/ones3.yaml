@@ -6,10 +6,15 @@ properties:
     description: The list of service hosts.
     items:
       type: string
+  port:
+    type: integer
+    description: The port on which the OneS3 service is available.
 required:
   - hosts
+  - port
 example:
   hosts:
     - node1.example.com
     - node2.example.com
     - node3.example.com
+  port: 4443

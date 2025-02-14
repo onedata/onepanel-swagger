@@ -151,6 +151,12 @@
 /provider/workers/{host}:
   $ref: ./provider/workers/host.yaml
 
+/provider/ones3:
+  $ref: ./provider/ones3.yaml
+
+/provider/ones3/{host}:
+  $ref: ./provider/ones3/host.yaml
+
 ## Oneprovider Identity
 /provider/onezone_info:
   $ref: ./provider/onezone_info.yaml
