@@ -19,10 +19,7 @@ allOf:
         x-discriminator-value: swift
       authUrl:
         type: string
-        description: The URL to OpenStack Keystone identity service.
-      tenantName:
-        type: string
-        description: The name of the tenant to which the user belongs.
+        description: The URL to OpenStack Identity Service (Keystone) V3.
       containerName:
         type: string
         description: The name of the Swift storage container.
@@ -44,14 +41,15 @@ allOf:
     required:
     - type
     - authUrl
-    - tenantName
     - containerName
   - $ref: '#/definitions/SwiftCredentials'
 example:
   type: swift
   name: SomeSwift
-  authUrl: http://keystone2.example.com
-  tenantName: Project1
+  authUrl: http://keystone2.example.com:5000/v3
   containerName: Container1
   username: user
   password: p@$$w0rd
+  projectName: Project1
+  userDomainName: Default
+  projectDomainName: Default
