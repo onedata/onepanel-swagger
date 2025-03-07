@@ -18,9 +18,6 @@ allOf:
     authUrl:
       type: string
       description: The URL to OpenStack Keystone identity service.
-    tenantName:
-      type: string
-      description: The name of the tenant to which the user belongs.
     containerName:
       type: string
       description: The name of the Swift storage container.
@@ -30,12 +27,21 @@ allOf:
     password:
       type: string
       description: The Keystone authentication password.
+    projectName:
+      type: string
+      description: The Keystone project name.
+    userDomainName:
+      type: string
+      description: The Keystone user domain name.
+    projectDomainName:
+      type: string
+      description: The Keystone project domain name.
   required:
   - type
 example:
   type: swift
   name: SomeSwift
-  authUrl: http://keystone2.example.com
+  authUrl: http://keystone2.example.com:5000/v3
   tenantName: Project1
   containerName: Container1
   username: user
