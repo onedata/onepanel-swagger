@@ -11,6 +11,8 @@
 
 set -e
 
+REPO_NAME=$(basename $(git rev-parse --show-toplevel))
+COMPONENT_NAME=$(echo $REPO_NAME | sed 's/-swagger$//g')
 LATEST_RELEASE_TAG=$(git describe --abbrev=0 --tags)
 CURRENT_BRANCH=$(git branch --show-current)
 
@@ -35,8 +37,8 @@ for BRANCH in release/${LATEST_RELEASE_TAG} develop; do
   docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger:delegated -t ${SWAGGER_BASH_CLIENT_IMAGE} generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json
   BUILD_DIR="packages/bash/$RELEASE_NAME"
   mkdir -p $BUILD_DIR
-  cp generated/bash/onezone-rest-cli $BUILD_DIR
-  cp generated/bash/_onezone-rest-cli $BUILD_DIR
-  cp generated/bash/onezone-rest-cli.bash-completion $BUILD_DIR
+  cp generated/bash/${COMPONENT_NAME}-rest-cli $BUILD_DIR
+  cp generated/bash/_${COMPONENT_NAME}-rest-cli $BUILD_DIR
+  cp generated/bash/${COMPONENT_NAME}-rest-cli.bash-completion $BUILD_DIR
 done
 git checkout $CURRENT_BRANCH
