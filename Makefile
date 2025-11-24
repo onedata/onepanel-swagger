@@ -86,7 +86,7 @@ preview: validate
 	./bamboos/scripts/build-redoc.sh preview
 
 bash-packages:
-	SWAGGER_AGGREGATOR_IMAGE=${SWAGGER_AGGREGATOR_IMAGE} SWAGGER_BASH_CLIENT_IMAGE=${SWAGGER_BASH_CLIENT_IMAGE} ./generate-bash-packages.sh
+	SWAGGER_AGGREGATOR_IMAGE=${SWAGGER_AGGREGATOR_IMAGE} SWAGGER_BASH_CLIENT_IMAGE=${SWAGGER_BASH_CLIENT_IMAGE} ./generate_bash_packages.sh
 
 submodules:
 	git submodule sync --recursive ${submodule}
