@@ -1,11 +1,11 @@
 node_modules
 swagger.json
 generated
+packages
 
 dockerimage.report.txt
 dockerimage.sha
 
 .idea
 *.iml
-.DS_Store
 .vscode
