@@ -11,8 +11,7 @@
 
 set -e
 
-REPO_NAME=$(basename $(git rev-parse --show-toplevel))
-COMPONENT_NAME=$(echo $REPO_NAME | sed 's/-swagger$//g')
+COMPONENT_NAME=$(grep '^basePath:' index.yaml | head -1 | sed -E 's/.*\/(.*)/\1/g')
 LATEST_RELEASE_TAG=$(git describe --abbrev=0 --tags)
 CURRENT_BRANCH=$(git branch --show-current)
 
