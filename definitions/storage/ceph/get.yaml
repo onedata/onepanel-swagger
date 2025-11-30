@@ -1,4 +1,5 @@
 description: The Ceph storage configuration (uses libradosstriper).
+x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
   - type: object

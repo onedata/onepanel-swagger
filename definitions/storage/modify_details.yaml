@@ -27,10 +27,10 @@ properties:
     $ref: './common.yaml#/lumaFeedApiKey'
   qosParameters:
     allOf:
+      - $ref: './common.yaml#/qosParameters'
       - description: >
           Map with key-value pairs used for describing storage QoS parameters.
           Overrides all previously set parameters.
-      - $ref: './common.yaml#/qosParameters'
   importedStorage:
     $ref: './common.yaml#/importedStorage'
   readonly:
