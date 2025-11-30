@@ -19,5 +19,5 @@ allOf:
   - type
 example:
   type: ceph
-  username: user1
-  key: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
+  username: newuser
+  key: "4efb70ad3e1fc8dd73c721b8f683b2e831503892"

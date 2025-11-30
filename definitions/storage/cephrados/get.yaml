@@ -1,4 +1,4 @@
-description: The Ceph storage configuration (uses librados).
+description: The Ceph RADOS storage configuration (uses librados).
 x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
@@ -21,14 +21,15 @@ allOf:
     - monitorHostname
     - clusterName
     - poolName
-    - storagePathType
   - $ref: '#/definitions/CephradosCredentials'
 example:
+  id: "18a42a43b1b2d92455ffa09e9a15df7fch4f82"
+  name: SomeCephRados
   type: cephrados
   monitorHostname: test.example.com
   clusterName: CephCluster1
   poolName: data
-  blockSize: 10485760
+  blockSize: 4194304
   storagePathType: flat
   username: user1
   key: "*****"

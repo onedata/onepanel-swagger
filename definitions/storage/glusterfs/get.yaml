@@ -24,9 +24,10 @@ allOf:
     - type
     - volume
     - hostname
-    - storagePathType
   - $ref: '#/definitions/GlusterfsCredentials'
 example:
+  id: "18a42a43b1b2d92455ffa09e9a15df7fch4f82"
+  name: LocalGluster
   type: glusterfs
   volume: Volume1
   hostname: volfileserver.example.com

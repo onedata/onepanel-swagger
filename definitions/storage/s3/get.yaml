@@ -1,4 +1,4 @@
-description: The Simple Storage Service configuration.
+description: The Simple Storage Service (S3) configuration.
 x-onedata-storage: true
 allOf:
   - $ref: '#/definitions/StorageGetDetails'
@@ -32,10 +32,13 @@ allOf:
     - bucketName
   - $ref: '#/definitions/S3Credentials'
 example:
+  id: "18a42a43b1b2d92455ffa09e9a15df7fch4f82"
+  name: SomeS3
   type: s3
   hostname: https://s3.example.com:443/
   bucketName: bucket1.iam.example.com
+  region: us-east-1
+  blockSize: 10485760
   storagePathType: flat
   accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
   secretKey: "*****"
-

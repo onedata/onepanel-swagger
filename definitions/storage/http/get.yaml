@@ -25,6 +25,8 @@ allOf:
     - endpoint
   - $ref: '#/definitions/HTTPCredentials'
 example:
+  id: "18a42a43b1b2d92455ffa09e9a15df7fch4f82"
+  name: SomeHTTP
   type: http
   endpoint: https://192.168.1.2:8080/storage
   verifyServerCertificate: false

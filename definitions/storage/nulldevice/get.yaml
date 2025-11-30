@@ -26,6 +26,8 @@ allOf:
     - type
   - $ref: '#/definitions/NulldeviceCredentials'
 example:
+  id: "18a42a43b1b2d92455ffa09e9a15df7fch4f82"
+  name: SlowStorage
   type: nulldevice
   latencyMin: 250
   latencyMax: 750
@@ -34,4 +36,6 @@ example:
   storagePathType: canonical
   simulatedFilesystemParameters: "2-2:2-2:0-3"
   simulatedFilesystemGrowSpeed: 5.0
-
+  enableDataVerification: false
+  uid: 0
+  gid: 0

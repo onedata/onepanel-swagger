@@ -20,9 +20,12 @@ allOf:
     - containerName
   - $ref: '#/definitions/SwiftCredentials'
 example:
+  id: "18a42a43b1b2d92455ffa09e9a15df7fch4f82"
+  name: SomeSwift
   type: swift
   authUrl: http://keystone2.example.com:5000/v3
   containerName: Container1
+  blockSize: 10485760
   storagePathType: flat
   username: user
   password: "*****"

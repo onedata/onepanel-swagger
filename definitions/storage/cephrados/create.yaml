@@ -1,4 +1,4 @@
-description: The Ceph storage configuration (uses librados).
+description: The Ceph RADOS storage configuration (uses librados).
 allOf:
   - $ref: '#/definitions/StorageCreateDetails'
   - type: object
