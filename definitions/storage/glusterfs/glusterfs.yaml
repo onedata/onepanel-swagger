@@ -61,6 +61,7 @@ allOf:
     - type
     - volume
     - hostname
+  - $ref: '#/definitions/GlusterfsCredentials'
 example:
   type: glusterfs
   name: LocalGluster

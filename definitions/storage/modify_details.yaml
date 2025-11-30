@@ -1,29 +1,26 @@
-# This model is separate from StorageGetDetails in order to specify differing
-# set of subclasses. This prevents creation of some storage types,
-# while preserving their models for use in GET in existing deployments.
-
 type: object
-description: The storage configuration.
+description: An object with new values for storage parameters to be updated.
 discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:
-  - posix
-  - s3
-  - cephrados
-  - swift
-  - glusterfs
-  - nulldevice
-  - webdav
-  - xrootd
-  - nfs
-  - http
+  - ceph_modify
+  - cephrados_modify
+  - glusterfs_modify
+  - http_modify
+  - nfs_modify
+  - nulldevice_modify
+  - posix_modify
+  - s3_modify
+  - swift_modify
+  - webdav_modify
+  - xrootd_modify
 properties:
-  type:
+  name:
     type: string
+    description: The name of storage.
   timeout:
     type: integer
     description: Storage operation timeout in milliseconds.
-    default: false
   lumaFeed:
     type: string
     description: >
@@ -34,8 +31,6 @@ properties:
       - auto
       - local
       - external
-    default: auto
-    x-onedata-default-value: '<<"auto">>'
   lumaFeedUrl:
     type: string
     description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
@@ -46,26 +41,18 @@ properties:
       Relevant only if lumaFeed equals `external`.
   qosParameters:
     description: Map with key-value pairs used for describing storage QoS parameters.
+      Overrides all previously set parameters.
     type: object
-    x-onedata-default-value: "#{}"
-    default: {}
     x-onedata-dictionary: true
     x-onedata-dictionary-value-type: string
     additionalProperties:
       type: string
   importedStorage:
     type: boolean
-    default: false
     description: >
       Defines whether storage contains existing data to be imported.
-  archiveStorage:
-    type: boolean
-    default: false
-    description: >
-      Defines whether storage supports long-term dataset archiving.
   readonly:
     type: boolean
-    default: false
     description: >
       Defines whether the storage is readonly. If enabled, Oneprovider will block any operation that writes,
       modifies or deletes data on the storage. Such storage can only be used to import data into the space.

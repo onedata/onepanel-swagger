@@ -87,6 +87,7 @@ allOf:
           does not match the pattern at a given `offset`.
     required:
     - type
+  - $ref: '#/definitions/NulldeviceCredentials'
 example:
   type: nulldevice
   name: Slow storage

@@ -38,6 +38,12 @@ allOf:
       description: |
         Volume specific GlusterFS translator options, in the format:
           TRANSLATOR1.OPTION1=VALUE1;TRANSLATOR2.OPTION2=VALUE2;...
+    uid:
+      type: integer
+      description: User identifier.
+    gid:
+      type: integer
+      description: Group identifier.
   required:
   - type
 example:

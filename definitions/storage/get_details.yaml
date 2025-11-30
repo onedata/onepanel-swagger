@@ -1,28 +1,52 @@
+# While this model has different set of subclasses from StorageCreateDetails,
+# both models are listed in "allOf" in the subclasses.
+# By listing StorageCreateDetails there first and marking all fields as
+# readOnly in this StorageGetDetails model, fields unique to GET
+# are prevented from appearing in the generated Erlang code.
+
 type: object
-description: An object with new values for storage parameters to be updated.
+description: The storage configuration.
 discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:
-  - posix_modify
-  - s3_modify
-  - ceph_modify
-  - cephrados_modify
-  - swift_modify
-  - glusterfs_modify
-  - nulldevice_modify
-  - webdav_modify
-  - xrootd_modify
-  - nfs_modify
-  - http_modify
+  - ceph
+  - cephrados
+  - glusterfs
+  - http
+  - nfs
+  - nulldevice
+  - posix
+  - s3
+  - swift
+  - webdav
+  - xrootd
 properties:
+  type:
+    type: string
+    readOnly: true
+  id:
+    type: string
+    readOnly: true
+    description: The Id of storage.
   name:
     type: string
+    readOnly: true
     description: The name of storage.
+  verificationPassed:
+    type: boolean
+    readOnly: true
+    description: Result of storage verification (reading and writing a file).
+      Returned only on PATCH requests for read-write storages.
   timeout:
     type: integer
+    x-onedata-storage-param: true
+    readOnly: true
     description: Storage operation timeout in milliseconds.
   lumaFeed:
     type: string
+    x-onedata-storage-param: true
+    x-onedata-default-value: '<<"auto">>'
+    readOnly: true
     description: >
       Type of feed for LUMA DB.
       Feed is a source of user/group mappings used to populate the LUMA DB.
@@ -33,30 +57,37 @@ properties:
       - external
   lumaFeedUrl:
     type: string
+    x-onedata-storage-param: true
+    readOnly: true
     description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
   lumaFeedApiKey:
     type: string
+    x-onedata-storage-param: true
+    readOnly: true
     description: >
       API key checked by external service used as feed for LUMA DB.
       Relevant only if lumaFeed equals `external`.
   qosParameters:
     description: Map with key-value pairs used for describing storage QoS parameters.
-      Overrides all previously set parameters.
     type: object
+    x-onedata-default-value: "#{}"
+    default: {}
     x-onedata-dictionary: true
     x-onedata-dictionary-value-type: string
     additionalProperties:
       type: string
+    readOnly: true
   importedStorage:
     type: boolean
-    description: >
-      Defines whether storage contains existing data to be imported.
-  archiveStorage:
-    type: boolean
-    description: >
-      Defines whether storage supports long-term dataset archiving.
+    x-onedata-storage-param: true
+    readOnly: true
+    default: false
+    description: Defines whether storage contains existing data to be imported.
   readonly:
     type: boolean
+    x-onedata-storage-param: true
+    readOnly: true
+    default: false
     description: >
       Defines whether the storage is readonly. If enabled, Oneprovider will block any operation that writes,
       modifies or deletes data on the storage. Such storage can only be used to import data into the space.

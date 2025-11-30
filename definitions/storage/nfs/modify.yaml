@@ -40,6 +40,12 @@ allOf:
     autoReconnect:
       type: integer
       description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
+    uid:
+      type: integer
+      description: User identifier.
+    gid:
+      type: integer
+      description: Group identifier.
   required:
   - type
 example:

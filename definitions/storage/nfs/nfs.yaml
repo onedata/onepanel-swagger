@@ -68,6 +68,7 @@ allOf:
     - type
     - volume
     - host
+  - $ref: '#/definitions/NFSCredentials'
 example:
   type: nfs
   name: SomeNFS

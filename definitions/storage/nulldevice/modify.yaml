@@ -67,6 +67,12 @@ allOf:
         will always return a predictable pattern of characters based on `offset` and
         `size`, and `write` operations will fail with I/O error, if the input data
         does not match the pattern at a given `offset`.
+    uid:
+      type: integer
+      description: User identifier.
+    gid:
+      type: integer
+      description: Group identifier.
   required:
   - type
 example:
