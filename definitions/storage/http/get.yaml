@@ -1,0 +1,34 @@
+description: The HTTP storage configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      endpoint:
+        $ref: './common.yaml#/endpoint'
+      verifyServerCertificate:
+        $ref: './common.yaml#/verifyServerCertificate'
+      authorizationHeader:
+        $ref: './common.yaml#/authorizationHeader'
+      connectionPoolSize:
+        $ref: './common.yaml#/connectionPoolSize'
+      maxRequestsPerSession:
+        $ref: './common.yaml#/maxRequestsPerSession'
+      fileMode:
+        $ref: './common.yaml#/fileMode'
+      storagePathType:
+        $ref: './common.yaml#/storagePathType'
+    required:
+    - type
+    - endpoint
+  - $ref: '#/definitions/HTTPCredentials'
+example:
+  type: http
+  endpoint: https://192.168.1.2:8080/storage
+  verifyServerCertificate: false
+  storagePathType: canonical
+  credentialsType: basic
+  credentials: "*****"
+  connectionPoolSize: 25

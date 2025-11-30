@@ -7,62 +7,42 @@ description: The storage configuration.
 discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:
-  - cephrados
-  - glusterfs
-  - http
-  - nfs
-  - nulldevice
-  - posix
-  - s3
-  - swift
-  - webdav
-  - xrootd
+  - cephrados_create
+  - glusterfs_create
+  - http_create
+  - nfs_create
+  - nulldevice_create
+  - posix_create
+  - s3_create
+  - swift_create
+  - webdav_create
+  - xrootd_create
 properties:
   type:
     type: string
   timeout:
-    type: integer
-    description: Storage operation timeout in milliseconds.
-    default: false
+    allOf:
+      - $ref: './common.yaml#/timeout'
+      - default: false
   lumaFeed:
-    type: string
-    description: >
-      Type of feed for LUMA DB.
-      Feed is a source of user/group mappings used to populate the LUMA DB.
-      For more info please read: https://onedata.org/#/home/documentation/doc/administering_onedata/luma.html
-    enum:
-      - auto
-      - local
-      - external
-    default: auto
-    x-onedata-default-value: '<<"auto">>'
+    allOf:
+      - $ref: './common.yaml#/lumaFeed'
+      - default: auto
+        x-onedata-default-value: '<<"auto">>'
   lumaFeedUrl:
-    type: string
-    description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
+    $ref: './common.yaml#/lumaFeedUrl'
   lumaFeedApiKey:
-    type: string
-    description: >
-      API key checked by external service used as feed for LUMA DB.
-      Relevant only if lumaFeed equals `external`.
+    $ref: './common.yaml#/lumaFeedApiKey'
   qosParameters:
-    description: Map with key-value pairs used for describing storage QoS parameters.
-    type: object
-    x-onedata-default-value: "#{}"
-    default: {}
-    x-onedata-dictionary: true
-    x-onedata-dictionary-value-type: string
-    additionalProperties:
-      type: string
+    allOf:
+      - $ref: './common.yaml#/qosParameters'
+      - x-onedata-default-value: "#{}"
+        default: {}
   importedStorage:
-    type: boolean
-    default: false
-    description: >
-      Defines whether storage contains existing data to be imported.
+    allOf:
+      - $ref: './common.yaml#/importedStorage'
+      - default: false
   readonly:
-    type: boolean
-    default: false
-    description: >
-      Defines whether the storage is readonly. If enabled, Oneprovider will block any operation that writes,
-      modifies or deletes data on the storage. Such storage can only be used to import data into the space.
-      Mandatory to ensure proper behaviour if the backend storage is actually configured as readonly.
-      This option is available only for imported storages.
+    allOf:
+      - $ref: './common.yaml#/readonly'
+      - default: false

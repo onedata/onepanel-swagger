@@ -4,46 +4,23 @@ allOf:
 - type: object
   properties:
     type:
-      type: string
-      description: |
-        The type of storage.
-        
-        `type = "glusterfs"`
-        
-        [GlusterFS](https://www.gluster.org/) volume directly attached to
-        the Oneprovider.
-      enum: [glusterfs]
-      x-discriminator-value: glusterfs
+      $ref: './common.yaml#/type'
     volume:
-      type: string
-      description: The name of the volume to use as a storage backend.
+      $ref: './common.yaml#/volume'
     hostname:
-      type: string
-      description: The hostname (IP address or FQDN) of GlusterFS volume server.
+      $ref: './common.yaml#/hostname'
     port:
-      type: integer
-      description: The GlusterFS port on volume server.
+      $ref: './common.yaml#/port'
     transport:
-      type: string
-      description: The transport protocol to use to connect to the volume server.
-      enum:
-      - tcp
-      - rdma
-      - socket
+      $ref: './common.yaml#/transport'
     mountPoint:
-      type: string
-      description: Relative mountpoint within the volume which should be used by Oneprovider.
+      $ref: './common.yaml#/mountPoint'
     xlatorOptions:
-      type: string
-      description: |
-        Volume specific GlusterFS translator options, in the format:
-          TRANSLATOR1.OPTION1=VALUE1;TRANSLATOR2.OPTION2=VALUE2;...
+      $ref: './common.yaml#/xlatorOptions'
     uid:
-      type: integer
-      description: User identifier.
+      $ref: './common.yaml#/uid'
     gid:
-      type: integer
-      description: Group identifier.
+      $ref: './common.yaml#/gid'
   required:
   - type
 example:

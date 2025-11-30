@@ -1,0 +1,30 @@
+description: The Ceph storage configuration (uses libradosstriper).
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      monitorHostname:
+        $ref: './common.yaml#/monitorHostname'
+      clusterName:
+        $ref: './common.yaml#/clusterName'
+      poolName:
+        $ref: './common.yaml#/poolName'
+      storagePathType:
+        $ref: './common.yaml#/storagePathType'
+    required:
+    - type
+    - monitorHostname
+    - clusterName
+    - poolName
+    - storagePathType
+  - $ref: '#/definitions/CephCredentials'
+example:
+  type: ceph
+  monitorHostname: test.example.com
+  clusterName: CephCluster1
+  poolName: data
+  storagePathType: flat
+  username: user1
+  key: "*****"

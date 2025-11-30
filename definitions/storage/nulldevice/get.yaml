@@ -1,0 +1,37 @@
+description: The Null Device storage configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      latencyMin:
+        $ref: './common.yaml#/latencyMin'
+      latencyMax:
+        $ref: './common.yaml#/latencyMax'
+      timeoutProbability:
+        $ref: './common.yaml#/timeoutProbability'
+      filter:
+        $ref: './common.yaml#/filter'
+      storagePathType:
+        $ref: './common.yaml#/storagePathType'
+      simulatedFilesystemParameters:
+        $ref: './common.yaml#/simulatedFilesystemParameters'
+      simulatedFilesystemGrowSpeed:
+        $ref: './common.yaml#/simulatedFilesystemGrowSpeed'
+      enableDataVerification:
+        $ref: './common.yaml#/enableDataVerification'
+    required:
+    - type
+  - $ref: '#/definitions/NulldeviceCredentials'
+example:
+  type: nulldevice
+  latencyMin: 250
+  latencyMax: 750
+  timeoutProbability: 0.1
+  filter: "read,write,open"
+  storagePathType: canonical
+  simulatedFilesystemParameters: "2-2:2-2:0-3"
+  simulatedFilesystemGrowSpeed: 5.0
+

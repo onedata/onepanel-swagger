@@ -1,0 +1,39 @@
+description: The GlusterFS storage configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      volume:
+        $ref: './common.yaml#/volume'
+      hostname:
+        $ref: './common.yaml#/hostname'
+      port:
+        $ref: './common.yaml#/port'
+      transport:
+        $ref: './common.yaml#/transport'
+      mountPoint:
+        $ref: './common.yaml#/mountPoint'
+      xlatorOptions:
+        $ref: './common.yaml#/xlatorOptions'
+      storagePathType:
+        $ref: './common.yaml#/storagePathType'
+    required:
+    - type
+    - volume
+    - hostname
+    - storagePathType
+  - $ref: '#/definitions/GlusterfsCredentials'
+example:
+  type: glusterfs
+  volume: Volume1
+  hostname: volfileserver.example.com
+  transport: tcp
+  port: 24007
+  mountPoint: ""
+  xlatorOptions: "transport.socket.ssl-enabled=on"
+  storagePathType: canonical
+  uid: 0
+  gid: 0

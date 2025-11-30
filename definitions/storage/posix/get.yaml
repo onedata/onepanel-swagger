@@ -1,0 +1,23 @@
+description: The POSIX storage configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      mountPoint:
+        $ref: './common.yaml#/mountPoint'
+      storagePathType:
+        $ref: './common.yaml#/storagePathType'
+      rootUid:
+        $ref: './common.yaml#/rootUid'
+      rootGid:
+        $ref: './common.yaml#/rootGid'
+    required:
+    - type
+    - mountPoint
+example:
+  type: POSIX
+  name: SomePosix
+  mountPoint: /mnt/nfs

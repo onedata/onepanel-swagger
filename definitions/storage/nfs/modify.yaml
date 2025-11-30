@@ -4,53 +4,29 @@ allOf:
 - type: object
   properties:
     type:
-      type: string
-      description: |
-        The type of storage.
-
-        `type = "nfs"`
-
-          NFS storage.
-      enum: [nfs]
-      x-discriminator-value: nfs
+      $ref: './common.yaml#/type'
     host:
-      type: string
-      description: The hostname (IP address or FQDN) of NFS server.
+      $ref: './common.yaml#/host'
     version:
-      type: integer
-      description: The NFS protocol version. Allowed values are 3 (default) and 4 (experimental).
+      $ref: './common.yaml#/version'
     volume:
-      type: string
-      description: The name (path) of the NFS export.
+      $ref: './common.yaml#/volume'
     connectionPoolSize:
-      type: integer
-      description: >
-        Number of simultaneous network connections that can be maintained
-        with the NFS server.
+      $ref: './common.yaml#/connectionPoolSize'
     dirCache:
-      type: boolean
-      description: >
-        Enables caching of directory metadata on the client side to improve
-        performance by reducing requests to the NFS server. May cause temporary
-        inconsistencies if the directory content changes on the server.
+      $ref: './common.yaml#/dirCache'
     readAhead:
-      type: integer
-      description: >
-        The amount of data that the system preloads into cache ahead of client requests.
+      $ref: './common.yaml#/readAhead'
     autoReconnect:
-      type: integer
-      description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
+      $ref: './common.yaml#/autoReconnect'
     uid:
-      type: integer
-      description: User identifier.
+      $ref: './common.yaml#/uid'
     gid:
-      type: integer
-      description: Group identifier.
+      $ref: './common.yaml#/gid'
   required:
   - type
 example:
   type: nfs
-  name: SomeNFS
   volume: /nfs/nfsvolume/
   host: nfs.example.com
   version: 3

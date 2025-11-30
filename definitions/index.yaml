@@ -67,8 +67,8 @@ StorageModifyRequest:
 CephCredentials:
   $ref: ./storage/ceph/credentials.yaml
 
-Ceph:
-  $ref: ./storage/ceph/ceph.yaml
+CephGet:
+  $ref: ./storage/ceph/get.yaml
 
 CephModify:
   $ref: ./storage/ceph/modify.yaml
@@ -76,8 +76,11 @@ CephModify:
 CephradosCredentials:
   $ref: ./storage/cephrados/credentials.yaml
 
-Cephrados:
-  $ref: ./storage/cephrados/cephrados.yaml
+CephradosGet:
+  $ref: ./storage/cephrados/get.yaml
+
+CephradosCreate:
+  $ref: ./storage/cephrados/create.yaml
 
 CephradosModify:
   $ref: ./storage/cephrados/modify.yaml
@@ -85,8 +88,11 @@ CephradosModify:
 GlusterfsCredentials:
   $ref: ./storage/glusterfs/credentials.yaml
 
-Glusterfs:
-  $ref: ./storage/glusterfs/glusterfs.yaml
+GlusterfsGet:
+  $ref: ./storage/glusterfs/get.yaml
+
+GlusterfsCreate:
+  $ref: ./storage/glusterfs/create.yaml
 
 GlusterfsModify:
   $ref: ./storage/glusterfs/modify.yaml
@@ -94,8 +100,11 @@ GlusterfsModify:
 HTTPCredentials:
   $ref: ./storage/http/credentials.yaml
 
-HTTP:
-  $ref: ./storage/http/http.yaml
+HTTPGet:
+  $ref: ./storage/http/get.yaml
+
+HTTPCreate:
+  $ref: ./storage/http/create.yaml
 
 HTTPModify:
   $ref: ./storage/http/modify.yaml
@@ -103,8 +112,11 @@ HTTPModify:
 NFSCredentials:
   $ref: ./storage/nfs/credentials.yaml
 
-NFS:
-  $ref: ./storage/nfs/nfs.yaml
+NFSGet:
+  $ref: ./storage/nfs/get.yaml
+
+NFSCreate:
+  $ref: ./storage/nfs/create.yaml
 
 NFSModify:
   $ref: ./storage/nfs/modify.yaml
@@ -112,8 +124,11 @@ NFSModify:
 NulldeviceCredentials:
   $ref: ./storage/nulldevice/credentials.yaml
 
-Nulldevice:
-  $ref: ./storage/nulldevice/nulldevice.yaml
+NulldeviceGet:
+  $ref: ./storage/nulldevice/get.yaml
+
+NulldeviceCreate:
+  $ref: ./storage/nulldevice/create.yaml
 
 NulldeviceModify:
   $ref: ./storage/nulldevice/modify.yaml
@@ -124,8 +139,11 @@ PosixCompatibleCredentials:
 PosixCredentials:
   $ref: ./storage/posix/credentials.yaml
 
-Posix:
-  $ref: ./storage/posix/posix.yaml
+PosixGet:
+  $ref: ./storage/posix/get.yaml
+
+PosixCreate:
+  $ref: ./storage/posix/create.yaml
 
 PosixModify:
   $ref: ./storage/posix/modify.yaml
@@ -133,8 +151,11 @@ PosixModify:
 S3Credentials:
   $ref: ./storage/s3/credentials.yaml
 
-S3:
-  $ref: ./storage/s3/s3.yaml
+S3Get:
+  $ref: ./storage/s3/get.yaml
+
+S3Create:
+  $ref: ./storage/s3/create.yaml
 
 S3Modify:
   $ref: ./storage/s3/modify.yaml
@@ -142,8 +163,11 @@ S3Modify:
 SwiftCredentials:
   $ref: ./storage/swift/credentials.yaml
 
-Swift:
-  $ref: ./storage/swift/swift.yaml
+SwiftGet:
+  $ref: ./storage/swift/get.yaml
+
+SwiftCreate:
+  $ref: ./storage/swift/create.yaml
 
 SwiftModify:
   $ref: ./storage/swift/modify.yaml
@@ -151,8 +175,11 @@ SwiftModify:
 WebdavCredentials:
   $ref: ./storage/webdav/credentials.yaml
 
-Webdav:
-  $ref: ./storage/webdav/webdav.yaml
+WebdavGet:
+  $ref: ./storage/webdav/get.yaml
+
+WebdavCreate:
+  $ref: ./storage/webdav/create.yaml
 
 WebdavModify:
   $ref: ./storage/webdav/modify.yaml
@@ -160,8 +187,11 @@ WebdavModify:
 XRootDCredentials:
   $ref: ./storage/xrootd/credentials.yaml
 
-XRootD:
-  $ref: ./storage/xrootd/xrootd.yaml
+XRootDGet:
+  $ref: ./storage/xrootd/get.yaml
+
+XRootDCreate:
+  $ref: ./storage/xrootd/create.yaml
 
 XRootDModify:
   $ref: ./storage/xrootd/modify.yaml

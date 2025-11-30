@@ -4,27 +4,13 @@ allOf:
 - type: object
   properties:
     type:
-      type: string
-      description: |
-        The type of storage.
-        
-        `type = "posix"`
-        
-        Any POSIX compatible storage, typically attached over high-throughput
-        local network, such as NFS.
-      enum: [posix]
-      x-discriminator-value: posix
+      $ref: './common.yaml#/type'
     mountPoint:
-      type: string
-      description: >
-        The absolute path to the directory where the POSIX storage is mounted
-        on the cluster nodes.
+      $ref: './common.yaml#/mountPoint'
     rootUid:
-      type: integer
-      description: UID of the user on whose behalf operations in the admin context will be performed on the storage.
+      $ref: './common.yaml#/rootUid'
     rootGid:
-      type: integer
-      description: GID of the group on whose behalf operations in the admin context will be performed on the storage.
+      $ref: './common.yaml#/rootGid'
   required:
   - type
 example:

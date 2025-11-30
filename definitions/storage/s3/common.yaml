@@ -1,0 +1,88 @@
+# Common field definitions for S3 storage
+
+type:
+  type: string
+  description: |
+    The type of storage.
+
+    `type = "s3"`
+
+    [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)
+    compatible storage.
+  enum: [s3]
+  x-discriminator-value: s3
+
+hostname:
+  type: string
+  description: >
+    The URL of the S3 service endpoint, including the scheme (http or https)
+    and optionally a port (after a colon).
+
+bucketName:
+  type: string
+  description: The storage bucket name.
+
+accessKey:
+  type: string
+  description: The access key to the S3 storage.
+
+secretKey:
+  type: string
+  description: The secret key to the S3 storage.
+
+signatureVersion:
+  type: integer
+  description: >
+    The version of signature used to sign requests.
+    Only version 4 is supported.
+  enum: [4]
+
+verifyServerCertificate:
+  type: boolean
+  description: >
+    Enables or disables verification of the S3 server SSL certificate.
+
+region:
+  type: string
+  description: >
+    Allows to specify a custom S3 region, which will be send with each
+    request to the S3 server.
+
+blockSize:
+  type: integer
+  description: >
+    Storage block size in bytes i.e. the maximum object size. Files larger than
+    one block will be stripped and stored in a series of objects.
+    Must be more than zero for non-imported storage. To enable import from
+    an S3 storage, block size must be set to zero, together with
+    "canonical" path type and the read-only mode.
+
+maximumCanonicalObjectSize:
+  type: integer
+  description: >
+    Defines the maximum size for objects, which can be modified on the S3
+    storage in `canonical` path mode. In this mode, entire file needs to be
+    downloaded to memory, modified and uploaded back, which is impractical
+    for large files (default 64 MiB).
+
+fileMode:
+  type: string
+  description: >
+    Defines the file permissions, which files imported from S3 storage will have
+    in Onedata. Values should be provided in octal format e.g. `0644`.
+
+dirMode:
+  type: string
+  description: >
+    Defines the directory mode which directories imported from S3 storage will
+    have in Onedata. Values should be provided in octal format e.g. `0775`.
+
+storagePathType:
+  type: string
+  description: |
+    Determines how the logical file paths will be mapped on the storage.
+    'canonical' paths reflect the logical file names and directory structure,
+    however each rename operation will require renaming the files on the storage.
+    'flat' paths are based on unique file UUID's and do not require on-storage
+    rename when logical file name is changed.
+

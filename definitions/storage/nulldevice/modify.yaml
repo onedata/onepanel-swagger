@@ -4,80 +4,29 @@ allOf:
 - type: object
   properties:
     type:
-      type: string
-      description: |
-        The type of storage.
-        
-        `type = "nulldevice"`
-        
-        POSIX compatible storage which emulates behavior of `/dev/null` on
-        local filesystem. Allows running various performance tests, which are
-        not impacted by actual storage latency.
-      enum: [nulldevice]
-      x-discriminator-value: nulldevice
+      $ref: './common.yaml#/type'
     latencyMin:
-      type: integer
-      description: |
-        Minimum latency in milliseconds, which should be simulated for
-        selected operations.
+      $ref: './common.yaml#/latencyMin'
     latencyMax:
-      type: integer
-      description: |
-        Maximum latency in milliseconds, which should be simulated for
-        selected operations.
+      $ref: './common.yaml#/latencyMax'
     timeoutProbability:
-      type: number
-      format: float
-      description: |
-        Probability (0.0, 1.0), with which an operation should return
-        a timeout error.
+      $ref: './common.yaml#/timeoutProbability'
     filter:
-      type: string
-      description: |
-        Comma-separated list of filesystem operations, for which latency
-        and timeout should be simulated. Empty or '*' mean all operations
-        will be affected.
+      $ref: './common.yaml#/filter'
     simulatedFilesystemParameters:
-      type: string
-      description: |
-        Specifies the parameters for a simulated null device filesystem.
-        For example `2-2:2-2:0-1` will generate a filesystem tree which has 2
-        directories (`0` and `1`) and 2 files (`2` and `3`) in the root of
-        the filesystem, each of these directories will have 2 subdirectories
-        (`0` and `1`) and 2 files (`2` and `3`) and each of these
-        subdirectories has only a single file (`0`). In order to specify the
-        size of generated files, a size in bytes needs to be added as the last
-        component of the parameter specification, for example `2-2:2-2:0-1:1048576`.
-        Default empty string disables the simulated filesystem feature.
+      $ref: './common.yaml#/simulatedFilesystemParameters'
     simulatedFilesystemGrowSpeed:
-      type: number
-      format: float
-      description: |
-        Determines the simulated filesystem grow rate. Default 0.0 value
-        will cause all the files and directories defined by the
-        `simulatedFilesystemParameters` specification to be visible immediately.
-        For example value of 0.01 will increase the number of the visible
-        filesystem entries by 1 file per 100 seconds, while 100.0 will increase it
-        by 100 files per second.
+      $ref: './common.yaml#/simulatedFilesystemGrowSpeed'
     enableDataVerification:
-      type: boolean
-      default: false
-      description: |
-        Enables data verification for `read` and `write` operations. Read operations
-        will always return a predictable pattern of characters based on `offset` and
-        `size`, and `write` operations will fail with I/O error, if the input data
-        does not match the pattern at a given `offset`.
+      $ref: './common.yaml#/enableDataVerification'
     uid:
-      type: integer
-      description: User identifier.
+      $ref: './common.yaml#/uid'
     gid:
-      type: integer
-      description: Group identifier.
+      $ref: './common.yaml#/gid'
   required:
   - type
 example:
   type: nulldevice
-  name: Slow storage
   latencyMin: 250
   latencyMax: 750
   timeoutProbability: 0.1

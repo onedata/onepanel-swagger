@@ -4,45 +4,26 @@ allOf:
 - type: object
   properties:
     type:
-      type: string
-      description: |
-        The type of storage.
-        
-        `type = "swift"`
-        
-        Storage backend compatible with
-        [OpenStack](http://docs.openstack.org/developer/swift/) SWIFT
-        protocol.
-      enum: [swift]
-      x-discriminator-value: swift
+      $ref: './common.yaml#/type'
     authUrl:
-      type: string
-      description: The URL to OpenStack Keystone identity service.
+      $ref: './common.yaml#/authUrl'
     containerName:
-      type: string
-      description: The name of the Swift storage container.
+      $ref: './common.yaml#/containerName'
     username:
-      type: string
-      description: The Keystone authentication username.
+      $ref: './common.yaml#/username'
     password:
-      type: string
-      description: The Keystone authentication password.
+      $ref: './common.yaml#/password'
     projectName:
-      type: string
-      description: The Keystone project name.
+      $ref: './common.yaml#/projectName'
     userDomainName:
-      type: string
-      description: The Keystone user domain name.
+      $ref: './common.yaml#/userDomainName'
     projectDomainName:
-      type: string
-      description: The Keystone project domain name.
+      $ref: './common.yaml#/projectDomainName'
   required:
   - type
 example:
   type: swift
-  name: SomeSwift
   authUrl: http://keystone2.example.com:5000/v3
-  tenantName: Project1
   containerName: Container1
   username: user
   password: p@$$w0rd

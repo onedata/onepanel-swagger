@@ -4,67 +4,31 @@ allOf:
 - type: object
   properties:
     type:
-      type: string
-      description: |
-        The type of storage.
-
-        `type = "s3"`
-
-        [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)
-        compatible storage.
-      enum: [s3]
-      x-discriminator-value: s3
+      $ref: './common.yaml#/type'
     hostname:
-      type: string
-      description: >
-        The URL of the S3 service endpoint, including the scheme (http or https)
-        and optionally a port (after a colon).
+      $ref: './common.yaml#/hostname'
     bucketName:
-      type: string
-      description: The storage bucket name.
+      $ref: './common.yaml#/bucketName'
     accessKey:
-      type: string
-      description: The access key to the S3 storage.
+      $ref: './common.yaml#/accessKey'
     secretKey:
-      type: string
-      description: The secret key to the S3 storage.
+      $ref: './common.yaml#/secretKey'
     signatureVersion:
-      type: integer
-      description: >
-        The version of signature used to sign requests.
-        Only version 4 is supported.
-      enum: [4]
+      $ref: './common.yaml#/signatureVersion'
     verifyServerCertificate:
-      type: boolean
-      description: >
-        Enables or disables verification of the S3 server SSL certificate.
+      $ref: './common.yaml#/verifyServerCertificate'
     region:
-      type: string
-      description: >
-        Allows to specify a custom S3 region, which will be send with each
-        request to the S3 server.
+      $ref: './common.yaml#/region'
     maximumCanonicalObjectSize:
-      type: integer
-      description: >
-        Defines the maximum size for objects, which can be modified on the S3
-        storage in `canonical` path mode. In this mode, entire file needs to be
-        downloaded to memory, modified and uploaded back, which is impractical
-        for large files (default 64 MiB).
+      $ref: './common.yaml#/maximumCanonicalObjectSize'
     fileMode:
-      type: string
-      description: >
-        Defines the file permissions, which files imported from S3 storage will have
-        in Onedata. Values should be provided in octal format e.g. `0644`.
+      $ref: './common.yaml#/fileMode'
     dirMode:
-      type: string
-      description: >
-        Defines the directory mode which directories imported from S3 storage will
-        have in Onedata. Values should be provided in octal format e.g. `0775`.
+      $ref: './common.yaml#/dirMode'
   required:
   - type
 example:
   type: s3
-  name: SomeS3
   hostname: https://s3.example.com:443/
   bucketName: bucket1.iam.example.com
   accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892

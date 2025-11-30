@@ -9,87 +9,69 @@ description: The storage configuration.
 discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:
-  - ceph
-  - cephrados
-  - glusterfs
-  - http
-  - nfs
-  - nulldevice
-  - posix
-  - s3
-  - swift
-  - webdav
-  - xrootd
+  - ceph_get
+  - cephrados_get
+  - glusterfs_get
+  - http_get
+  - nfs_get
+  - nulldevice_get
+  - posix_get
+  - s3_get
+  - swift_get
+  - webdav_get
+  - xrootd_get
 properties:
   type:
     type: string
     readOnly: true
   id:
-    type: string
-    readOnly: true
-    description: The Id of storage.
+    allOf:
+      - $ref: './common.yaml#/id'
+      - readOnly: true
   name:
-    type: string
-    readOnly: true
-    description: The name of storage.
+    allOf:
+      - $ref: './common.yaml#/name'
+      - readOnly: true
   verificationPassed:
-    type: boolean
-    readOnly: true
-    description: Result of storage verification (reading and writing a file).
-      Returned only on PATCH requests for read-write storages.
+    allOf:
+      - $ref: './common.yaml#/verificationPassed'
+      - readOnly: true
   timeout:
-    type: integer
-    x-onedata-storage-param: true
-    readOnly: true
-    description: Storage operation timeout in milliseconds.
+    allOf:
+      - $ref: './common.yaml#/timeout'
+      - x-onedata-storage-param: true
+        readOnly: true
   lumaFeed:
-    type: string
-    x-onedata-storage-param: true
-    x-onedata-default-value: '<<"auto">>'
-    readOnly: true
-    description: >
-      Type of feed for LUMA DB.
-      Feed is a source of user/group mappings used to populate the LUMA DB.
-      For more info please read: https://onedata.org/#/home/documentation/doc/administering_onedata/luma.html
-    enum:
-      - auto
-      - local
-      - external
+    allOf:
+      - $ref: './common.yaml#/lumaFeed'
+      - x-onedata-storage-param: true
+        x-onedata-default-value: '<<"auto">>'
+        readOnly: true
   lumaFeedUrl:
-    type: string
-    x-onedata-storage-param: true
-    readOnly: true
-    description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
+    allOf:
+      - $ref: './common.yaml#/lumaFeedUrl'
+      - x-onedata-storage-param: true
+        readOnly: true
   lumaFeedApiKey:
-    type: string
-    x-onedata-storage-param: true
-    readOnly: true
-    description: >
-      API key checked by external service used as feed for LUMA DB.
-      Relevant only if lumaFeed equals `external`.
+    allOf:
+      - $ref: './common.yaml#/lumaFeedApiKey'
+      - x-onedata-storage-param: true
+        readOnly: true
   qosParameters:
-    description: Map with key-value pairs used for describing storage QoS parameters.
-    type: object
-    x-onedata-default-value: "#{}"
-    default: {}
-    x-onedata-dictionary: true
-    x-onedata-dictionary-value-type: string
-    additionalProperties:
-      type: string
-    readOnly: true
+    allOf:
+      - $ref: './common.yaml#/qosParameters'
+      - x-onedata-default-value: "#{}"
+        default: {}
+        readOnly: true
   importedStorage:
-    type: boolean
-    x-onedata-storage-param: true
-    readOnly: true
-    default: false
-    description: Defines whether storage contains existing data to be imported.
+    allOf:
+      - $ref: './common.yaml#/importedStorage'
+      - x-onedata-storage-param: true
+        readOnly: true
+        default: false
   readonly:
-    type: boolean
-    x-onedata-storage-param: true
-    readOnly: true
-    default: false
-    description: >
-      Defines whether the storage is readonly. If enabled, Oneprovider will block any operation that writes,
-      modifies or deletes data on the storage. Such storage can only be used to import data into the space.
-      Mandatory to ensure proper behaviour if the backend storage is actually configured as readonly.
-      This option is available only for imported storages.
+    allOf:
+      - $ref: './common.yaml#/readonly'
+      - x-onedata-storage-param: true
+        readOnly: true
+        default: false

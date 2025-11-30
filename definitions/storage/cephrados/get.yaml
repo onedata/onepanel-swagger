@@ -1,0 +1,34 @@
+description: The Ceph storage configuration (uses librados).
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      monitorHostname:
+        $ref: './common.yaml#/monitorHostname'
+      clusterName:
+        $ref: './common.yaml#/clusterName'
+      poolName:
+        $ref: './common.yaml#/poolName'
+      blockSize:
+        $ref: './common.yaml#/blockSize'
+      storagePathType:
+        $ref: './common.yaml#/storagePathType'
+    required:
+    - type
+    - monitorHostname
+    - clusterName
+    - poolName
+    - storagePathType
+  - $ref: '#/definitions/CephradosCredentials'
+example:
+  type: cephrados
+  monitorHostname: test.example.com
+  clusterName: CephCluster1
+  poolName: data
+  blockSize: 10485760
+  storagePathType: flat
+  username: user1
+  key: "*****"
