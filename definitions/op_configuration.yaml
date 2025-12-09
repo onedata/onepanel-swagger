@@ -33,12 +33,27 @@ allOf:
         type: boolean
         description: >
           True if the Oneprovider has been registered at a Onezone.
+      oneS3Enabled:
+        type: boolean
+        description: >
+          True if the OneS3 service is deployed (provides an S3-compliant data access endpoint).
+      oneS3Domain:
+        type: string
+        description: >
+          The domain at which the S3 endpoint is available, or `null` if the OneS3 service is not deployed.
+      oneS3Port:
+        type: integer
+        description: >
+          The port at which the S3 endpoint is available, or `null` if the OneS3 service is not deployed.
     required:
       - serviceType
       - providerId
       - providerName
       - providerDomain
       - zoneDomain
+      - oneS3Enabled
+      - oneS3Domain
+      - oneS3Port
 example:
   serviceType: oneprovider
   providerName: oneprovider-name
@@ -49,3 +64,6 @@ example:
   version: 21.02.8
   deployed: true
   isRegistered: true
+  oneS3Enabled: true
+  oneS3Domain: s3.provider.onedata.org
+  oneS3Port: 4443
