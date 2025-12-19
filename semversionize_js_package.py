@@ -16,6 +16,7 @@ import argparse
 import json
 import re
 
+MAJOR_VERSION_RE = re.compile(r"^(\d+).*")
 VERSION_RE = re.compile(r"(?P<year>\d+)\.(?P<month>\d+)\.(?P<minor>\d+)")
 
 # Default path to package.json - can be set with first exec argument
@@ -32,7 +33,13 @@ def version_to_semver(version_string):
 
 def replace_package_json_version(json_string):
     package_data = json.loads(json_string)
-    package_data["version"] = version_to_semver(package_data["version"])
+    version = package_data["version"]
+    major_version = int(MAJOR_VERSION_RE.match(version)[1])
+    # New Calendar Versioning system, compatible with SemVer - leave content of a file
+    # the same.
+    if major_version > 21:
+        return json_string
+    package_data["version"] = version_to_semver(version)
     return json.dumps(package_data, indent="  ")
 
 
