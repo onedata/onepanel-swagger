@@ -159,8 +159,8 @@ contact:
   url: https://onedata.org/
   email: info@onedata.org
 license:
-  name: Apache 2.0
-  url: http://www.apache.org/licenses/LICENSE-2.0.html
+  name: MIT
+  url: https://opensource.org/licenses/MIT
 x-logo:
   url: https://onedata.org/assets/images/api/onepanel-logo.svg
   backgroundColor: "#FFFFFF"
