@@ -57,7 +57,7 @@ for release_branch in "${!releases[@]}"; do
 
     # Generate a combined swagger.json from yaml files
     docker run --rm -e "CHOWNUID=${UID}" \
-        -v `pwd`:/swagger docker.onedata.org/swagger-aggregator:1.5.0
+        -v `pwd`:/swagger docker.onedata.org/swagger-aggregator:1.6.0
 
     # Enter the generated client directory
     cd $TARGET_DIRECTORY && \
