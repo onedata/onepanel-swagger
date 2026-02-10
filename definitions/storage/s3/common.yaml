@@ -57,14 +57,6 @@ blockSize:
     an S3 storage, block size must be set to zero, together with
     "canonical" path type and the read-only mode.
 
-maximumCanonicalObjectSize:
-  type: integer
-  description: >
-    Defines the maximum size for objects, which can be modified on the S3
-    storage in `canonical` path mode. In this mode, entire file needs to be
-    downloaded to memory, modified and uploaded back, which is impractical
-    for large files (default 64 MiB).
-
 fileMode:
   type: string
   description: >

@@ -19,8 +19,6 @@ allOf:
       $ref: './common.yaml#/verifyServerCertificate'
     region:
       $ref: './common.yaml#/region'
-    maximumCanonicalObjectSize:
-      $ref: './common.yaml#/maximumCanonicalObjectSize'
     fileMode:
       $ref: './common.yaml#/fileMode'
     dirMode:

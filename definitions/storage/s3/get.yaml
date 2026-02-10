@@ -18,8 +18,6 @@ allOf:
         $ref: './common.yaml#/region'
       blockSize:
         $ref: './common.yaml#/blockSize'
-      maximumCanonicalObjectSize:
-        $ref: './common.yaml#/maximumCanonicalObjectSize'
       fileMode:
         $ref: './common.yaml#/fileMode'
       dirMode:

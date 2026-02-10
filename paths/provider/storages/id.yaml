@@ -21,7 +21,6 @@ get:
             "providerId": "03c7e42a793912307b01b1bbb72a3a6bch4c1c"
         },
         "name": "My S3 Storage",
-        "maximumCanonicalObjectSize": 67108864,
         "lumaFeed": "auto",
         "importedStorage": false,
         "id": "05b6c0a9b72e475c9d5061b0b7e16947chbcdc",
@@ -100,7 +99,6 @@ patch:
             "providerId": "03c7e42a793912307b01b1bbb72a3a6bch4c1c"
         },
         "name": "My S3 Storage Updated",
-        "maximumCanonicalObjectSize": "67108864",
         "lumaFeed": "auto",
         "importedStorage": false,
         "id": "2456aa013af797dbef27743790a5f12cche680",

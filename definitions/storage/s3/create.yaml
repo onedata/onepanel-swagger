@@ -28,11 +28,6 @@ allOf:
           - $ref: './common.yaml#/blockSize'
           - default: 10485760
             x-onedata-default-value: 10485760
-      maximumCanonicalObjectSize:
-        allOf:
-          - $ref: './common.yaml#/maximumCanonicalObjectSize'
-          - default: 67108864
-            x-onedata-default-value: 67108864
       fileMode:
         allOf:
           - $ref: './common.yaml#/fileMode'
