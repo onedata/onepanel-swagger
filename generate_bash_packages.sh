@@ -4,7 +4,7 @@
 # This software is released under the MIT license cited in 'LICENSE.txt'
 
 # Usage: SWAGGER_AGGREGATOR_IMAGE=<image> SWAGGER_BASH_CLIENT_IMAGE=<image> ./generate-bash-packages.sh
-# Eg. SWAGGER_AGGREGATOR_IMAGE=docker.onedata.org/swagger-aggregator:1.5.0 SWAGGER_BASH_CLIENT_IMAGE=docker.onedata.org/swagger-codegen:VFS-6328 ./generate-bash-packages.sh
+# Eg. SWAGGER_AGGREGATOR_IMAGE=docker.onedata.org/swagger-aggregator:1.6.0 SWAGGER_BASH_CLIENT_IMAGE=docker.onedata.org/swagger-codegen:VFS-6328 ./generate-bash-packages.sh
 #
 # Builds Bash clients for few branches (see the for loop).
 # This script should be invoked using `make bash-packages`.
