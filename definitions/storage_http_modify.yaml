@@ -53,6 +53,18 @@ allOf:
         After the limit is reached, 'Connection: close' header is sent to the server.
         When set to 0 (default), number of requests per session is unlimited, unless
         imposed by the server.
+    emulateRangeRead:
+      type: boolean
+      description: >
+          Allows to access files from HTTP servers without range read support. This can
+          significantly degrade performance, as in order to read a subset of a file
+          entire file has to be downloaded.
+    maxEmulatedRangeReadFileSize:
+      type: integer
+      description: >
+          Defines the maximum size in bytes of files that can be accessed from servers
+          without range read support. This option is only active, when `emulateReadRange`
+          option is true.
     fileMode:
       type: string
       description: >
