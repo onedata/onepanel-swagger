@@ -41,7 +41,9 @@ properties:
     type: integer
     x-onedata-storage-param: true
     readOnly: true
-    description: Storage operation timeout in milliseconds.
+    description: >
+      Maximum time to wait for a response from the storage service
+      before the request is aborted.
   lumaFeed:
     type: string
     x-onedata-storage-param: true
