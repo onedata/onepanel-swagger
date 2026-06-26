@@ -44,11 +44,10 @@ allOf:
     rangeWriteSupport:
       type: string
       description: >
-        Required for write-enabled supports; the storage backend must support
-        at least one range write method. The baseline WebDAV protocol does not
-        support range writes and only allows a write-once approach,
-        which is incompatible with the Onedata filesystem, as it
-        permits partial file modifications.
+        Select the mechanism used for range writes (partial/random-access writes).
+        Since the Onedata filesystem permits partial file modifications,
+        writable supports require a storage backend that implements the selected method.
+        Standard WebDAV does not support range writes and only provides write-once semantics.
       enum: [none, moddav, sabredav]
     connectionPoolSize:
       type: integer
