@@ -41,12 +41,12 @@ allOf:
       type: string
       description: |
         Allows simulating a preexisting file/directory tree structure for
-        a null device file-system. For example "2-3:4-5:512" will
+        a null device filesystem. For example, "2-3:4-5:512" will
         generate a filesystem tree which has 2 directories and 3 files
         in the root of the filesystem. Each of these directories will
         have 4 subdirectories and 5 files. Suffix ":512" (which is optional)
         will specify the size of generated files to 512 bytes.
-        Default empty string disables the simulated filesystem feature.
+        The default empty string disables the simulated filesystem feature.
     simulatedFilesystemGrowSpeed:
       type: number
       format: float

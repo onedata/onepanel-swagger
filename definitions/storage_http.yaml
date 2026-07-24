@@ -20,7 +20,12 @@ allOf:
       endpoint:
         type: string
         description: >
-            Full URL of the HTTP server, including scheme (http or https) and path.
+          Base URL of the HTTP server, including scheme (`http` or `https`) and
+          optional path prefix. When registering files by relative path in
+          `storageFileId`, that path is appended to this URL.
+          **Note:** A full URI supplied as `storageFileId` always takes precedence
+          and bypasses this endpoint, allowing files from any HTTP server reachable
+          by the Oneprovider to be registered.
       verifyServerCertificate:
         type: boolean
         description: >
@@ -51,6 +56,26 @@ allOf:
             imposed by the server.
         default: 0
         x-onedata-default-value: 0
+      emulateRangeRead:
+        type: boolean
+        description: >
+          Enables fallback emulation of range reads for HTTP servers that do not
+          support the `Range` header. When active, the full file content is
+          downloaded and only the requested byte range is returned to the caller.
+          Has no effect on servers that support range reads natively.
+          **Warning:** Emulation causes significant performance degradation and
+          increased memory usage; enable only as a last resort.
+        default: false
+        x-onedata-default-value: false
+      maxEmulatedRangeReadFileSize:
+        type: integer
+        description: >
+          Maximum file size in bytes eligible for emulated range reads.
+          Files exceeding this limit cannot be accessed from servers that lack
+          native range read support. Has no effect unless `emulateRangeRead`
+          is `true`.
+        default: 67108864
+        x-onedata-default-value: 67108864
       fileMode:
         type: string
         description: >

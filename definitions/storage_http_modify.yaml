@@ -18,7 +18,12 @@ allOf:
     endpoint:
       type: string
       description: >
-        Full URL of the HTTP server, including scheme (http or https) and path.
+        Base URL of the HTTP server, including scheme (`http` or `https`) and
+        optional path prefix. When registering files by relative path in
+        `storageFileId`, that path is appended to this URL.
+        **Note:** A full URI supplied as `storageFileId` always takes precedence
+        and bypasses this endpoint, allowing files from any HTTP server reachable
+        by the Oneprovider to be registered.
     verifyServerCertificate:
       type: boolean
       description: >
@@ -53,6 +58,22 @@ allOf:
         After the limit is reached, 'Connection: close' header is sent to the server.
         When set to 0 (default), number of requests per session is unlimited, unless
         imposed by the server.
+    emulateRangeRead:
+      type: boolean
+      description: >
+        Enables fallback emulation of range reads for HTTP servers that do not
+        support the `Range` header. When active, the full file content is
+        downloaded and only the requested byte range is returned to the caller.
+        Has no effect on servers that support range reads natively.
+        **Warning:** Emulation causes significant performance degradation and
+        increased memory usage; enable only as a last resort.
+    maxEmulatedRangeReadFileSize:
+      type: integer
+      description: >
+        Maximum file size in bytes eligible for emulated range reads.
+        Files exceeding this limit cannot be accessed from servers that lack
+        native range read support. Has no effect unless `emulateRangeRead`
+        is `true`.
     fileMode:
       type: string
       description: >
