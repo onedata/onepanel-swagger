@@ -22,7 +22,9 @@ properties:
     type: string
   timeout:
     type: integer
-    description: Storage operation timeout in milliseconds.
+    description: >
+      Maximum time to wait for a response from the storage service
+      before the request is aborted.
     default: false
   lumaFeed:
     type: string
