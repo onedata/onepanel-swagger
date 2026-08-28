@@ -6,7 +6,6 @@ get:
     eployed.
   x-onedata-gri:
     type: onp_service
-    id: ?BINDING(host)
     aspect: '{all_hosts_status, <<"cluster_manager">>}'
   tags:
     - Onezone Cluster
