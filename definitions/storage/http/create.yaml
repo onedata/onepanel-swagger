@@ -27,6 +27,16 @@ allOf:
           - $ref: './common.yaml#/maxRequestsPerSession'
           - default: 0
             x-onedata-default-value: 0
+      emulateRangeRead:
+        allOf:
+          - $ref: './common.yaml#/emulateRangeRead'
+          - default: false
+            x-onedata-default-value: false
+      maxEmulatedRangeReadFileSize:
+        allOf:
+          - $ref: './common.yaml#/maxEmulatedRangeReadFileSize'
+          - default: 67108864
+            x-onedata-default-value: 67108864
       fileMode:
         allOf:
           - $ref: './common.yaml#/fileMode'

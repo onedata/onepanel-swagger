@@ -20,7 +20,6 @@ get:
     ```
   x-onedata-gri:
     type: onp_space
-    id: ?BINDING(id)
     aspect: list
   tags:
     - Space Support

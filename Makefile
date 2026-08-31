@@ -1,7 +1,7 @@
 SHELL = /bin/bash
 UID = $(shell id -u)
 
-SWAGGER_AGGREGATOR_IMAGE    ?= docker.onedata.org/swagger-aggregator:1.5.0
+SWAGGER_AGGREGATOR_IMAGE    ?= docker.onedata.org/swagger-aggregator:1.6.0
 SWAGGER_CLI_IMAGE           ?= docker.onedata.org/swagger-cli:1.5.0
 SWAGGER_BOOTPRINT_IMAGE     ?= docker.onedata.org/swagger-bootprint:1.5.0
 SWAGGER_MARKDOWN_IMAGE      ?= docker.onedata.org/swagger-gitbook:1.4.1

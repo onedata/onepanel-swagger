@@ -1,4 +1,4 @@
-version: 21.02.8
+version: "25.1"
 title: Onepanel
 x-bash-codegen-description: |
   This is the RESTful API definition of **Onepanel** component of Onedata data
@@ -156,11 +156,11 @@ description: |
 
 contact:
   name: Onedata support
-  url: https://onedata.org/support
+  url: https://onedata.org/
   email: info@onedata.org
 license:
-  name: Apache 2.0
-  url: http://www.apache.org/licenses/LICENSE-2.0.html
+  name: MIT
+  url: https://opensource.org/licenses/MIT
 x-logo:
   url: https://onedata.org/assets/images/api/onepanel-logo.svg
   backgroundColor: "#FFFFFF"

@@ -23,6 +23,10 @@ allOf:
       $ref: './common.yaml#/connectionPoolSize'
     maxRequestsPerSession:
       $ref: './common.yaml#/maxRequestsPerSession'
+    emulateRangeRead:
+      $ref: './common.yaml#/emulateRangeRead'
+    maxEmulatedRangeReadFileSize:
+      $ref: './common.yaml#/maxEmulatedRangeReadFileSize'
     fileMode:
       $ref: './common.yaml#/fileMode'
   required:
