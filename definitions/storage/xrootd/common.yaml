@@ -37,6 +37,7 @@ dirModeMask:
 
 storagePathType:
   type: string
+  enum: [canonical, flat]
   description: |
     Determines how the logical file paths will be mapped on the storage.
     'canonical' paths reflect the logical file names and directory structure,
