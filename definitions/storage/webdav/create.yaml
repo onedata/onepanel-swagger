@@ -1,0 +1,63 @@
+description: The WebDAV storage configuration.
+allOf:
+  - $ref: '#/definitions/StorageCreateDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      endpoint:
+        $ref: './common.yaml#/endpoint'
+      verifyServerCertificate:
+        allOf:
+          - $ref: './common.yaml#/verifyServerCertificate'
+          - default: true
+            x-onedata-default-value: true
+      authorizationHeader:
+        allOf:
+          - $ref: './common.yaml#/authorizationHeader'
+          - default: "Authorization: Bearer {}"
+            x-onedata-default-value: '<<"Authorization: Bearer {}">>'
+      rangeWriteSupport:
+        allOf:
+          - $ref: './common.yaml#/rangeWriteSupport'
+          - default: none
+            x-onedata-default-value: '<<"none">>'
+      connectionPoolSize:
+        allOf:
+          - $ref: './common.yaml#/connectionPoolSize'
+          - default: 25
+            x-onedata-default-value: 25
+      maximumUploadSize:
+        allOf:
+          - $ref: './common.yaml#/maximumUploadSize'
+          - default: 0
+            x-onedata-default-value: 0
+      fileMode:
+        allOf:
+          - $ref: './common.yaml#/fileMode'
+          - default: "0664"
+            x-onedata-default-value: '<<"0664">>'
+      dirMode:
+        allOf:
+          - $ref: './common.yaml#/dirMode'
+          - default: "0775"
+            x-onedata-default-value: '<<"0775">>'
+      storagePathType:
+        allOf:
+          - $ref: './common.yaml#/storagePathType'
+          - default: canonical
+            x-onedata-default-value: '<<"canonical">>'
+    required:
+    - type
+    - endpoint
+  - $ref: '#/definitions/WebdavCredentials'
+example:
+  type: webdav
+  endpoint: https://192.168.1.2:8080/webdav
+  verifyServerCertificate: false
+  credentialsType: basic
+  credentials: "admin:password"
+  rangeWriteSupport: moddav
+  connectionPoolSize: 25
+  maximumUploadSize: 0
+

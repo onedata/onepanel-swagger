@@ -1,0 +1,18 @@
+description: The POSIX storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    mountPoint:
+      $ref: './common.yaml#/mountPoint'
+    rootUid:
+      $ref: './common.yaml#/rootUid'
+    rootGid:
+      $ref: './common.yaml#/rootGid'
+  required:
+  - type
+example:
+  type: posix
+  timeout: 500

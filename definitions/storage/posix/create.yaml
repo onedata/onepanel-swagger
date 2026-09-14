@@ -1,0 +1,31 @@
+description: The POSIX storage configuration for creation.
+allOf:
+  - $ref: '#/definitions/StorageCreateDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      mountPoint:
+        $ref: './common.yaml#/mountPoint'
+      storagePathType:
+        allOf:
+          - $ref: './common.yaml#/storagePathType'
+          - default: canonical
+            x-onedata-default-value: '<<"canonical">>'
+      rootUid:
+        allOf:
+          - $ref: './common.yaml#/rootUid'
+          - default: 0
+            x-onedata-default-value: 0
+      rootGid:
+        allOf:
+          - $ref: './common.yaml#/rootGid'
+          - default: 0
+            x-onedata-default-value: 0
+    required:
+    - type
+    - mountPoint
+example:
+  type: posix
+  mountPoint: /mnt/nfs
+

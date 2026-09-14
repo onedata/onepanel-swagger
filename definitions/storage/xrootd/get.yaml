@@ -1,0 +1,29 @@
+description: The XRootD storage configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      url:
+        $ref: './common.yaml#/url'
+      fileModeMask:
+        $ref: './common.yaml#/fileModeMask'
+      dirModeMask:
+        $ref: './common.yaml#/dirModeMask'
+      storagePathType:
+        $ref: './common.yaml#/storagePathType'
+    required:
+    - type
+    - url
+  - $ref: '#/definitions/XRootDCredentials'
+example:
+  id: "18a42a43b1b2d92455ffa09e9a15df7fch4f82"
+  name: SomeXRootD
+  type: xrootd
+  url: root://192.168.1.2//data
+  storagePathType: canonical
+  credentialsType: none
+  fileModeMask: "0644"
+  dirModeMask: "0755"

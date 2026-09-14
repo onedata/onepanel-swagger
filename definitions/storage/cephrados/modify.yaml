@@ -1,0 +1,23 @@
+description: The Ceph RADOS storage configuration (uses librados).
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    monitorHostname:
+      $ref: './common.yaml#/monitorHostname'
+    clusterName:
+      $ref: './common.yaml#/clusterName'
+    poolName:
+      $ref: './common.yaml#/poolName'
+    username:
+      $ref: './common.yaml#/username'
+    key:
+      $ref: './common.yaml#/key'
+  required:
+  - type
+example:
+  type: cephrados
+  username: newuser
+  key: "4efb70ad3e1fc8dd73c721b8f683b2e831503892"

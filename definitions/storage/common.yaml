@@ -1,0 +1,62 @@
+# Common field definitions for storage details
+
+name:
+  type: string
+  description: The name of storage.
+
+id:
+  type: string
+  description: The Id of storage.
+
+verificationPassed:
+  type: boolean
+  description: Result of storage verification (reading and writing a file).
+    Returned only on PATCH requests for read-write storages.
+
+timeout:
+  type: integer
+  description: >
+    Maximum time to wait for a response from the storage service
+    before the request is aborted.
+
+lumaFeed:
+  type: string
+  description: >
+    Type of feed for LUMA DB.
+    Feed is a source of user/group mappings used to populate the LUMA DB.
+    For more info please read: https://onedata.org/#/home/documentation/doc/administering_onedata/luma.html
+  enum:
+    - auto
+    - local
+    - external
+
+lumaFeedUrl:
+  type: string
+  description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
+
+lumaFeedApiKey:
+  type: string
+  description: >
+    API key checked by external service used as feed for LUMA DB.
+    Relevant only if lumaFeed equals `external`.
+
+qosParameters:
+  description: Map with key-value pairs used for describing storage QoS parameters.
+  type: object
+  x-onedata-dictionary: true
+  x-onedata-dictionary-value-type: string
+  additionalProperties:
+    type: string
+
+importedStorage:
+  type: boolean
+  description: >
+    Defines whether storage contains existing data to be imported.
+
+readonly:
+  type: boolean
+  description: >
+    Defines whether the storage is readonly. If enabled, Oneprovider will block any operation that writes,
+    modifies or deletes data on the storage. Such storage can only be used to import data into the space.
+    Mandatory to ensure proper behaviour if the backend storage is actually configured as readonly.
+    This option is available only for imported storages.

@@ -1,0 +1,60 @@
+description: The HTTP storage configuration.
+allOf:
+  - $ref: '#/definitions/StorageCreateDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      endpoint:
+        $ref: './common.yaml#/endpoint'
+      verifyServerCertificate:
+        allOf:
+          - $ref: './common.yaml#/verifyServerCertificate'
+          - default: true
+            x-onedata-default-value: true
+      authorizationHeader:
+        allOf:
+          - $ref: './common.yaml#/authorizationHeader'
+          - default: "Authorization: Bearer {}"
+            x-onedata-default-value: '<<"Authorization: Bearer {}">>'
+      connectionPoolSize:
+        allOf:
+          - $ref: './common.yaml#/connectionPoolSize'
+          - default: 150
+            x-onedata-default-value: 150
+      maxRequestsPerSession:
+        allOf:
+          - $ref: './common.yaml#/maxRequestsPerSession'
+          - default: 0
+            x-onedata-default-value: 0
+      emulateRangeRead:
+        allOf:
+          - $ref: './common.yaml#/emulateRangeRead'
+          - default: false
+            x-onedata-default-value: false
+      maxEmulatedRangeReadFileSize:
+        allOf:
+          - $ref: './common.yaml#/maxEmulatedRangeReadFileSize'
+          - default: 67108864
+            x-onedata-default-value: 67108864
+      fileMode:
+        allOf:
+          - $ref: './common.yaml#/fileMode'
+          - default: "0664"
+      storagePathType:
+        allOf:
+          - $ref: './common.yaml#/storagePathType'
+          - default: canonical
+            x-onedata-default-value: '<<"canonical">>'
+    required:
+    - type
+    - endpoint
+  - $ref: '#/definitions/HTTPCredentials'
+example:
+  type: http
+  endpoint: https://192.168.1.2:8080/storage
+  verifyServerCertificate: false
+  credentialsType: basic
+  credentials: "admin:password"
+  connectionPoolSize: 25
+

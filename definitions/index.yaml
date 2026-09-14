@@ -44,6 +44,158 @@ ServiceDatabases:
 ServiceOnes3:
   $ref: ./service/ones3.yaml
 
+## Storage
+
+StorageCreateDetails:
+  $ref: ./storage/create_details.yaml
+
+StorageCreateRequest:
+  $ref: ./storage/create_request.yaml
+
+StorageCreateResponse:
+  $ref: ./storage/create_response.yaml
+
+StorageGetDetails:
+  $ref: ./storage/get_details.yaml
+
+StorageModifyDetails:
+  $ref: ./storage/modify_details.yaml
+
+StorageModifyRequest:
+  $ref: ./storage/modify_request.yaml
+
+CephCredentials:
+  $ref: ./storage/ceph/credentials.yaml
+
+CephGet:
+  $ref: ./storage/ceph/get.yaml
+
+CephModify:
+  $ref: ./storage/ceph/modify.yaml
+
+CephradosCredentials:
+  $ref: ./storage/cephrados/credentials.yaml
+
+CephradosGet:
+  $ref: ./storage/cephrados/get.yaml
+
+CephradosCreate:
+  $ref: ./storage/cephrados/create.yaml
+
+CephradosModify:
+  $ref: ./storage/cephrados/modify.yaml
+
+GlusterfsCredentials:
+  $ref: ./storage/glusterfs/credentials.yaml
+
+GlusterfsGet:
+  $ref: ./storage/glusterfs/get.yaml
+
+GlusterfsCreate:
+  $ref: ./storage/glusterfs/create.yaml
+
+GlusterfsModify:
+  $ref: ./storage/glusterfs/modify.yaml
+
+HTTPCredentials:
+  $ref: ./storage/http/credentials.yaml
+
+HTTPGet:
+  $ref: ./storage/http/get.yaml
+
+HTTPCreate:
+  $ref: ./storage/http/create.yaml
+
+HTTPModify:
+  $ref: ./storage/http/modify.yaml
+
+NFSCredentials:
+  $ref: ./storage/nfs/credentials.yaml
+
+NFSGet:
+  $ref: ./storage/nfs/get.yaml
+
+NFSCreate:
+  $ref: ./storage/nfs/create.yaml
+
+NFSModify:
+  $ref: ./storage/nfs/modify.yaml
+
+NulldeviceCredentials:
+  $ref: ./storage/nulldevice/credentials.yaml
+
+NulldeviceGet:
+  $ref: ./storage/nulldevice/get.yaml
+
+NulldeviceCreate:
+  $ref: ./storage/nulldevice/create.yaml
+
+NulldeviceModify:
+  $ref: ./storage/nulldevice/modify.yaml
+
+PosixCompatibleCredentials:
+  $ref: ./storage/posix/compatible_credentials.yaml
+
+PosixCredentials:
+  $ref: ./storage/posix/credentials.yaml
+
+PosixGet:
+  $ref: ./storage/posix/get.yaml
+
+PosixCreate:
+  $ref: ./storage/posix/create.yaml
+
+PosixModify:
+  $ref: ./storage/posix/modify.yaml
+
+S3Credentials:
+  $ref: ./storage/s3/credentials.yaml
+
+S3Get:
+  $ref: ./storage/s3/get.yaml
+
+S3Create:
+  $ref: ./storage/s3/create.yaml
+
+S3Modify:
+  $ref: ./storage/s3/modify.yaml
+
+SwiftCredentials:
+  $ref: ./storage/swift/credentials.yaml
+
+SwiftGet:
+  $ref: ./storage/swift/get.yaml
+
+SwiftCreate:
+  $ref: ./storage/swift/create.yaml
+
+SwiftModify:
+  $ref: ./storage/swift/modify.yaml
+
+WebdavCredentials:
+  $ref: ./storage/webdav/credentials.yaml
+
+WebdavGet:
+  $ref: ./storage/webdav/get.yaml
+
+WebdavCreate:
+  $ref: ./storage/webdav/create.yaml
+
+WebdavModify:
+  $ref: ./storage/webdav/modify.yaml
+
+XRootDCredentials:
+  $ref: ./storage/xrootd/credentials.yaml
+
+XRootDGet:
+  $ref: ./storage/xrootd/get.yaml
+
+XRootDCreate:
+  $ref: ./storage/xrootd/create.yaml
+
+XRootDModify:
+  $ref: ./storage/xrootd/modify.yaml
+
 ################################
 
 Configuration:
@@ -144,120 +296,6 @@ ClusterIps:
 ModifyClusterIps:
   $ref: ./modify_cluster_ips.yaml
 
-StorageCreateDetails:
-  $ref: ./storage_create_details.yaml
-
-StorageCreateResponse:
-  $ref: ./storage_create_response.yaml
-
-StorageGetDetails:
-  $ref: ./storage_get_details.yaml
-
-StorageModifyDetails:
-  $ref: ./storage_modify_details.yaml
-
-PosixCompatibleCredentials:
-  $ref: ./storage_posix_compatible_credentials.yaml
-
-PosixCredentials:
-  $ref: ./storage_posix_credentials.yaml
-
-Posix:
-  $ref: ./storage_posix.yaml
-
-PosixModify:
-  $ref: ./storage_posix_modify.yaml
-
-S3Credentials:
-  $ref: ./storage_s3_credentials.yaml
-
-S3:
-  $ref: ./storage_s3.yaml
-
-S3Modify:
-  $ref: ./storage_s3_modify.yaml
-
-CephCredentials:
-  $ref: ./storage_ceph_credentials.yaml
-
-Ceph:
-  $ref: ./storage_ceph.yaml
-
-CephModify:
-  $ref: ./storage_ceph_modify.yaml
-
-CephradosCredentials:
-  $ref: ./storage_cephrados_credentials.yaml
-
-Cephrados:
-  $ref: ./storage_cephrados.yaml
-
-CephradosModify:
-  $ref: ./storage_cephrados_modify.yaml
-
-SwiftCredentials:
-  $ref: ./storage_swift_credentials.yaml
-
-Swift:
-  $ref: ./storage_swift.yaml
-
-SwiftModify:
-  $ref: ./storage_swift_modify.yaml
-
-GlusterfsCredentials:
-  $ref: ./storage_glusterfs_credentials.yaml
-
-Glusterfs:
-  $ref: ./storage_glusterfs.yaml
-
-GlusterfsModify:
-  $ref: ./storage_glusterfs_modify.yaml
-
-NulldeviceCredentials:
-  $ref: ./storage_nulldevice_credentials.yaml
-
-Nulldevice:
-  $ref: ./storage_nulldevice.yaml
-
-NulldeviceModify:
-  $ref: ./storage_nulldevice_modify.yaml
-
-WebdavCredentials:
-  $ref: ./storage_webdav_credentials.yaml
-
-Webdav:
-  $ref: ./storage_webdav.yaml
-
-WebdavModify:
-  $ref: ./storage_webdav_modify.yaml
-
-XRootDCredentials:
-  $ref: ./storage_xrootd_credentials.yaml
-
-XRootD:
-  $ref: ./storage_xrootd.yaml
-
-XRootDModify:
-  $ref: ./storage_xrootd_modify.yaml
-
-NFSCredentials:
-  $ref: ./storage_nfs_credentials.yaml
-
-NFS:
-  $ref: ./storage_nfs.yaml
-
-NFSModify:
-  $ref: ./storage_nfs_modify.yaml
-
-HTTPCredentials:
-  $ref: ./storage_http_credentials.yaml
-
-HTTP:
-  $ref: ./storage_http.yaml
-
-HTTPModify:
-  $ref: ./storage_http_modify.yaml
-
 LumaConfig:
   $ref: ./luma_config.yaml
 
@@ -287,12 +325,6 @@ LumaIdpEntitlementScheme:
 
 LumaOnedataGroup:
   $ref: ./luma_onedata_group.yaml
-
-StorageCreateRequest:
-  $ref: ./storage_create_request.yaml
-
-StorageModifyRequest:
-  $ref: ./storage_modify_request.yaml
 
 ZoneConfiguration:
   $ref: ./deployment/zone_configuration.yaml

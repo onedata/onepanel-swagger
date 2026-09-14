@@ -1,0 +1,51 @@
+description: The NFS storage configuration.
+allOf:
+  - $ref: '#/definitions/StorageCreateDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      host:
+        $ref: './common.yaml#/host'
+      version:
+        allOf:
+          - $ref: './common.yaml#/version'
+          - default: 3
+            x-onedata-default-value: 3
+      volume:
+        $ref: './common.yaml#/volume'
+      connectionPoolSize:
+        allOf:
+          - $ref: './common.yaml#/connectionPoolSize'
+          - default: 10
+            x-onedata-default-value: 10
+      dirCache:
+        allOf:
+          - $ref: './common.yaml#/dirCache'
+          - default: true
+            x-onedata-default-value: true
+      readAhead:
+        allOf:
+          - $ref: './common.yaml#/readAhead'
+          - default: 0
+            x-onedata-default-value: 0
+      autoReconnect:
+        allOf:
+          - $ref: './common.yaml#/autoReconnect'
+          - default: 1
+            x-onedata-default-value: 1
+      storagePathType:
+        allOf:
+          - $ref: './common.yaml#/storagePathType'
+          - default: canonical
+            x-onedata-default-value: '<<"canonical">>'
+    required:
+    - type
+    - volume
+    - host
+  - $ref: '#/definitions/NFSCredentials'
+example:
+  type: nfs
+  volume: /nfs/nfsvolume/
+  host: nfs.example.com
+

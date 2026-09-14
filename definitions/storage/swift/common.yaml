@@ -1,0 +1,62 @@
+# Common field definitions for Swift storage
+
+type:
+  type: string
+  description: |
+    The type of storage.
+
+    `type = "swift"`
+
+    Storage backend compatible with
+    [OpenStack](http://docs.openstack.org/developer/swift/) SWIFT
+    protocol.
+  enum: [swift]
+  x-discriminator-value: swift
+
+authUrl:
+  type: string
+  description: The URL to OpenStack Keystone identity service.
+
+containerName:
+  type: string
+  description: The name of the Swift storage container.
+
+blockSize:
+  type: integer
+  description: >
+    Storage block size in bytes i.e. the maximum object size.
+    Files larger than one block will be stripped and stored in a series of objects.
+    Must be more than zero for non-imported storage. To enable import
+    from an Swift storage, block size must be set to zero, together
+    with "canonical" path type and the read-only mode.
+
+storagePathType:
+  type: string
+  enum: [canonical, flat]
+  description: |
+    Determines how the logical file paths will be mapped on the storage.
+    'canonical' paths reflect the logical file names and directory structure,
+    however each rename operation will require renaming the files on the storage.
+    'flat' paths are based on unique file UUID's and do not require on-storage
+    rename when logical file name is changed.
+
+username:
+  type: string
+  description: The Keystone authentication username.
+
+password:
+  type: string
+  description: The Keystone authentication password.
+
+projectName:
+  type: string
+  description: The Keystone project name.
+
+userDomainName:
+  type: string
+  description: The Keystone user domain name.
+
+projectDomainName:
+  type: string
+  description: The Keystone project domain name.
+

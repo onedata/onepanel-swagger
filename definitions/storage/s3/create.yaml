@@ -1,0 +1,57 @@
+description: The Simple Storage Service configuration.
+allOf:
+  - $ref: '#/definitions/StorageCreateDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      hostname:
+        $ref: './common.yaml#/hostname'
+      bucketName:
+        $ref: './common.yaml#/bucketName'
+      signatureVersion:
+        allOf:
+          - $ref: './common.yaml#/signatureVersion'
+          - default: 4
+            x-onedata-default-value: 4
+      verifyServerCertificate:
+        allOf:
+          - $ref: './common.yaml#/verifyServerCertificate'
+          - default: true
+      region:
+        allOf:
+          - $ref: './common.yaml#/region'
+          - default: us-east-1
+            x-onedata-default-value: '<<"us-east-1">>'
+      blockSize:
+        allOf:
+          - $ref: './common.yaml#/blockSize'
+          - default: 10485760
+            x-onedata-default-value: 10485760
+      fileMode:
+        allOf:
+          - $ref: './common.yaml#/fileMode'
+          - default: "0664"
+            x-onedata-default-value: '<<"0664">>'
+      dirMode:
+        allOf:
+          - $ref: './common.yaml#/dirMode'
+          - default: "0775"
+            x-onedata-default-value: '<<"0775">>'
+      storagePathType:
+        allOf:
+          - $ref: './common.yaml#/storagePathType'
+          - default: flat
+            x-onedata-default-value: '<<"flat">>'
+    required:
+    - type
+    - hostname
+    - bucketName
+  - $ref: '#/definitions/S3Credentials'
+example:
+  type: s3
+  hostname: https://s3.example.com:443/
+  bucketName: bucket1.iam.example.com
+  accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
+  secretKey: fdeac26aedd3a179f9551d7007cc6a6273165782
+

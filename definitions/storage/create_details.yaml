@@ -1,0 +1,48 @@
+# This model is separate from StorageGetDetails in order to specify differing
+# set of subclasses. This prevents creation of some storage types,
+# while preserving their models for use in GET in existing deployments.
+
+type: object
+description: The storage configuration.
+discriminator: type
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - cephrados_create
+  - glusterfs_create
+  - http_create
+  - nfs_create
+  - nulldevice_create
+  - posix_create
+  - s3_create
+  - swift_create
+  - webdav_create
+  - xrootd_create
+properties:
+  type:
+    type: string
+  timeout:
+    allOf:
+      - $ref: './common.yaml#/timeout'
+      - default: false
+  lumaFeed:
+    allOf:
+      - $ref: './common.yaml#/lumaFeed'
+      - default: auto
+        x-onedata-default-value: '<<"auto">>'
+  lumaFeedUrl:
+    $ref: './common.yaml#/lumaFeedUrl'
+  lumaFeedApiKey:
+    $ref: './common.yaml#/lumaFeedApiKey'
+  qosParameters:
+    allOf:
+      - $ref: './common.yaml#/qosParameters'
+      - x-onedata-default-value: "#{}"
+        default: {}
+  importedStorage:
+    allOf:
+      - $ref: './common.yaml#/importedStorage'
+      - default: false
+  readonly:
+    allOf:
+      - $ref: './common.yaml#/readonly'
+      - default: false

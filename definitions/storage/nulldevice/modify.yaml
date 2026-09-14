@@ -1,0 +1,35 @@
+description: The Null Device storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    latencyMin:
+      $ref: './common.yaml#/latencyMin'
+    latencyMax:
+      $ref: './common.yaml#/latencyMax'
+    timeoutProbability:
+      $ref: './common.yaml#/timeoutProbability'
+    filter:
+      $ref: './common.yaml#/filter'
+    simulatedFilesystemParameters:
+      $ref: './common.yaml#/simulatedFilesystemParameters'
+    simulatedFilesystemGrowSpeed:
+      $ref: './common.yaml#/simulatedFilesystemGrowSpeed'
+    enableDataVerification:
+      $ref: './common.yaml#/enableDataVerification'
+    uid:
+      $ref: './common.yaml#/uid'
+    gid:
+      $ref: './common.yaml#/gid'
+  required:
+  - type
+example:
+  type: nulldevice
+  latencyMin: 250
+  latencyMax: 750
+  timeoutProbability: 0.1
+  filter: "read,write,open"
+  simulatedFilesystemParameters: "2-2:2-2:0-3"
+  simulatedFilesystemGrowSpeed: 5.0
