@@ -22,12 +22,14 @@ endpoint:
     **Note:** A full URI supplied as `storageFileId` always takes precedence
     and bypasses this endpoint, allowing files from any HTTP server reachable
     by the Oneprovider to be registered.
+  x-onedata-runtime-mutable: true
 
 verifyServerCertificate:
   type: boolean
   description: >
     Determines whether Oneprovider should verify the certificate of
     the HTTP server.
+  x-onedata-runtime-mutable: true
 
 authorizationHeader:
   type: string
@@ -35,11 +37,13 @@ authorizationHeader:
     Header format for passing the API/access token to the backend storage server.
     The token will be inserted in place of "{}". Use a colon to separate
     the header name and value, e.g. "X-API-Token: {}".
+  x-onedata-runtime-mutable: true
 
 connectionPoolSize:
   type: integer
   description: >
     Defines the maximum number of parallel connections for a single HTTP storage.
+  x-onedata-runtime-mutable: true
 
 maxRequestsPerSession:
   type: integer
@@ -48,6 +52,7 @@ maxRequestsPerSession:
     After the limit is reached, 'Connection: close' header is sent to the server.
     When set to 0 (default), number of requests per session is unlimited, unless
     imposed by the server.
+  x-onedata-runtime-mutable: true
 
 emulateRangeRead:
   type: boolean
@@ -58,6 +63,7 @@ emulateRangeRead:
     Has no effect on servers that support range reads natively.
     **Warning:** Emulation causes significant performance degradation and
     increased memory usage; enable only as a last resort.
+  x-onedata-runtime-mutable: true
 
 maxEmulatedRangeReadFileSize:
   type: integer
@@ -66,12 +72,14 @@ maxEmulatedRangeReadFileSize:
     Files exceeding this limit cannot be accessed from servers that lack
     native range read support. Has no effect unless `emulateRangeRead`
     is `true`.
+  x-onedata-runtime-mutable: true
 
 fileMode:
   type: string
   description: >
     Defines the file permissions, which files imported from HTTP storage will have
     in Onedata. Values should be provided in octal format e.g. `0664`.
+  x-onedata-runtime-mutable: true
 
 storagePathType:
   type: string
@@ -90,6 +98,7 @@ credentialsType:
     Determines the types of credentials provided in the credentials
     field.
   enum: [none, basic, token, oauth2]
+  x-onedata-runtime-mutable: true
 
 credentials:
   type: string
@@ -99,6 +108,7 @@ credentials:
     In case of `oauth2`, this field should contain the username for the HTTP, while
     the token will be obtained and refreshed automatically in the background.
     For `none` this field is ignored.
+  x-onedata-runtime-mutable: true
 
 oauth2IdP:
   type: string
@@ -107,6 +117,7 @@ oauth2IdP:
     for multiple external IdP's, this field must contain the name of the IdP which
     authenticates requests to the HTTP endpoint. If Onezone has only one external IdP,
     it will be selected automatically.
+  x-onedata-runtime-mutable: true
 
 onedataAccessToken:
   type: string
@@ -116,4 +127,4 @@ onedataAccessToken:
     required - Oneprovider verifies it when the storage is created or modified and
     then spends it to obtain and refresh access tokens of the IdP indicated by
     `oauth2IdP`. It is never passed to the HTTP server.
-
+  x-onedata-runtime-mutable: true

@@ -26,6 +26,7 @@ fileModeMask:
     mode. For instance a fileModeMask `0664` for readable file on XRootD would result
     in a file which is readable for all users, but file which is writeable in XRootD
     will be only writeable by user and group.
+  x-onedata-runtime-mutable: true
 
 dirModeMask:
   type: string
@@ -34,6 +35,7 @@ dirModeMask:
     POSIX mode. For instance a dirModeMask `0770` for readable directory on XRootD
     would result in a directory which is readable for owner and group but not for
     others.
+  x-onedata-runtime-mutable: true
 
 storagePathType:
   type: string
@@ -58,4 +60,4 @@ credentials:
     The credentials to authenticate with the XRootD server. For `pwd` credentials
     type, this field should contain simply user and password, e.g. `admin:password`.
     For `none` this field is ignored.
-
+  x-onedata-runtime-mutable: true

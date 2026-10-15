@@ -43,20 +43,24 @@ storagePathType:
 username:
   type: string
   description: The Keystone authentication username.
+  x-onedata-runtime-mutable: true
 
 password:
   type: string
   description: The Keystone authentication password.
+  x-onedata-runtime-mutable: true
 
 projectName:
   type: string
   description: The Keystone project name.
+  x-onedata-runtime-mutable: true
 
 userDomainName:
   type: string
   description: The Keystone user domain name.
+  x-onedata-runtime-mutable: true
 
 projectDomainName:
   type: string
   description: The Keystone project domain name.
-
+  x-onedata-runtime-mutable: true

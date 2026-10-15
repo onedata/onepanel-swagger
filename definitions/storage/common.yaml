@@ -18,6 +18,7 @@ timeout:
   description: >
     Maximum time to wait for a response from the storage service
     before the request is aborted.
+  x-onedata-runtime-mutable: true
 
 lumaFeed:
   type: string
@@ -29,16 +30,19 @@ lumaFeed:
     - auto
     - local
     - external
+  x-onedata-runtime-mutable: true
 
 lumaFeedUrl:
   type: string
   description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
+  x-onedata-runtime-mutable: true
 
 lumaFeedApiKey:
   type: string
   description: >
     API key checked by external service used as feed for LUMA DB.
     Relevant only if lumaFeed equals `external`.
+  x-onedata-runtime-mutable: true
 
 qosParameters:
   description: Map with key-value pairs used for describing storage QoS parameters.
@@ -47,6 +51,7 @@ qosParameters:
   x-onedata-dictionary-value-type: string
   additionalProperties:
     type: string
+  x-onedata-runtime-mutable: true
 
 importedStorage:
   type: boolean

@@ -28,6 +28,7 @@ connectionPoolSize:
   description: >
     Number of simultaneous network connections that can be maintained
     with the NFS server.
+  x-onedata-runtime-mutable: true
 
 dirCache:
   type: boolean
@@ -35,15 +36,18 @@ dirCache:
     Enables caching of directory metadata on the client side to improve
     performance by reducing requests to the NFS server. May cause temporary
     inconsistencies if the directory content changes on the server.
+  x-onedata-runtime-mutable: true
 
 readAhead:
   type: integer
   description: >
     The amount of data that the system preloads into cache ahead of client requests.
+  x-onedata-runtime-mutable: true
 
 autoReconnect:
   type: integer
   description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
+  x-onedata-runtime-mutable: true
 
 storagePathType:
   type: string
@@ -59,8 +63,9 @@ storagePathType:
 uid:
   type: integer
   description: User identifier.
+  x-onedata-runtime-mutable: true
 
 gid:
   type: integer
   description: Group identifier.
-
+  x-onedata-runtime-mutable: true
