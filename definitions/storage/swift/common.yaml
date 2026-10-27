@@ -15,7 +15,9 @@ type:
 
 authUrl:
   type: string
-  description: The URL to OpenStack Keystone identity service.
+  description: >
+    The URL of the OpenStack Identity service (Keystone), API version 3, to
+    which `/auth/tokens` is appended to request a token.
 
 containerName:
   type: string
