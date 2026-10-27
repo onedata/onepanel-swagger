@@ -10,8 +10,15 @@ id:
 
 verificationPassed:
   type: boolean
-  description: Result of storage verification (reading and writing a file).
-    Returned only on PATCH requests for read-write storages.
+  description: >
+    Whether the storage passed the test that a modification runs from every
+    node of the cluster before it changes anything: access to the storage
+    and, unless the storage is read-only after the modification or is
+    imported and supports a space, the creation, write, read and removal of
+    a test file. `false` means that the storage has not been modified. A
+    modification of only the name or the QoS parameters runs no test, nor
+    does one of an `http` or `nulldevice` storage. Returned only in a
+    response to a PATCH request.
 
 timeout:
   type: integer

@@ -89,6 +89,7 @@ patch:
     }'
 
     {
+        "verificationPassed": true,
         "type": "s3",
         "storagePathType": "flat",
         "signatureVersion": "4",
@@ -120,15 +121,24 @@ patch:
     - application/json
   responses:
     '200':
-      description: |
-        The storage resources have been successfully modified.
-        Response contains current storage params and report of file creation test.
+      description: >
+        The storage's details after the request, with the result of its test
+        in `verificationPassed`; when the test fails, the storage has not been
+        modified.
       schema:
         $ref: '#/definitions/StorageModifyDetails'
+    '400':
+      description: >
+        Invalid request, such as a body that doesn't name this storage with
+        its type, or a configuration that the provider refuses.
+      schema:
+        $ref: '#/definitions/Error'
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
+    '404':
+      description: Storage does not exist.
     '500':
       description: Internal server error.
       schema:
