@@ -190,14 +190,16 @@ delete:
   responses:
     '204':
       description: Storage has been succesfully removed.
+    '400':
+      description: Storage supports a space and cannot be removed.
+      schema:
+        $ref: '#/definitions/Error'
     '401':
       description: Unauthorized request.
     '403':
       description: Forbidden request.
     '404':
       description: Storage does not exist.
-    '409':
-      description: Storage supports a space and cannot be removed.
     '500':
       description: Internal server error.
       schema:
