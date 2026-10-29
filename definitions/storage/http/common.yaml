@@ -22,7 +22,6 @@ endpoint:
     **Note:** A full URI supplied as `storageFileId` always takes precedence
     and bypasses this endpoint, allowing files from any HTTP server reachable
     by the Oneprovider to be registered.
-  x-onedata-runtime-mutable: true
 
 verifyServerCertificate:
   type: boolean

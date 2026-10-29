@@ -53,6 +53,7 @@ credentialsType:
     Determines the types of credentials provided in the credentials
     field.
   enum: [none, pwd]
+  x-onedata-runtime-mutable: true
 
 credentials:
   type: string
