@@ -19,10 +19,7 @@ allOf:
           - $ref: './common.yaml#/verifyServerCertificate'
           - default: true
       region:
-        allOf:
-          - $ref: './common.yaml#/region'
-          - default: us-east-1
-            x-onedata-default-value: '<<"us-east-1">>'
+        $ref: './common.yaml#/region'
       blockSize:
         allOf:
           - $ref: './common.yaml#/blockSize'
