@@ -28,7 +28,7 @@ declare -A releases
 
 if [ $TARGET_BRANCH == "develop" ]; then
     releases[$TARGET_BRANCH]="18.02.0-dev"
-elif [ $TARGET_BRANCH == "release/*" ]; then
+elif [[ $TARGET_BRANCH == release/* ]]; then
     releases[$TARGET_BRANCH]=$( echo $TARGET_BRANCH | sed "s/release\/\(.*\)/\1/p" -n )
 elif [ $TARGET_BRANCH == "master" ]; then
     exit 0

@@ -21,9 +21,7 @@ properties:
   type:
     type: string
   timeout:
-    allOf:
-      - $ref: './common.yaml#/timeout'
-      - default: false
+    $ref: './common.yaml#/timeout'
   lumaFeed:
     allOf:
       - $ref: './common.yaml#/lumaFeed'

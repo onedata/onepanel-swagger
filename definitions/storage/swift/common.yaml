@@ -15,7 +15,9 @@ type:
 
 authUrl:
   type: string
-  description: The URL to OpenStack Keystone identity service.
+  description: >
+    The URL of the OpenStack Identity service (Keystone), API version 3, to
+    which `/auth/tokens` is appended to request a token.
 
 containerName:
   type: string
@@ -43,20 +45,24 @@ storagePathType:
 username:
   type: string
   description: The Keystone authentication username.
+  x-onedata-runtime-mutable: true
 
 password:
   type: string
   description: The Keystone authentication password.
+  x-onedata-runtime-mutable: true
 
 projectName:
   type: string
   description: The Keystone project name.
+  x-onedata-runtime-mutable: true
 
 userDomainName:
   type: string
   description: The Keystone user domain name.
+  x-onedata-runtime-mutable: true
 
 projectDomainName:
   type: string
   description: The Keystone project domain name.
-
+  x-onedata-runtime-mutable: true

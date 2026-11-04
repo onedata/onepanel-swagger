@@ -23,7 +23,7 @@ COMMIT_MESSAGE = $(shell git log -1 --pretty=format:%s)
 all: cowboy-server python-client bash-client doc-static doc-markdown
 
 clean:
-	@rm -rf generated packages swagger.json swagger_flattened.json
+	@rm -rf generated packages swagger.json
 
 swagger.json:
 	docker run --rm -e CHOWNUID=${UID} -v `pwd`:/swagger ${SWAGGER_AGGREGATOR_IMAGE}

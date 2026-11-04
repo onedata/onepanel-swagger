@@ -22,6 +22,7 @@ verifyServerCertificate:
   description: >
     Determines whether Oneprovider should verify the certificate of
     the WebDAV server.
+  x-onedata-runtime-mutable: true
 
 authorizationHeader:
   type: string
@@ -29,6 +30,7 @@ authorizationHeader:
     Header format for passing the API/access token to the backend storage server.
     The token will be inserted in place of "{}". Use a colon to
     separate the header name and value, e.g. "X-API-Token: {}".
+  x-onedata-runtime-mutable: true
 
 rangeWriteSupport:
   type: string
@@ -38,29 +40,34 @@ rangeWriteSupport:
     writable supports require a storage backend that implements the selected method.
     Standard WebDAV does not support range writes and only provides write-once semantics.
   enum: [none, moddav, sabredav]
+  x-onedata-runtime-mutable: true
 
 connectionPoolSize:
   type: integer
   description: >
     Defines the maximum number of parallel connections for a single WebDAV storage.
+  x-onedata-runtime-mutable: true
 
 maximumUploadSize:
   type: integer
   description: >
     Defines the maximum upload size for a single `PUT` or `PATCH` request. If set to 0,
     assumes that the WebDAV server has no upload limit.
+  x-onedata-runtime-mutable: true
 
 fileMode:
   type: string
   description: >
     Defines the file permissions, which files imported from WebDAV storage will have
     in Onedata. Values should be provided in octal format e.g. `0644`.
+  x-onedata-runtime-mutable: true
 
 dirMode:
   type: string
   description: >
     Defines the directory mode which directories imported from WebDAV storage will
     have in Onedata. Values should be provided in octal format e.g. `0775`.
+  x-onedata-runtime-mutable: true
 
 storagePathType:
   type: string
@@ -80,6 +87,7 @@ credentialsType:
     Determines what credentials will be used to authorize access to
     the WebDAV storage backend. For public endpoints, select "none".
   enum: [none, basic, token, oauth2]
+  x-onedata-runtime-mutable: true
 
 credentials:
   type: string
@@ -89,6 +97,7 @@ credentials:
     In case of `oauth2`, this field should contain the username for the WebDAV, while
     the token will be obtained and refreshed automatically in the background.
     For `none` this field is ignored.
+  x-onedata-runtime-mutable: true
 
 oauth2IdP:
   type: string
@@ -97,6 +106,7 @@ oauth2IdP:
     for multiple external IdP's, this field must contain the name of the IdP which
     authenticates requests to the WebDAV endpoint. If Onezone has only one external IdP,
     it will be selected automatically.
+  x-onedata-runtime-mutable: true
 
 onedataAccessToken:
   type: string
@@ -106,4 +116,4 @@ onedataAccessToken:
     required - Oneprovider verifies it when the storage is created or modified and
     then spends it to obtain and refresh access tokens of the IdP indicated by
     `oauth2IdP`. It is never passed to the WebDAV server.
-
+  x-onedata-runtime-mutable: true

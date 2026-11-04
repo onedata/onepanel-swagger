@@ -10,14 +10,30 @@ id:
 
 verificationPassed:
   type: boolean
-  description: Result of storage verification (reading and writing a file).
-    Returned only on PATCH requests for read-write storages.
+  description: |
+    Whether the storage passed the test that a PATCH request runs before it
+    modifies the storage. Returned only in a response to a PATCH request.
+
+    * `true` - the storage has been modified: it passed the test, or the
+      request needed none.
+    * `false` - the storage failed the test and has not been modified.
+
+    The test depends on the request:
+
+    * no test - the request changes nothing but `name` and `qosParameters`,
+      or the storage is of type `http` or `nulldevice`;
+    * access to the storage from every Oneprovider node - after the
+      modification, the storage is read-only, or is imported and supports
+      a space;
+    * access, then the creation, write, read and removal of a test file from
+      every Oneprovider node - in any other case.
 
 timeout:
   type: integer
   description: >
     Maximum time to wait for a response from the storage service
     before the request is aborted.
+  x-onedata-runtime-mutable: true
 
 lumaFeed:
   type: string
@@ -29,16 +45,19 @@ lumaFeed:
     - auto
     - local
     - external
+  x-onedata-runtime-mutable: true
 
 lumaFeedUrl:
   type: string
   description: URL of external feed for LUMA DB. Relevant only if lumaFeed equals `external`.
+  x-onedata-runtime-mutable: true
 
 lumaFeedApiKey:
   type: string
   description: >
     API key checked by external service used as feed for LUMA DB.
     Relevant only if lumaFeed equals `external`.
+  x-onedata-runtime-mutable: true
 
 qosParameters:
   description: Map with key-value pairs used for describing storage QoS parameters.
@@ -47,6 +66,7 @@ qosParameters:
   x-onedata-dictionary-value-type: string
   additionalProperties:
     type: string
+  x-onedata-runtime-mutable: true
 
 importedStorage:
   type: boolean
