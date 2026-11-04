@@ -18,12 +18,14 @@ latencyMin:
   description: |
     Minimum latency in milliseconds, which should be simulated for
     selected operations.
+  x-onedata-runtime-mutable: true
 
 latencyMax:
   type: integer
   description: |
     Maximum latency in milliseconds, which should be simulated for
     selected operations.
+  x-onedata-runtime-mutable: true
 
 timeoutProbability:
   type: number
@@ -31,6 +33,7 @@ timeoutProbability:
   description: |
     Probability (0.0, 1.0), with which an operation should return
     a timeout error.
+  x-onedata-runtime-mutable: true
 
 filter:
   type: string
@@ -38,6 +41,7 @@ filter:
     Comma-separated list of filesystem operations, for which latency
     and timeout should be simulated. Empty or '*' mean all operations
     will be affected.
+  x-onedata-runtime-mutable: true
 
 storagePathType:
   type: string
@@ -82,8 +86,9 @@ enableDataVerification:
 uid:
   type: integer
   description: User identifier.
+  x-onedata-runtime-mutable: true
 
 gid:
   type: integer
   description: Group identifier.
-
+  x-onedata-runtime-mutable: true

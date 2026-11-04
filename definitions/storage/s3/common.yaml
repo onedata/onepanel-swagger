@@ -15,12 +15,11 @@ type:
 hostname:
   type: string
   description: >
-    The URL of the S3 service endpoint. It must include the scheme (http or https)
-    and may optionally include a port (after a colon). If the hostname
-    is s3.amazonaws.com, the "Region" field becomes mandatory;
-    the region is then automatically prepended to the hostname
-    (e.g. providing eu-west-3 for https://s3.amazonaws.com results
-    in https://eu-west-3.s3.amazonaws.com).
+    URL of the S3 endpoint. It must include the scheme (http or https) and
+    may include a port after a colon. For the global AWS endpoint
+    (s3.amazonaws.com), the `region` field is required, and requests go to
+    that region's endpoint (e.g. for `eu-west-3`,
+    `https://s3.eu-west-3.amazonaws.com`).
 
 bucketName:
   type: string
@@ -29,10 +28,12 @@ bucketName:
 accessKey:
   type: string
   description: The access key to the S3 storage.
+  x-onedata-runtime-mutable: true
 
 secretKey:
   type: string
   description: The secret key to the S3 storage.
+  x-onedata-runtime-mutable: true
 
 signatureVersion:
   type: integer
@@ -40,19 +41,22 @@ signatureVersion:
     The version of signature used to sign requests.
     Only version 4 is supported.
   enum: [4]
+  x-onedata-runtime-mutable: true
 
 verifyServerCertificate:
   type: boolean
   description: >
     Enables or disables verification of the S3 server SSL certificate.
+  x-onedata-runtime-mutable: true
 
 region:
   type: string
   description: >
-    The S3 region, sent with each request to the S3 server.
-    Required if the endpoint hostname is s3.amazonaws.com, in which case
-    the region is also prepended to the hostname. For other S3 providers
-    it is optional and defaults to us-east-1.
+    Region of the bucket. Required for the global AWS endpoint
+    (s3.amazonaws.com), so that requests go straight to the right region
+    without an extra lookup. Optional for other endpoints; defaults to
+    us-east-1. A region in the hostname (e.g. s3.eu-west-3.amazonaws.com)
+    takes precedence over this field.
 
 blockSize:
   type: integer
@@ -68,12 +72,14 @@ fileMode:
   description: >
     Defines the file permissions, which files imported from S3 storage will have
     in Onedata. Values should be provided in octal format e.g. `0644`.
+  x-onedata-runtime-mutable: true
 
 dirMode:
   type: string
   description: >
     Defines the directory mode which directories imported from S3 storage will
     have in Onedata. Values should be provided in octal format e.g. `0775`.
+  x-onedata-runtime-mutable: true
 
 storagePathType:
   type: string

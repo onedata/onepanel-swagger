@@ -31,6 +31,7 @@ transport:
     - tcp
     - rdma
     - socket
+  x-onedata-runtime-mutable: true
 
 mountPoint:
   type: string
@@ -41,6 +42,7 @@ xlatorOptions:
   description: |
     Volume specific GlusterFS translator options, in the format:
       TRANSLATOR1.OPTION1=VALUE1;TRANSLATOR2.OPTION2=VALUE2;...
+  x-onedata-runtime-mutable: true
 
 storagePathType:
   type: string
@@ -56,8 +58,9 @@ storagePathType:
 uid:
   type: integer
   description: User identifier.
+  x-onedata-runtime-mutable: true
 
 gid:
   type: integer
   description: Group identifier.
-
+  x-onedata-runtime-mutable: true
