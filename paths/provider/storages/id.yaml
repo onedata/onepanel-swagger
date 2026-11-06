@@ -1,13 +1,43 @@
 get:
   operationId: get_storage_details
   summary: Get storage details
-  description: Returns the details of the selected storage.
+  description: |
+    Returns the details of the selected storage.
+
+    ***Example cURL requests***
+
+    **Get Storage Details**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X GET https:/$OP_PANEL_HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
+
+    {
+        "type": "s3",
+        "storagePathType": "flat",
+        "signatureVersion": 4,
+        "scheme": "http",
+        "readonly": false,
+        "qosParameters":{
+            "storageId": "05b6c0a9b72e475c9d5061b0b7e16947chbcdc",
+            "providerId": "03c7e42a793912307b01b1bbb72a3a6bch4c1c"
+        },
+        "name": "My S3 Storage",
+        "lumaFeed": "auto",
+        "importedStorage": false,
+        "id": "05b6c0a9b72e475c9d5061b0b7e16947chbcdc",
+        "hostname": "https://iam.exampele.com:443/",
+        "fileMode": "0664",
+        "dirMode": "0775",
+        "bucketName": "bucket1.iam.examplee.com",
+        "blockSize": 10485760,
+        "accessKey": ""
+    }
+    ```
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Oneprovider
+    - Storages
   produces:
     - application/json
   responses:
@@ -38,18 +68,54 @@ get:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE getStorageDetails
-        id=$STORAGE_ID --host https://$HOST:9443
+        id=$STORAGE_ID --host https://$OP_PANEL_HOST:9443
 
 patch:
   operationId: modify_storage
   summary: Modify storage config
-  description: Modifies storage configuration.
+  description: |
+    Modifies storage configuration.
+
+    ***Example cURL requests***
+
+    **Modify storage name. Notice, that current storage name is the map key.**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X PATCH https://$OP_PANEL_HOST/api/v3/onepanel/provider/storages/$STORAGE_ID \
+    -H "Content-Type: application/json" -d '{
+        "My S3 Storage": {
+            "type":"s3",
+            "name": "My S3 Storage Updated"
+        }
+    }'
+
+    {
+        "type": "s3",
+        "storagePathType": "flat",
+        "signatureVersion": "4",
+        "scheme": "http",
+        "readonly": false,
+        "qosParameters": {
+            "storageId": "2456aa013af797dbef27743790a5f12cche680",
+            "providerId": "03c7e42a793912307b01b1bbb72a3a6bch4c1c"
+        },
+        "name": "My S3 Storage Updated",
+        "lumaFeed": "auto",
+        "importedStorage": false,
+        "id": "2456aa013af797dbef27743790a5f12cche680",
+        "hostname": "https://iam.exampele.com:443/",
+        "fileMode": "0664",
+        "dirMode": "0775",
+        "bucketName": "bucket1.iam.examplee.com",
+        "blockSize": "10485760",
+        "accessKey": ""
+    }
+    ```
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Oneprovider
+    - Storages
   consumes:
     - application/json
   responses:
@@ -79,8 +145,8 @@ patch:
     - name: storageModifyRequest
       in: body
       description: >
-        New values for storage configuration parameters which should
-        be changed. Must contain the current type of the storage.
+        An object with one key - the current name of the storage that is being
+        modified - and its value set to an object with updated parameters.
       schema:
         $ref: '#/definitions/StorageModifyRequest'
       required: true
@@ -88,19 +154,27 @@ patch:
     - lang: Shell
       source: >
         onepanel-rest-cli id=$STORAGE_ID timeout==10000
-        -u onepanel:$PASSPHRASE --host https://$HOST:9443 modifyStorage
+        -u onepanel:$PASSPHRASE --host https://$OP_PANEL_HOST:9443 modifyStorage
 
 delete:
   operationId: remove_storage
   summary: Remove storage
-  description: Removes storage from the cluster. Only storage not supporting
+  description: |
+    Removes storage from the cluster. Only storage not supporting
     any spaces can be removed.
+
+    ***Example cURL requests***
+
+    **Remove storage**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X DELETE https://$OP_PANEL_HOST/api/v3/onepanel/provider/storages/$STORAGE_ID
+    ```
   x-onedata-gri:
     type: onp_storage
     id: ?BINDING(id)
     aspect: instance
   tags:
-    - Oneprovider
+    - Storages
   consumes:
     - application/json
   responses:
@@ -128,4 +202,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID
-        removeStorage --host https://$HOST:9443
+        removeStorage --host https://$OP_PANEL_HOST:9443

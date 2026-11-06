@@ -6,7 +6,7 @@ get:
     type: onp_panel
     aspect: progress
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:
@@ -35,7 +35,7 @@ patch:
     type: onp_panel
     aspect: progress
   tags:
-    - Onepanel
+    - Cluster
   consumes:
     - application/json
   responses:
@@ -62,4 +62,4 @@ patch:
   x-code-samples:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProgress dnsCheck==true
-        --host https://$HOST:9443
+        --host https://$PANEL_HOST:9443

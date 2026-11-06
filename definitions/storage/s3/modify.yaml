@@ -1,0 +1,33 @@
+description: The Simple Storage Service configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    hostname:
+      $ref: './common.yaml#/hostname'
+    bucketName:
+      $ref: './common.yaml#/bucketName'
+    accessKey:
+      $ref: './common.yaml#/accessKey'
+    secretKey:
+      $ref: './common.yaml#/secretKey'
+    signatureVersion:
+      $ref: './common.yaml#/signatureVersion'
+    verifyServerCertificate:
+      $ref: './common.yaml#/verifyServerCertificate'
+    region:
+      $ref: './common.yaml#/region'
+    fileMode:
+      $ref: './common.yaml#/fileMode'
+    dirMode:
+      $ref: './common.yaml#/dirMode'
+  required:
+  - type
+example:
+  type: s3
+  hostname: https://s3.example.com:443/
+  bucketName: bucket1.iam.example.com
+  accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
+  secretKey: fdeac26aedd3a179f9551d7007cc6a6273165782

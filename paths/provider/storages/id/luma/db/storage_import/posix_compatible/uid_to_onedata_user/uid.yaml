@@ -47,7 +47,7 @@ get:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE lumaGetUidToOnedataUserMapping
-        id=$STORAGE_ID uid=$UID --host https://$HOST:9443
+        id=$STORAGE_ID uid=$UID --host https://$OP_PANEL_HOST:9443
 
 delete:
   operationId: luma_remove_uid_to_onedata_user_mapping
@@ -95,4 +95,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID uid=$UID
-        lumaRemoveUidToOnedataUserMapping --host https://$HOST:9443
+        lumaRemoveUidToOnedataUserMapping --host https://$OP_PANEL_HOST:9443

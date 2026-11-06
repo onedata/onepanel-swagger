@@ -1,0 +1,66 @@
+# Common field definitions for NFS storage
+
+type:
+  type: string
+  description: |
+    The type of storage.
+
+    `type = "nfs"`
+
+    NFS storage.
+  enum: [nfs]
+  x-discriminator-value: nfs
+
+host:
+  type: string
+  description: The hostname (IP address or FQDN) of NFS server.
+
+version:
+  type: integer
+  description: The NFS protocol version. Allowed values are 3 (default) and 4 (experimental).
+
+volume:
+  type: string
+  description: The name (path) of the NFS export.
+
+connectionPoolSize:
+  type: integer
+  description: >
+    Number of simultaneous network connections that can be maintained
+    with the NFS server.
+
+dirCache:
+  type: boolean
+  description: >
+    Enables caching of directory metadata on the client side to improve
+    performance by reducing requests to the NFS server. May cause temporary
+    inconsistencies if the directory content changes on the server.
+
+readAhead:
+  type: integer
+  description: >
+    The amount of data that the system preloads into cache ahead of client requests.
+
+autoReconnect:
+  type: integer
+  description: The number of automatic reconnect attempts to the server. Setting `-1` enables infinite number of reconnects.
+
+storagePathType:
+  type: string
+  enum: [canonical]
+  description: |
+    Determines how the logical file paths will be mapped on the storage.
+    'canonical' paths reflect the logical file names and directory structure,
+    however each rename operation will require renaming the files on the storage.
+    'flat' paths are based on unique file UUID's and do not require on-storage
+    rename when logical file name is changed.
+    **Note that 'flat' paths are not allowed on this type of storage.**
+
+uid:
+  type: integer
+  description: User identifier.
+
+gid:
+  type: integer
+  description: Group identifier.
+

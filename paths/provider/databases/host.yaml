@@ -7,7 +7,7 @@ get:
     id: ?BINDING(host)
     aspect: '{host_status, <<"couchbase">>}'
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   produces:
     - application/json
   responses:
@@ -34,7 +34,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderDatabaseStatus host=db1.example.com --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderDatabaseStatus host=db1.example.com --host https://$OP_PANEL_HOST:9443
 
 
 patch:
@@ -47,7 +47,7 @@ patch:
     id: ?BINDING(host)
     aspect: '{start_stop, <<"couchbase">>}'
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   responses:
     '204':
       description: Database service state changed successfully.
@@ -78,4 +78,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderDatabase host=db1.example.com --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopProviderDatabase host=db1.example.com --host https://$OP_PANEL_HOST:9443

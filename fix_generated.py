@@ -46,6 +46,8 @@ for n in os.listdir(DIR):
             # ensure space after comma
             lines = re.sub(r',([^\s])', r', \g<1>', lines)
             lines = lines.replace('\\n', '')
+            # replace x_root_d with xrootd
+            lines = re.sub(r'x_root_d', r'xrootd', lines)
 
             # Write new file.
             f.seek(0)

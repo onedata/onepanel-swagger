@@ -6,10 +6,9 @@ get:
     eployed.
   x-onedata-gri:
     type: onp_service
-    id: ?BINDING(host)
     aspect: '{all_hosts_status, <<"cluster_manager">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   produces:
     - application/json
   responses:
@@ -31,7 +30,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneManagersStatus --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneManagersStatus --host https://$OZ_PANEL_HOST:9443
 
 
 post:
@@ -42,7 +41,7 @@ post:
     type: onp_service
     aspect: cluster_manager_instances
   tags:
-    - Onezone
+    - Onezone Cluster
   consumes:
     - application/json
   responses:
@@ -70,7 +69,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addZoneManagers --host https://$HOST:9443
+    source: cat hosts.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addZoneManagers --host https://$OZ_PANEL_HOST:9443 -
 
 
 patch:
@@ -82,7 +81,7 @@ patch:
     type: onp_service
     aspect: '{start_stop_all, <<"cluster_manager">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   responses:
     '204':
       description: Cluster manager service state changed successfully.
@@ -107,4 +106,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneManagers started=true --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneManagers started=true --host https://$OZ_PANEL_HOST:9443

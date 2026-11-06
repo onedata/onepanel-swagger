@@ -1,0 +1,60 @@
+type: object
+description: Information about current (or last finished) auto storage import scan in given space.
+properties:
+  status:
+    type: string
+    description: Describes status of current (or last finished) auto storage import scan in given space.
+    enum:
+      - enqueued
+      - running
+      - aborting
+      - completed
+      - failed
+      - aborted
+  start:
+    type: integer
+    description: Time at which current (or last finished) scan has been started.
+  stop:
+    type: integer
+    description: Time at which current (or last finished) scan has been stopped.
+  createdFiles:
+    type: integer
+    description: Counter of created files (both directories and regular files) that has been detected during current (or last finished) scan.
+  modifiedFiles:
+    type: integer
+    description: Counter of modified files (both directories and regular files) that has been detected during current (or last finished) scan.
+  deletedFiles:
+    type: integer
+    description: Counter of deleted files (both directories and regular files) that has been detected during current (or last finished) scan.
+  unmodifiedFiles:
+    type: integer
+    description: Counter of unmodified files (both directories and regular files) that has been detected during current (or last finished) scan.
+  failedFiles:
+    type: integer
+    description: Counter of files (both directories and regular files) for which the processing has failed during current (or last finished) scan.
+  nextScan:
+    type: integer
+    description: Estimated time at which next scan will be enqueued.
+  totalScans:
+    type: integer
+    description: Total number of performed scans.
+required:
+  - status
+  - start
+  - stop
+  - createdFiles
+  - modifiedFiles
+  - deletedFiles
+  - unmodifiedFiles
+  - failedFiles
+  - totalScans
+example:
+  status: done
+  start: 1598871401
+  stop: 1598871427
+  createdFiles: 1146
+  modifiedFiles: 191
+  deletedFiles: 303
+  unmodifiedFiles: 1350
+  failedFiles: 1
+  nextScan: 1598871487

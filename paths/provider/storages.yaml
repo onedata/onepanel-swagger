@@ -1,12 +1,28 @@
 get:
   operationId: get_storages
   summary: Get storages
-  description: Returns the list of provider storage resources and their details.
+  description: |
+    Returns the list of provider storage resources and their details.
+
+    ***Example cURL requests***
+
+    **Get provider storage ids**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://$OP_PANEL_HOST/api/v3/onepanel/provider/storages
+
+    {
+        "ids": [
+            "18a42a43b1b2d92455ffa09e9a15df7fch4f82",
+            "0a26877440f6ce457106c6958dfe7ecbch0ac6",
+            "b3d7d10504393556d9b1631a74c34520ch8359"
+        ]
+    }
+    ```
   x-onedata-gri:
     type: onp_storage
     aspect: list
   tags:
-    - Oneprovider
+    - Storages
   produces:
     - application/json
   responses:
@@ -26,28 +42,67 @@ get:
       description: Services needed to fulfill this request are not running.
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getStorages --host https://$HOST:9443
+      source: onepanel-rest-cli -u onepanel:$PASSPHRASE getStorages --host https://$OP_PANEL_HOST:9443
 
 
 post:
   operationId: add_storage
   summary: Add storage
-  description: Adds additional storage resources to the provider.
+  description: |
+    Adds additional storage resources to the provider.
+
+    ***Example cURL requests***
+
+    **Add storage**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X POST https://$OP_PANEL_HOST/api/v3/onepanel/provider/storages \
+    -H "Content-Type: application/json" -d '{
+        "My S3 Storage": {
+            "type": "s3",
+            "hostname": "https://iam.example.com:443",
+            "bucketName": "bucket1.iam.example.com"
+        },
+        "My Posix Storage": {
+            "type": "posix",
+            "mountPoint": "/volumes/inexistent/path"
+        }
+    }'
+
+    {
+      "My S3 Storage": {
+          "id": "f891d1ddf693232bbf0c11fe3cd9f7e7cheda9"
+      },
+      "My Posix Storage": {
+          "error": {
+              "id": "storageTestFailed",
+              "description": "Failed to write test file on storage.",
+              "details": {
+                  "operation": "write"
+              }
+          }
+      }
+    }
+    ```
   x-onedata-gri:
     type: onp_storage
     aspect: instances
   tags:
-    - Oneprovider
+    - Storages
   consumes:
     - application/json
   responses:
-    '204':
+    '200':
       description: >
-        The storage resources have been successfully added to the provider deployment.
-    '400':
-      description: Invalid request.
+        Response consists of map, where keys are names of storages passed in the request, and
+        values respresent id of added storage.
       schema:
-        $ref: '#/definitions/Error'
+       $ref: '#/definitions/StorageCreateResponse'
+    '400':
+      description: >
+        Invalid request. Response consists of map, where keys are names of storages passed in the request, and
+        values respresent id of added storage, or an error describing why the storage has not been added.
+      schema:
+        $ref: '#/definitions/StorageCreateResponse'
     '401':
       description: Unauthorized request.
     '403':
@@ -62,11 +117,13 @@ post:
     - name: storageCreateRequest
       in: body
       description: >
-        The configuration details of storage resources to be added to the provider
-        deployment.
+        The configuration details of storage resources to be added to
+        the provider deployment. Must be an object with unique names for
+        the storages as keys and their corresponding configuration (objects)
+        as values - see the request body example.
       schema:
         $ref: '#/definitions/StorageCreateRequest'
       required: true
   x-code-samples:
     - lang: Shell
-      source: cat storages.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addStorage --host https://$HOST:9443
+      source: cat storages.json | onepanel-rest-cli -u onepanel:$PASSPHRASE addStorage --host https://$OP_PANEL_HOST:9443 -

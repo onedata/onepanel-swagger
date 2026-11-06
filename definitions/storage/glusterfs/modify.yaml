@@ -1,0 +1,34 @@
+description: The GlusterFS storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    volume:
+      $ref: './common.yaml#/volume'
+    hostname:
+      $ref: './common.yaml#/hostname'
+    port:
+      $ref: './common.yaml#/port'
+    transport:
+      $ref: './common.yaml#/transport'
+    mountPoint:
+      $ref: './common.yaml#/mountPoint'
+    xlatorOptions:
+      $ref: './common.yaml#/xlatorOptions'
+    uid:
+      $ref: './common.yaml#/uid'
+    gid:
+      $ref: './common.yaml#/gid'
+  required:
+  - type
+example:
+  type: glusterfs
+  name: LocalGluster
+  volume: Volume1
+  hostname: volfileserver.example.com
+  transport: tcp
+  port: 24007
+  mountPoint: ""
+  xlatorOptions: "transport.socket.ssl-enabled=on"

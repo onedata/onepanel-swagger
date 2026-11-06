@@ -1,0 +1,29 @@
+description: The OpenStack Swift configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    authUrl:
+      $ref: './common.yaml#/authUrl'
+    containerName:
+      $ref: './common.yaml#/containerName'
+    username:
+      $ref: './common.yaml#/username'
+    password:
+      $ref: './common.yaml#/password'
+    projectName:
+      $ref: './common.yaml#/projectName'
+    userDomainName:
+      $ref: './common.yaml#/userDomainName'
+    projectDomainName:
+      $ref: './common.yaml#/projectDomainName'
+  required:
+  - type
+example:
+  type: swift
+  authUrl: http://keystone2.example.com:5000/v3
+  containerName: Container1
+  username: user
+  password: p@$$w0rd

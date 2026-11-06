@@ -10,7 +10,7 @@ get:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   produces:
     - application/json
   responses:
@@ -47,7 +47,7 @@ get:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE localFeedGetUidToOnedataUserMapping
-        id=$STORAGE_ID uid=$UID --host https://$HOST:9443
+        id=$STORAGE_ID uid=$UID --host https://$OP_PANEL_HOST:9443
 
 put:
   operationId: local_feed_set_uid_to_onedata_user_mapping
@@ -61,7 +61,7 @@ put:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   consumes:
     - application/json
   responses:
@@ -101,7 +101,7 @@ put:
   x-code-samples:
   - lang: Shell
     source: >
-      cat user_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$HOST:9443
+      cat user_credentials.json | onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$OP_PANEL_HOST:9443
       localFeedSetUidToOnedataUserMapping id=$STORAGE_ID uid=$UID
 
 delete:
@@ -116,7 +116,7 @@ delete:
     id: ?BINDING(id)
     aspect: "{local_feed_luma_uid_to_onedata_user_mapping, ?BINDING(uid)}"
   tags:
-    - LUMA DB local feed
+    - LUMA DB Local Feed
   consumes:
     - application/json
   responses:
@@ -151,4 +151,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID uid=$UID
-        localFeedRemoveUidToOnedataUserMapping --host https://$HOST:9443
+        localFeedRemoveUidToOnedataUserMapping --host https://$OP_PANEL_HOST:9443

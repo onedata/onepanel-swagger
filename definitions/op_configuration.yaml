@@ -14,6 +14,16 @@ allOf:
         description: >
           This cluster's Oneprovider Id. `null` if the Oneprovider is not registered
           or Oneprovider worker is down.
+      providerName:
+        type: string
+        description: >
+          The name of this Oneprovider. If the cluster is not configured or
+          malfunctioning (e.g. the op-worker service is down), the value may be `null`.
+      providerDomain:
+        type: string
+        description: >
+          The domain of this Oneprovider. If the cluster is not configured or
+          malfunctioning (e.g. the op-worker service is down), the value may be `null`.
       zoneDomain:
         type: string
         description: >
@@ -23,15 +33,37 @@ allOf:
         type: boolean
         description: >
           True if the Oneprovider has been registered at a Onezone.
+      oneS3Enabled:
+        type: boolean
+        description: >
+          True if the OneS3 service is deployed (provides an S3-compliant data access endpoint).
+      oneS3Domain:
+        type: string
+        description: >
+          The domain at which the S3 endpoint is available, or `null` if the OneS3 service is not deployed.
+      oneS3Port:
+        type: integer
+        description: >
+          The port at which the S3 endpoint is available, or `null` if the OneS3 service is not deployed.
     required:
       - serviceType
       - providerId
+      - providerName
+      - providerDomain
       - zoneDomain
+      - oneS3Enabled
+      - oneS3Domain
+      - oneS3Port
 example:
   serviceType: oneprovider
+  providerName: oneprovider-name
+  providerDomain: provider.onedata.org
   providerId: b4ceb5c9ac793e6b8b36c813b9068757
   zoneDomain: onedata.org
   build: 155-gdf98e0f
-  version: 20.02.0-beta4
+  version: "25.2"
   deployed: true
   isRegistered: true
+  oneS3Enabled: true
+  oneS3Domain: s3.provider.onedata.org
+  oneS3Port: 4443

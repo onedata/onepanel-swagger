@@ -1,13 +1,13 @@
 post:
   operationId: trigger_auto_cleaning
-  summary: Triggers space auto-cleaning
-  description: Triggers one run of auto-cleaning mechanism for given space.
+  summary: Trigger space auto-cleaning
+  description: Trigger one run of auto-cleaning mechanism for given space.
   x-onedata-gri:
     type: onp_space
     id: ?BINDING(id)
     aspect: start_auto_cleaning
   tags:
-    - Oneprovider
+    - Auto Cleaning
   consumes:
     - application/json
   responses:
@@ -47,4 +47,4 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE triggerAutoCleaning --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE triggerAutoCleaning --host https://$OP_PANEL_HOST:9443

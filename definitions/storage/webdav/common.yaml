@@ -1,0 +1,109 @@
+# Common field definitions for WebDAV storage
+
+type:
+  type: string
+  description: |
+    The type of storage.
+
+    `type = "webdav"`
+
+    Storage backend compatible with
+    [WebDAV](https://tools.ietf.org/html/rfc4918) protocol.
+  enum: [webdav]
+  x-discriminator-value: webdav
+
+endpoint:
+  type: string
+  description: >
+    Full URL of the WebDAV server, including scheme (http or https) and path.
+
+verifyServerCertificate:
+  type: boolean
+  description: >
+    Determines whether Oneprovider should verify the certificate of
+    the WebDAV server.
+
+authorizationHeader:
+  type: string
+  description: >
+    Header format for passing the API/access token to the backend storage server.
+    The token will be inserted in place of "{}". Use a colon to
+    separate the header name and value, e.g. "X-API-Token: {}".
+
+rangeWriteSupport:
+  type: string
+  description: >
+    Select the mechanism used for range writes (partial/random-access writes).
+    Since the Onedata filesystem permits partial file modifications,
+    writable supports require a storage backend that implements the selected method.
+    Standard WebDAV does not support range writes and only provides write-once semantics.
+  enum: [none, moddav, sabredav]
+
+connectionPoolSize:
+  type: integer
+  description: >
+    Defines the maximum number of parallel connections for a single WebDAV storage.
+
+maximumUploadSize:
+  type: integer
+  description: >
+    Defines the maximum upload size for a single `PUT` or `PATCH` request. If set to 0,
+    assumes that the WebDAV server has no upload limit.
+
+fileMode:
+  type: string
+  description: >
+    Defines the file permissions, which files imported from WebDAV storage will have
+    in Onedata. Values should be provided in octal format e.g. `0644`.
+
+dirMode:
+  type: string
+  description: >
+    Defines the directory mode which directories imported from WebDAV storage will
+    have in Onedata. Values should be provided in octal format e.g. `0775`.
+
+storagePathType:
+  type: string
+  enum: [canonical]
+  description: |
+    Determines how the logical file paths will be mapped on the storage.
+    'canonical' paths reflect the logical file names and directory structure,
+    however each rename operation will require renaming the files on the storage.
+    'flat' paths are based on unique file UUID's and do not require on-storage
+    rename when logical file name is changed.
+    **Note that 'flat' paths are not allowed on this type of storage.**
+
+# Credentials fields
+credentialsType:
+  type: string
+  description: >
+    Determines what credentials will be used to authorize access to
+    the WebDAV storage backend. For public endpoints, select "none".
+  enum: [none, basic, token, oauth2]
+
+credentials:
+  type: string
+  description: >
+    The credentials to authenticate with the WebDAV server. `basic` credentials
+    should be provided in the form `username:password`, for `token` just the token.
+    In case of `oauth2`, this field should contain the username for the WebDAV, while
+    the token will be obtained and refreshed automatically in the background.
+    For `none` this field is ignored.
+
+oauth2IdP:
+  type: string
+  description: >
+    In case `oauth2` credential type is selected and Onezone is configured with support
+    for multiple external IdP's, this field must contain the name of the IdP which
+    authenticates requests to the WebDAV endpoint. If Onezone has only one external IdP,
+    it will be selected automatically.
+
+onedataAccessToken:
+  type: string
+  description: >
+    An access token of the Onedata user in whose name IdP access tokens will be
+    acquired. Used only with the `oauth2` credentials type, where it is effectively
+    required - Oneprovider verifies it when the storage is created or modified and
+    then spends it to obtain and refresh access tokens of the IdP indicated by
+    `oauth2IdP`. It is never passed to the WebDAV server.
+

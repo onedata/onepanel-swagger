@@ -1,0 +1,40 @@
+description: The HTTP storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    endpoint:
+      $ref: './common.yaml#/endpoint'
+    verifyServerCertificate:
+      $ref: './common.yaml#/verifyServerCertificate'
+    credentialsType:
+      $ref: './common.yaml#/credentialsType'
+    credentials:
+      $ref: './common.yaml#/credentials'
+    oauth2IdP:
+      $ref: './common.yaml#/oauth2IdP'
+    onedataAccessToken:
+      $ref: './common.yaml#/onedataAccessToken'
+    authorizationHeader:
+      $ref: './common.yaml#/authorizationHeader'
+    connectionPoolSize:
+      $ref: './common.yaml#/connectionPoolSize'
+    maxRequestsPerSession:
+      $ref: './common.yaml#/maxRequestsPerSession'
+    emulateRangeRead:
+      $ref: './common.yaml#/emulateRangeRead'
+    maxEmulatedRangeReadFileSize:
+      $ref: './common.yaml#/maxEmulatedRangeReadFileSize'
+    fileMode:
+      $ref: './common.yaml#/fileMode'
+  required:
+  - type
+example:
+  type: http
+  endpoint: https://192.168.1.2:8080/http
+  verifyServerCertificate: false
+  credentialsType: basic
+  credentials: "admin:password"
+  connectionPoolSize: 25

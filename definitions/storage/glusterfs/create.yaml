@@ -1,0 +1,46 @@
+description: The GlusterFS storage configuration for creation.
+allOf:
+  - $ref: '#/definitions/StorageCreateDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      volume:
+        $ref: './common.yaml#/volume'
+      hostname:
+        $ref: './common.yaml#/hostname'
+      port:
+        allOf:
+          - $ref: './common.yaml#/port'
+          - default: 24007
+            x-onedata-default-value: 24007
+      transport:
+        allOf:
+          - $ref: './common.yaml#/transport'
+          - default: tcp
+      mountPoint:
+        allOf:
+          - $ref: './common.yaml#/mountPoint'
+          - default: ""
+      xlatorOptions:
+        allOf:
+          - $ref: './common.yaml#/xlatorOptions'
+          - default: ""
+      storagePathType:
+        allOf:
+          - $ref: './common.yaml#/storagePathType'
+          - default: canonical
+            x-onedata-default-value: '<<"canonical">>'
+    required:
+    - type
+    - volume
+    - hostname
+  - $ref: '#/definitions/GlusterfsCredentials'
+example:
+  type: glusterfs
+  volume: Volume1
+  hostname: volfileserver.example.com
+  transport: tcp
+  port: 24007
+  mountPoint: ""
+  xlatorOptions: "transport.socket.ssl-enabled=on"

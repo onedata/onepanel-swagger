@@ -1,0 +1,35 @@
+description: The NFS storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    host:
+      $ref: './common.yaml#/host'
+    version:
+      $ref: './common.yaml#/version'
+    volume:
+      $ref: './common.yaml#/volume'
+    connectionPoolSize:
+      $ref: './common.yaml#/connectionPoolSize'
+    dirCache:
+      $ref: './common.yaml#/dirCache'
+    readAhead:
+      $ref: './common.yaml#/readAhead'
+    autoReconnect:
+      $ref: './common.yaml#/autoReconnect'
+    uid:
+      $ref: './common.yaml#/uid'
+    gid:
+      $ref: './common.yaml#/gid'
+  required:
+  - type
+example:
+  type: nfs
+  volume: /nfs/nfsvolume/
+  host: nfs.example.com
+  version: 3
+  dirCache: false
+  readAhead: 1024
+  autoReconnect: 5

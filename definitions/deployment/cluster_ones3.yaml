@@ -1,0 +1,13 @@
+type: object
+description: The OneS3 service configuration.
+properties:
+  nodes:
+    type: array
+    description: The list of aliases of OneS3 nodes.
+    items:
+      type: string
+  port:
+    type: integer
+    description: The port on which the OneS3 service will be available.
+required:
+- nodes

@@ -7,7 +7,7 @@ get:
     id: ?BINDING(host)
     aspect: '{host_status, <<"couchbase">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   produces:
     - application/json
   responses:
@@ -34,7 +34,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneDatabaseStatus host=db1.example.com --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getZoneDatabaseStatus host=db1.example.com --host https://$OZ_PANEL_HOST:9443
 
 
 patch:
@@ -48,7 +48,7 @@ patch:
     id: ?BINDING(host)
     aspect: '{start_stop, <<"couchbase">>}'
   tags:
-    - Onezone
+    - Onezone Cluster
   responses:
     '204':
       description: Database service state changed successfully.
@@ -79,4 +79,4 @@ patch:
     required: false
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneDatabasesHost host=db1.example.com started=false --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE startStopZoneDatabasesHost host=db1.example.com started=false --host https://$OZ_PANEL_HOST:9443

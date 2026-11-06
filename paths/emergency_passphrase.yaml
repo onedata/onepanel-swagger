@@ -6,7 +6,7 @@ get:
     type: onp_panel
     aspect: emergency_passphrase
   tags:
-    - Onepanel
+    - Security
   produces:
     - application/json
   responses:
@@ -28,7 +28,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
     - lang: Shell
-      source: onepanel-rest-cli getEmergencyPassphraseStatus --host https://$HOST:9443
+      source: onepanel-rest-cli getEmergencyPassphraseStatus --host https://$PANEL_HOST:9443
 
 
 put:
@@ -43,7 +43,7 @@ put:
     type: onp_panel
     aspect: emergency_passphrase
   tags:
-    - Onepanel
+    - Security
   consumes:
     - application/json
   responses:
@@ -71,4 +71,4 @@ put:
     - lang: Shell
       source: onepanel-rest-cli -u onepanel:oldPassphrase setEmergencyPassphrase
         currentPassphrase==oldPassphrase newPassphrase==someNewPassphrase
-        --host https://$HOST:9443
+        --host https://$PANEL_HOST:9443

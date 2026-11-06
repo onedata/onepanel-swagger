@@ -1,0 +1,42 @@
+description: The Simple Storage Service (S3) configuration.
+x-onedata-storage: true
+allOf:
+  - $ref: '#/definitions/StorageGetDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      hostname:
+        $ref: './common.yaml#/hostname'
+      bucketName:
+        $ref: './common.yaml#/bucketName'
+      signatureVersion:
+        $ref: './common.yaml#/signatureVersion'
+      verifyServerCertificate:
+        $ref: './common.yaml#/verifyServerCertificate'
+      region:
+        $ref: './common.yaml#/region'
+      blockSize:
+        $ref: './common.yaml#/blockSize'
+      fileMode:
+        $ref: './common.yaml#/fileMode'
+      dirMode:
+        $ref: './common.yaml#/dirMode'
+      storagePathType:
+        $ref: './common.yaml#/storagePathType'
+    required:
+    - type
+    - hostname
+    - bucketName
+  - $ref: '#/definitions/S3Credentials'
+example:
+  id: "18a42a43b1b2d92455ffa09e9a15df7fch4f82"
+  name: SomeS3
+  type: s3
+  hostname: https://s3.example.com:443/
+  bucketName: bucket1.iam.example.com
+  region: us-east-1
+  blockSize: 10485760
+  storagePathType: flat
+  accessKey: 4efb70ad3e1fc8dd73c721b8f683b2e831503892
+  secretKey: "*****"

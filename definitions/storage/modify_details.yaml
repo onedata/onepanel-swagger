@@ -1,0 +1,37 @@
+type: object
+description: An object with new values for storage parameters to be updated.
+discriminator: type
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - ceph_modify
+  - cephrados_modify
+  - glusterfs_modify
+  - http_modify
+  - nfs_modify
+  - nulldevice_modify
+  - posix_modify
+  - s3_modify
+  - swift_modify
+  - webdav_modify
+  - xrootd_modify
+properties:
+  name:
+    $ref: './common.yaml#/name'
+  timeout:
+    $ref: './common.yaml#/timeout'
+  lumaFeed:
+    $ref: './common.yaml#/lumaFeed'
+  lumaFeedUrl:
+    $ref: './common.yaml#/lumaFeedUrl'
+  lumaFeedApiKey:
+    $ref: './common.yaml#/lumaFeedApiKey'
+  qosParameters:
+    allOf:
+      - $ref: './common.yaml#/qosParameters'
+      - description: >
+          Map with key-value pairs used for describing storage QoS parameters.
+          Overrides all previously set parameters.
+  importedStorage:
+    $ref: './common.yaml#/importedStorage'
+  readonly:
+    $ref: './common.yaml#/readonly'

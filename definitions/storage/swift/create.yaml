@@ -1,0 +1,36 @@
+description: The OpenStack Swift configuration.
+allOf:
+  - $ref: '#/definitions/StorageCreateDetails'
+  - type: object
+    properties:
+      type:
+        $ref: './common.yaml#/type'
+      authUrl:
+        $ref: './common.yaml#/authUrl'
+      containerName:
+        $ref: './common.yaml#/containerName'
+      blockSize:
+        allOf:
+          - $ref: './common.yaml#/blockSize'
+          - default: 10485760
+            x-onedata-default-value: 10485760
+      storagePathType:
+        allOf:
+          - $ref: './common.yaml#/storagePathType'
+          - default: flat
+            x-onedata-default-value: '<<"flat">>'
+    required:
+    - type
+    - authUrl
+    - containerName
+  - $ref: '#/definitions/SwiftCredentials'
+example:
+  type: swift
+  authUrl: http://keystone2.example.com:5000/v3
+  containerName: Container1
+  username: user
+  password: p@$$w0rd
+  projectName: Project1
+  userDomainName: Default
+  projectDomainName: Default
+

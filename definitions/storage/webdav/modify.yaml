@@ -1,0 +1,42 @@
+description: The WebDAV storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    endpoint:
+      $ref: './common.yaml#/endpoint'
+    verifyServerCertificate:
+      $ref: './common.yaml#/verifyServerCertificate'
+    credentialsType:
+      $ref: './common.yaml#/credentialsType'
+    credentials:
+      $ref: './common.yaml#/credentials'
+    oauth2IdP:
+      $ref: './common.yaml#/oauth2IdP'
+    onedataAccessToken:
+      $ref: './common.yaml#/onedataAccessToken'
+    authorizationHeader:
+      $ref: './common.yaml#/authorizationHeader'
+    rangeWriteSupport:
+      $ref: './common.yaml#/rangeWriteSupport'
+    connectionPoolSize:
+      $ref: './common.yaml#/connectionPoolSize'
+    maximumUploadSize:
+      $ref: './common.yaml#/maximumUploadSize'
+    fileMode:
+      $ref: './common.yaml#/fileMode'
+    dirMode:
+      $ref: './common.yaml#/dirMode'
+  required:
+  - type
+example:
+  type: webdav
+  endpoint: https://192.168.1.2:8080/webdav
+  verifyServerCertificate: false
+  credentialsType: basic
+  credentials: "admin:password"
+  rangeWriteSupport: moddav
+  connectionPoolSize: 25
+  maximumUploadSize: 0

@@ -6,7 +6,7 @@ get:
     type: onp_panel
     aspect: configuration
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:

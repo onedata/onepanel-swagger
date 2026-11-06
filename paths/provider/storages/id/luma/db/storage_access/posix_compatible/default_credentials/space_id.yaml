@@ -49,7 +49,7 @@ get:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE lumaGetDefaultPosixCredentials
-        id=$STORAGE_ID space_id=$SPACE_ID --host https://$HOST:9443
+        id=$STORAGE_ID space_id=$SPACE_ID --host https://$OP_PANEL_HOST:9443
 
 delete:
   operationId: luma_remove_default_posix_credentials
@@ -98,4 +98,4 @@ delete:
     - lang: Shell
       source: >
         onepanel-rest-cli -u onepanel:$PASSPHRASE id=$STORAGE_ID space_id=$SPACE_ID
-        lumaRemoveDefaultPosixCredentials --host https://$HOST:9443
+        lumaRemoveDefaultPosixCredentials --host https://$OP_PANEL_HOST:9443

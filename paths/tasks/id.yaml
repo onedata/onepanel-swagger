@@ -8,7 +8,7 @@ get:
     type: onp_panel
     aspect: "{task, ?BINDING(id)}"
   tags:
-    - Onepanel
+    - Cluster
   produces:
     - application/json
   responses:
@@ -34,4 +34,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getTaskStatus id=$TASK_ID --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getTaskStatus id=$TASK_ID --host https://$PANEL_HOST:9443

@@ -7,7 +7,7 @@ get:
     id: undefined
     aspect: external_ips
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   produces:
     - application/json
   responses:
@@ -25,7 +25,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderClusterIps --host https://$HOST:9443
+    source: onepanel-rest-cli -u onepanel:$PASSPHRASE getProviderClusterIps --host https://$OP_PANEL_HOST:9443
 
 patch:
   operationId: modify_provider_cluster_ips
@@ -38,7 +38,7 @@ patch:
     id: undefined
     aspect: external_ips
   tags:
-    - Oneprovider
+    - Oneprovider Cluster
   consumes:
     - application/json
     - application/x-yaml
@@ -66,4 +66,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: cat provider_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProviderClusterIps --host https://$HOST:9443
+    source: cat provider_config.json | onepanel-rest-cli -u onepanel:$PASSPHRASE modifyProviderClusterIps --host https://$OP_PANEL_HOST:9443 -

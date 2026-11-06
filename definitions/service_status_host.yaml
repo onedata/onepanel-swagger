@@ -1,7 +1,0 @@
-type: string
-description: The service status.
-enum:
-  - healthy
-  - unhealthy
-  - stopped
-  - missing

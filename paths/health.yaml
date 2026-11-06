@@ -1,0 +1,19 @@
+get:
+  operationId: health
+  summary: Check cluster health
+  description: >
+    Returns status code indicating onepanel service health status.
+    This endpoint does not require authentication.
+  x-onedata-gri:
+    type: onp_panel
+    aspect: health
+    scope: public
+  tags:
+    - Internal
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Service is healthy.
+    '500':
+      description: Service is unhealthy.

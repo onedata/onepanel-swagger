@@ -45,7 +45,14 @@ properties:
   domain:
     type: string
     description: >
-      The domain (Common Name) for which current certificate was issued.
+      **DEPRECATED** The domain (Common Name) for which current certificate 
+      was issued.
+  dnsNames:
+    type: array
+    description: >
+      List of DNS names included in certificate's Subject Alternative Name extension.
+    items:
+      type: string
   issuer:
     type: string
     description: >

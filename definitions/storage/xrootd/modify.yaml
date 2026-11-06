@@ -1,0 +1,23 @@
+description: The XRootD storage configuration.
+allOf:
+- $ref: '#/definitions/StorageModifyDetails'
+- type: object
+  properties:
+    type:
+      $ref: './common.yaml#/type'
+    url:
+      $ref: './common.yaml#/url'
+    credentialsType:
+      $ref: './common.yaml#/credentialsType'
+    credentials:
+      $ref: './common.yaml#/credentials'
+    fileModeMask:
+      $ref: './common.yaml#/fileModeMask'
+    dirModeMask:
+      $ref: './common.yaml#/dirModeMask'
+  required:
+  - type
+example:
+  type: xrootd
+  credentialsType: pwd
+  credentials: "admin:password"

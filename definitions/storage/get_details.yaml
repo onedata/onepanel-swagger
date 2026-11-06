@@ -1,0 +1,77 @@
+# While this model has different set of subclasses from StorageCreateDetails,
+# both models are listed in "allOf" in the subclasses.
+# By listing StorageCreateDetails there first and marking all fields as
+# readOnly in this StorageGetDetails model, fields unique to GET
+# are prevented from appearing in the generated Erlang code.
+
+type: object
+description: The storage configuration.
+discriminator: type
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - ceph_get
+  - cephrados_get
+  - glusterfs_get
+  - http_get
+  - nfs_get
+  - nulldevice_get
+  - posix_get
+  - s3_get
+  - swift_get
+  - webdav_get
+  - xrootd_get
+properties:
+  type:
+    type: string
+    readOnly: true
+  id:
+    allOf:
+      - $ref: './common.yaml#/id'
+      - readOnly: true
+  name:
+    allOf:
+      - $ref: './common.yaml#/name'
+      - readOnly: true
+  verificationPassed:
+    allOf:
+      - $ref: './common.yaml#/verificationPassed'
+      - readOnly: true
+  timeout:
+    allOf:
+      - $ref: './common.yaml#/timeout'
+      - x-onedata-storage-param: true
+        readOnly: true
+  lumaFeed:
+    allOf:
+      - $ref: './common.yaml#/lumaFeed'
+      - x-onedata-storage-param: true
+        x-onedata-default-value: '<<"auto">>'
+        readOnly: true
+  lumaFeedUrl:
+    allOf:
+      - $ref: './common.yaml#/lumaFeedUrl'
+      - x-onedata-storage-param: true
+        readOnly: true
+  lumaFeedApiKey:
+    allOf:
+      - $ref: './common.yaml#/lumaFeedApiKey'
+      - x-onedata-storage-param: true
+        readOnly: true
+  qosParameters:
+    allOf:
+      - $ref: './common.yaml#/qosParameters'
+      - x-onedata-default-value: "#{}"
+        default: {}
+        readOnly: true
+  importedStorage:
+    allOf:
+      - $ref: './common.yaml#/importedStorage'
+      - x-onedata-storage-param: true
+        readOnly: true
+        default: false
+  readonly:
+    allOf:
+      - $ref: './common.yaml#/readonly'
+      - x-onedata-storage-param: true
+        readOnly: true
+        default: false

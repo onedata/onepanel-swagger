@@ -1,0 +1,56 @@
+get:
+  operationId: get_auto_storage_import_stats
+  summary: Get statistics of auto storage import mechanism
+  description: >
+    Returns requested statistics of auto storage import mechanism for given space
+    on this provider.
+  x-onedata-gri:
+    type: onp_space
+    id: ?BINDING(id)
+    aspect: auto_storage_import_stats
+  tags:
+    - Storage Import
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Status and statistics of auto storage import mechanism in given space.
+      schema:
+        $ref: '#/definitions/AutoStorageImportStats'
+    '401':
+      description: Unauthorized request.
+    '403':
+      description: Forbidden request.
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Services needed to fulfill this request are not running.
+  parameters:
+  - name: id
+    in: path
+    type: string
+    description: The Id of a space for which storage import stats should be returned.
+    required: true
+  - name: period
+    in: query
+    description: Predefined time period for which the statistics should be fetched.
+    type: string
+    enum:
+      - minute
+      - hour
+      - day
+    required: true
+  - name: metrics
+    in: query
+    description: >
+      Specify which statistic metrics should be returned - strings delimited with comma.
+      Accepted values are: `queueLength`, `createdFiles`, `modifiedFiles`, `deletedFiles`
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: >
+      onepanel-rest-cli -u onepanel:$PASSPHRASE --host https://$OP_PANEL_HOST:9443
+      getAutoStorageImportStats id=$SPACE_ID period=minute metrics='queueLength,createdFiles'

@@ -1,0 +1,123 @@
+type: object
+description: The provider deployment configuration.
+properties:
+  cluster:
+    $ref: '#/definitions/ProviderClusterConfiguration'
+  oneprovider:
+    type: object
+    description: The provider registration data.
+    properties:
+      register:
+        type: boolean
+        description: Defines whether the provider should be registered in a zone.
+      tokenProvisionMethod:
+        type: string
+        description: >
+          Indicates how the Oneprovider registration token will be provided:
+
+          * `"inline"` - the registration token must be placed in the **token**
+            field (consult for more information).
+          * `"fromFile"` - the registration token will be read from given file,
+            specified in the **tokenFile** field (consult for more information).
+        enum:
+          - inline
+          - fromFile
+        default: inline
+        x-onedata-default-value: '<<"inline">>'
+      token:
+        type: string
+        description: >
+          Registration token obtained from Onezone. This token identifies the
+          Onezone service where the Oneprovider will be registered and
+          authorizes the registration request. Required when the
+          `tokenProvisionMethod` is set to `"inline"`.
+      tokenFile:
+        type: string
+        description: >
+          Absolute path to the file containing the Oneprovider registration token.
+          The token (and nothing else) should be placed in the file as plaintext.
+          The file does not have to pre-exist - it may be created after this
+          request is made (Onepanel will wait for the file to appear for some time).
+          Required when the `tokenProvisionMethod` is set to `"fromFile"`.
+      name:
+        type: string
+        description: The name under which the provider will be registered in a zone.
+      subdomainDelegation:
+        type: boolean
+        description: >
+          If enabled, the storage provider will be assigned a subdomain in onezone's
+          domain and 'subdomain' property must be provided. If disabled,
+          'domain' property should be provided.
+        default: false
+      subdomain:
+        type: string
+        description: >
+          Unique subdomain in onezone's domain for the provider. Required if subdomain
+          delegation is enabled.
+      letsEncryptEnabled:
+        type: boolean
+        default: false
+        description: >
+          If enabled the provider will use Let's Encrypt service to obtain SSL certificates.
+          Otherwise certificates must be manually provided.
+          This option cannot be enabled if subdomainDelegation is false.
+          By enabling this option you agree to the Let's Encrypt Subscriber Agreement.
+      domain:
+        type: string
+        description: >
+          The fully qualified domain name of the provider or its IP address (only for
+          single-node deployments or clusters with a reverse proxy). Required if subdomain
+          delegation is disabled.
+      geoLongitude:
+        type: number
+        format: float
+        description: The geographical longitude of the provider.
+      geoLatitude:
+        type: number
+        format: float
+        description: The geographical latitude of the provider.
+      adminEmail:
+        type: string
+        description: Email address of the oneprovider administrator.
+    required:
+      - register
+      - name
+      - adminEmail
+  onepanel:
+    $ref: '#/definitions/PanelConfiguration'
+required:
+  - cluster
+example:
+  cluster:
+    domainName: "oneprovider.onedata.example.com"
+    nodes:
+      node1:
+        hostname: "node1"
+        externalIp: "128.128.64.64"
+      node2:
+        hostname: "node2"
+    manager:
+      mainNode: "node1"
+      nodes:
+        - "node1"
+        - "node2"
+    worker:
+      nodes:
+        - "node1"
+    database:
+      nodes:
+        - "node1"
+    storage:
+      NFS:
+        type: "posix"
+        mountPoint: "/volumes/storage"
+  oneprovider:
+    register: true
+    token: "MDAzM2xvY2F00aW9uIGRldi1vbmV6b25lLmRlZmF1..."
+    name: "example"
+    subdomainDelegation: false,
+    letsEncryptEnabled: false,
+    domain: "provider.example.com"
+    adminEmail: "admin@example.eu"
+    geoLongitude: -24.3776025
+    geoLatitude: -128.3519364
